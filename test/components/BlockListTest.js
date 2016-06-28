@@ -88,9 +88,9 @@ describe('BlockListClass', () => {
 
     var blockListNode = ReactDOM.findDOMNode(blockList);
 
-    expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.children.length).toEqual(4);
     blockList.updateState(newState);
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(4);
+    expect(blockListNode.children.length).toEqual(5);
   });
 });

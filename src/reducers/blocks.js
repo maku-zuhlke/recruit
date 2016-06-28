@@ -4,6 +4,7 @@
 import { VERIFY } from '../actions/const';
 
 const initialState = {
+  instruction: 'Reorder the blocks to fix the code!',
   correctOrder: [2, 1],
   blocks: [
     { text: 'pieceOfCode1', id: 1},

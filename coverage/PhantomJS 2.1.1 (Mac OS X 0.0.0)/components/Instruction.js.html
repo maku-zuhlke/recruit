@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for reducers/blocks.js</title>
+    <title>Code coverage report for components/Instruction.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,28 +16,32 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">reducers/</a> blocks.js
+      <a href="../index.html">all files</a> / <a href="index.html">components/</a> Instruction.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>44/44</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>31/31</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">4 statements, 13 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
   </div>
@@ -65,73 +69,49 @@
 20
 21
 22
-23
-24
-25
-26
-27
-28
-29
-30
-31</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+23</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * Created by lewa on 27/06/2016.
+ * Created by lewa on 28/06/2016.
  */
-import { VERIFY } from '../actions/const';
+import React, { Component } from 'react';
 &nbsp;
-const initialState = {
-  instruction: 'Reorder the blocks to fix the code!',
-  correctOrder: [2, 1],
-  blocks: [
-    { text: 'pieceOfCode1', id: 1},
-    { text: 'pieceOfCode2', id: 2}],
-  win: false
-};
+class Instruction extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = { instruction: this.props.instruction };
+  }
 &nbsp;
-export default function blocks(state = initialState, action) {
-  switch (action.type) {
-    case VERIFY:
-      var blocksAreOrdered = state.blocks.map((item, i) =&gt; {
-        return item.id === state.correctOrder[i];
-      }).reduce((current, next) =&gt; {
-        return current &amp;&amp; next;
-      });
-      state.win = blocksAreOrdered;
-      return state;
-&nbsp;
-    default:
-      return state
+  render() {
+    return (&lt;div className="col-xs-12 "&gt;
+      &lt;div className="col-xs-3"&gt;&lt;/div&gt;
+      &lt;div className="col-xs-6 center space"&gt;{this.state.instruction}&lt;/div&gt;
+      &lt;div className="col-xs-3"&gt;&lt;/div&gt;
+    &lt;/div&gt;);
   }
 }
+&nbsp;
+export default Instruction;
 &nbsp;
 &nbsp;</pre></td></tr>
 </table></pre>
