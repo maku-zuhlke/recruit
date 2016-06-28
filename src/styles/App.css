@@ -4,13 +4,6 @@ body {
   background: #FDFEFE;
 }
 
-.index img {
-  margin: 40px auto;
-  border-radius: 4px;
-  background: #fff;
-  display: block;
-}
-
 .index .notice {
   margin: 20px auto;
   padding: 15px 0;
@@ -28,6 +21,7 @@ body {
   background: #AF7AC5;
   color: #fff;
   border-color: #fff;
+  width:100%;
 }
 
 .block:hover, .block:active:hover, .block:active, .submit {
