@@ -39,7 +39,7 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="col-xs-3"></div>
-        <div className="col-xs-6 center space">
+        <div className="col-xs-6 center">
           {listItems}
           <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>
         </div>

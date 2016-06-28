@@ -1,10 +1,3 @@
-// var br = lines.map(function(line) {
-//             return (<span><br/></span>);
-//         });
-//         return (<div>{ br }</div>);
-
-
-
 export const a = {
   instruction: 'Solve the fibonacci challenge.',
   correctOrder: [4, 1, 6, 3, 2, 5],
@@ -33,9 +26,7 @@ export const a = {
       id: 6
     }],
   win: false
-}
-
-
+};
 
 export const b = {
   instruction: 'Rotate an array of n elements to the right by k steps.\n For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. How many different ways do you know to solve this problem?',
@@ -79,9 +70,9 @@ export const b = {
     {
       text: ' int[] result = new int[nums.length];}',
       id: 10
-    },],
+    }],
   win: false
-}
+};
 
 
 
