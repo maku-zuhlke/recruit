@@ -17,6 +17,10 @@ class BlockList extends Component {
     this.setState(obj);
   }
 
+  submit() {
+
+  }
+
   render() {
     var listItems = this.state.blocks.blocks.map(function(item, i) {
       return (
@@ -35,7 +39,10 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="col-xs-3"></div>
-        <div className="col-xs-6 center space">{listItems}</div>
+        <div className="col-xs-6 center space">
+          {listItems}
+          <button className="btn btn-default submit" onclick={this.submit()}>Submit</button>
+        </div>
         <div className="col-xs-3"></div>
         {this.state.blocks.win && <Win />}
       </div>

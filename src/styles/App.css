@@ -24,21 +24,27 @@ body {
   text-align: center;
 }
 
-.block {
+.block, .submit:hover {
   background: #AF7AC5;
   color: #fff;
   border-color: #fff;
 }
 
-.block:hover {
+.block:hover, .block:active:hover, .block:active, .submit {
   background: #fff;
   color: #AF7AC5;
   border-color: #AF7AC5;
+}
+
+.submit {
+  vertical-align: bottom;
+  float: right;
 }
 
 .space {
   border-color: #AF7AC5;
   border-style: solid;
   border-width: thin;
-  color: #AF7AC5
+  color: #AF7AC5;
+  border-radius: 15px;
 }
