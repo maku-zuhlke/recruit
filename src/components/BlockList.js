@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 27/06/2016.
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import SortableBlock from './SortableBlock'
 import Win from './Win'
 

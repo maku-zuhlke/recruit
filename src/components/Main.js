@@ -14,7 +14,7 @@ class AppComponent extends React.Component {
     return(
       <BlockList blocks={blocks} actions={actions}/>
     )
-  };
+  }
 
   render() {
     return (

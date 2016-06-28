@@ -35,7 +35,7 @@ describe('BlockListClass', () => {
     };
     let actions = {
       verifyOrder: createSpy()
-    }
+    };
     blockList = TestUtils.renderIntoDocument(
       <BlockList blocks={blocks} actions={actions} />
     )
@@ -97,4 +97,4 @@ describe('BlockListClass', () => {
     blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).to.equal(4);
   });
-})
+});
