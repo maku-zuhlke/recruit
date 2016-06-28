@@ -17,14 +17,15 @@ body {
   text-align: center;
 }
 
-.block, .submit:hover {
+.block {
   background: #AF7AC5;
   color: #fff;
   border-color: #fff;
   width:100%;
+  border-radius: 8px;
 }
 
-.block:hover, .block:active:hover, .block:active, .submit {
+.block:hover, .block:active:hover, .block:active, .submit, .submit:focus {
   background: #fff;
   color: #AF7AC5;
   border-color: #AF7AC5;
@@ -33,6 +34,13 @@ body {
 .submit {
   vertical-align: bottom;
   float: right;
+  border-radius: 8px;
+}
+
+.submit:hover, .submit:active:hover, .submit:active {
+  background: #AF7AC5;
+  color: #fff;
+  border-color: #fff;
 }
 
 .space {

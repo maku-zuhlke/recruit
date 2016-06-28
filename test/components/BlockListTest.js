@@ -61,9 +61,9 @@ describe('BlockListClass', () => {
     expect(blockList.state.blocks).toEqual(blocks);
   });
 
-  it('should call verifyOrder when state is updated', () => {
+  it('should call verifyOrder after submission', () => {
     expect(blockList.props.actions.verifyOrder.calls.length).toEqual(0);
-    blockList.updateState({});
+    blockList.submitOrder();
     expect(blockList.props.actions.verifyOrder.calls.length).toEqual(1);
   });
 

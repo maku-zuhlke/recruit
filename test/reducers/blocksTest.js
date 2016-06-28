@@ -19,8 +19,12 @@ describe('blocksReducer', () => {
     };
   });
 
+  it('should return defined state', () => {
+    expect(reducer(undefined, {})).toExist();
+  });
+
   it('should return initial state', () => {
-    expect(reducer(undefined, {})).toEqual(initialState);
+    expect(reducer(initialState, {})).toEqual(initialState);
   });
 
   it('should handle VERIFY - no change in state', () => {

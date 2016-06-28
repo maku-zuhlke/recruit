@@ -13,12 +13,12 @@ class BlockList extends Component {
   }
 
   updateState(obj) {
-    this.props.actions.verifyOrder();
     this.setState(obj);
   }
 
-  submit() {
-
+  submitOrder() {
+    this.props.actions.verifyOrder();
+    this.setState(this.state);
   }
 
   render() {
@@ -41,7 +41,7 @@ class BlockList extends Component {
         <div className="col-xs-3"></div>
         <div className="col-xs-6 center space">
           {listItems}
-          <button className="btn btn-default submit" onclick={this.submit()}>Submit</button>
+          <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>
         </div>
         <div className="col-xs-3"></div>
         {this.state.blocks.win && <Win />}

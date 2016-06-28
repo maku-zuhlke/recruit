@@ -2,7 +2,7 @@
  * Created by lewa on 27/06/2016.
  */
 import { VERIFY } from '../actions/const';
-import * as problems from './skatchyProblems'
+import * as problems from '../data/scratchyProblems';
 
 
 // console.log(problems.a)
@@ -16,7 +16,7 @@ const initialState = {
   win: false
 };
 
-export default function blocks(state = problems.b, action) {
+export default function blocks(state = problems.a, action) {
   switch (action.type) {
     case VERIFY:
       var blocksAreOrdered = state.blocks.map((item, i) => {
