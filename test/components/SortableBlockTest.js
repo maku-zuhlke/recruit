@@ -2,6 +2,7 @@
  * Created by lewa on 28/06/2016.
  */
 'use strict';
+import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import SortableBlock from 'components/SortableBlock';
 
@@ -13,6 +14,6 @@ describe('SortableBlockShallowComponent', () => {
   });
 
   it('should be div', () => {
-    expect(SortableBlockComponent.type).to.equal('div');
+    expect(SortableBlockComponent.type).toEqual('div');
   });
 });

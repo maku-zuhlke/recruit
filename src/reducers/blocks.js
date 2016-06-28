@@ -14,7 +14,7 @@ const initialState = {
       id: 2
     }],
   win: false
-}
+};
 
 export default function blocks(state = initialState, action) {
   switch (action.type) {
