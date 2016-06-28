@@ -8,17 +8,13 @@ import * as problems from './skatchyProblems'
 // console.log(problems.a)
 
 const initialState = {
+  instruction: 'Reorder the blocks to fix the code!',
   correctOrder: [2, 1],
-  blocks: [{
-    text: 'test1',
-    id: 1
-  },
-    {
-      text: 'test2',
-      id: 2
-    }],
+  blocks: [
+    { text: 'pieceOfCode1', id: 1},
+    { text: 'pieceOfCode2', id: 2}],
   win: false
-}
+};
 
 export default function blocks(state = problems.b, action) {
   switch (action.type) {

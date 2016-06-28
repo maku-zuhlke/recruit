@@ -2,7 +2,7 @@
  * Created by lewa on 27/06/2016.
  */
 'use strict';
-import { createSpy } from 'expect';
+import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import TestUtils from 'react-addons-test-utils';
 import BlockList from 'components/BlockList';
@@ -17,7 +17,7 @@ describe('BlockListShallowComponent', () => {
   });
 
   it('should be div', () => {
-    expect(BlockListComponent.type).to.equal('div');
+    expect(BlockListComponent.type).toEqual('div');
   });
 });
 
@@ -34,7 +34,7 @@ describe('BlockListClass', () => {
       win: false
     };
     let actions = {
-      verifyOrder: createSpy()
+      verifyOrder: expect.createSpy()
     };
     blockList = TestUtils.renderIntoDocument(
       <BlockList blocks={blocks} actions={actions} />
@@ -42,33 +42,29 @@ describe('BlockListClass', () => {
   });
 
   it('should exist', () => {
-    expect(TestUtils.isCompositeComponent(blockList)).to.be.true;
+    expect(TestUtils.isCompositeComponent(blockList)).toBe(true);
   });
 
   it('should have state', () => {
-    expect(blockList.state).to.be.defined;
-  });
-
-  it('should have a state.draggindIndex', () => {
-    expect(blockList.state.draggingIndex).to.be.defined;
+    expect(blockList.state).toExist();
   });
 
   it('should have state.draggindIndex set to null', () => {
-    expect(blockList.state.draggingIndex).to.be.null;
+    expect(blockList.state.draggingIndex).toBe(null);
   });
 
   it('should have state.blocks', () => {
-    expect(blockList.state.blocks).to.be.defined;
+    expect(blockList.state.blocks).toExist();
   });
 
   it('should match param blocks', () => {
-    expect(blockList.state.blocks).to.equal(blocks);
+    expect(blockList.state.blocks).toEqual(blocks);
   });
 
   it('should call verifyOrder when state is updated', () => {
-    expect(blockList.props.actions.verifyOrder.calls.length).to.equal(0);
+    expect(blockList.props.actions.verifyOrder.calls.length).toEqual(0);
     blockList.updateState({});
-    expect(blockList.props.actions.verifyOrder.calls.length).to.equal(1);
+    expect(blockList.props.actions.verifyOrder.calls.length).toEqual(1);
   });
 
   it('should change state after update', () => {
@@ -77,13 +73,13 @@ describe('BlockListClass', () => {
       {text: 'pieceOfCode2', id: 2},
       {text: 'pieceOfCode1', id: 1}];
 
-    expect(blockList.state.blocks).to.equal(blocks);
-    expect(blockList.state.blocks).to.not.equal(newState.blocks.blocks);
+    expect(blockList.state.blocks).toEqual(blocks);
+    expect(blockList.state.blocks).toNotEqual(newState.blocks.blocks);
 
     blockList.updateState(newState);
 
-    expect(blockList.state.blocks).to.not.equal(newState.blocks.blocks);
-    expect(blockList.state.blocks).to.equal(blocks);
+    expect(blockList.state.blocks).toNotEqual(newState.blocks.blocks);
+    expect(blockList.state.blocks).toEqual(blocks);
   });
 
   it('should render Win component if win state', () => {
@@ -92,9 +88,9 @@ describe('BlockListClass', () => {
 
     var blockListNode = ReactDOM.findDOMNode(blockList);
 
-    expect(blockListNode.children.length).to.equal(3);
+    expect(blockListNode.children.length).toEqual(4);
     blockList.updateState(newState);
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).to.equal(4);
+    expect(blockListNode.children.length).toEqual(5);
   });
 });

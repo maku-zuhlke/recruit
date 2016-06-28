@@ -25,7 +25,7 @@ class App extends Component {
  *       adjust it here.
  */
 App.propTypes = {
-  blocks: PropTypes.array.isRequired,
+  blocks: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
