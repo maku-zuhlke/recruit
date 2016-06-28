@@ -18,17 +18,14 @@ body {
 }
 
 .block {
-  background: #AF7AC5;
-  color: #fff;
-  border-color: #fff;
   width:90%;
   border-radius: 8px;
 }
 
-.block:hover, .block:active:hover, .block:active, .submit, .submit:focus {
-  background: #fff;
-  color: #AF7AC5;
-  border-color: #AF7AC5;
+.block, .submit:hover, .submit:active:hover, .submit:active {
+  background: #AF7AC5;
+  color: #fff;
+  border-color: #fff;
 }
 
 .submit {
@@ -38,20 +35,17 @@ body {
   margin-top: 5px;
 }
 
-.submit:hover, .submit:active:hover, .submit:active {
-  background: #AF7AC5;
-  color: #fff;
-  border-color: #fff;
+.submit, .submit:focus, .block:hover, .block:active:hover, .block:active {
+  background: #fff;
+  color: #AF7AC5;
+  border-color: #AF7AC5;
 }
 
 .space {
-  border-color: #AF7AC5;
-  border-style: solid;
-  border-width: thin;
+  border: thin solid #AF7AC5;
   color: #AF7AC5;
   border-radius: 10px;
   margin-top: 15px;
   margin-bottom: 5px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding: 5px 0px 5px 0px;
 }
