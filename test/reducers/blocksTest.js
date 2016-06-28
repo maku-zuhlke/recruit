@@ -12,8 +12,8 @@ describe('blocksReducer', () => {
     initialState = {
       correctOrder: [2, 1],
       blocks: [
-        {text: 'test1', id: 1},
-        {text: 'test2', id: 2}],
+        {text: 'pieceOfCode1', id: 1},
+        {text: 'pieceOfCode2', id: 2}],
       win: false
     };
   });
@@ -29,8 +29,8 @@ describe('blocksReducer', () => {
   it('should handle VERIFY - change in state', () => {
     var reorderedBlocksState = initialState;
     reorderedBlocksState.blocks = [
-      {text: 'test2', id: 2},
-      {text: 'test1', id: 1}];
+      {text: 'pieceOfCode2', id: 2},
+      {text: 'pieceOfCode1', id: 1}];
     var newState = reducer(reorderedBlocksState, {type: types.VERIFY});
     expect(newState.win).toBe(true);
   });

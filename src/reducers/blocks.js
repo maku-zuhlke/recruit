@@ -5,14 +5,9 @@ import { VERIFY } from '../actions/const';
 
 const initialState = {
   correctOrder: [2, 1],
-  blocks: [{
-    text: 'test1',
-    id: 1
-  },
-    {
-      text: 'test2',
-      id: 2
-    }],
+  blocks: [
+    { text: 'pieceOfCode1', id: 1},
+    { text: 'pieceOfCode2', id: 2}],
   win: false
 };
 
