@@ -42,28 +42,25 @@ describe('MainClass', () => {
     )
   });
 
-  it('should return blocklist component', () => {
+  it('should return BlockList component', () => {
     expect(main.renderBlockList().type).toBe(BlockList);
   });
 
-  it('should return blocks inside blocklist component', () => {
+  it('should have blocks inside BlockList component', () => {
     expect(main.renderBlockList().props.blocks).toEqual(blocks);
   });
+
   it('should set state.startChallenge to true', () => {
     expect(main.state.startChallenge).toEqual(false);
     main.start();
     expect(main.state.startChallenge).toEqual(true);
-    });
+  });
 
-  it('should render blocklistComponent after starting the challenge', () => {
-
+  it('should render BlockList component after starting the challenge', () => {
     var mainNode = ReactDOM.findDOMNode(main);
-
     expect(mainNode.children.length).toEqual(1);
     main.start();
-
     mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toBeGreaterThan(1);
   });
-
 });

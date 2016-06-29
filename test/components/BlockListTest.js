@@ -61,7 +61,13 @@ describe('BlockListClass', () => {
     expect(blockList.state.blocks).toEqual(blocks);
   });
 
-  it('should not change state unless attempt', () => {
+  it('should change state.attempt when attempt of submission is made', () => {
+    expect(blockList.state.attempt).toEqual(false);
+    blockList.submitOrder();
+    expect(blockList.state.attempt).toEqual(true);
+  });
+
+  it('should not change state.attempt unless attempt', () => {
     blockList.submitOrder();
     expect(blockList.state.attempt).toEqual(true);
     var newState = {blocks: blocks};
@@ -74,10 +80,8 @@ describe('BlockListClass', () => {
 
   it('should call verifyOrder after submission', () => {
     expect(blockList.props.actions.verifyOrder.calls.length).toEqual(0);
-    expect(blockList.state.attempt).toEqual(false);
     blockList.submitOrder();
     expect(blockList.props.actions.verifyOrder.calls.length).toEqual(1);
-    expect(blockList.state.attempt).toEqual(true);
   });
 
   it('should change state after update', () => {
@@ -106,5 +110,4 @@ describe('BlockListClass', () => {
     blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(5);
   });
-
 });
