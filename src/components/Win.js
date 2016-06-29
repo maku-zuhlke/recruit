@@ -1,19 +1,37 @@
 /**
  * Created by lewa on 27/06/2016.
  */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { ScaleModal } from 'boron';
 
 class Win extends Component {
   constructor(props, context) {
-    super(props, context)
+    super(props, context);
+    this.state = {showModal: false}
+  }
+
+  setShowModal() {
+    this.refs.modal.show()
+
+    this.state.showModal = !this.state.showModal
+  }
+
+  componentDidMount() {
+    this.refs.modal.show();
   }
 
   render() {
-    return (<div className="col-xs-12">
-      <div className="col-xs-3"></div>
-      <div className="col-xs-6 center space">!!!!!!</div>
-      <div className="col-xs-3"></div>
-    </div>);
+    return (
+      <div>
+        <ScaleModal ref="modal">
+          <div className="col-xs-12">
+            <div className="col-xs-3"></div>
+            <div className="col-xs-6 center space">!!!!!</div>
+            <div className="col-xs-3"></div>
+          </div>
+        </ScaleModal>
+      </div>
+    );
   }
 }
 

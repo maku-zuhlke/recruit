@@ -64,6 +64,7 @@
     "node-sass": "^3.4.2"
   },
   "dependencies": {
+    "boron": "^0.2.3",
     "core-js": "^2.0.0",
     "expect": "^1.20.1",
     "normalize.css": "^4.0.0",
