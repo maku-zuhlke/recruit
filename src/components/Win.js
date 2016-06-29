@@ -9,7 +9,7 @@ class Win extends Component {
     super(props, context);
     this.state = {showModal: false}
   }
-  
+
   componentDidMount() {
     this.refs.modal.show();
   }
