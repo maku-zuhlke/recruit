@@ -19,4 +19,3 @@ export default function blocks(state = problems.a, action) {
       return state
   }
 }
-//conflict mergetool -t kdiff3
