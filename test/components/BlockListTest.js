@@ -93,4 +93,11 @@ describe('BlockListClass', () => {
     blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(5);
   });
+  /*it('should while attempting set state to false', () => {
+    expect(blockList.state.attempt).toEqual(false);
+    blockList.submitOrder();
+    expect(blockList.state.attempt).toEqual(true);
+  });
+*/
+
 });

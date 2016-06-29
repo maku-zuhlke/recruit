@@ -5,19 +5,24 @@ import React, { Component } from 'react';
 import SortableBlock from './SortableBlock';
 import Instruction from './Instruction';
 import Win from './Win';
+import WrongAnswer from './WrongAnswer';
 
 class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { draggingIndex: null, blocks: props.blocks };
+    this.state = { draggingIndex: null, blocks: props.blocks, attempt: false };
   }
 
   updateState(obj) {
+    if (this.state.attempt) {
+      this.state.attempt = false;
+    }
     this.setState(obj);
   }
 
   submitOrder() {
     this.props.actions.verifyOrder();
+    this.state.attempt = true;
     this.setState(this.state);
   }
 
@@ -44,6 +49,7 @@ class BlockList extends Component {
           <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>
         </div>
         <div className="col-xs-3"></div>
+        {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {this.state.blocks.win && <Win />}
       </div>
     )
