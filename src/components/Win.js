@@ -9,7 +9,7 @@ class Win extends Component {
   }
 
   render() {
-    return (<div className="col-xs-12 ">
+    return (<div className="col-xs-12">
       <div className="col-xs-3"></div>
       <div className="col-xs-6 center space">!!!!!!</div>
       <div className="col-xs-3"></div>
