@@ -51,3 +51,14 @@ body {
   background: #FDFEFE
 }
 
+.start, .start:focus {
+  background: #fff;
+  color: #AF7AC5;
+  border-color: #AF7AC5;
+}
+
+.start:hover, .start:active, .start:active:hover {
+  background: #AF7AC5;
+  color: #fff;
+  border-color: #fff;
+}

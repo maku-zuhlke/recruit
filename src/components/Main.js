@@ -26,7 +26,7 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <button className="btn btn-default" onClick={this.start.bind(this)}>Start challenge</button>
+        <div className="center">{ !this.state.startChallenge && <button className="btn btn-default start" onClick={this.start.bind(this)}>Start challenge</button> }</div>
         { this.state.startChallenge && <div>{this.renderBlockList()}</div> }
       </div>
     );
