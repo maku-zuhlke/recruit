@@ -67,22 +67,16 @@ body {
 
 /* Animations - Zuhlke splash */
 
-.sp-container {
-  position: relative;
-  width: 1000px;
-  height: 600px;
-  margin: -40px auto 0 auto;
-}
-
 .sp-content {
   position: absolute;
   z-index: 100;
-  width: 800px;
+  width: 840px;
   height: 600px;
   left: 0px;
   top: 0px;
-  animation: sizeDownMove 0.9s ease-in-out 6s backwards;
+  /*animation: sizeDownMove 0.9s ease-in-out 6s backwards;*/
   transform: scale(0.6);
+  margin: -300px auto 0 auto;
   transform-origin: 0% 50%;
 }
 
@@ -97,8 +91,7 @@ body {
   padding: 30px 0px 20px 0px;
   font-family: 'Unlock', Arial, sans-serif;
   animation:
-    fromBack 1.2s ease-in-out 1.5s backwards,
-    fadeOut 0.5s linear 4.5s forwards;
+    fromBack 1.2s ease-in-out
 }
 
 
@@ -125,25 +118,13 @@ body {
   text-transform: none;
 }
 
-.sp-content h2 {
-  font-size: 36px;
-  text-align: center;
-  color: #518f7e;
-  font-family: 'Cookie', serif;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
-  opacity: 0;
-  animation:
-    fromBack 0.6s ease-in-out 2.6s backwards,
-    fadeOut 0.5s linear 4.5s backwards;
-}
-
 .sp-content-row {
   width: 466px;
   height: 300px;
   float: left;
 }
 .sp-side-row {
-  width: 150px;
+  width: 550px;
   float: left;
 }
 .sp-row img {
