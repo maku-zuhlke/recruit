@@ -6,6 +6,7 @@ import SortableBlock from './SortableBlock';
 import Instruction from './Instruction';
 import Win from './Win';
 import WrongAnswer from './WrongAnswer';
+import $ from 'jquery';
 
 class BlockList extends Component {
   constructor(props, context) {
@@ -14,14 +15,13 @@ class BlockList extends Component {
   }
 
   updateState(obj) {
-    this.state.attempt = false;
+    obj = $.extend({}, obj, { attempt: false })
     this.setState(obj);
   }
 
   submitOrder() {
     this.props.actions.verifyOrder();
-    this.state.attempt = true;
-    this.setState(this.state);
+    this.setState({ attempt: true });
   }
 
   render() {

@@ -52,6 +52,7 @@ body {
 }
 
 .start, .start:focus {
+  margin-top: 15px;
   background: #fff;
   color: #AF7AC5;
   border-color: #AF7AC5;
