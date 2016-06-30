@@ -14,9 +14,7 @@ class BlockList extends Component {
   }
 
   updateState(obj) {
-    if (this.state.attempt) {
-      this.state.attempt = false;
-    }
+    this.state.attempt = false;
     this.setState(obj);
   }
 
