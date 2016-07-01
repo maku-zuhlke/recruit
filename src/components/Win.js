@@ -19,29 +19,29 @@ class Win extends Component {
       <div className="center col-xs-12"><ScaleModal ref="modal">
           <div className="sp-content space container">
             <div className="row sp-row">
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
             </div>
             <div className="row sp-row">
               <div className="sp-side-row col-xs-2">
-                <span><img src="./images/yeoman.png"/></span>
-                <span><img src="./images/yeoman.png"/></span>
+                <span><img src="./images/logo-zuhlke.png"/></span>
+                <span><img src="./images/logo-zuhlke.png"/></span>
               </div>
               <div className=" sp-content-row col-xs-8">
                 <h1>Zuhlke</h1>
               </div>
               <div className="sp-side-row col-xs-2">
-                <span><img src="./images/yeoman.png"/></span>
-                <span><img src="./images/yeoman.png"/></span>
+                <span><img src="./images/logo-zuhlke.png"/></span>
+                <span><img src="./images/logo-zuhlke.png"/></span>
               </div>
             </div>
             <div className="row sp-row">
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
-              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
             </div>
         </div>
       </ScaleModal></div>
