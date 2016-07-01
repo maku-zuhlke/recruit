@@ -79,7 +79,7 @@ body {
 }
 
 .sp-content h1:first-child {
-  font-size: 100px;
+  font-size: 80px;
   text-align: center;
   color: #AF7AC5;
   text-transform: uppercase;
@@ -104,6 +104,14 @@ body {
 }
 
 .sp-vertical-row img {
+  left: 25%;
+}
+
+.sp-right-row img {
+  right: 33%;
+}
+
+.sp-left-row img {
   left: 25%;
 }
 

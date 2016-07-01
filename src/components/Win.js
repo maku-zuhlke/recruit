@@ -25,14 +25,14 @@ class Win extends Component {
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
             </div>
             <div className="row sp-row">
-              <div className="sp-side-row col-xs-2">
+              <div className="sp-side-row col-xs-2 sp-left-row">
                 <span><img src="./images/logo-zuhlke.png"/></span>
                 <span><img src="./images/logo-zuhlke.png"/></span>
               </div>
               <div className=" sp-content-row col-xs-8">
                 <h1>Zuhlke</h1>
               </div>
-              <div className="sp-side-row col-xs-2">
+              <div className="sp-side-row col-xs-2 sp-right-row">
                 <span><img src="./images/logo-zuhlke.png"/></span>
                 <span><img src="./images/logo-zuhlke.png"/></span>
               </div>
