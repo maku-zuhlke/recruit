@@ -64,7 +64,6 @@ body {
   border-color: #fff;
 }
 
-
 /* Animations - Zuhlke splash */
 
 .sp-content {
@@ -111,7 +110,7 @@ body {
   z-index: 100;
   transform: scale(1);
   animation:
-    fromBack 1s linear backwards;
+    fromBack 0.5s linear backwards;
 }
 
 .sp-row:nth-child(1) div:nth-child(1) span:nth-child(1) {
