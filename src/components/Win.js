@@ -18,30 +18,30 @@ class Win extends Component {
     return (
       <div className="center col-xs-12"><ScaleModal ref="modal">
           <div className="sp-content space">
-            <div className="sp-row">
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
+            <div className="row sp-row">
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
             </div>
-            <div className="sp-row sp-side-row">
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
+            <div className="row sp-row">
+              <div className="sp-row sp-side-row col-xs-2">
+                <span><img src="./images/yeoman.png"/></span>
+                <span><img src="./images/yeoman.png"/></span>
+              </div>
+              <div className="sp-row sp-content-row col-xs-8">
+                <h1>Zuhlke</h1>
+              </div>
+              <div className="sp-row sp-side-row col-xs-2">
+                <span><img src="./images/yeoman.png"/></span>
+                <span><img src="./images/yeoman.png"/></span>
+              </div>
             </div>
-            <div className="sp-row sp-content-row">
-              <h1>!!!!!!!!!!!!!!!!</h1>
-            </div>
-            <div className="sp-row sp-side-row">
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-            </div>
-            <div className="sp-row">
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
-              <span><img src="./images/yeoman.png"/></span>
+            <div className="row sp-row">
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
+              <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
             </div>
         </div>
       </ScaleModal></div>
