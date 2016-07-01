@@ -17,7 +17,7 @@ class Win extends Component {
   render() {
     return (
       <div className="center col-xs-12"><ScaleModal ref="modal">
-          <div className="sp-content space">
+          <div className="sp-content space container">
             <div className="row sp-row">
               <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>
               <div className="col-xs-3"><span><img src="./images/yeoman.png"/></span></div>

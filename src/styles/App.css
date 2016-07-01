@@ -71,7 +71,7 @@ body {
   position: absolute;
   z-index: 100;
   width: 840px;
-  height: 600px;
+  height: 500px;
   left: 0px;
   top: 0px;
   transform: scale(0.6);
@@ -98,7 +98,7 @@ body {
 .sp-side-row {
   float: left;
 }
-.sp-row img {
+.sp-row img, .sp-row p {
   display: block;
   z-index: 1000;
   position: relative;
@@ -160,7 +160,7 @@ body {
 .sp-row span:before {
   content: '';
   position: absolute;
-  background-color: rgba(255,255,255,0.3);
+  background-color: #FFFF99;
   width: 100px;
   height: 100px;
   top: 50%;
