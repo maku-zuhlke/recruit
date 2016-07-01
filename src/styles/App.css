@@ -26,6 +26,7 @@ body {
   background: #AF7AC5;
   color: #fff;
   border-color: #fff;
+  font-family: monaco, Consolas, "Lucida Console", monospace;
 }
 
 .submit {
