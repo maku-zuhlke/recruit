@@ -114,47 +114,41 @@ body {
     fromBack 1s linear backwards;
 }
 
-.sp-row:nth-child(1) span:nth-child(1) {
+.sp-row:nth-child(1) div:nth-child(1) span:nth-child(1) {
   animation-delay: 0s;
 }
-.sp-row:nth-child(1) span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.sp-row:nth-child(1) span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.sp-row:nth-child(1) span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.sp-row:nth-child(1) span:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.sp-row:nth-child(4) span:nth-child(1) {
+.sp-row:nth-child(1) div:nth-child(2) span:nth-child(1) {
   animation-delay: 0.5s;
 }
-.sp-row:nth-child(4) span:nth-child(2) {
-  animation-delay: 0.6s;
-}
-.sp-row:nth-child(5) span:nth-child(5) {
-  animation-delay: 0.7s;
-}
-.sp-row:nth-child(5) span:nth-child(4) {
-  animation-delay: 0.8s;
-}
-.sp-row:nth-child(5) span:nth-child(3) {
-  animation-delay: 0.9s;
-}
-.sp-row:nth-child(5) span:nth-child(2) {
+.sp-row:nth-child(1) div:nth-child(3) span:nth-child(1) {
   animation-delay: 1s;
 }
-.sp-row:nth-child(5) span:nth-child(1) {
-  animation-delay: 1.1s;
+.sp-row:nth-child(1) div:nth-child(4) span:nth-child(1) {
+  animation-delay: 1.5s;
 }
-.sp-row:nth-child(2) span:nth-child(2) {
-  animation-delay: 1.2s;
+.sp-row:nth-child(2) div:nth-child(3) span:nth-child(1) {
+  animation-delay: 2s;
 }
-.sp-row:nth-child(2) span:nth-child(1) {
-  animation-delay: 1.3s;
+.sp-row:nth-child(2) div:nth-child(3) span:nth-child(2) {
+  animation-delay: 2.5s;
+}
+.sp-row:nth-child(3) div:nth-child(4) span:nth-child(1) {
+  animation-delay: 3s;
+}
+.sp-row:nth-child(3) div:nth-child(3) span:nth-child(1) {
+  animation-delay: 3.5s;
+}
+.sp-row:nth-child(3) div:nth-child(2) span:nth-child(1) {
+  animation-delay: 4s;
+}
+.sp-row:nth-child(3) div:nth-child(1) span:nth-child(1) {
+  animation-delay: 4.5s;
+}
+.sp-row:nth-child(2) div:nth-child(1) span:nth-child(2) {
+  animation-delay: 5s;
+}
+.sp-row:nth-child(2) div:nth-child(1) span:nth-child(1) {
+  animation-delay: 5.5s;
 }
 
 .sp-row span:before {
