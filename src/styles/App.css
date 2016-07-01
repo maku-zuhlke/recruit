@@ -97,10 +97,14 @@ body {
 .sp-side-row {
   float: left;
 }
-.sp-row img, .sp-row p {
+.sp-row img {
   display: block;
   z-index: 1000;
   position: relative;
+}
+
+.sp-vertical-row img {
+  left: 25%;
 }
 
 .sp-row span {
@@ -153,7 +157,6 @@ body {
 .sp-row span:before {
   content: '';
   position: absolute;
-  background-color: #FFFF99;
   width: 100px;
   height: 100px;
   top: 50%;

@@ -17,8 +17,8 @@ class Win extends Component {
   render() {
     return (
       <div className="center col-xs-12"><ScaleModal ref="modal">
-          <div className="sp-content space container">
-            <div className="row sp-row">
+          <div className="sp-content container">
+            <div className="row sp-row sp-vertical-row">
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
@@ -37,7 +37,7 @@ class Win extends Component {
                 <span><img src="./images/logo-zuhlke.png"/></span>
               </div>
             </div>
-            <div className="row sp-row">
+            <div className="row sp-row sp-vertical-row">
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
               <div className="col-xs-3"><span><img src="./images/logo-zuhlke.png"/></span></div>
