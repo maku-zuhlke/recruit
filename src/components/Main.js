@@ -1,6 +1,5 @@
 require('normalize.css/normalize.css');
 require('styles/App.css');
-require('../../node_modules/prismjs/themes/prism.css');
 
 import React from 'react';
 import BlockList from './BlockList';
