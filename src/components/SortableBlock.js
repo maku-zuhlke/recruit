@@ -3,6 +3,8 @@
  */
 import React, { Component } from 'react';
 import { Sortable } from 'react-sortable';
+import 'styles/prettify.js';
+import $ from 'jquery';
 
 class Block extends Component {
   constructor(props, context) {
@@ -11,10 +13,11 @@ class Block extends Component {
 
   render() {
     const block = this.props.item;
-
-    return (<div id={block.id} {...this.props} className="btn btn-default block">
-      {block.text}
-    </div>);
+    var text =  $.parseHTML(prettyPrintOne(block.text), false);
+    var spans = text.map((item, i) => {
+      return <span key={i} className={item.className}>{item.innerHTML}</span>
+    });
+    return (<pre id={block.id} {...this.props} className="prettyprint btn btn-default code"><code className="prettyprint lang-java">{spans}</code></pre>)
   }
 }
 
