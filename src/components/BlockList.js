@@ -15,7 +15,7 @@ class BlockList extends Component {
   }
 
   updateState(obj) {
-    obj = $.extend({}, obj, { attempt: false })
+    obj = $.extend({}, obj, { attempt: false });
     this.setState(obj);
   }
 
