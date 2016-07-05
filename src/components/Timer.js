@@ -3,29 +3,30 @@ import React, { Component } from 'react';
 class Timer extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {time: this.props.timer.time, isOn: this.props.timer.isOn, interval: this.props.timer.interval}
+    this.state = { time: this.props.timer.time, interval: this.props.timer.interval }
   }
 
   componentDidMount() {
-    if (this._interval) cancelAnimationFrame(this._interval);
     this.start();
+  }
+
+  componentWillUnmount() {
+    if (this._interval) cancelAnimationFrame(this._interval);
+    this.stop()
   }
 
   start() {
     this._interval = requestAnimationFrame(this.progress);
-    this.props.actions.startTimer(Date.now());
-    this.setState({ isOn: true });
-  }
-
-  progress = () => {
-    this._interval = requestAnimationFrame(this.progress);
-    this.setState(this.props.actions.tick(Date.now()))
+    this.setState(this.props.actions.startTimer(Date.now(), new Date(Date.now() + 30*1000)));
   }
 
   stop() {
-    cancelAnimationFrame(this._interval);
-    this.props.actions.stopTimer();
-    this.setState({ isOn: false });
+    this.setState(this.props.actions.stopTimer());
+  }
+
+  progress = () => {
+    this.setState(this.props.actions.tick(Date.now()))
+    this._interval = requestAnimationFrame(this.progress);
   }
 
   format(time) {
@@ -38,7 +39,6 @@ class Timer extends Component {
 
     time = new Date(time);
     let s = pad(time.getSeconds().toString(), 2);
-
     return `${s}`;
   }
 
@@ -46,9 +46,6 @@ class Timer extends Component {
     return (
       <div className="submit">
         <h1>Time: {this.format(this.state.time)}</h1>
-        <button onClick={this.state.isOn ? this.stop.bind(this) : this.start.bind(this)}>
-          { this.state.isOn ? 'Stop' : 'Start' }
-        </button>
       </div>
     );
   }
