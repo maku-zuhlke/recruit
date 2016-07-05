@@ -7,11 +7,12 @@ import Instruction from './Instruction';
 import Win from './Win';
 import WrongAnswer from './WrongAnswer';
 import $ from 'jquery';
+import Timer from './Timer';
 
 class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { draggingIndex: null, blocks: props.blocks, attempt: false };
+    this.state = { draggingIndex: null, blocks: props.blocks, attempt: false, timer: props.timer };
   }
 
   updateState(obj) {
@@ -41,7 +42,12 @@ class BlockList extends Component {
     return (
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
-        <div className="col-xs-3"></div>
+        <div className="col-xs-3">
+          <Timer 
+            timer={this.state.timer}
+            actions={this.props.timerActions}
+          />
+        </div>
         <div className="col-xs-6 center">
           {listItems}
           <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>

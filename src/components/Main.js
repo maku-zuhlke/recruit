@@ -11,9 +11,9 @@ class AppComponent extends React.Component {
   }
 
   renderBlockList() {
-    const { blocks, actions } = this.props;
+    const { blocks, actions, timer, timerActions } = this.props;
     return(
-      <BlockList blocks={blocks} actions={actions}/>
+      <BlockList blocks={blocks} actions={actions} timer={timer} timerActions={timerActions} />
     )
   }
 
