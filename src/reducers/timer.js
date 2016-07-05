@@ -8,13 +8,12 @@ const initialState = {
 export default function timer(state = initialState, action) {
   switch (action.type) {
     case START_TIMER:
-      console.log('%%%%%%%%%%%%%%%')
+      console.log("££££££££££")
       return {
-        ...state,
         isOn: true,
-        time: 30, // Begin time at 30 everytime we start the timer
+        time: 30,
         offset: action.offset,
-        interval: action.interval
+        ...state
       };
     case STOP_TIMER:
       clearInterval(state.interval);
@@ -24,11 +23,11 @@ export default function timer(state = initialState, action) {
       };
     case TICK:
       return {
-        ...state,
         time: state.time - (action.time - state.offset),
-        offset: action.time
+        offset: action.time,
+        ...state
       };
-    default: 
+    default:
       return state;
   }
 }
