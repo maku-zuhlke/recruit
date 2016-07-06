@@ -11,13 +11,17 @@ class Block extends Component {
     super(props, context)
   }
 
+  escape(code) {
+    return code.replace('&gt;', '>').replace('&lt;', '<');
+  }
+
   render() {
     const block = this.props.item;
     var text =  $.parseHTML(prettyPrintOne(block.text), false);
     var spans = text.map((item, i) => {
-      return <span key={i} className={item.className}>{item.innerHTML}</span>
+      return <span key={i} className={item.className}>{this.escape(item.innerHTML)}</span>
     });
-    return (<pre id={block.id} {...this.props} className="prettyprint btn btn-default code"><code className="prettyprint lang-java">{spans}</code></pre>)
+    return (<pre id={block.id} {...this.props} className="prettyprint btn code"><code className="prettyprint lang-java">{spans}</code></pre>)
   }
 }
 

@@ -41,12 +41,10 @@ class BlockList extends Component {
     return (
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
-        <div className="col-xs-3"></div>
-        <div className="col-xs-6 center">
+        <div className="col-lg-10 col-lg-offset-1 center">
           {listItems}
           <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>
         </div>
-        <div className="col-xs-3"></div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {this.state.blocks.win && <Win />}
       </div>
