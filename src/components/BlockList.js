@@ -25,6 +25,10 @@ class BlockList extends Component {
     this.setState({ attempt: true });
   }
 
+  checkTime() {
+    return this.state.timer.seconds == '00';
+  }
+
   render() {
     var listItems = this.state.blocks.blocks.map(function(item, i) {
       return (
@@ -43,18 +47,21 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="col-xs-3">
-          <Timer 
-            timer={this.state.timer}
-            actions={this.props.timerActions}
-          />
         </div>
         <div className="col-xs-6 center">
           {listItems}
-          <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>
+          <div className="col-xs-3">
+            <Timer
+              timer={this.state.timer}
+              actions={this.props.timerActions}
+            />
+          </div>
+          <div className="col-xs-6"></div>
+          <div className="col-xs-3"><button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button></div>
         </div>
         <div className="col-xs-3"></div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
-        {this.state.blocks.win && <Win />}
+        {(this.state.blocks.win || this.checkTime()) && <Win />}
       </div>
     )
   }

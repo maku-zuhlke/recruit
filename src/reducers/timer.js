@@ -1,28 +1,23 @@
 import { START_TIMER, STOP_TIMER, TICK } from '../actions/const';
 
 const initialState = {
-  time: Date.now(),
-  interval: new Date(Date.now() + 30*1000)
+  time: 0,
+  seconds: '60'
 };
 
 export default function timer(state = initialState, action) {
   switch (action.type) {
     case START_TIMER:
-      return {
-        ...state,
-        offset: action.offset,
-        interval: action.interval
-      };
+      state.offset = action.offset;
+      return state;
     case STOP_TIMER:
-      return {
-        ...initialState
-      };
+      return initialState;
     case TICK:
-      return {
-        ...state,
-        time: state.interval - action.time,
-        offset: action.time
-      };
+      console.log('BEFORE', state)
+      state.time = state.time - (action.time - state.offset);
+      state.offset = action.time;
+      console.log(state)
+      return state;
     default:
       return state;
   }

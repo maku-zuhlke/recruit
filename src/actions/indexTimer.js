@@ -1,7 +1,7 @@
 import * as types from './const';
 
-export function startTimer(offset, interval) {
-  return { type: types.START_TIMER, offset, interval}
+export function startTimer(offset) {
+  return { type: types.START_TIMER, offset }
 }
 
 export function tick(time) {

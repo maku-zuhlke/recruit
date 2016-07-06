@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Timer extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { time: this.props.timer.time, interval: this.props.timer.interval }
+    this.state = { time: this.props.timer.time, offset: this.props.timer.offset, seconds: this.props.timer.seconds }
   }
 
   componentDidMount() {
@@ -12,22 +12,18 @@ class Timer extends Component {
 
   componentWillUnmount() {
     if (this._interval) cancelAnimationFrame(this._interval);
-    this.stop()
   }
 
   start() {
     this._interval = requestAnimationFrame(this.progress);
-    this.setState(this.props.actions.startTimer(Date.now(), new Date(Date.now() + 30*1000)));
-  }
-
-  stop() {
-    this.setState(this.props.actions.stopTimer());
-  }
+    this.props.actions.startTimer(Date.now());
+  };
 
   progress = () => {
-    this.setState(this.props.actions.tick(Date.now()))
+    this.props.actions.tick(Date.now());
     this._interval = requestAnimationFrame(this.progress);
-  }
+    this.forceUpdate();
+  };
 
   format(time) {
     const pad = (time, length) => {
@@ -36,19 +32,21 @@ class Timer extends Component {
       }
       return time;
     };
-
     time = new Date(time);
     let s = pad(time.getSeconds().toString(), 2);
-    return `${s}`;
+    this.props.timer.seconds = s;
+    return `${s}`
   }
 
   render() {
     return (
-      <div className="submit">
-        <h1>Time: {this.format(this.state.time)}</h1>
+      <div className="timer">
+        <h4>Time: { this.format(this.props.timer.time) }</h4>
       </div>
     );
   }
 }
 
 export default Timer
+
+
