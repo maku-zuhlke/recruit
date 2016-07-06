@@ -2,7 +2,7 @@ import { START_TIMER, STOP_TIMER, TICK } from '../actions/const';
 
 const initialState = {
   time: 0,
-  seconds: '60'
+  timesup: false
 };
 
 export default function timer(state = initialState, action) {
@@ -13,10 +13,8 @@ export default function timer(state = initialState, action) {
     case STOP_TIMER:
       return initialState;
     case TICK:
-      console.log('BEFORE', state)
       state.time = state.time - (action.time - state.offset);
       state.offset = action.time;
-      console.log(state)
       return state;
     default:
       return state;

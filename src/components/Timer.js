@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Timer extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { time: this.props.timer.time, offset: this.props.timer.offset, seconds: this.props.timer.seconds }
+    this.state = { time: this.props.timer.time, offset: this.props.timer.offset }
   }
 
   componentDidMount() {
@@ -17,13 +17,23 @@ class Timer extends Component {
   start() {
     this._interval = requestAnimationFrame(this.progress);
     this.props.actions.startTimer(Date.now());
-  };
+  }
+
+  stop() {
+    this.props.actions.stopTimer();
+    cancelAnimationFrame(this._interval);
+  }
 
   progress = () => {
     this.props.actions.tick(Date.now());
     this._interval = requestAnimationFrame(this.progress);
     this.forceUpdate();
-  };
+    if (this.props.timer.time <= -59000) {
+      this.props.timer.timesup = true;
+      this.props.callback();
+      this.stop();
+    }
+  }
 
   format(time) {
     const pad = (time, length) => {
@@ -34,7 +44,6 @@ class Timer extends Component {
     };
     time = new Date(time);
     let s = pad(time.getSeconds().toString(), 2);
-    this.props.timer.seconds = s;
     return `${s}`
   }
 

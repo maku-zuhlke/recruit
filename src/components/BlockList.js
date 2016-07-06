@@ -12,7 +12,7 @@ import Timer from './Timer';
 class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { draggingIndex: null, blocks: props.blocks, attempt: false, timer: props.timer };
+    this.state = { draggingIndex: null, blocks: props.blocks, attempt: false, timer: props.timer, end: false};
   }
 
   updateState(obj) {
@@ -25,8 +25,11 @@ class BlockList extends Component {
     this.setState({ attempt: true });
   }
 
-  checkTime() {
-    return this.state.timer.seconds == '00';
+  timeIsUp(obj) {
+    if (this.props.timer.timesup) {
+      obj = $.extend({}, obj, { end: true });
+      this.setState(obj);
+    }
   }
 
   render() {
@@ -46,22 +49,19 @@ class BlockList extends Component {
     return (
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
-        <div className="col-xs-3">
-        </div>
-        <div className="col-xs-6 center">
+        <div className="col-lg-10 col-lg-offset-1 center">
           {listItems}
-          <div className="col-xs-3">
+          <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
               timer={this.state.timer}
               actions={this.props.timerActions}
+              callback={this.timeIsUp.bind(this)}
             />
           </div>
-          <div className="col-xs-6"></div>
-          <div className="col-xs-3"><button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button></div>
+          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button></div>
         </div>
-        <div className="col-xs-3"></div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
-        {(this.state.blocks.win || this.checkTime()) && <Win />}
+        {(this.state.blocks.win || this.state.end) && <Win />}
       </div>
     )
   }
