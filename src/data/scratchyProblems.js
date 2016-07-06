@@ -2,11 +2,11 @@ export const a = {
   instruction: 'Solve the fibonacci challenge.',
   correctOrder: [4, 1, 6, 3, 2, 5],
   blocks: [{
-    text: 'int f = 0;int g = 1;',
+    text: 'int f = 0;\nint g = 1;',
     id: 1
   },
     {
-      text: ' f = f + g; \ng = f - g; \n}',
+      text: 'f = f + g;\ng = f - g;}',
       id: 2
     },
     {
@@ -18,11 +18,11 @@ export const a = {
       id: 4
     },
     {
-      text: '    System.out.println();\n}',
+      text: 'System.out.println();}',
       id: 5
     },
     {
-      text: 'for (int i = 1; i <= 10; i++) {',
+      text: 'for (int i = 1; i == 10; i++) {',
       id: 6
     }],
   win: false
