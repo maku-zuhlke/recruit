@@ -76,11 +76,10 @@ body {
 
 /* Animations - Zuhlke splash */
 
-.image span {
+.image img {
   position: relative;
+  z-index: 1000;
   transform: scale(4);
-  float: left;
-  transform-origin: 35%;
   animation-name: stretch;
   animation-duration: 1.5s;
   animation-timing-function: ease-out;
@@ -90,10 +89,3 @@ body {
   animation-fill-mode: none;
   animation-play-state: running;
 }
-
-.image img {
-  display: block;
-  z-index: 1000;
-  position: relative;
-}
-
