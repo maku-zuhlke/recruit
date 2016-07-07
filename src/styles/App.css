@@ -81,24 +81,19 @@ body {
   transform: scale(4);
   float: left;
   transform-origin: 35%;
-  animation:
-    fromBack 0.8s linear 0s backwards;
+  animation-name: stretch;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
 
 .image img {
   display: block;
   z-index: 1000;
   position: relative;
-}
-
-@keyframes fromBack{
-  0%{
-    transform: scale(0);
-    opacity: 0;
-  }
-  100%{
-    transform: scale(4);
-    opacity: 1;
-  }
 }
 

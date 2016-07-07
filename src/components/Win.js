@@ -17,7 +17,7 @@ class Win extends Component {
   render() {
     return (
       <div className="row center"><ScaleModal ref="modal">
-          <div className="image col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 vanishIn">
+          <div className="image col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <span><img src="./images/logo-zuhlke.png"/></span>
         </div>
       </ScaleModal></div>
