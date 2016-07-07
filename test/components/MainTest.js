@@ -36,9 +36,15 @@ describe('MainClass', () => {
         {text: 'pieceOfCode2', id: 2}],
       win: false
     };
-
+    let timer = {
+      time: 0,
+      offset: Date.now()
+    };
+    let timerActions = {
+      startTimer: expect.createSpy()
+    };
     main = TestUtils.renderIntoDocument(
-      <Main blocks={blocks} actions={{}} />
+      <Main blocks={blocks} timer={timer} timerActions={timerActions} />
     )
   });
 
