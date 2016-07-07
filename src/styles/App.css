@@ -82,7 +82,7 @@ body {
   float: left;
   transform-origin: 35%;
   animation:
-    fromBack 2s linear 0s backwards;
+    fromBack 0.8s linear 0s backwards;
 }
 
 .image img {
@@ -95,10 +95,6 @@ body {
   0%{
     transform: scale(0);
     opacity: 0;
-  }
-  50%{
-    transform: scale(2);
-    opacity: 0.5;
   }
   100%{
     transform: scale(4);
