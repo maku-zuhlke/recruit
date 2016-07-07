@@ -13,7 +13,7 @@ describe('BlockListShallowComponent', () => {
   let BlockListComponent;
 
   beforeEach(() => {
-    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[]}});
+    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
   });
 
   it('should be div', () => {
@@ -33,11 +33,18 @@ describe('BlockListClass', () => {
         {text: 'pieceOfCode2', id: 2}],
       win: false
     };
+    let timer = {
+      time: 0,
+      offset: Date.now()
+    };
     let actions = {
       verifyOrder: expect.createSpy()
     };
+    let timerActions = {
+      startTimer: expect.createSpy()
+    };
     blockList = TestUtils.renderIntoDocument(
-      <BlockList blocks={blocks} actions={actions} />
+      <BlockList blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
     )
   });
 
@@ -105,9 +112,9 @@ describe('BlockListClass', () => {
 
     var blockListNode = ReactDOM.findDOMNode(blockList);
 
-    expect(blockListNode.children.length).toEqual(4);
+    expect(blockListNode.children.length).toEqual(2);
     blockList.updateState(newState);
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(5);
+    expect(blockListNode.children.length).toEqual(3);
   });
 });
