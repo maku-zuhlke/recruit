@@ -117,4 +117,20 @@ describe('BlockListClass', () => {
     blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(3);
   });
+
+  it('should render Win component if time is up / end state', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(2);
+    var newState = {blocks: blocks};
+
+    blockList.props.timer.timesup = false;
+    blockList.timeIsUp(newState);
+    blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(2);
+
+    blockList.props.timer.timesup = true;
+    blockList.timeIsUp(newState);
+    blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(3);
+  });
 });
