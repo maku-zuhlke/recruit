@@ -4,7 +4,7 @@
 import { VERIFY } from '../actions/const';
 import * as problems from '../data/scratchyProblems';
 
-export default function blocks(state = problems.b, action) {
+export default function blocks(state = problems.a, action) {
   switch (action.type) {
     case VERIFY:
       var blocksAreOrdered = state.blocks.map((item, i) => {
@@ -16,6 +16,6 @@ export default function blocks(state = problems.b, action) {
       return state;
 
     default:
-      return state
+      return state;
   }
 }
