@@ -18,7 +18,7 @@ describe('MainComponent', () => {
     MainComponent = createComponent(Main);
   });
 
-  it('should have its component name as default className', () => {
+  it('should have its component named as default className', () => {
     expect(MainComponent.props.className).toEqual('index');
   });
 });
