@@ -32,12 +32,15 @@ describe('TimerClass', () => {
   beforeEach(() => {
     timerProps = {
       time: 0,
-      offset: Date.now()
+      timesup: false
     };
     let actions = {
-      startTimer: expect.createSpy()
+      startTimer: expect.createSpy(),
+      stopTimer: expect.createSpy(),
+      tick: expect.createSpy()
     };
-    timer = TestUtils.renderIntoDocument(<Timer timer={timerProps} actions={actions} />);
+    let callback = expect.createSpy();
+    timer = TestUtils.renderIntoDocument(<Timer timer={timerProps} actions={actions} callback={callback} />);
   });
 
   it('should exist', () => {
@@ -48,15 +51,40 @@ describe('TimerClass', () => {
     expect(timer.state).toExist();
   });
 
-  it('should match state to param timer', () => {
-    expect(timer.state).toEqual(timerProps);
-  });
-
   it('should match props.timer to param timer', () => {
     expect(timer.props.timer).toEqual(timerProps);
   });
 
   it('should have called startTimer when mounting', () => {
     expect(timer.props.actions.startTimer.calls.length).toEqual(1);
+  });
+
+  it('should call startTimer within start()', () => {
+    expect(timer.props.actions.startTimer.calls.length).toEqual(1);
+    timer.start();
+    expect(timer.props.actions.startTimer.calls.length).toEqual(2);
+  });
+
+  it('should call stopTimer within stop()', () => {
+    expect(timer.props.actions.stopTimer.calls.length).toEqual(0);
+    timer.stop();
+    expect(timer.props.actions.stopTimer.calls.length).toEqual(1);
+  });
+
+  it('should call tick within progress()', () => {
+    expect(timer.props.actions.tick.calls.length).toEqual(0);
+    timer.progress();
+    expect(timer.props.actions.tick.calls.length).toEqual(1);
+  });
+
+  it('should update props within progress()', () => {
+    expect(timer.props.timer.timesup).toEqual(false);
+    expect(timer.props.callback.calls.length).toEqual(0);
+    expect(timer.props.actions.stopTimer.calls.length).toEqual(0);
+    timer.props.timer.time = -59001;
+    timer.progress();
+    expect(timer.props.timer.timesup).toEqual(true);
+    expect(timer.props.callback.calls.length).toEqual(1);
+    expect(timer.props.actions.stopTimer.calls.length).toEqual(1);
   });
 });

@@ -10,10 +10,6 @@ class Timer extends Component {
     this.start();
   }
 
-  componentWillUnmount() {
-    if (this._interval) cancelAnimationFrame(this._interval);
-  }
-
   start() {
     this._interval = requestAnimationFrame(this.progress);
     this.props.actions.startTimer(Date.now());
