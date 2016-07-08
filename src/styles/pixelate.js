@@ -1,5 +1,5 @@
 /// (C) Ken Fyrstenberg Nilsen, Abdias Software, CC3.0-attribute.
-function begin() {
+export default function begin() {
   if (document.getElementById('canvas')) {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d'),
@@ -86,5 +86,3 @@ function begin() {
     setTimeout(begin, 15);
   }
 }
-
-export default begin;
