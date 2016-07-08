@@ -15,6 +15,6 @@ export default function blocks(state = problems.a, action) {
       state.win = blocksAreOrdered;
       return state;
     default:
-      return state
+      return state;
   }
 }

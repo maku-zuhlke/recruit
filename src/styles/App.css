@@ -80,121 +80,16 @@ body {
 
 /* Animations - Zuhlke splash */
 
-.sp-content {
-  position: absolute;
-  z-index: 100;
-  width: 840px;
-  height: 500px;
-  left: 0px;
-  top: 0px;
-  transform: scale(0.6);
-  margin: -300px auto 0 auto;
-  transform-origin: 0% 50%;
-}
-
-.sp-content h1:first-child {
-  font-size: 80px;
-  text-align: center;
-  color: #AF7AC5;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  line-height: 80px;
-  font-family: 'Unlock', Arial, sans-serif;
-  animation:
-    fromBack 1.2s ease-in-out
-}
-
-.sp-content-row {
-  float: left;
-}
-.sp-side-row {
-  float: left;
-  margin-top: 1%;
-}
-.sp-row img {
-  display: block;
+.image img {
+  position: relative;
   z-index: 1000;
-  position: relative;
+  transform: scale(4);
+  animation-name: stretch;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
-
-.sp-vertical-row img {
-  left: 25%;
-}
-
-.sp-right-row img {
-  right: 33%;
-}
-
-.sp-left-row img {
-  left: 25%;
-}
-
-.sp-row span {
-  position: relative;
-  float: left;
-  margin: 2px;
-  z-index: 100;
-  transform: scale(1);
-  animation:
-    fromBack 0.5s linear backwards;
-}
-
-.sp-row:nth-child(1) div:nth-child(1) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(1) div:nth-child(2) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(1) div:nth-child(3) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(1) div:nth-child(4) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(2) div:nth-child(3) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(2) div:nth-child(3) span:nth-child(2) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(3) div:nth-child(4) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(3) div:nth-child(3) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(3) div:nth-child(2) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(3) div:nth-child(1) span:nth-child(1) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(2) div:nth-child(1) span:nth-child(2) {
-  animation-delay: 0s;
-}
-.sp-row:nth-child(2) div:nth-child(1) span:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.sp-row span:before {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
-  margin: -50px 0 0 -50px;
-  border-radius: 50%;
-}
-
-@keyframes fromBack{
-  0%{
-    transform: scale(0);
-    opacity: 0;
-  }
-  100%{
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
