@@ -46,20 +46,11 @@ class BlockList extends Component {
     return (
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
-        <div className="col-xs-3">
-        </div>
-        <div className="col-xs-6 center">
+        <div className="col-lg-10 col-lg-offset-1 center">
+
           {listItems}
-          <div className="col-xs-3">
-            <Timer
-              timer={this.state.timer}
-              actions={this.props.timerActions}
-            />
-          </div>
-          <div className="col-xs-6"></div>
-          <div className="col-xs-3"><button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button></div>
+          <button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button>
         </div>
-        <div className="col-xs-3"></div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {(this.state.blocks.win || this.checkTime()) && <Win />}
       </div>
