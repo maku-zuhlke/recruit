@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { ScaleModal } from 'boron';
+import begin from 'styles/pixelate.js';
 
 class Win extends Component {
   constructor(props, context) {
@@ -12,17 +13,19 @@ class Win extends Component {
 
   componentDidMount() {
     this.refs.modal.show();
+    begin();
   }
 
   render() {
     return (
       <div className="row center"><ScaleModal ref="modal">
           <div className="image col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <img src="./images/logo-zuhlke.png"/>
-        </div>
+            <div id="zuhlke" ><canvas id="canvas" width="600" height="600"></canvas></div>
+          </div>
       </ScaleModal></div>
     );
   }
 }
 
 export default Win
+
