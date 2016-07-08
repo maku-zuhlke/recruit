@@ -16,14 +16,16 @@ export default function begin() {
 
     /// some image, we are not struck with CORS restrictions as we
     /// do not use pixel buffer to pixelate, so any image will do
-    img.src = 'https://www.zuehlke.com/static/images/base/base-2x/logo-zuehlke-small.png';
+    img.src = 'images/logo-zuhlke.png';
 
 
 /// MAIN function
     function pixelate(v) {
       var t = 1;
-      if (v > 25) {
-        t = v;
+      if (v > 70) {
+        t = 100;
+        ctx.imageSmoothingEnabled = true;
+
       }
       /// if in play mode use that value, else use slider value
       var size = (play ? v : t) * 0.01,
@@ -46,7 +48,7 @@ export default function begin() {
 
       /// limit blocksize as we don't want to animate tiny blocks
       var v = 1,
-        dx = 0.2; /// "speed"
+        dx = 0.5; /// "speed"
 
       /// toggle play flag set by button "Animate"
       play = !play;
@@ -63,7 +65,7 @@ export default function begin() {
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;
-        } else if (v > 25) {
+        } else if (v > 70) {
           play = false;
         }
         /// pixelate image with current value
