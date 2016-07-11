@@ -13,7 +13,7 @@ describe('BlockListShallowComponent', () => {
   let BlockListComponent;
 
   beforeEach(() => {
-    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[]}});
+    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
   });
 
   it('should be div', () => {
@@ -33,11 +33,18 @@ describe('BlockListClass', () => {
         {text: 'pieceOfCode2', id: 2}],
       win: false
     };
+    let timer = {
+      time: 0,
+      offset: Date.now()
+    };
     let actions = {
       verifyOrder: expect.createSpy()
     };
+    let timerActions = {
+      startTimer: expect.createSpy()
+    };
     blockList = TestUtils.renderIntoDocument(
-      <BlockList blocks={blocks} actions={actions} />
+      <BlockList blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
     )
   });
 
@@ -107,6 +114,22 @@ describe('BlockListClass', () => {
 
     expect(blockListNode.children.length).toEqual(2);
     blockList.updateState(newState);
+    blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(3);
+  });
+
+  it('should render Win component if time is up / end state', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(2);
+    var newState = {blocks: blocks};
+
+    blockList.props.timer.timesup = false;
+    blockList.timeIsUp(newState);
+    blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(2);
+
+    blockList.props.timer.timesup = true;
+    blockList.timeIsUp(newState);
     blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(3);
   });

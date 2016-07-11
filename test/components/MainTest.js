@@ -18,7 +18,7 @@ describe('MainComponent', () => {
     MainComponent = createComponent(Main);
   });
 
-  it('should have its component name as default className', () => {
+  it('should have its component named as default className', () => {
     expect(MainComponent.props.className).toEqual('index');
   });
 });
@@ -36,9 +36,15 @@ describe('MainClass', () => {
         {text: 'pieceOfCode2', id: 2}],
       win: false
     };
-
+    let timer = {
+      time: 0,
+      offset: Date.now()
+    };
+    let timerActions = {
+      startTimer: expect.createSpy()
+    };
     main = TestUtils.renderIntoDocument(
-      <Main blocks={blocks} actions={{}} />
+      <Main blocks={blocks} timer={timer} timerActions={timerActions} />
     )
   });
 
