@@ -22,11 +22,11 @@ export default function begin() {
 /// MAIN function
     function pixelate(v) {
       var t = 1;
-      if (v > 70) {
+      if (v > 60) {
         t = 100;
         ctx.imageSmoothingEnabled = true;
-
       }
+
       /// if in play mode use that value, else use slider value
       var size = (play ? v : t) * 0.01,
 
@@ -48,7 +48,7 @@ export default function begin() {
 
       /// limit blocksize as we don't want to animate tiny blocks
       var v = 1,
-        dx = 0.5; /// "speed"
+        dx = 0.2; /// "speed"
 
       /// toggle play flag set by button "Animate"
       play = !play;
@@ -65,7 +65,7 @@ export default function begin() {
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;
-        } else if (v > 70) {
+        } else if (v > 60) {
           play = false;
         }
         /// pixelate image with current value
