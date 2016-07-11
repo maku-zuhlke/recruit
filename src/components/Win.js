@@ -28,7 +28,7 @@ class Win extends Component {
           <div className="image col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div id="zuhlke" ><canvas id="canvas" width="100" height="100"></canvas></div>
             
-            <div className="bottom"><button className="btn btn-default startForm" onClick={this.formRedirect.bind(this)}>Do you want to become a register talent of Zühlke</button></div>
+            <div className="bottom"><button className="btn btn-default submit" onClick={this.formRedirect.bind(this)}>Do you want to become a register talent of Zühlke</button></div>
 
             {this.state.startForm && <div>{this.renderForm()}</div> } 
           </div>
