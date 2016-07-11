@@ -22,9 +22,8 @@ export default function begin() {
 /// MAIN function
     function pixelate(v) {
       var t = 1;
-      if (v > 60) {
+      if (v > 50) {
         t = 100;
-        ctx.imageSmoothingEnabled = true;
       }
 
       /// if in play mode use that value, else use slider value
@@ -65,7 +64,7 @@ export default function begin() {
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;
-        } else if (v > 60) {
+        } else if (v > 50) {
           play = false;
         }
         /// pixelate image with current value
