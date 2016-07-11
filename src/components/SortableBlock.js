@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Sortable } from 'react-sortable';
-import 'styles/prettify.js';
+import 'utils/prettify.js';
 import $ from 'jquery';
 
 class Block extends Component {
