@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { ScaleModal } from 'boron';
+import begin from 'utils/pixelate.js';
 
 class Win extends Component {
   constructor(props, context) {
@@ -12,11 +13,12 @@ class Win extends Component {
 
   componentDidMount() {
     this.refs.modal.show();
+    begin();
   }
   
   formRedirect() {
 
-     window.location("localhost:8000");
+     window.location = "http://localhost:8000";
   }
  
 
@@ -24,9 +26,9 @@ class Win extends Component {
     return (
       <div className="row center"><ScaleModal ref="modal">
           <div className="image col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <img src="./images/logo-zuhlke.png"/>
+            <div id="zuhlke" ><canvas id="canvas" width="100" height="100"></canvas></div>
             
-            <div className="bottom">{ !this.state.startForm && <button className="btn btn-default startForm" onClick={this.formRedirect.bind(this)}>Do you want to become a register talent of Zühlke</button> }</div>
+            <div className="bottom"><button className="btn btn-default startForm" onClick={this.formRedirect.bind(this)}>Do you want to become a register talent of Zühlke</button></div>
 
             {this.state.startForm && <div>{this.renderForm()}</div> } 
           </div>
@@ -37,3 +39,4 @@ class Win extends Component {
 }
 
 export default Win
+

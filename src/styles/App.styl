@@ -1,0 +1,81 @@
+lilac = #AF7AC5
+white = #FDFEFE
+
+main_colours()
+  background: white
+  color: lilac
+  border-color: lilac
+
+op_colours()
+  background: lilac
+  color: white
+  border-color: lilac
+
+/* Base Application Styles */
+body
+  background: white
+  font-size: medium
+
+.index
+  .notice
+    margin: 20px auto
+    padding: 15px 0
+    text-align: center
+    border: 1px solid #000
+    border-width: 1px 0
+    background: #666
+
+.center
+  text-align: center
+  vertical-align: middle
+
+.submit
+  vertical-align: bottom
+  float: right
+  margin-top: 5px
+  border-radius: 3px
+  &, &:focus
+    main_colours()
+  &:hover, &:active:hover, &:active
+    op_colours()
+
+.space
+  border: thin solid
+  margin-top: 15px
+  margin-bottom: 5px
+  padding: 5px 0px 5px 0px
+  border-radius: 3px
+  main_colours()
+
+.start
+  margin-top: 15px
+  &, &:focus
+    main_colours()
+  &:hover, &:active, &:active:hover
+    op_colours()
+
+.code
+  width: 90%
+  margin-left: 5%
+  margin-bottom: 0.5%
+  padding-bottom: 5%
+  padding-top: 20%
+  &:hover, &:active, &:active:hover
+    background: #4D5656
+
+/* Animations - Zuhlke splash */
+.image
+  #canvas
+    position: relative
+    z-index: 1000
+    width: 100%
+    height: 100%
+    animation: fromBack 0.5s linear 0s backwards
+
+@keyframes fromBack
+  0%
+    transform: scale(0)
+    opacity: 0
+  100%
+    transform: scale(1)
+    opacity: 1
