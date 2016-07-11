@@ -60,7 +60,7 @@ export default function begin() {
 
         /// increase or decrease value
         v += dx;
-
+        dx = (v > 20 ? 0.35 : 0.2);
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;

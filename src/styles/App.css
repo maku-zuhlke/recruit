@@ -1,6 +1,7 @@
 /* Base Application Styles */
 body {
   background: #fdfefe;
+  background-image: url("/images/bcgr.jpg");
   font-size: medium;
 }
 .index .notice {
@@ -14,15 +15,7 @@ body {
 .center {
   text-align: center;
   vertical-align: middle;
-  position: relative;
 }
-.bottom {
-  text-align: center;
-  vertical-align: bottom;
-  z-index: 0;
-
-}
-
 .submit {
   vertical-align: bottom;
   float: right;
@@ -80,14 +73,13 @@ body {
 .code:active:hover {
   background: #4d5656;
 }
-.timer {
-  color: #AF7AC5;
+.talent {
+  float: initial;
 }
-
 /* Animations - Zuhlke splash */
 .image #canvas {
   position: relative;
-  z-index: 0;
+  z-index: 1000;
   width: 100%;
   height: 100%;
   animation: fromBack 0.5s linear 0s backwards;
@@ -132,4 +124,3 @@ body {
     opacity: 1;
   }
 }
-
