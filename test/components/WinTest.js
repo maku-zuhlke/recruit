@@ -5,6 +5,9 @@
 import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import Win from 'components/Win';
+import TestUtils from 'react-addons-test-utils';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 describe('WinShallowComponent', () => {
   let WinComponent;

@@ -15,24 +15,16 @@ class Win extends Component {
     this.refs.modal.show();
     begin();
   }
-  
-  formRedirect() {
-
-     window.location = "http://localhost:8000";
-  }
- 
 
   render() {
     return (
       <div className="row center"><ScaleModal ref="modal">
           <div className="image col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div id="zuhlke" ><canvas id="canvas" width="100" height="100"></canvas></div>
-            
-            <div className="bottom"><button className="btn btn-default submit" onClick={this.formRedirect.bind(this)}>Do you want to become a register talent of Zühlke</button></div>
-
-            {this.state.startForm && <div>{this.renderForm()}</div> } 
+            <div>
+              <a className="btn btn-default submit" href="https://www.zuehlke.com/ch/en/" target="_top">Do you want to become a register talent of Zühlke</a>
+            </div>
           </div>
-
       </ScaleModal></div>
     );
   }
