@@ -49,7 +49,7 @@ class BlockList extends Component {
     return (
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
-        <div className="col-lg-10 col-lg-offset-1 center">
+        <div className="center">
           {listItems}
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer

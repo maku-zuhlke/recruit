@@ -1,72 +1,82 @@
 /* Base Application Styles */
 body {
-  background: #fdfefe;
+  background: rgba(255,255,255,0.8);
   background-image: url("/images/bcgr.jpg");
   font-size: medium;
-}
-.index .notice {
-  margin: 20px auto;
-  padding: 15px 0;
-  text-align: center;
-  border: 1px solid #000;
-  border-width: 1px 0;
-  background: #666;
 }
 .center {
   text-align: center;
   vertical-align: middle;
 }
+.logo {
+  margin-top: 2%;
+}
+.content {
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-top: 1%;
+  background-color: rgba(255,255,255,0.2);
+  padding-bottom: 1%;
+  padding-top: 1%;
+}
 .submit {
   vertical-align: bottom;
   float: right;
-  margin-top: 5px;
-  border-radius: 3px;
+  margin-top: 1.5%;
 }
 .submit,
 .submit:focus {
-  background: #fdfefe;
-  color: #af7ac5;
-  border-color: #af7ac5;
+  background: transparent;
+  color: #fa7a15;
+  border-color: #fa7a15;
+  font-size: medium;
 }
 .submit:hover,
 .submit:active:hover,
 .submit:active {
-  background: #af7ac5;
-  color: #fdfefe;
-  border-color: #af7ac5;
+  background: rgba(250,122,21,0.5);
+  color: rgba(255,255,255,0.8);
+  border-color: rgba(250,122,21,0.5);
+  font-size: medium;
 }
 .space {
-  border: thin solid;
   margin-top: 15px;
   margin-bottom: 5px;
   padding: 5px 0px 5px 0px;
   border-radius: 3px;
-  background: #fdfefe;
-  color: #af7ac5;
-  border-color: #af7ac5;
+  background: transparent;
+  color: #000;
+  border-color: #000;
+  font-weight: bolder;
+  font-size: large;
 }
 .start {
-  margin-top: 15px;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 .start,
 .start:focus {
-  background: #fdfefe;
-  color: #af7ac5;
-  border-color: #af7ac5;
+  background: transparent;
+  color: #fa7a15;
+  border-color: #fa7a15;
+  font-size: medium;
 }
 .start:hover,
 .start:active,
 .start:active:hover {
-  background: #af7ac5;
-  color: #fdfefe;
-  border-color: #af7ac5;
+  background: rgba(250,122,21,0.5);
+  color: rgba(255,255,255,0.8);
+  border-color: rgba(250,122,21,0.5);
+  font-size: medium;
 }
 .code {
-  width: 90%;
-  margin-left: 5%;
   margin-bottom: 0.5%;
   padding-bottom: 5%;
   padding-top: 20%;
+  width: 80%;
+  margin-left: 10%;
+  font-size: medium;
 }
 .code:hover,
 .code:active,
