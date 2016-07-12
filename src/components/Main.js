@@ -30,7 +30,7 @@ class AppComponent extends React.Component {
         <div className="row">
           <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
             { !this.state.startChallenge && <button className="btn btn-default start" onClick={this.start.bind(this)}><span className="test">Start challenge</span></button> }
-            { this.state.startChallenge && <div>{this.renderBlockList()}</div> }
+            { this.state.startChallenge && <div>{ this.renderBlockList() }</div> }
           </div>
         </div>
       </div>
