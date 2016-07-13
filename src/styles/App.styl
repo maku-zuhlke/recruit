@@ -1,5 +1,6 @@
 orange = rgba(250, 122, 21, 0.8)
 white = rgba(255, 255, 255, 0.8)
+lilac = rgba(152, 99, 174, 1)
 
 main_colours()
   background: white
@@ -13,12 +14,25 @@ op_colours()
   border-color: orange
   font-size: medium
 
+zuhlke_colours()
+  background: white
+  color: lilac
+  border-color: lilac
+  font-size: medium
+
+op_zuhlke_colours()
+  background: lilac
+  color: white
+  border-color: lilac
+  font-size: medium
+
 /* Base Application Styles */
 body
-  background: white
-  background-image: url("/images/bcgr.jpg")
-  background-repeat: no-repeat
-  background-size:100%
+  background: url("/images/bcgr.jpg") no-repeat fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
   font-size: medium
 
 .center
@@ -46,14 +60,13 @@ body
   &:hover, &:active:hover, &:active
     op_colours()
 
-
 .space
   margin-top: 1.5%
   margin-bottom: 1.5%
   padding: 1% 0 1% 0
   color: orange
   font-weight: bolder
-  font-size: large
+  font-size: larger
 
 .start
   margin-top: 10%
@@ -75,9 +88,15 @@ body
 
 .timer
   color: orange
+  font-size: larger
+  font-weight: bolder
 
 .talent
-  float: initial
+  &, &:focus
+    zuhlke_colours()
+  &:hover, &:active, &:active:hover
+    op_zuhlke_colours()
+  animation: fromBack 1s linear 1.5s backwards
 
 /* Animations - Zuhlke splash */
 .image

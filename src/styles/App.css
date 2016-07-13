@@ -1,9 +1,10 @@
 /* Base Application Styles */
 body {
-  background: rgba(255,255,255,0.8);
-  background-image: url("/images/bcgr.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background: url("/images/bcgr.jpg") no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-size: medium;
 }
 .center {
@@ -48,7 +49,7 @@ body {
   padding: 1% 0 1% 0;
   color: rgba(250,122,21,0.8);
   font-weight: bolder;
-  font-size: large;
+  font-size: larger;
 }
 .start {
   margin-top: 10%;
@@ -84,9 +85,26 @@ body {
 }
 .timer {
   color: rgba(250,122,21,0.8);
+  font-size: larger;
+  font-weight: bolder;
 }
 .talent {
-  float: initial;
+  animation: fromBack 1s linear 1.5s backwards;
+}
+.talent,
+.talent:focus {
+  background: rgba(255,255,255,0.8);
+  color: #9863ae;
+  border-color: #9863ae;
+  font-size: medium;
+}
+.talent:hover,
+.talent:active,
+.talent:active:hover {
+  background: #9863ae;
+  color: rgba(255,255,255,0.8);
+  border-color: #9863ae;
+  font-size: medium;
 }
 /* Animations - Zuhlke splash */
 .image #canvas {
