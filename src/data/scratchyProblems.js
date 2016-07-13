@@ -1,5 +1,5 @@
 export const a = {
-  instruction: 'Solve the fibonacci challenge.',
+  instruction: 'Drag and drop the blocks to solve the fibonacci challenge.',
   correctOrder: [4, 1, 6, 3, 2, 5],
   blocks: [{
     text: 'int f = 0;\nint g = 1;',
@@ -29,7 +29,7 @@ export const a = {
 };
 
 export const b = {
-  instruction: 'Rotate an array of n elements to the right by k steps.\n For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. How many different ways do you know to solve this problem?',
+  instruction: 'Drag and drop the blocks to rotate an array of n elements to the right by k steps.\n For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].',
   correctOrder: [4, 8, 3, 10, 1, 2, 7, 5, 9, 6],
   blocks: [{
     text: 'for (int i = 0; i &lt; k; i++){',

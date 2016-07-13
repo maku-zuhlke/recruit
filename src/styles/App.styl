@@ -1,67 +1,89 @@
-lilac = #AF7AC5
-white = #FDFEFE
+orange = rgba(250, 122, 21, 0.8)
+white = rgba(255, 255, 255, 0.8)
+lilac = rgba(152, 99, 174, 1)
 
 main_colours()
   background: white
-  color: lilac
-  border-color: lilac
+  color: orange
+  border-color: orange
+  font-size: medium
 
 op_colours()
+  background: orange
+  color: white
+  border-color: orange
+  font-size: medium
+
+zuhlke_colours()
+  background: white
+  color: lilac
+  border-color: lilac
+  font-size: medium
+
+op_zuhlke_colours()
   background: lilac
   color: white
   border-color: lilac
+  font-size: medium
 
 /* Base Application Styles */
 body
-  background: white
-  background-image: url("/images/bcgr.jpg")
+  background: url("/images/bcgr.jpg") no-repeat fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
   font-size: medium
-
-.index
-  .notice
-    margin: 20px auto
-    padding: 15px 0
-    text-align: center
-    border: 1px solid #000
-    border-width: 1px 0
-    background: #666
 
 .center
   text-align: center
   vertical-align: middle
   
 
+.logo
+  margin-top: 2%
+
+.content
+  left: 0
+  right: 0
+  z-index: 9999
+  margin-top: 1%
+  background-color: rgba(255, 255, 255, 0.4)
+  padding-bottom: 1%
+  padding-top: 1%
+
 .submit
   vertical-align: bottom
   float: right
-  margin-top: 5px
-  border-radius: 3px
+  margin-top: 1.5%
   &, &:focus
     main_colours()
   &:hover, &:active:hover, &:active
     op_colours()
 
 .space
-  border: thin solid
-  margin-top: 15px
-  margin-bottom: 5px
-  padding: 5px 0px 5px 0px
-  border-radius: 3px
-  main_colours()
+  margin-top: 1.5%
+  margin-bottom: 1.5%
+  padding: 1% 0 1% 0
+  color: orange
+  font-weight: bolder
+  font-size: larger
 
 .start
-  margin-top: 15px
+  margin-top: 10%
+  margin-bottom: 10%
   &, &:focus
     main_colours()
   &:hover, &:active, &:active:hover
     op_colours()
 
 .code
-  width: 90%
-  margin-left: 5%
   margin-bottom: 0.5%
   padding-bottom: 5%
   padding-top: 20%
+  width: 80%
+  margin-left: 10%
+  font-size: medium
   &:hover, &:active, &:active:hover
     background: #4D5656
   opacity: 0
@@ -80,6 +102,18 @@ body
   100%
     opacity:1
     transform:scale(1)
+
+.timer
+  color: orange
+  font-size: larger
+  font-weight: bolder
+
+.talent
+  &, &:focus
+    zuhlke_colours()
+  &:hover, &:active, &:active:hover
+    op_zuhlke_colours()
+  animation: fromBack 1s linear 1.5s backwards
 
 /* Animations - Zuhlke splash */
 .image

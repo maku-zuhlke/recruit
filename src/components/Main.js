@@ -24,8 +24,15 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <div className="center">{ !this.state.startChallenge && <button className="btn btn-default start" onClick={this.start.bind(this)}>Start challenge</button> }</div>
-        { this.state.startChallenge && <div>{this.renderBlockList()}</div> }
+        <div className="row">
+          <div className="logo col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"><span><img src="images/logo-zuhlke.png" /></span></div>
+        </div>
+        <div className="row">
+          <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
+            { !this.state.startChallenge && <button className="btn btn-default start" onClick={this.start.bind(this)}><span className="test">Start challenge</span></button> }
+            { this.state.startChallenge && <div>{ this.renderBlockList() }</div> }
+          </div>
+        </div>
       </div>
     );
   }
