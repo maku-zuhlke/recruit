@@ -31,4 +31,3 @@ class Win extends Component {
 }
 
 export default Win
-
