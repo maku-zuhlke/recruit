@@ -29,27 +29,24 @@ body {
 }
 .submit,
 .submit:focus {
-  background: transparent;
-  color: #fa7a15;
-  border-color: #fa7a15;
+  background: rgba(255,255,255,0.8);
+  color: rgba(250,122,21,0.8);
+  border-color: rgba(250,122,21,0.8);
   font-size: medium;
 }
 .submit:hover,
 .submit:active:hover,
 .submit:active {
-  background: rgba(250,122,21,0.5);
+  background: rgba(250,122,21,0.8);
   color: rgba(255,255,255,0.8);
-  border-color: rgba(250,122,21,0.5);
+  border-color: rgba(250,122,21,0.8);
   font-size: medium;
 }
 .space {
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding: 5px 0px 5px 0px;
-  border-radius: 3px;
-  background: transparent;
-  color: #000;
-  border-color: #000;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  padding: 1% 0 1% 0;
+  color: rgba(250,122,21,0.8);
   font-weight: bolder;
   font-size: large;
 }
@@ -59,17 +56,17 @@ body {
 }
 .start,
 .start:focus {
-  background: transparent;
-  color: #fa7a15;
-  border-color: #fa7a15;
+  background: rgba(255,255,255,0.8);
+  color: rgba(250,122,21,0.8);
+  border-color: rgba(250,122,21,0.8);
   font-size: medium;
 }
 .start:hover,
 .start:active,
 .start:active:hover {
-  background: rgba(250,122,21,0.5);
+  background: rgba(250,122,21,0.8);
   color: rgba(255,255,255,0.8);
-  border-color: rgba(250,122,21,0.5);
+  border-color: rgba(250,122,21,0.8);
   font-size: medium;
 }
 .code {
@@ -84,6 +81,9 @@ body {
 .code:active,
 .code:active:hover {
   background: #4d5656;
+}
+.timer {
+  color: rgba(250,122,21,0.8);
 }
 .talent {
   float: initial;
