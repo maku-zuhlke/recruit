@@ -2,7 +2,7 @@
  * Created by lewa on 27/06/2016.
  */
 import React, { Component } from 'react';
-import SortableBlock from './SortableBlock';
+import Block from './Block';
 import Instruction from './Instruction';
 import Win from './Win';
 import WrongAnswer from './WrongAnswer';
@@ -10,6 +10,7 @@ import $ from 'jquery';
 import Timer from './Timer';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import { default as TouchBackend } from 'react-dnd-touch-backend';
 
 class BlockList extends Component {
   constructor(props, context) {
@@ -38,7 +39,7 @@ class BlockList extends Component {
   render() {
     var listItems = this.state.blocks.blocks.map(function(block, i) {
       return (
-        <SortableBlock
+        <Block
           key={block.id}
           index={i}
           moveCard={this.moveCard}

@@ -11,7 +11,7 @@ class Timer extends Component {
   }
 
   start() {
-    //this._interval = requestAnimationFrame(this.progress);
+    this._interval = requestAnimationFrame(this.progress);
     this.props.actions.startTimer(Date.now());
   }
 
