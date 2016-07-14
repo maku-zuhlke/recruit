@@ -98,8 +98,10 @@ describe('BlockListClass', () => {
 
   it('should call verifyOrder after submission', () => {
     expect(blockListDnD.props.actions.verifyOrder.calls.length).toEqual(0);
+    expect(blockList.props.actions.verifyOrder.calls.length).toEqual(0);
     blockList.submitOrder();
     expect(blockListDnD.props.actions.verifyOrder.calls.length).toEqual(1);
+    expect(blockList.props.actions.verifyOrder.calls.length).toEqual(1);
   });
 
   it('should render Win component if time is up / end state', () => {
