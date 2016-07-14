@@ -2,22 +2,21 @@
  * Created by lewa on 27/06/2016.
  */
 import React, { Component } from 'react';
-import SortableBlock from './SortableBlock';
+import Block from './Block';
 import Instruction from './Instruction';
 import Win from './Win';
 import WrongAnswer from './WrongAnswer';
 import $ from 'jquery';
 import Timer from './Timer';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { default as TouchBackend } from 'react-dnd-touch-backend';
 
 class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { draggingIndex: null, blocks: props.blocks, attempt: false, timer: props.timer, end: false};
-  }
-
-  updateState(obj) {
-    obj = $.extend({}, obj, { attempt: false });
-    this.setState(obj);
+    this.state = { blocks: props.blocks, attempt: false, timer: props.timer, end: false };
+    this.moveCard = this.moveCard.bind(this)
   }
 
   submitOrder() {
@@ -32,17 +31,19 @@ class BlockList extends Component {
     }
   }
 
+  moveCard(dragIndex, hoverIndex) {
+    this.props.actions.sort(dragIndex, hoverIndex);
+    this.setState({ attempt: false });
+  }
+
   render() {
-    var listItems = this.state.blocks.blocks.map(function(item, i) {
+    var listItems = this.state.blocks.blocks.map(function(block, i) {
       return (
-        <SortableBlock
-          key={i}
-          updateState={this.updateState.bind(this)}
-          items={this.state.blocks.blocks}
-          draggingIndex={this.state.draggingIndex}
-          sortId={i}
-          outline="list"
-          item={item}/>
+        <Block
+          key={block.id}
+          index={i}
+          moveCard={this.moveCard}
+          block={block}/>
       );
     }, this);
 
@@ -67,4 +68,4 @@ class BlockList extends Component {
   }
 }
 
-export default BlockList
+export default DragDropContext(HTML5Backend) (BlockList);

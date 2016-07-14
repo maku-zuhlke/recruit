@@ -6,14 +6,27 @@ import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import TestUtils from 'react-addons-test-utils';
 import BlockList from 'components/BlockList';
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import TestBackend from 'react-dnd-test-backend';
+import { DragDropContext } from 'react-dnd';
+
+
+function wrapInTestContext(DecoratedComponent) {
+  return DragDropContext(TestBackend)(
+    class TestContextContainer extends Component {
+      render() {
+        return <DecoratedComponent {...this.props} />;
+      }
+    }
+  );
+}
 
 describe('BlockListShallowComponent', () => {
   let BlockListComponent;
 
   beforeEach(() => {
-    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
+    BlockListComponent = createComponent(BlockList.DecoratedComponent, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
   });
 
   it('should be div', () => {
@@ -26,6 +39,7 @@ describe('BlockListClass', () => {
   let blocks;
 
   beforeEach(() => {
+    const BlockListContext = wrapInTestContext(BlockList);
     blocks = {
       correctOrder: [2, 1],
       blocks: [
@@ -44,7 +58,7 @@ describe('BlockListClass', () => {
       startTimer: expect.createSpy()
     };
     blockList = TestUtils.renderIntoDocument(
-      <BlockList blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
+      <BlockListContext blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
     )
   });
 
