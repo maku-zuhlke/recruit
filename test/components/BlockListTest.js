@@ -70,16 +70,24 @@ describe('BlockListClass', () => {
     expect(TestUtils.isCompositeComponent(blockListDnD)).toBe(true);
   });
 
-  it('should have props', () => {
+  it('should have props/state', () => {
     expect(blockListDnD.props).toExist();
+    expect(blockList.state).toExist();
   });
 
-  it('should have props.blocks', () => {
+  it('should have props.blocks/state.blocks', () => {
     expect(blockListDnD.props.blocks).toExist();
+    expect(blockList.state.blocks).toExist();
+  });
+
+  it('should have false state.attempt and state.end', () => {
+    expect(blockList.state.attempt).toBe(false);
+    expect(blockList.state.end).toBe(false);
   });
 
   it('should match param blocks', () => {
     expect(blockListDnD.props.blocks).toEqual(blocks);
+    expect(blockList.state.blocks).toEqual(blocks);
   });
 
   it('should change state.attempt when attempt of submission is made', () => {
