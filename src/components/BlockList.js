@@ -16,7 +16,9 @@ class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { blocks: props.blocks, attempt: false, timer: props.timer, end: false };
-    this.moveCard = this.moveCard.bind(this)
+    this.moveCard = this.moveCard.bind(this);
+    this.submitOrder = this.submitOrder.bind(this);
+    this.timeIsUp = this.timeIsUp.bind(this);
   }
 
   submitOrder() {
@@ -59,7 +61,7 @@ class BlockList extends Component {
               callback={this.timeIsUp.bind(this)}
             />
           </div>
-          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default submit" onClick={this.submitOrder.bind(this)}>Submit</button></div>
+          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default submit" onClick={this.submitOrder}>Submit</button></div>
         </div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {(this.state.blocks.win || this.state.end) && <Win />}
