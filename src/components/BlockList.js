@@ -11,6 +11,7 @@ import Timer from './Timer';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
+import { default as ItemPreview } from './ItemPreview';
 
 class BlockList extends Component {
   constructor(props, context) {
@@ -41,7 +42,7 @@ class BlockList extends Component {
   render() {
     var listItems = this.state.blocks.blocks.map(function(block, i) {
       return (
-        <Block
+       <Block
           key={block.id}
           index={i}
           moveCard={this.moveCard}
@@ -53,12 +54,12 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="center">
-          {listItems}
+          <div> {listItems} <ItemPreview key="__preview" name="Item" /> </div>
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
               timer={this.state.timer}
               actions={this.props.timerActions}
-              callback={this.timeIsUp.bind(this)}
+              callback={this.timeIsUp}
             />
           </div>
           <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default submit" onClick={this.submitOrder}>Submit</button></div>
@@ -70,4 +71,4 @@ class BlockList extends Component {
   }
 }
 
-export default DragDropContext(HTML5Backend) (BlockList);
+export default DragDropContext(TouchBackend({ enableMouseEvents: true })) (BlockList);

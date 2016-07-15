@@ -9,8 +9,17 @@ import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import Block from 'components/Block';
 
-describe('BlockComponent', () => {
+function wrapInTestContext(DecoratedComponent) {
+  return DragDropContext(TestBackend)(
+    class TestContextContainer extends Component {
+      render() {
+        return <DecoratedComponent {...this.props} />;
+      }
+    }
+  );
+}
 
+describe('BlockComponent', () => {
   it('should be rendered', () => {
     const OriginalBlock = Block.DecoratedComponent.DecoratedComponent;
     const b = {text: 'test', id: 0};
@@ -21,4 +30,21 @@ describe('BlockComponent', () => {
     );
     expect(TestUtils.findRenderedDOMComponentWithTag(root, 'pre')).toExist();
   });
+});
+
+
+describe('BlockClass', () => {
+  let block;
+  let backend;
+
+  beforeEach(() => {
+    const  BlockContext = wrapInTestContext(Block);
+    const b = {text: 'test', id: 0};
+    const moveCard = expect.createSpy();
+    block = TestUtils.renderIntoDocument(
+      <BlockContext block={b} index={0} isDragging={false} moveCard={moveCard}/>
+    );
+    backend = block.getManager().getBackend();
+  })
+
 });
