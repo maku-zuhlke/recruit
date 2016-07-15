@@ -9,7 +9,6 @@ import WrongAnswer from './WrongAnswer';
 import $ from 'jquery';
 import Timer from './Timer';
 import { DragDropContext } from 'react-dnd';
-import HTML5Backend from '';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 import { default as BlockDragLayer } from './BlockDragLayer';
 
