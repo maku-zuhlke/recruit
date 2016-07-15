@@ -23,10 +23,10 @@ describe('BlockComponent', () => {
   it('should be rendered', () => {
     const OriginalBlock = Block.DecoratedComponent.DecoratedComponent;
     const b = {text: 'test', id: 0};
-    const moveCard = () => {};
+    const moveBlock = () => {};
     const identity = el => el;
     let root = TestUtils.renderIntoDocument(
-      <OriginalBlock connectDragSource={identity} connectDropTarget={identity} block={b} index={0} isDragging={false} moveCard={moveCard} />
+      <OriginalBlock connectDragSource={identity} connectDropTarget={identity} block={b} index={0} isDragging={false} moveBlock={moveBlock} />
     );
     expect(TestUtils.findRenderedDOMComponentWithTag(root, 'pre')).toExist();
   });
@@ -40,9 +40,9 @@ describe('BlockClass', () => {
   beforeEach(() => {
     const  BlockContext = wrapInTestContext(Block);
     const b = {text: 'test', id: 0};
-    const moveCard = expect.createSpy();
+    const moveBlock = expect.createSpy();
     block = TestUtils.renderIntoDocument(
-      <BlockContext block={b} index={0} isDragging={false} moveCard={moveCard}/>
+      <BlockContext block={b} index={0} isDragging={false} moveBlock={moveBlock}/>
     );
     backend = block.getManager().getBackend();
   })

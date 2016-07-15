@@ -54,7 +54,7 @@ const blockTarget = {
     }
 
     // Time to actually perform the action
-    props.moveCard(dragIndex, hoverIndex);
+    props.moveBlock(dragIndex, hoverIndex);
 
     // Note: we're mutating the monitor item here!
     // Generally it's better to avoid mutations,
@@ -71,7 +71,7 @@ class Block extends Component {
     connectDropTarget: PropTypes.func.isRequired,
     index: PropTypes.number.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    moveCard: PropTypes.func.isRequired,
+    moveBlock: PropTypes.func.isRequired,
     block: PropTypes.object.isRequired
   };
 

@@ -16,7 +16,7 @@ class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { blocks: props.blocks, attempt: false, timer: props.timer, end: false };
-    this.moveCard = this.moveCard.bind(this);
+    this.moveBlock = this.moveBlock.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.timeIsUp = this.timeIsUp.bind(this);
   }
@@ -33,7 +33,7 @@ class BlockList extends Component {
     }
   }
 
-  moveCard(dragIndex, hoverIndex) {
+  moveBlock(dragIndex, hoverIndex) {
     this.props.actions.sort(dragIndex, hoverIndex);
     this.setState({ attempt: false });
   }
@@ -44,7 +44,7 @@ class BlockList extends Component {
        <Block
           key={block.id}
           index={i}
-          moveCard={this.moveCard}
+          moveBlock={this.moveBlock}
           block={block}/>
       );
     }, this);

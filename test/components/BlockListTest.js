@@ -54,7 +54,8 @@ describe('BlockListClass', () => {
       offset: Date.now()
     };
     let actions = {
-      verifyOrder: expect.createSpy()
+      verifyOrder: expect.createSpy(),
+      sort: expect.createSpy()
     };
     let timerActions = {
       startTimer: expect.createSpy()
@@ -107,7 +108,7 @@ describe('BlockListClass', () => {
   it('should render Win component if time is up / end state', () => {
     var blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
-    var newState = {blocks: blocks};
+    var newState = { blocks: blocks };
 
     blockListDnD.props.timer.timesup = false;
     blockList.timeIsUp(newState);
@@ -118,5 +119,13 @@ describe('BlockListClass', () => {
     blockList.timeIsUp(newState);
     blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(3);
+  });
+
+  it('should call sort after block movement', () => {
+    expect(blockListDnD.props.actions.sort.calls.length).toEqual(0);
+    expect(blockList.props.actions.sort.calls.length).toEqual(0);
+    blockList.moveBlock();
+    expect(blockListDnD.props.actions.sort.calls.length).toEqual(1);
+    expect(blockList.props.actions.sort.calls.length).toEqual(1);
   });
 });
