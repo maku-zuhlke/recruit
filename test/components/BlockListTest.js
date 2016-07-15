@@ -64,7 +64,6 @@ describe('BlockListClass', () => {
       <BlockListContext blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
     );
     blockList = blockListDnD.getDecoratedComponentInstance().refs.child;
-    var backend = blockListDnD.getManager().getBackend();
   });
 
   it('should exist', () => {
