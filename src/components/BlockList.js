@@ -9,9 +9,9 @@ import WrongAnswer from './WrongAnswer';
 import $ from 'jquery';
 import Timer from './Timer';
 import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import HTML5Backend from '';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
-import { default as ItemPreview } from './ItemPreview';
+import { default as BlockDragLayer } from './BlockDragLayer';
 
 class BlockList extends Component {
   constructor(props, context) {
@@ -54,7 +54,7 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="center">
-          <div> {listItems} <ItemPreview key="__preview" name="Item" /> </div>
+          <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
               timer={this.state.timer}
