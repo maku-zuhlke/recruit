@@ -11,9 +11,7 @@ class WrongAnswer extends Component {
   render() {
     return (
       <div className="col-xs-12">
-        <div className="col-xs-3"></div>
-        <div className="col-xs-6 center space">Oh, it's wrong, try again, it's worth it!</div>
-        <div className="col-xs-3"></div>
+        <div className="col-xs-10 col-xs-offset-1 center space">Oh, it's wrong, try again, it's worth it!</div>
       </div>
     );
   }
