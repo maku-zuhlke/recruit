@@ -13,4 +13,15 @@ describe('actions', () => {
     };
     expect(actions.verifyOrder()).toEqual(expectedAction)
   });
+
+  it('should create an action to sort blocks', () => {
+    const dragIndex = 0;
+    const hoverIndex = 1;
+    const expectedAction = {
+      type: types.SORT,
+      dragIndex,
+      hoverIndex
+    };
+    expect(actions.sort(dragIndex, hoverIndex)).toEqual(expectedAction)
+  });
 });
