@@ -6,22 +6,10 @@ import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import TestUtils from 'react-addons-test-utils';
 import BlockList from 'components/BlockList';
-import Block from 'components/Block';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
-
-
-function wrapInTestContext(DecoratedComponent) {
-  return DragDropContext(TestBackend)(
-    class TestContextContainer extends Component {
-      render() {
-        return <DecoratedComponent {...this.props} />;
-      }
-    }
-  );
-}
 
 describe('BlockListShallowComponent', () => {
   let BlockListComponent;
@@ -42,7 +30,6 @@ describe('BlockListClass', () => {
 
   beforeEach(() => {
     const BlockListContext = DragDropContext(TestBackend) (BlockList);
-      //wrapInTestContext(BlockList);
     blocks = {
       correctOrder: [2, 1],
       blocks: [
