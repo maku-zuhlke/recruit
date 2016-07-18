@@ -41,7 +41,8 @@ describe('MainClass', () => {
       offset: Date.now()
     };
     let timerActions = {
-      startTimer: expect.createSpy()
+      startTimer: expect.createSpy(),
+      tick: expect.createSpy()
     };
     main = TestUtils.renderIntoDocument(
       <Main blocks={blocks} timer={timer} timerActions={timerActions} />

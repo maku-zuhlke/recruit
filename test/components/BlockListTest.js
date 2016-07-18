@@ -46,7 +46,8 @@ describe('BlockListClass', () => {
       sort: expect.createSpy()
     };
     let timerActions = {
-      startTimer: expect.createSpy()
+      startTimer: expect.createSpy(),
+      tick: expect.createSpy()
     };
     blockListDnD = TestUtils.renderIntoDocument(
       <BlockListContext blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
