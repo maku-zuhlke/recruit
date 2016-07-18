@@ -32,19 +32,74 @@ describe('BlockComponent', () => {
   });
 });
 
-
 describe('BlockClass', () => {
   let block;
+  let otherBlock;
   let backend;
+  let ind;
 
   beforeEach(() => {
-    const  BlockContext = wrapInTestContext(Block);
+    const BlockContext = wrapInTestContext(Block);
     const b = {text: 'test', id: 0};
     const moveBlock = expect.createSpy();
+    ind = 0;
     block = TestUtils.renderIntoDocument(
-      <BlockContext block={b} index={0} isDragging={false} moveBlock={moveBlock}/>
+      <BlockContext block={b} index={ind} isDragging={false} moveBlock={moveBlock}/>
     );
     backend = block.getManager().getBackend();
-  })
 
+    const b2 = {text: 'test2', id: 2};
+    const moveBlock2 = expect.createSpy();
+    otherBlock = TestUtils.renderIntoDocument(
+      <BlockContext block={b2} index={2} isDragging={false} moveBlock={moveBlock2}/>
+    );
+  });
+
+  it('should not change index or call moveBlock while hovering itself', () => {
+    let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
+    expect(blockComponent.props.index).toEqual(ind);
+    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
+    backend.simulateBeginDrag([blockComponent.getHandlerId()]);
+    backend.simulateHover([blockComponent.getDecoratedComponentInstance().getHandlerId()]);
+    expect(blockComponent.props.index).toEqual(ind);
+    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
+  });
+
+  it('should not call moveBlock while hovering a block below and not crossing its half', () => {
+    let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
+    let otherBlockComponent = TestUtils.findRenderedComponentWithType(otherBlock, Block);
+
+    expect(otherBlockComponent.props.moveBlock.calls.length).toEqual(0);
+    backend.simulateBeginDrag([blockComponent.getHandlerId()], {
+      clientOffset: { x: -0.4, y: -0.4 },
+      getSourceClientOffset: () => { return {x: -0.4, y: -0.4}; }
+    });
+    backend.simulateHover([otherBlockComponent.getDecoratedComponentInstance().getHandlerId()]);
+    expect(otherBlockComponent.props.moveBlock.calls.length).toEqual(0);
+  });
+
+  it('should not call moveBlock while hovering a block above and not crossing its half', () => {
+    let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
+    let otherBlockComponent = TestUtils.findRenderedComponentWithType(otherBlock, Block);
+
+    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
+    backend.simulateBeginDrag([otherBlockComponent.getHandlerId()], {
+      clientOffset: { x: 0.4, y: 0.4 },
+      getSourceClientOffset: () => { return {x: 0.4, y: 0.4}; }
+    });
+    backend.simulateHover([blockComponent.getDecoratedComponentInstance().getHandlerId()]);
+    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
+  });
+
+  it('should call moveBlock while hovering another block', () => {
+    let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
+    let otherBlockComponent = TestUtils.findRenderedComponentWithType(otherBlock, Block);
+    expect(otherBlockComponent.props.moveBlock.calls.length).toEqual(0);
+    backend.simulateBeginDrag([blockComponent.getHandlerId()], {
+      clientOffset: { x: 5, y: 5 },
+      getSourceClientOffset: () => { return {x: 5, y: 5}; }
+    });
+    backend.simulateHover([otherBlockComponent.getDecoratedComponentInstance().getHandlerId()]);
+    expect(otherBlockComponent.props.moveBlock.calls.length).toEqual(1);
+  });
 });
