@@ -6,25 +6,24 @@ import React, { Component } from 'react';
 import { DragLayer } from 'react-dnd';
 
 function collect(monitor) {
-  var item = monitor.getItem();
   return {
-    index: item && item.index,
-    block: item && item.block,
+    item: monitor.getItem(),
+    itemType: monitor.getItemType(),
     currentOffset: monitor.getSourceClientOffset(),
     isDragging: monitor.isDragging()
   };
 }
 
-function getItemStyles(currentOffset) {
+function getItemStyles(props) {
+  const { currentOffset } = props;
   if (!currentOffset) {
     return {
       display: 'none'
     };
   }
-  var x = currentOffset.x;
-  var y = currentOffset.y;
-  var transform = `translate(${x}px, ${y}px)`;
 
+  const { x, y } = currentOffset;
+  const transform = `translate(${x}px, ${y}px)`;
   return {
     pointerEvents: 'none',
     transform: transform,
@@ -34,8 +33,8 @@ function getItemStyles(currentOffset) {
 
 class BlockDragLayer extends Component {
   static propTypes = {
-    index: React.PropTypes.number,
-    block: React.PropTypes.object,
+    item: React.PropTypes.object,
+    itemType: React.PropTypes.string,
     currentOffset: React.PropTypes.shape({
       x: React.PropTypes.number,
       y: React.PropTypes.number
@@ -45,8 +44,7 @@ class BlockDragLayer extends Component {
 
   render() {
     return (
-      <div style={getItemStyles(this.props.currentOffset)}>
-        {this.props.index} {this.props.blocks}
+      <div style={getItemStyles(this.props)}>
       </div>
     );
   }
