@@ -5,7 +5,12 @@ import { VERIFY, SORT } from '../actions/const';
 import * as problems from '../data/scratchyProblems';
 import update from 'react/lib/update';
 
-export default function blocks(state = problems.bubbleSort, action) {
+function randomChallenge() {
+  var keys = Object.keys(problems);
+  return problems[keys[keys.length * Math.random() << 0]]
+}
+
+export default function blocks(state = randomChallenge(), action) {
   switch (action.type) {
     case VERIFY:
       var blocksAreOrdered = state.blocks.map((item, i) => {
