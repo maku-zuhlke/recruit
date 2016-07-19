@@ -145,11 +145,40 @@ body {
   animation: fromBack 0.5s linear 0s backwards;
 }
 /* Matchstick */
+.operation {
+  height: 100%;
+}
+.operation .horizontal {
+  height: 5%;
+  position: absolute;
+}
+.operation .horizontal .middle {
+  background-color: #ff0;
+  height: 80%;
+}
+.operation .horizontal .bottom {
+  background-color: #000;
+  height: 80%;
+}
+.operation .horizontal .top {
+  background-color: #008000;
+  height: 80%;
+}
+.operation .verticalZindex {
+  height: 25%;
+  z-index: 100;
+}
+.operation .verticalZindex .plus {
+  background-color: #f00;
+  z-index: 100;
+  height: 25%;
+  position: absolute;
+}
 .number {
   height: 100%;
 }
 .number .vertical {
-  height: 30%;
+  height: 25%;
 }
 .number .vertical .left {
   background-color: #f00;
