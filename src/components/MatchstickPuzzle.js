@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 19/07/2016.
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 class MatchstickPuzzle extends Component {
 
@@ -35,15 +35,14 @@ class MatchstickPuzzle extends Component {
 
   renderOperationSkeleton() {
     return(
-      <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 operation">
-
+      <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2 operation">
         <div className="row horizontal">
           <div className="top col-xs-10"></div>
           <div className="middle col-xs-10"></div>
           <div className="bottom col-xs-10"></div>
         </div>
         <div className="row verticalZindex">
-          <div className="plus col-xs-1 col-xs-offset-4 col-sm-1 col-sm-offset-4 col-md-1 col-md-offset-4 col-lg-1 col-lg-offset-4"></div>
+          <div className="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2"></div>
         </div>
       </div>
     );
@@ -52,7 +51,6 @@ class MatchstickPuzzle extends Component {
   renderOperationEqualsSkeleton() {
     return(
       <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 operation">
-
         <div className="row horizontal">
           <div className="top col-xs-10"></div>
           <div className="bottom col-xs-10"></div>
