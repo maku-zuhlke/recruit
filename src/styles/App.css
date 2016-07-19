@@ -17,6 +17,9 @@ body {
 .index {
   height: 100%;
 }
+.row {
+  margin-left: 0%;
+}
 .center {
   text-align: center;
   vertical-align: middle;
@@ -45,6 +48,10 @@ body {
 }
 .contentRow .content .challenge .puzzle {
   height: 100%;
+}
+.logo {
+  margin-top: 2%;
+  padding-left: 0%;
 }
 .submit {
   vertical-align: bottom;
