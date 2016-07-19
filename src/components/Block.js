@@ -5,7 +5,7 @@ import React, { Component, PropTypes } from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 import { findDOMNode } from 'react-dom';
 import ItemTypes from './ItemTypes';
-import 'utils/prettify.js';
+import 'utils/prettifyHelper.js';
 import $ from 'jquery';
 
 const blockSource = {
@@ -42,7 +42,6 @@ const blockTarget = {
     // Only perform the move when the mouse has crossed half of the items height
     // When dragging downwards, only move when the cursor is below 50%
     // When dragging upwards, only move when the cursor is above 50%
-
     // Dragging downwards
     if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
       return;

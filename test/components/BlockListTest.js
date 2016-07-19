@@ -11,17 +11,6 @@ import ReactDOM from 'react-dom';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 
-
-function wrapInTestContext(DecoratedComponent) {
-  return DragDropContext(TestBackend)(
-    class TestContextContainer extends Component {
-      render() {
-        return <DecoratedComponent {...this.props} />;
-      }
-    }
-  );
-}
-
 describe('BlockListShallowComponent', () => {
   let BlockListComponent;
 
@@ -41,7 +30,6 @@ describe('BlockListClass', () => {
 
   beforeEach(() => {
     const BlockListContext = DragDropContext(TestBackend) (BlockList);
-      //wrapInTestContext(BlockList);
     blocks = {
       correctOrder: [2, 1],
       blocks: [
@@ -58,7 +46,8 @@ describe('BlockListClass', () => {
       sort: expect.createSpy()
     };
     let timerActions = {
-      startTimer: expect.createSpy()
+      startTimer: expect.createSpy(),
+      tick: expect.createSpy()
     };
     blockListDnD = TestUtils.renderIntoDocument(
       <BlockListContext blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>

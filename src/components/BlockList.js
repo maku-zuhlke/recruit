@@ -53,7 +53,7 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="center">
-          <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
+          <div> {listItems} <BlockDragLayer key="__preview" name="Block"/> </div>
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
               timer={this.state.timer}
