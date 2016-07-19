@@ -27,6 +27,9 @@ op_zuhlke_colours()
   font-size: medium
 
 /* Base Application Styles */
+html
+  height: 100%
+
 body
   background: url("/images/bcgr.jpg") no-repeat fixed
   -webkit-background-size: cover
@@ -34,22 +37,38 @@ body
   -o-background-size: cover
   background-size: cover
   font-size: medium
+  height: 100%
+
+#app
+  height: 100%
+
+.index
+  height: 100%
 
 .center
   text-align: center
   vertical-align: middle
 
-.logo
-  margin-top: 2%
+.logoRow
+  height: 10%
+  .logo
+    margin-top: 2%
 
-.content
-  left: 0
-  right: 0
-  z-index: 9999
-  margin-top: 1%
-  background-color: rgba(255, 255, 255, 0.4)
-  padding-bottom: 1%
-  padding-top: 1%
+.contentRow
+  height: 60%
+  .content
+    left: 0
+    right: 0
+    z-index: 9999
+    margin-top: 1%
+    background-color: rgba(255, 255, 255, 0.4)
+    padding-bottom: 1%
+    padding-top: 1%
+    height: 80%
+    .challenge
+      height: 100%
+      .puzzle
+        height: 100%
 
 .submit
   vertical-align: bottom
@@ -114,3 +133,31 @@ body
   100%
     transform: scale(1)
     opacity: 1
+
+
+/* Matchstick */
+.number
+  height: 100%
+  .vertical
+    height: 30%
+    .left
+      background-color: red
+      height: 100%
+    .right
+      background-color: blue
+      height: 100%
+  .horizontal
+    height: 5%
+    .middle
+      background-color: yellow
+      height: 80%
+    .bottom
+      background-color: black
+      height: 80%
+    .top
+      background-color: green
+      height: 80%
+
+
+
+

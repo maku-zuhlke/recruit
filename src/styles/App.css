@@ -1,4 +1,7 @@
 /* Base Application Styles */
+html {
+  height: 100%;
+}
 body {
   background: url("/images/bcgr.jpg") no-repeat fixed;
   -webkit-background-size: cover;
@@ -6,15 +9,28 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-size: medium;
+  height: 100%;
+}
+#app {
+  height: 100%;
+}
+.index {
+  height: 100%;
 }
 .center {
   text-align: center;
   vertical-align: middle;
 }
-.logo {
+.logoRow {
+  height: 10%;
+}
+.logoRow .logo {
   margin-top: 2%;
 }
-.content {
+.contentRow {
+  height: 60%;
+}
+.contentRow .content {
   left: 0;
   right: 0;
   z-index: 9999;
@@ -22,6 +38,13 @@ body {
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
   padding-top: 1%;
+  height: 80%;
+}
+.contentRow .content .challenge {
+  height: 100%;
+}
+.contentRow .content .challenge .puzzle {
+  height: 100%;
 }
 .submit {
   vertical-align: bottom;
@@ -113,6 +136,36 @@ body {
   width: 100%;
   height: 100%;
   animation: fromBack 0.5s linear 0s backwards;
+}
+/* Matchstick */
+.number {
+  height: 100%;
+}
+.number .vertical {
+  height: 30%;
+}
+.number .vertical .left {
+  background-color: #f00;
+  height: 100%;
+}
+.number .vertical .right {
+  background-color: #00f;
+  height: 100%;
+}
+.number .horizontal {
+  height: 5%;
+}
+.number .horizontal .middle {
+  background-color: #ff0;
+  height: 80%;
+}
+.number .horizontal .bottom {
+  background-color: #000;
+  height: 80%;
+}
+.number .horizontal .top {
+  background-color: #008000;
+  height: 80%;
 }
 @-moz-keyframes fromBack {
   0% {
