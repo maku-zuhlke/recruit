@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { ScaleModal } from 'boron';
-import begin from 'utils/pixelate.js';
+import begin from 'utils/pixelateHelper.js';
 
 class Win extends Component {
   constructor(props, context) {
