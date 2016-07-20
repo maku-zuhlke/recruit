@@ -152,16 +152,19 @@ body {
   height: 5%;
   position: absolute;
 }
+.operation .horizontal img {
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  position: relative;
+  top: 100%;
+}
 .operation .horizontal .middle {
-  background-color: #ff0;
   height: 80%;
 }
 .operation .horizontal .bottom {
-  background-color: #000;
   height: 80%;
 }
 .operation .horizontal .top {
-  background-color: #008000;
   height: 80%;
 }
 .operation .verticalZindex {
@@ -169,7 +172,6 @@ body {
   z-index: 100;
 }
 .operation .verticalZindex .plus {
-  background-color: #f00;
   z-index: 100;
   height: 25%;
   position: absolute;
@@ -177,30 +179,34 @@ body {
 .number {
   height: 100%;
 }
+.number img,
 .number .vertical {
   height: 25%;
 }
+.number img .left,
 .number .vertical .left {
-  background-color: #f00;
   height: 100%;
 }
+.number img .right,
 .number .vertical .right {
-  background-color: #00f;
   height: 100%;
 }
 .number .horizontal {
   height: 5%;
 }
+.number .horizontal img {
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: -68% 30%;
+  position: relative;
+  top: 100%;
+}
 .number .horizontal .middle {
-  background-color: #ff0;
   height: 80%;
 }
 .number .horizontal .bottom {
-  background-color: #000;
   height: 80%;
 }
 .number .horizontal .top {
-  background-color: #008000;
   height: 80%;
 }
 @-moz-keyframes fromBack {

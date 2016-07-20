@@ -5,7 +5,9 @@ import React, { Component } from 'react';
 
 class Matchstick extends Component {
     render() {
-      return (<div></div>);
+      return (<div className="match">
+        <img src="images/match_out.png"/>
+      </div>);
     }
 }
 
