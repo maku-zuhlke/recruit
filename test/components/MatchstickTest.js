@@ -10,7 +10,8 @@ describe('MatchstickShallowComponent', () => {
   let MatchstickComponent;
 
   beforeEach(() => {
-    MatchstickComponent = createComponent(Matchstick);
+    const identity = el => el;
+    MatchstickComponent = createComponent(Matchstick.DecoratedComponent, {connectDragSource: identity, isDragging: false});
   });
 
   it('should be div', () => {

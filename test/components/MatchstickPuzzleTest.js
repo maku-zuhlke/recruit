@@ -10,7 +10,7 @@ describe('MatchstickPuzzleShallowComponent', () => {
   let MatchstickPuzzleComponent;
 
   beforeEach(() => {
-    MatchstickPuzzleComponent = createComponent(MatchstickPuzzle);
+    MatchstickPuzzleComponent = createComponent(MatchstickPuzzle.DecoratedComponent);
   });
 
   it('should be div', () => {

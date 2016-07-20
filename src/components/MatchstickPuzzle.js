@@ -3,6 +3,9 @@
  */
 import React, { Component } from 'react';
 import Matchstick from "./Matchstick";
+import MatchPlaceholder from "./MatchPlaceholder";
+import { DragDropContext } from 'react-dnd';
+import { default as TouchBackend } from 'react-dnd-touch-backend';
 
 class MatchstickPuzzle extends Component {
 
@@ -11,24 +14,25 @@ class MatchstickPuzzle extends Component {
   }
 
   renderNumberSkeleton() {
+
     return (
       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 number">
         <div className="row horizontal">
-          <div className="top col-xs-10"><Matchstick /></div>
+          <MatchPlaceholder classes="top col-xs-10" match={<Matchstick name="1" />}/>
         </div>
         <div className="row vertical">
-          <div className="left col-xs-1 col-sm-3 col-md-2 col-lg-1"><Matchstick /></div>
-          <div className="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4"><Matchstick /></div>
+          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={<Matchstick name="1"/>}/>
+          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={<Matchstick name="1"/>}/>
         </div>
         <div className="row horizontal">
-          <div className="middle col-xs-10"><Matchstick /></div>
+          <MatchPlaceholder classes="middle col-xs-10" match={<Matchstick name="1"/>}/>
         </div>
         <div className="row vertical">
-          <div className="left col-xs-1 col-sm-3 col-md-2 col-lg-1"><Matchstick /></div>
-          <div className="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4"><Matchstick /></div>
+          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={<Matchstick name="1"/>}/>
+          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={<Matchstick name="1"/>}/>
         </div>
         <div className="row horizontal">
-          <div className="bottom col-xs-10"><Matchstick /></div>
+          <MatchPlaceholder classes="bottom col-xs-10" match={<Matchstick name="1"/>}/>
         </div>
       </div>
     );
@@ -38,12 +42,12 @@ class MatchstickPuzzle extends Component {
     return(
       <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2 operation">
         <div className="row horizontal">
-          <div className="top col-xs-10"><Matchstick /></div>
-          <div className="middle col-xs-10"><Matchstick /></div>
-          <div className="bottom col-xs-10"><Matchstick /></div>
+          <MatchPlaceholder classes="top col-xs-10" match={<Matchstick name="1"/>}/>
+          <MatchPlaceholder classes="middle col-xs-10" match={<Matchstick name="1"/>}/>
+          <MatchPlaceholder classes="bottom col-xs-10" match={<Matchstick name="1"/>}/>
         </div>
         <div className="row verticalZindex">
-          <div className="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2"><Matchstick /></div>
+          <MatchPlaceholder classes="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2" match={<Matchstick name="1"/>}/>
         </div>
       </div>
     );
@@ -73,4 +77,4 @@ class MatchstickPuzzle extends Component {
   }
 }
 
-export default MatchstickPuzzle
+export default DragDropContext(TouchBackend({ enableMouseEvents: true })) (MatchstickPuzzle)
