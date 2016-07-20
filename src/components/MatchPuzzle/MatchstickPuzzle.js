@@ -2,19 +2,17 @@
  * Created by lewa on 19/07/2016.
  */
 import React, { Component } from 'react';
-import Matchstick from "./Matchstick";
+import Matchstick from "../Matchstick";
 import MatchPlaceholder from "./MatchPlaceholder";
 import { DragDropContext } from 'react-dnd';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 
 class MatchstickPuzzle extends Component {
-
   constructor(props, context) {
     super(props, context)
   }
 
   renderNumberSkeleton() {
-
     return (
       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 number">
         <div className="row horizontal">
@@ -47,7 +45,7 @@ class MatchstickPuzzle extends Component {
           <MatchPlaceholder classes="bottom col-xs-10" match={<Matchstick name="1"/>}/>
         </div>
         <div className="row verticalZindex">
-          <MatchPlaceholder classes="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2" match={<Matchstick name="1"/>}/>
+          <MatchPlaceholder classes="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2" match={<Matchstick name="2"/>}/>
         </div>
       </div>
     );

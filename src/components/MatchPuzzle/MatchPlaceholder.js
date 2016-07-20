@@ -3,7 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { DropTarget } from 'react-dnd';
-import ItemTypes from './ItemTypes';
+import ItemTypes from '../ItemTypes';
 
 const matchTarget = {
   drop(props, monitor) {
@@ -31,7 +31,4 @@ class MatchPlaceholder extends Component {
   }
 }
 
-export default DropTarget(ItemTypes.MATCH, matchTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-})) (MatchPlaceholder);
+export default DropTarget(ItemTypes.MATCH, matchTarget, (connect, monitor) => ({ connectDropTarget: connect.dropTarget(), isOver: monitor.isOver() })) (MatchPlaceholder);

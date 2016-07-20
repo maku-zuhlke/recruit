@@ -3,7 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
-import ItemTypes from './ItemTypes';
+import ItemTypes from '../ItemTypes';
 
 const matchSource = {
   beginDrag(props) {
