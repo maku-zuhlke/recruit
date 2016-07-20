@@ -5,7 +5,7 @@
 import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
 import createComponent from 'helpers/shallowRenderHelper';
-import BlockDragLayer from 'components/BlockDragLayer';
+import BlockDragLayer from 'components/BlockChallenge/BlockDragLayer';
 import React, { Component } from 'react';
 
 describe('BlockDragLayerShallowComponent', () => {

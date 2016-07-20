@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import TestUtils from 'react-addons-test-utils';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
-import Block from 'components/Block';
+import Block from 'components/BlockChallenge/Block';
 
 function wrapInTestContext(DecoratedComponent) {
   return DragDropContext(TestBackend)(

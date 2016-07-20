@@ -5,7 +5,7 @@
 import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import TestUtils from 'react-addons-test-utils';
-import BlockList from 'components/BlockList';
+import BlockList from 'components/BlockChallenge/BlockList';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TestBackend from 'react-dnd-test-backend';

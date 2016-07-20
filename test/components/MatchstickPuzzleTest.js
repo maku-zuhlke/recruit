@@ -4,7 +4,7 @@
 import expect from 'expect';
 import React, { Component } from 'react';
 import createComponent from 'helpers/shallowRenderHelper';
-import MatchstickPuzzle from 'components/MatchstickPuzzle';
+import MatchstickPuzzle from 'components/MatchPuzzle/MatchstickPuzzle';
 
 describe('MatchstickPuzzleShallowComponent', () => {
   let MatchstickPuzzleComponent;

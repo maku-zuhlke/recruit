@@ -148,6 +148,14 @@ body {
 .operation {
   height: 100%;
 }
+.operation img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 .operation .horizontal {
   height: 5%;
   position: absolute;
@@ -178,6 +186,14 @@ body {
 }
 .number {
   height: 100%;
+}
+.number img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 .number .vertical {
   height: 25%;
