@@ -8,6 +8,7 @@ import ItemTypes from './ItemTypes';
 const matchTarget = {
   drop(props, monitor) {
     if (!props.match) {
+      props.match = monitor.getItem();
       props.onDrop(monitor.getItem());
     }
   }

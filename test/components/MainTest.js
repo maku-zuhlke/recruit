@@ -67,7 +67,7 @@ describe('MainClass', () => {
     var mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */
-    expect(mainNode.children[1].children[0].children.length).toEqual(1); /* content div */
+    expect(mainNode.children[1].children[0].children.length).toEqual(2); /* content div */
     expect(mainNode.children[1].children[0].children[0].children.length).toEqual(1); /* button element */
     expect(mainNode.children[1].children[0].children[0].children[0].children.length).toEqual(0); /* span element */
     main.start();
