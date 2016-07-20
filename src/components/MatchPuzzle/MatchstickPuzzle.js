@@ -2,8 +2,9 @@
  * Created by lewa on 19/07/2016.
  */
 import React, { Component } from 'react';
-import Matchstick from "../Matchstick";
+import Matchstick from "./Matchstick";
 import MatchPlaceholder from "./MatchPlaceholder";
+import MatchDragLayer from "./MatchDragLayer";
 import { DragDropContext } from 'react-dnd';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 
@@ -70,6 +71,7 @@ class MatchstickPuzzle extends Component {
           {this.renderNumberSkeleton()}
           {this.renderOperationEqualsSkeleton()}
           {this.renderNumberSkeleton()}
+          <MatchDragLayer key="__preview" name="Match" />
         </div>
     );
   }
