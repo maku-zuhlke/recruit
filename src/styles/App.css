@@ -1,4 +1,7 @@
 /* Base Application Styles */
+html {
+  height: 100%;
+}
 body {
   background: url("/images/bcgr.jpg") no-repeat fixed;
   -webkit-background-size: cover;
@@ -6,19 +9,34 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-size: medium;
+  height: 100%;
 }
-.row {
-  margin-left: 0%;
+img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+#app {
+  height: 100%;
+}
+.index {
+  height: 100%;
 }
 .center {
   text-align: center;
   vertical-align: middle;
+  height: 100%;
 }
-.logo {
+.logoRow {
+  height: 20%;
+}
+.logoRow .logo {
   margin-top: 2%;
-  padding-left: 0%;
 }
-.content {
+.contentRow .content {
   left: 0;
   right: 0;
   z-index: 9999;
@@ -26,8 +44,10 @@ body {
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
   padding-top: 1%;
+}
+.logo {
+  margin-top: 2%;
   padding-left: 0%;
-  padding-right: 0%;
 }
 .submit {
   vertical-align: bottom;
@@ -119,6 +139,60 @@ body {
   width: 100%;
   height: 100%;
   animation: fromBack 0.5s linear 0s backwards;
+}
+/* Matchstick */
+.puzzleRow {
+  height: 70%;
+}
+.puzzleRow .contentPuzzle {
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-top: 1%;
+  background-color: rgba(255,255,255,0.4);
+  padding-bottom: 1%;
+  padding-top: 1%;
+  height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge {
+  height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge .extras {
+  height: 30%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle {
+  height: 70%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation {
+  height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal {
+  position: absolute;
+  height: 5%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal img {
+  -webkit-transform: rotate(90deg);
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
+  height: 20%;
+  z-index: 100;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus {
+  z-index: 100;
+  height: 25%;
+  position: absolute;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .number {
+  height: 100%;
+  font-size: 0;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .number .vertical {
+  height: 30%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .number .horizontal {
+  -webkit-transform: rotate(90deg);
+  display: inline-block;
+  height: 8%;
 }
 @-moz-keyframes fromBack {
   0% {

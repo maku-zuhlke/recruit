@@ -5,7 +5,8 @@
 import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import Main from 'components/Main';
-import BlockList from 'components/BlockList';
+import BlockList from 'components/BlockChallenge/BlockList';
+import MatchstickPuzzle from 'components/MatchPuzzle/MatchstickPuzzle';
 import TestUtils from 'react-addons-test-utils';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -28,7 +29,6 @@ describe('MainClass', () => {
   let blocks;
 
   beforeEach(() => {
-
     blocks = {
       correctOrder: [2, 1],
       blocks: [
@@ -57,9 +57,13 @@ describe('MainClass', () => {
     expect(main.renderBlockList().props.blocks).toEqual(blocks);
   });
 
+  it('should return MatchstickPuzzle component', () => {
+    expect(main.renderMatchstickPuzzle().type).toBe(MatchstickPuzzle);
+  });
+
   it('should set state.startChallenge to true', () => {
     expect(main.state.startChallenge).toEqual(false);
-    main.start();
+    main.startChallenge();
     expect(main.state.startChallenge).toEqual(true);
   });
 
@@ -67,10 +71,10 @@ describe('MainClass', () => {
     var mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */
-    expect(mainNode.children[1].children[0].children.length).toEqual(1); /* content div */
+    expect(mainNode.children[1].children[0].children.length).toEqual(2); /* content div */
     expect(mainNode.children[1].children[0].children[0].children.length).toEqual(1); /* button element */
     expect(mainNode.children[1].children[0].children[0].children[0].children.length).toEqual(0); /* span element */
-    main.start();
+    main.startChallenge();
     mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */

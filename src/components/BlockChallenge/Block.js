@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 import { findDOMNode } from 'react-dom';
-import ItemTypes from './ItemTypes';
+import ItemTypes from '../ItemTypes';
 import 'utils/prettifyHelper.js';
 import $ from 'jquery';
 

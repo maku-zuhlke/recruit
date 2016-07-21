@@ -3,11 +3,11 @@
  */
 import React, { Component } from 'react';
 import Block from './Block';
-import Instruction from './Instruction';
-import Win from './Win';
-import WrongAnswer from './WrongAnswer';
+import Instruction from '../Instruction';
+import Timer from '../Timer';
+import Win from '../Win';
+import WrongAnswer from '../WrongAnswer';
 import $ from 'jquery';
-import Timer from './Timer';
 import { DragDropContext } from 'react-dnd';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 import { default as BlockDragLayer } from './BlockDragLayer';
@@ -53,7 +53,7 @@ class BlockList extends Component {
       <div>
         <Instruction instruction={this.state.blocks.instruction}/>
         <div className="center">
-          <div> {listItems} <BlockDragLayer key="__preview" name="Block"/> </div>
+          <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
               timer={this.state.timer}
