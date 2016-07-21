@@ -27,8 +27,9 @@ op_zuhlke_colours()
   font-size: medium
 
 /* Base Application Styles */
+
 html
-  height: 100%
+  height 100%
 
 body
   background: url("/images/bcgr.jpg") no-repeat fixed
@@ -39,26 +40,31 @@ body
   font-size: medium
   height: 100%
 
+img
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
 #app
   height: 100%
 
 .index
   height: 100%
 
-.row
-  margin-left: 0%
-
 .center
   text-align: center
   vertical-align: middle
+  height: 100%
 
 .logoRow
-  height: 10%
+  height: 20%
   .logo
     margin-top: 2%
 
 .contentRow
-  height: 60%
   .content
     left: 0
     right: 0
@@ -67,11 +73,7 @@ body
     background-color: rgba(255, 255, 255, 0.4)
     padding-bottom: 1%
     padding-top: 1%
-    height: 80%
-    .challenge
-      height: 100%
-      .puzzle
-        height: 100%
+
 .logo
   margin-top: 2%
   padding-left: 0%
@@ -142,62 +144,47 @@ body
 
 
 /* Matchstick */
-.operation
-  height: 100%
-  img
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  .horizontal
-    height: 5%
-    position: absolute
-    img
-      -webkit-transform: rotate(90deg)
-      -webkit-transform-origin: 0 0
-      position:relative
-      top: 100%
-    .middle
-      height: 80%
-    .bottom
-      height: 80%
-    .top
-      height: 80%
-  .verticalZindex
-    height: 25%
-    z-index: 100
-    .plus
-      z-index: 100
-      height: 25%
-      position: absolute
+.puzzleRow
+  height: 70%
+  .contentPuzzle
+    left: 0
+    right: 0
+    z-index: 9999
+    margin-top: 1%
+    background-color: rgba(255, 255, 255, 0.4)
+    padding-bottom: 1%
+    padding-top: 1%
+    height: 100%
+    .challenge
+      height: 100%
+      .extras
+        height 30%
+      .puzzle
+        height: 70%
+        .operation
+          height: 100%
+          .horizontal
+            position: absolute
+            height: 5%
+            img
+              -webkit-transform: rotate(90deg)
+          .verticalZindex
+            height: 20%
+            z-index: 100
+            .plus
+              z-index: 100
+              height: 25%
+              position: absolute
+        .number
+          height: 100%
+          font-size: 0
+          .vertical
+            height: 30%
+          .horizontal
+            -webkit-transform: rotate(90deg)
+            display: inline-block
+            height: 8%
 
-.number
-  height: 100%
-  img
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  .vertical
-    height: 25%
-    .left
-      height: 100%
-    .right
-      height: 100%
-  .horizontal
-    height: 5%
-    img
-      -webkit-transform: rotate(-90deg)
-      -webkit-transform-origin: -68% 30%
-      position:relative
-      top: 100%
-    .middle
-      height: 80%
-    .bottom
-      height: 80%
-    .top
-      height: 80%
+
+
+

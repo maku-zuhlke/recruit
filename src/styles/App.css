@@ -11,27 +11,30 @@ body {
   font-size: medium;
   height: 100%;
 }
+img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 #app {
   height: 100%;
 }
 .index {
   height: 100%;
 }
-.row {
-  margin-left: 0%;
-}
 .center {
   text-align: center;
   vertical-align: middle;
+  height: 100%;
 }
 .logoRow {
-  height: 10%;
+  height: 20%;
 }
 .logoRow .logo {
   margin-top: 2%;
-}
-.contentRow {
-  height: 60%;
 }
 .contentRow .content {
   left: 0;
@@ -41,13 +44,6 @@ body {
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
   padding-top: 1%;
-  height: 80%;
-}
-.contentRow .content .challenge {
-  height: 100%;
-}
-.contentRow .content .challenge .puzzle {
-  height: 100%;
 }
 .logo {
   margin-top: 2%;
@@ -145,82 +141,58 @@ body {
   animation: fromBack 0.5s linear 0s backwards;
 }
 /* Matchstick */
-.operation {
+.puzzleRow {
+  height: 70%;
+}
+.puzzleRow .contentPuzzle {
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-top: 1%;
+  background-color: rgba(255,255,255,0.4);
+  padding-bottom: 1%;
+  padding-top: 1%;
   height: 100%;
 }
-.operation img {
-  user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+.puzzleRow .contentPuzzle .challenge {
+  height: 100%;
 }
-.operation .horizontal {
-  height: 5%;
+.puzzleRow .contentPuzzle .challenge .extras {
+  height: 30%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle {
+  height: 70%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation {
+  height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal {
   position: absolute;
+  height: 5%;
 }
-.operation .horizontal img {
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal img {
   -webkit-transform: rotate(90deg);
-  -webkit-transform-origin: 0 0;
-  position: relative;
-  top: 100%;
 }
-.operation .horizontal .middle {
-  height: 80%;
-}
-.operation .horizontal .bottom {
-  height: 80%;
-}
-.operation .horizontal .top {
-  height: 80%;
-}
-.operation .verticalZindex {
-  height: 25%;
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
+  height: 20%;
   z-index: 100;
 }
-.operation .verticalZindex .plus {
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus {
   z-index: 100;
   height: 25%;
   position: absolute;
 }
-.number {
+.puzzleRow .contentPuzzle .challenge .puzzle .number {
   height: 100%;
+  font-size: 0;
 }
-.number img {
-  user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+.puzzleRow .contentPuzzle .challenge .puzzle .number .vertical {
+  height: 30%;
 }
-.number .vertical {
-  height: 25%;
-}
-.number .vertical .left {
-  height: 100%;
-}
-.number .vertical .right {
-  height: 100%;
-}
-.number .horizontal {
-  height: 5%;
-}
-.number .horizontal img {
-  -webkit-transform: rotate(-90deg);
-  -webkit-transform-origin: -68% 30%;
-  position: relative;
-  top: 100%;
-}
-.number .horizontal .middle {
-  height: 80%;
-}
-.number .horizontal .bottom {
-  height: 80%;
-}
-.number .horizontal .top {
-  height: 80%;
+.puzzleRow .contentPuzzle .challenge .puzzle .number .horizontal {
+  -webkit-transform: rotate(90deg);
+  display: inline-block;
+  height: 8%;
 }
 @-moz-keyframes fromBack {
   0% {

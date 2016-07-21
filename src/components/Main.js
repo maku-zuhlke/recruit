@@ -8,7 +8,7 @@ import MatchstickPuzzle from './MatchPuzzle/MatchstickPuzzle';
 class AppComponent extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { startChallenge: false, startPuzzle: false};
+    this.state = { startChallenge: false, startPuzzle: false, contentClass: "content", rowClass: "contentRow"};
   }
 
   renderBlockList() {
@@ -19,7 +19,9 @@ class AppComponent extends React.Component {
   }
 
   renderMatchstickPuzzle() {
-    return(<MatchstickPuzzle test="test"/>);
+    const { timer, timerActions } = this.props;
+
+    return(<MatchstickPuzzle timer={timer} timerActions={timerActions}/>);
   }
 
   startChallenge() {
@@ -27,7 +29,7 @@ class AppComponent extends React.Component {
   }
 
   startPuzzle() {
-    this.setState({ startPuzzle : true });
+    this.setState({ startPuzzle : true, contentClass: 'contentPuzzle', rowClass: 'puzzleRow' });
   }
 
   render() {
@@ -36,8 +38,8 @@ class AppComponent extends React.Component {
         <div className="row logoRow">
           <div className="logo col-xs-3 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2"><span><img src="images/logo-zuhlke.png" /></span></div>
         </div>
-        <div className="row contentRow">
-          <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
+        <div className={this.state.rowClass + " row"}>
+          <div className={this.state.contentClass + " col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center"}>
             { !(this.state.startChallenge || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startChallenge.bind(this)}><span className="test">Start challenge</span></button> }
             { !(this.state.startChallenge || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startPuzzle.bind(this)}><span className="test">Start puzzle</span></button> }
             { (this.state.startPuzzle && !this.state.startChallenge) && <div className="challenge">{ this.renderMatchstickPuzzle() }</div> }

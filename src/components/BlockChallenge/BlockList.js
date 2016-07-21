@@ -4,10 +4,10 @@
 import React, { Component } from 'react';
 import Block from './Block';
 import Instruction from '../Instruction';
+import Timer from '../Timer';
 import Win from '../Win';
 import WrongAnswer from '../WrongAnswer';
 import $ from 'jquery';
-import Timer from '../Timer';
 import { DragDropContext } from 'react-dnd';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 import { default as BlockDragLayer } from './BlockDragLayer';

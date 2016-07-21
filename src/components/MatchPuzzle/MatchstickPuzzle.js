@@ -5,12 +5,24 @@ import React, { Component } from 'react';
 import Matchstick from "./Matchstick";
 import MatchPlaceholder from "./MatchPlaceholder";
 import MatchDragLayer from "./MatchDragLayer";
+import Instruction from '../Instruction';
+import Timer from '../Timer';
 import { DragDropContext } from 'react-dnd';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
+import $ from 'jquery';
 
 class MatchstickPuzzle extends Component {
   constructor(props, context) {
-    super(props, context)
+    super(props, context);
+    this.state = { timer: props.timer, end: false };
+    this.timeIsUp = this.timeIsUp.bind(this);
+  }
+
+  timeIsUp(obj) {
+    if (this.props.timer.timesup) {
+      obj = $.extend({}, obj, { end: true });
+      this.setState(obj);
+    }
   }
 
   renderNumberSkeleton() {
@@ -18,19 +30,15 @@ class MatchstickPuzzle extends Component {
       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 number">
         <div className="row horizontal">
           <MatchPlaceholder classes="top col-xs-10" match={<Matchstick name="1" />}/>
-        </div>
-        <div className="row vertical">
+        </div><div className="row vertical">
           <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={<Matchstick name="1"/>}/>
           <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={<Matchstick name="1"/>}/>
-        </div>
-        <div className="row horizontal">
+        </div><div className="row horizontal">
           <MatchPlaceholder classes="middle col-xs-10" match={<Matchstick name="1"/>}/>
-        </div>
-        <div className="row vertical">
+        </div><div className="row vertical">
           <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={<Matchstick name="1"/>}/>
           <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={<Matchstick name="1"/>}/>
-        </div>
-        <div className="row horizontal">
+        </div><div className="row horizontal">
           <MatchPlaceholder classes="bottom col-xs-10" match={<Matchstick name="1"/>}/>
         </div>
       </div>
@@ -65,6 +73,8 @@ class MatchstickPuzzle extends Component {
 
   render() {
     return (
+      <div className="center">
+        <Instruction instruction="Solve the equation moving one matchstick"/>
         <div className="puzzle col-xs-12 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
           {this.renderNumberSkeleton()}
           {this.renderOperationSkeleton()}
@@ -73,6 +83,15 @@ class MatchstickPuzzle extends Component {
           {this.renderNumberSkeleton()}
           <MatchDragLayer key="__preview" name="Match" />
         </div>
+        <div className="extras">
+          <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
+
+          </div>
+          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
+            <button className="btn btn-default submit" onClick={this.submitOrder}>Submit</button>
+          </div>
+        </div>
+      </div>
     );
   }
 }
