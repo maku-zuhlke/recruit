@@ -25,7 +25,7 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <div className="row">
-          <div className="logo col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"><span><img src="images/logo-zuhlke.png" /></span></div>
+          <div className="logo col-xs-3 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2"><span><img src="images/logo-zuhlke.png" /></span></div>
         </div>
         <div className="row">
           <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
