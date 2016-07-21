@@ -167,15 +167,15 @@ img {
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom {
-  width: 117%;
+  width: 60%;
   height: 30%;
-  -webkit-transform: rotate(90deg);
   display: inline-block;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom .match {
   display: inline-block;
+  -webkit-transform: rotate(90deg);
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
   height: 60%;
@@ -201,6 +201,9 @@ img {
   -webkit-transform: rotate(90deg);
   display: inline-block;
   height: 8%;
+}
+.placeholder {
+  opacity: 0.08;
 }
 @-moz-keyframes fromBack {
   0% {

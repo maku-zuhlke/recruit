@@ -16,8 +16,8 @@ import * as TimerActions from '../actions/indexTimer'
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const { blocks, actions, timer, timerActions } = this.props;
-    return <Main actions={actions} blocks={blocks} timer={timer} timerActions={timerActions}/>;
+    const { blocks, actions, timer, timerActions, matches } = this.props;
+    return <Main actions={actions} blocks={blocks} timer={timer} timerActions={timerActions} matches={matches}/>;
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -27,13 +27,14 @@ class App extends Component {
  */
 App.propTypes = {
   blocks: PropTypes.object.isRequired,
+  matches: PropTypes.object.isRequired,
   timer: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
   timerActions: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
-  const props = {blocks: state.blocks, timer: state.timer};
+  const props = {blocks: state.blocks, timer: state.timer, matches: state.matches};
   return props;
 }
 function mapDispatchToProps(dispatch) {

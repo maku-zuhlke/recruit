@@ -9,6 +9,8 @@
 import { combineReducers } from 'redux';
 import blocks from './blocks';
 import timer from './timer';
+import matches from './matches';
+
 /* Populated by react-webpack-redux:reducer */
-const reducers = { blocks, timer };
+const reducers = { blocks, timer, matches };
 module.exports = combineReducers(reducers);

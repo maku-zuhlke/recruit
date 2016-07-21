@@ -15,6 +15,6 @@ describe('MatchstickShallowComponent', () => {
   });
 
   it('should be div', () => {
-    expect(MatchstickComponent.type).toEqual('div');
+    expect(MatchstickComponent.type).toEqual('img');
   });
 });
