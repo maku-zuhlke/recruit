@@ -30,24 +30,16 @@ img {
   vertical-align: middle;
   height: 100%;
 }
-.logoRow {
-  height: 20%;
-}
 .logoRow .logo {
   margin-top: 2%;
+  padding-left: 0%;
 }
 .contentRow .content {
   left: 0;
   right: 0;
   z-index: 9999;
-  margin-top: 1%;
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
-  padding-top: 1%;
-}
-.logo {
-  margin-top: 2%;
-  padding-left: 0%;
 }
 .submit {
   vertical-align: bottom;
@@ -148,10 +140,8 @@ img {
   left: 0;
   right: 0;
   z-index: 9999;
-  margin-top: 1%;
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
-  padding-top: 1%;
   height: 100%;
 }
 .puzzleRow .contentPuzzle .challenge {
@@ -164,23 +154,41 @@ img {
   height: 70%;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation {
-  height: 100%;
+  height: 50%;
+  font-size: 0;
+  position: relative;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal {
+  height: 50%;
+  font-size: 0;
   position: absolute;
-  height: 5%;
+  bottom: 0;
 }
-.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal img {
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top,
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle,
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom {
+  width: 117%;
+  height: 30%;
   -webkit-transform: rotate(90deg);
+  display: inline-block;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top .match,
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle .match,
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom .match {
+  display: inline-block;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
-  height: 20%;
+  height: 60%;
   z-index: 100;
+  bottom: 0;
+  position: absolute;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus {
   z-index: 100;
-  height: 25%;
-  position: absolute;
+  height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus .match {
+  display: inline-block;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .number {
   height: 100%;

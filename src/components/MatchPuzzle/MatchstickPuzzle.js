@@ -64,8 +64,8 @@ class MatchstickPuzzle extends Component {
     return(
       <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 operation">
         <div className="row horizontal">
-          <div className="top col-xs-10"><img src="images/match_small_out.png"/></div>
-          <div className="bottom col-xs-10"><img src="images/match_small_out.png"/></div>
+          <div className="top col-xs-10"><div className="match"><img src="images/match_out.png"/></div></div>
+          <div className="bottom col-xs-10"><div className="match"><img src="images/match_out.png"/></div></div>
         </div>
       </div>
     );
