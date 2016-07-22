@@ -93,7 +93,16 @@ describe('BlockListClass', () => {
     expect(blockList.props.actions.verifyOrder.calls.length).toEqual(1);
   });
 
-  it('should render Win component if time is up / end state', () => {
+  it('should render Win component if win is true', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    expect(blockListNode.children.length).toEqual(2);
+    blocks.win = true;
+    blockList.setState({ blocks: blocks });
+    blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    expect(blockListNode.children.length).toEqual(3);
+  });
+
+  it('should render Fail component if time is up', () => {
     var blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
     var newState = { blocks: blocks };
@@ -102,6 +111,18 @@ describe('BlockListClass', () => {
     blockList.timeIsUp(newState);
     blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
+
+    blockListDnD.props.timer.timesup = true;
+    blockList.timeIsUp(newState);
+    blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    expect(blockListNode.children.length).toEqual(3);
+  });
+
+  it('should not render Fail component if time is up but win is true', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    expect(blockListNode.children.length).toEqual(2);
+    blocks.win = true;
+    var newState = { blocks: blocks };
 
     blockListDnD.props.timer.timesup = true;
     blockList.timeIsUp(newState);
