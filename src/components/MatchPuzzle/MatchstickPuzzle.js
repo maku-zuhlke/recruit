@@ -7,10 +7,11 @@ import MatchPlaceholder from "./MatchPlaceholder";
 import MatchDragLayer from "./MatchDragLayer";
 import Instruction from '../Instruction';
 import Timer from '../Timer';
+import Fail from '../Fail';
+import Win from '../Win';
 import { DragDropContext } from 'react-dnd';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 import $ from 'jquery';
-import update from 'react/lib/update';
 
 class MatchstickPuzzle extends Component {
   constructor(props, context) {
@@ -53,25 +54,10 @@ class MatchstickPuzzle extends Component {
   }
 
   handleDrop(match, place) {
-    var operation = this.state.matches.operation.slice(0);
-    var numbers = this.state.matches.numbers.slice(0, 3);
-    if (match.pos[0] == 3) {
-      operation[match.pos[1]] = 0;
-    } else {
-      numbers[match.pos[0]][match.pos[1]] = 0;
-    }
-
-    if (place[0] == 3) {
-      operation[place[1]] = 1;
-    } else {
-      numbers[place[0]][place[1]] = 1;
-    }
-    this.setState( {
-      matches: {
-        numbers: numbers,
-        operation: operation
-      }
-    });
+    this.props.actions.removeMatch(match.pos);
+    this.props.actions.placeMatch(place);
+    this.props.actions.checkMatches();
+    this.setState(this.state);
   }
 
   renderNumberSkeleton(number) {
@@ -124,7 +110,7 @@ class MatchstickPuzzle extends Component {
   render() {
     return (
       <div className="center">
-        <Instruction instruction="Solve the equation moving one matchstick"/>
+        <Instruction instruction={"Solve the equation moving " + this.state.matches.moves + " matches"}/>
         <div className="puzzle col-xs-12 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
           {this.renderNumberSkeleton(0)}
           {this.renderOperationSkeleton()}
@@ -135,12 +121,15 @@ class MatchstickPuzzle extends Component {
         </div>
         <div className="extras">
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
-
-          </div>
-          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
-            <button className="btn btn-default submit" onClick={this.submitOrder}>Submit</button>
+            <Timer
+              timer={this.state.timer}
+              actions={this.props.timerActions}
+              callback={this.timeIsUp}
+            />
           </div>
         </div>
+        {this.state.matches.win && <Win />}
+        {(this.state.end && !this.state.matches.win) && <Fail />}
       </div>
     );
   }

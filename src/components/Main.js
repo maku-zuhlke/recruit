@@ -19,9 +19,9 @@ class AppComponent extends React.Component {
   }
 
   renderMatchstickPuzzle() {
-    const { matches, timer, timerActions } = this.props;
+    const { matches, matchesActions, timer, timerActions } = this.props;
 
-    return(<MatchstickPuzzle matches={matches} timer={timer} timerActions={timerActions}/>);
+    return(<MatchstickPuzzle matches={matches} actions={matchesActions} timer={timer} timerActions={timerActions}/>);
   }
 
   startChallenge() {

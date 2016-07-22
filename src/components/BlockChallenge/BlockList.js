@@ -6,7 +6,7 @@ import Block from './Block';
 import Instruction from '../Instruction';
 import Timer from '../Timer';
 import Win from '../Win';
-import Fail from './Fail';
+import Fail from '../Fail';
 import WrongAnswer from '../WrongAnswer';
 import $ from 'jquery';
 import { DragDropContext } from 'react-dnd';
