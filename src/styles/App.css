@@ -32,12 +32,14 @@ img {
 }
 .logoRow .logo {
   margin-top: 2%;
-  padding-left: 0%;
+  left: 0;
+  right: 0;
 }
 .contentRow .content {
   left: 0;
   right: 0;
   z-index: 9999;
+  background-clip: content-box;
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
 }
@@ -168,14 +170,14 @@ img {
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom {
   width: 60%;
-  height: 30%;
+  height: 90%;
   display: inline-block;
+  -webkit-transform: rotate(90deg);
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom .match {
   display: inline-block;
-  -webkit-transform: rotate(90deg);
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
   height: 60%;
