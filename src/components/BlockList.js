@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import Block from './Block';
 import Instruction from './Instruction';
 import Win from './Win';
+import Fail from './Fail';
 import WrongAnswer from './WrongAnswer';
 import $ from 'jquery';
 import Timer from './Timer';
@@ -64,7 +65,8 @@ class BlockList extends Component {
           <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default done" onClick={this.submitOrder}>It's done</button></div>
         </div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
-        {(this.state.blocks.win || this.state.end) && <Win />}
+        {this.state.blocks.win && <Win />}
+        {(this.state.end && !this.state.blocks.win) && <Fail />}
       </div>
     )
   }
