@@ -8,11 +8,8 @@ import Matchstick from "./Matchstick";
 
 const matchTarget = {
   drop(props, monitor) {
-    console.log("DROOOOOOOOP")
     if (props.match.hidden) {
-      props.match = monitor.getItem();
-      console.log("!!!!!!!!!!", monitor.getItem())
-      props.onDrop(monitor.getItem());
+      props.onDrop(monitor.getItem(), props.pos);
     }
   }
 };
@@ -23,14 +20,15 @@ class MatchPlaceholder extends Component {
     isOver: PropTypes.bool.isRequired,
     onDrop: PropTypes.func,
     classes: PropTypes.string.isRequired,
-    match: PropTypes.object
+    match: PropTypes.object,
+    pos: PropTypes.array.isRequired
   };
 
   render() {
     const { isOver, connectDropTarget, classes, match } = this.props;
     var result = <img src="images/match_out.png" className="placeholder"/>;
     if (!match.hidden) {
-      result = <Matchstick name={2}/>
+      result = <Matchstick pos={match.pos}/>
     }
     return connectDropTarget(<div className={classes}>
       <div className="match">{result}</div></div>)
