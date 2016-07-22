@@ -43,21 +43,22 @@ img {
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
 }
-.submit {
+.done {
   vertical-align: bottom;
   float: right;
-  margin-top: 1.5%;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
-.submit,
-.submit:focus {
+.done,
+.done:focus {
   background: rgba(255,255,255,0.8);
   color: rgba(250,122,21,0.8);
   border-color: rgba(250,122,21,0.8);
   font-size: medium;
 }
-.submit:hover,
-.submit:active:hover,
-.submit:active {
+.done:hover,
+.done:active:hover,
+.done:active {
   background: rgba(250,122,21,0.8);
   color: rgba(255,255,255,0.8);
   border-color: rgba(250,122,21,0.8);
@@ -107,6 +108,19 @@ img {
   color: rgba(250,122,21,0.8);
   font-size: larger;
   font-weight: bolder;
+}
+.fail {
+  background-color: rgba(255,255,255,0.8);
+  margin-bottom: 20%;
+  padding-bottom: 4%;
+}
+.fail h1 {
+  color: rgba(250,122,21,0.8);
+}
+.fail a {
+  color: rgba(250,122,21,0.8);
+  font-size: larger;
+  text-decoration: underline;
 }
 .talent {
   animation: fromBack 1s linear 1.5s backwards;
