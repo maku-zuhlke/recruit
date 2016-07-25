@@ -18,6 +18,7 @@ class Matchstick extends Component {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
     pos: PropTypes.array.isRequired,
+    type: PropTypes.string.isRequired,
     isDropped: PropTypes.bool
   };
 

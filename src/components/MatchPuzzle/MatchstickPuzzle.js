@@ -2,7 +2,6 @@
  * Created by lewa on 19/07/2016.
  */
 import React, { Component } from 'react';
-import Matchstick from "./Matchstick";
 import MatchPlaceholder from "./MatchPlaceholder";
 import MatchDragLayer from "./MatchDragLayer";
 import Instruction from '../Instruction';
@@ -18,6 +17,7 @@ class MatchstickPuzzle extends Component {
     super(props, context);
     this.state = { matches: props.matches, timer: props.timer, end: false };
     this.timeIsUp = this.timeIsUp.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
   }
 
   timeIsUp(obj) {
@@ -73,17 +73,17 @@ class MatchstickPuzzle extends Component {
     return (
       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 number">
         <div className="row horizontal">
-          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[1]} pos={[number, 1]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[1]} pos={[number, 1]} onDrop={this.handleDrop}/>
         </div><div className="row vertical">
-          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[0]} pos={[number, 0]} onDrop={this.handleDrop.bind(this)}/>
-          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={matchesObj[2]} pos={[number, 2]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[0]} pos={[number, 0]} onDrop={this.handleDrop}/>
+          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={matchesObj[2]} pos={[number, 2]} onDrop={this.handleDrop}/>
         </div><div className="row horizontal">
-          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[6]} pos={[number, 6]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[6]} pos={[number, 6]} onDrop={this.handleDrop}/>
         </div><div className="row vertical">
-          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[5]} pos={[number, 5]} onDrop={this.handleDrop.bind(this)}/>
-          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={matchesObj[3]} pos={[number, 3]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[5]} pos={[number, 5]} onDrop={this.handleDrop}/>
+          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={matchesObj[3]} pos={[number, 3]} onDrop={this.handleDrop}/>
         </div><div className="row horizontal">
-          <MatchPlaceholder classes="bottom col-xs-10" match={matchesObj[4]} pos={[number, 4]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="bottom col-xs-10" match={matchesObj[4]} pos={[number, 4]} onDrop={this.handleDrop}/>
         </div>
       </div>
     );
@@ -94,11 +94,11 @@ class MatchstickPuzzle extends Component {
     return(
       <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2 operation">
         <div className="row horizontal">
-          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[0]} pos={[3, 0]} onDrop={this.handleDrop.bind(this)}/>
-          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[1]} pos={[3, 1]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[0]} pos={[3, 0]} onDrop={this.handleDrop}/>
+          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[1]} pos={[3, 1]} onDrop={this.handleDrop}/>
         </div>
         <div className="row verticalZindex">
-          <MatchPlaceholder classes="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2" match={matchesObj[2]} pos={[3, 2]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2" match={matchesObj[2]} pos={[3, 2]} onDrop={this.handleDrop}/>
         </div>
       </div>
     );
@@ -125,7 +125,7 @@ class MatchstickPuzzle extends Component {
           {this.renderNumberSkeleton(1)}
           {this.renderOperationEqualsSkeleton()}
           {this.renderNumberSkeleton(2)}
-          <MatchDragLayer key="__preview" name="Match" />
+          <MatchDragLayer key="__previewPuzzle" name="Match" />
         </div>
         <div className="extras">
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
@@ -143,4 +143,4 @@ class MatchstickPuzzle extends Component {
   }
 }
 
-export default DragDropContext(TouchBackend({ enableMouseEvents: true })) (MatchstickPuzzle)
+export default MatchstickPuzzle

@@ -15,7 +15,7 @@ describe('BlockListShallowComponent', () => {
   let BlockListComponent;
 
   beforeEach(() => {
-    BlockListComponent = createComponent(BlockList.DecoratedComponent, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
+    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
   });
 
   it('should be div', () => {
@@ -52,7 +52,7 @@ describe('BlockListClass', () => {
     blockListDnD = TestUtils.renderIntoDocument(
       <BlockListContext blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
     );
-    blockList = blockListDnD.getDecoratedComponentInstance().refs.child;
+    blockList = blockListDnD.refs.child;
   });
 
   it('should exist', () => {

@@ -9,8 +9,6 @@ import Win from '../Win';
 import Fail from '../Fail';
 import WrongAnswer from '../WrongAnswer';
 import $ from 'jquery';
-import { DragDropContext } from 'react-dnd';
-import { default as TouchBackend } from 'react-dnd-touch-backend';
 import { default as BlockDragLayer } from './BlockDragLayer';
 
 class BlockList extends Component {
@@ -72,4 +70,4 @@ class BlockList extends Component {
   }
 }
 
-export default DragDropContext(TouchBackend({ enableMouseEvents: true })) (BlockList);
+export default (BlockList);
