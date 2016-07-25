@@ -25,30 +25,30 @@ class MatchstickPuzzle extends Component {
     }
   }
 
-  translate(list) {
-    var renderedObj = [];
-    var item = this.state.matches.numbers[list];
-    for (var i = 0; i < item.length; i++) {
-      if (item[i] == 1) {
-        renderedObj.push({hidden: false, pos: [list, i]});
+  mapNumber(list) {
+    var mappedNumber = [];
+    var number = this.state.matches.numbers[list];
+    for (var i = 0; i < number.length; i++) {
+      if (number[i] == 1) {
+        mappedNumber.push({hidden: false, pos: [list, i]});
       } else {
-        renderedObj.push({hidden: true});
+        mappedNumber.push({hidden: true});
       }
     }
-    return renderedObj;
+    return mappedNumber;
   }
 
-  translateOp() {
-    var renderedObj = [];
-    var item = this.state.matches.operation;
-    for (var i = 0; i < item.length; i++) {
-      if (item[i] == 1) {
-        renderedObj.push({hidden: false, pos: [3, i]});
+  mapOperation() {
+    var mappedOperation = [];
+    var operation = this.state.matches.operation;
+    for (var i = 0; i < operation.length; i++) {
+      if (operation[i] == 1) {
+        mappedOperation.push({hidden: false, pos: [3, i]});
       } else {
-        renderedObj.push({hidden: true});
+        mappedOperation.push({hidden: true});
       }
     }
-    return renderedObj;
+    return mappedOperation;
   }
 
   handleDrop(match, place) {
@@ -67,7 +67,7 @@ class MatchstickPuzzle extends Component {
   }
 
   renderNumberSkeleton(number) {
-    var matchesObj = this.translate(number);
+    var matchesObj = this.mapNumber(number);
     return (
       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 number">
         <div className="row horizontal">
@@ -88,7 +88,7 @@ class MatchstickPuzzle extends Component {
   }
 
   renderOperationSkeleton() {
-    var matchesObj = this.translateOp();
+    var matchesObj = this.mapOperation();
     return(
       <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2 operation">
         <div className="row horizontal">
