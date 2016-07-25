@@ -28,26 +28,29 @@ describe('MatchPlaceholderClass', () => {
   let placeholder;
   let backend;
   let match;
+  let PlaceholderContext;
+  let place;
+  let onDrop;
 
   beforeEach(() => {
     var Context = DragDropContext(TestBackend);
-    const PlaceholderContext = (Context) (MatchPlaceholder);
-    const noMatch = {hidden: true};
-    const onDrop = expect.createSpy();
-    const place = [0, 0];
-    placeholder = TestUtils.renderIntoDocument(
-      <PlaceholderContext pos={place} match={noMatch} onDrop={onDrop} classes=""/>
-    );
+    PlaceholderContext = (Context) (MatchPlaceholder);
+    onDrop = expect.createSpy();
+    place = [0, 0];
 
     const MatchstickContext = (Context) (Matchstick);
     const pos = [1, 2];
     match =  TestUtils.renderIntoDocument(
       <MatchstickContext pos={pos} type={'MATCH'} />
     );
-    backend = placeholder.getManager().getBackend();
   });
 
   it('should call onDrop after drop', () => {
+    const noMatch = {hidden: true};
+    placeholder = TestUtils.renderIntoDocument(
+      <PlaceholderContext pos={place} match={noMatch} onDrop={onDrop} classes=""/>
+    );
+    backend = placeholder.getManager().getBackend();
     let matchComponent = TestUtils.findRenderedComponentWithType(match, Matchstick);
     let placeholderComponent = TestUtils.findRenderedComponentWithType(placeholder, MatchPlaceholder);
 
@@ -59,6 +62,24 @@ describe('MatchPlaceholderClass', () => {
 
     backend.simulateDrop();
     expect(placeholderComponent.props.onDrop.calls.length).toEqual(1);
+  });
+
+  it('should not call onDrop after drop if the place is occupied', () => {
+    const existentMatch = {hidden: false, pos:[0,0]};
+    placeholder = TestUtils.renderIntoDocument(
+      <PlaceholderContext pos={place} match={existentMatch} onDrop={onDrop} classes=""/>
+    );
+    backend = placeholder.getManager().getBackend();
+    let matchComponent = TestUtils.findRenderedComponentWithType(match, Matchstick);
+    let placeholderComponent = TestUtils.findRenderedComponentWithType(placeholder, MatchPlaceholder);
+
+    expect(placeholderComponent.props.onDrop.calls.length).toEqual(0);
+    backend.simulateBeginDrag([matchComponent.getHandlerId()]);
+    expect(placeholderComponent.props.onDrop.calls.length).toEqual(0);
+    backend.simulateHover([placeholderComponent.getHandlerId()]);
+    expect(placeholderComponent.props.onDrop.calls.length).toEqual(0);
+    backend.simulateDrop();
+    expect(placeholderComponent.props.onDrop.calls.length).toEqual(0);
   });
 });
 
