@@ -8,8 +8,6 @@ import Instruction from '../Instruction';
 import Timer from '../Timer';
 import Fail from '../Fail';
 import Win from '../Win';
-import { DragDropContext } from 'react-dnd';
-import { default as TouchBackend } from 'react-dnd-touch-backend';
 import $ from 'jquery';
 
 class MatchstickPuzzle extends Component {
