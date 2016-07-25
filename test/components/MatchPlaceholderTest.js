@@ -1,5 +1,5 @@
 /**
- * Created by lewa on 19/07/2016.
+ * Created by lewa on 25/07/2016.
  */
 import expect from 'expect';
 import React, { Component } from 'react';
@@ -10,42 +10,44 @@ import MatchPlaceholder from 'components/MatchPuzzle/MatchPlaceholder';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 
-describe('MatchstickShallowComponent', () => {
-  let MatchstickComponent;
+describe('MatchPlaceholderShallowComponent', () => {
+  let MatchPlaceholderComponent;
 
   beforeEach(() => {
     const identity = el => el;
-    MatchstickComponent = createComponent(Matchstick.DecoratedComponent, {connectDragSource: identity, isDragging: false, pos: [0, 0], type: "MATCH"});
+    MatchPlaceholderComponent = createComponent(MatchPlaceholder.DecoratedComponent,
+      {connectDropTarget: identity, match: {hidden: true}, pos: [0, 0], onDrop: identity(), classes: "", isOver: false});
   });
 
-  it('should be img', () => {
-    expect(MatchstickComponent.type).toEqual('img');
+  it('should be div', () => {
+    expect(MatchPlaceholderComponent.type).toEqual('div');
   });
 });
 
-describe('MatchstickClass', () => {
-  let match;
-  let backend;
+describe('MatchPlaceholderClass', () => {
   let placeholder;
+  let backend;
+  let match;
 
   beforeEach(() => {
     var Context = DragDropContext(TestBackend);
-    const MatchstickContext = (Context) (Matchstick);
-    const pos = [1, 2];
-    match =  TestUtils.renderIntoDocument(
-      <MatchstickContext pos={pos} type={'MATCH'} />
-    );
     const PlaceholderContext = (Context) (MatchPlaceholder);
     const noMatch = {hidden: true};
     const onDrop = expect.createSpy();
     const place = [0, 0];
     placeholder = TestUtils.renderIntoDocument(
-      <PlaceholderContext pos={place} match={noMatch} onDrop={onDrop} classes="" />
+      <PlaceholderContext pos={place} match={noMatch} onDrop={onDrop} classes=""/>
     );
-    backend = match.getManager().getBackend();
+
+    const MatchstickContext = (Context) (Matchstick);
+    const pos = [1, 2];
+    match =  TestUtils.renderIntoDocument(
+      <MatchstickContext pos={pos} type={'MATCH'} />
+    );
+    backend = placeholder.getManager().getBackend();
   });
 
-  it('should call beginDrag when dragging and onDrop after drop', () => {
+  it('should call onDrop after drop', () => {
     let matchComponent = TestUtils.findRenderedComponentWithType(match, Matchstick);
     let placeholderComponent = TestUtils.findRenderedComponentWithType(placeholder, MatchPlaceholder);
 
@@ -59,3 +61,4 @@ describe('MatchstickClass', () => {
     expect(placeholderComponent.props.onDrop.calls.length).toEqual(1);
   });
 });
+
