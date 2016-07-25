@@ -60,6 +60,14 @@ class MatchstickPuzzle extends Component {
     this.setState(this.state);
   }
 
+  resolveInstruction() {
+    var m = " matches";
+    if (this.state.matches.moves == 1) {
+      m = " match";
+    }
+    return "Solve the equation moving " + this.state.matches.moves + m;
+  }
+
   renderNumberSkeleton(number) {
     var matchesObj = this.translate(number);
     return (
@@ -110,7 +118,7 @@ class MatchstickPuzzle extends Component {
   render() {
     return (
       <div className="center">
-        <Instruction instruction={"Solve the equation moving " + this.state.matches.moves + " matches"}/>
+        <Instruction instruction={this.resolveInstruction()}/>
         <div className="puzzle col-xs-12 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
           {this.renderNumberSkeleton(0)}
           {this.renderOperationSkeleton()}
@@ -129,7 +137,7 @@ class MatchstickPuzzle extends Component {
           </div>
         </div>
         {this.state.matches.win && <Win />}
-        {(this.state.end && !this.state.matches.win) && <Fail />}
+        {((this.state.end || this.state.matches.moves <= 0) && !this.state.matches.win) && <Fail text={this.state.end ? "Time's up, game over!" : "You're out of moves, game over!"} />}
       </div>
     );
   }

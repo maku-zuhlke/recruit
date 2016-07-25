@@ -14,6 +14,7 @@ const initialState = {
 export default function matches(state = initialState, action) {
   switch (action.type) {
     case CHECK:
+      state.moves = state.moves - 1;
       var correctNumbers = state.numbers.map((item, i) => {
         var subResult = item.map((num, ind) => {
           return (num === state.correctPositions.numbers[i][ind]);
@@ -35,7 +36,7 @@ export default function matches(state = initialState, action) {
 
     case REMOVE:
       if (action.before[0] == 3) {
-        state.operation[action.before[0]] = 0;
+        state.operation[action.before[1]] = 0;
       } else {
         state.numbers[action.before[0]][action.before[1]] = 0;
       }
@@ -43,12 +44,12 @@ export default function matches(state = initialState, action) {
 
     case PLACE:
       if (action.after[0] == 3) {
-        state.operation[action.after[0]] = 1;
+        state.operation[action.after[1]] = 1;
       } else {
         state.numbers[action.after[0]][action.after[1]] = 1;
       }
       return state;
-    
+
     default:
       return state;
   }

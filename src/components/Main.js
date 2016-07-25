@@ -41,7 +41,7 @@ class AppComponent extends React.Component {
         <div className={this.state.rowClass + " row"}>
           <div className={this.state.contentClass + " col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center"}>
             { !(this.state.startChallenge || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startChallenge.bind(this)}><span className="test">Coding challenge</span></button> }
-            { !(this.state.startChallenge || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startPuzzle.bind(this)}><span className="test">Start puzzle</span></button> }
+            { !(this.state.startChallenge || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startPuzzle.bind(this)}><span className="test">Puzzle challenge</span></button> }
             { (this.state.startPuzzle && !this.state.startChallenge) && <div className="challenge">{ this.renderMatchstickPuzzle() }</div> }
             { (this.state.startChallenge && !this.state.startPuzzle) && <div className="challenge">{ this.renderBlockList() }</div> }
           </div>

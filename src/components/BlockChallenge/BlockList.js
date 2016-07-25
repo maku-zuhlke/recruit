@@ -66,7 +66,7 @@ class BlockList extends Component {
         </div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {this.state.blocks.win && <Win />}
-        {(this.state.end && !this.state.blocks.win) && <Fail />}
+        {(this.state.end && !this.state.blocks.win) && <Fail text={"Time's up, game over!"}/>}
       </div>
     )
   }
