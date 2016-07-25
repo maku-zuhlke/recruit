@@ -7,7 +7,7 @@ const initialState = {
   numbers :[[1,1,0,1,1,0,1],[0,1,1,0,1,1,1],[1,1,1,1,1,1,1]],
   operation: [1,0,0],
   moves: 2,
-  correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,1,0,1],[1,1,0,1,1,1,1]], operation:[1,0,0]},
+  correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,1,0,1],[1,1,0,1,1,1,1]], operation: [1,0,0]},
   win: false
 };
 
