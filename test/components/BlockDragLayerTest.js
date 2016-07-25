@@ -36,7 +36,7 @@ describe('BlockDragLayerClass', () => {
   });
 
   it('should render layer with transformations', () => {
-    let shape = {x: 0, y:0};
+    let shape = {x: 0, y: 0};
     let layer = TestUtils.renderIntoDocument(<OriginalLayer currentOffset={shape}/>);
     let layerDiv = TestUtils.findRenderedDOMComponentWithTag(layer, 'div');
     expect(layerDiv.style.display).toEqual('');
