@@ -40,18 +40,18 @@ describe('BlockClass', () => {
 
   beforeEach(() => {
     const BlockContext = wrapInTestContext(Block);
-    const b = {text: 'test', id: 0};
+    const firstBlock = {text: 'pieceOfCode', id: 0};
     const moveBlock = expect.createSpy();
     ind = 0;
     block = TestUtils.renderIntoDocument(
-      <BlockContext block={b} index={ind} isDragging={false} moveBlock={moveBlock}/>
+      <BlockContext block={firstBlock} index={ind} isDragging={false} moveBlock={moveBlock}/>
     );
     backend = block.getManager().getBackend();
 
-    const b2 = {text: 'test2', id: 2};
-    const moveBlock2 = expect.createSpy();
+    const thirdBlock = {text: 'anotherPieceOfCode', id: 2};
+    const moveAnotherBlock = expect.createSpy();
     otherBlock = TestUtils.renderIntoDocument(
-      <BlockContext block={b2} index={2} isDragging={false} moveBlock={moveBlock2}/>
+      <BlockContext block={thirdBlock} index={2} isDragging={false} moveBlock={moveAnotherBlock}/>
     );
   });
 
