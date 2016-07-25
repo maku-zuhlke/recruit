@@ -11,7 +11,7 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
-import * as BlockActions from '../actions/index';
+import * as BlockActions from '../actions/indexBlock';
 import * as TimerActions from '../actions/indexTimer';
 import * as MatchesActions from '../actions/indexMatches';
 
