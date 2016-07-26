@@ -13,16 +13,14 @@ function randomChallenge() {
 export default function blocks(state = randomChallenge(), action) {
   switch (action.type) {
     case VERIFY:
-      var blocksAreOrdered = state.blocks.map((item, i) => {
+      state.win = state.blocks.map((item, i) => {
         return item.id === state.correctOrder[i];
       }).reduce((current, next) => {
         return current && next;
       });
-      state.win = blocksAreOrdered;
       return state;
     case SORT:
-      const blocks = state.blocks;
-      const dragBlock = blocks[action.dragIndex];
+      const dragBlock = state.blocks[action.dragIndex];
       state.blocks = update(state.blocks, {
         $splice: [
           [action.dragIndex, 1],
