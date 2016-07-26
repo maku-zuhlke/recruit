@@ -164,20 +164,14 @@ img {
 .puzzleRow .contentPuzzle .challenge {
   height: 100%;
 }
-.puzzleRow .contentPuzzle .challenge .extras {
-  height: 30%;
-}
-.puzzleRow .contentPuzzle .challenge .puzzle {
-  height: 70%;
-}
 .puzzleRow .contentPuzzle .challenge .puzzle .operation {
   height: 50%;
   font-size: 0;
   position: relative;
+  margin-right: 1%;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal {
   height: 50%;
-  font-size: 0;
   position: absolute;
   bottom: 0;
 }
@@ -193,6 +187,7 @@ img {
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom .match {
   display: inline-block;
+  background-color: #7a43b6;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
   height: 60%;
@@ -206,21 +201,96 @@ img {
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus .match {
   display: inline-block;
+  background-color: #00d6b2;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .number {
   height: 100%;
   font-size: 0;
+  position: relative;
+  margin-left: 1%;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .number .vertical {
   height: 30%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .number .vertical .match {
+  display: inline-block;
+  background-color: #69c;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .number .horizontal {
   -webkit-transform: rotate(90deg);
   display: inline-block;
   height: 8%;
+  width: 60%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .number .horizontal .match {
+  display: inline-block;
+  background-color: #e9dc51;
 }
 .placeholder {
   opacity: 0.08;
+}
+@media (min-width: 320px) {
+  .puzzle {
+    height: 130px;
+  }
+  .puzzle img {
+    max-width: 7px;
+    max-height: 84px;
+  }
+}
+@media (min-width: 400px) {
+  .puzzle {
+    height: 210px;
+  }
+  .puzzle img {
+    max-width: 11px;
+    max-height: 94px;
+  }
+}
+@media (min-width: 768px) {
+  .puzzle {
+    height: 260px;
+  }
+  .puzzle img {
+    max-width: 13px;
+    max-height: 96px;
+  }
+}
+@media (min-width: 800px) {
+  .puzzle {
+    height: 300px;
+  }
+  .puzzle img {
+    max-width: 14px;
+    max-height: 97px;
+  }
+}
+@media (min-width: 1100px) {
+  .puzzle {
+    height: 60%;
+  }
+  .puzzle img {
+    max-width: 16px;
+    max-height: 99px;
+  }
+}
+@media (min-width: 1300px) {
+  .puzzle {
+    height: 65%;
+  }
+  .puzzle img {
+    max-width: 17px;
+    max-height: 100px;
+  }
+}
+@media (min-width: 1500px) {
+  .puzzle {
+    height: 70%;
+  }
+  .puzzle img {
+    max-width: 18px;
+    max-height: 101px;
+  }
 }
 @-moz-keyframes fromBack {
   0% {

@@ -90,7 +90,7 @@ class MatchstickPuzzle extends Component {
   renderOperationSkeleton() {
     var matchesObj = this.mapOperation();
     return(
-      <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2 operation">
+      <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 operation">
         <div className="row horizontal">
           <MatchPlaceholder classes="top col-xs-10" match={matchesObj[0]} pos={[3, 0]} onDrop={this.handleDrop}/>
           <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[1]} pos={[3, 1]} onDrop={this.handleDrop}/>

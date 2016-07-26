@@ -164,17 +164,14 @@ img
     height: 100%
     .challenge
       height: 100%
-      .extras
-        height 30%
       .puzzle
-        height: 70%
         .operation
           height: 50%
           font-size: 0
           position: relative
+          margin-right: 1%
           .horizontal
             height: 50%
-            font-size: 0
             position: absolute
             bottom: 0
             .top, .middle, .bottom
@@ -184,6 +181,7 @@ img
               -webkit-transform: rotate(90deg)
               .match
                 display: inline-block
+                background-color: #7a43b6
           .verticalZindex
             height: 60%
             z-index: 100
@@ -194,17 +192,74 @@ img
               height: 100%
               .match
                 display: inline-block
-
+                background-color: #00d6b2
         .number
           height: 100%
           font-size: 0
+          position: relative
+          margin-left: 1%
           .vertical
             height: 30%
+            .match
+              display: inline-block
+              background-color: #6699cc
           .horizontal
             -webkit-transform: rotate(90deg)
             display: inline-block
             height: 8%
+            width: 60%
+            .match
+              display: inline-block
+              background-color: #E9DC51
 
 .placeholder
   opacity: 0.08
 
+@media (min-width: 320px)
+  .puzzle
+    height: 130px
+    img
+      max-width: 7px
+      max-height: 84px
+
+@media (min-width: 400px)
+  .puzzle
+    height: 210px
+    img
+      max-width: 11px
+      max-height: 94px
+
+@media (min-width: 768px)
+  .puzzle
+    height: 260px
+    img
+      max-width: 13px
+      max-height: 96px
+
+@media (min-width: 800px)
+  .puzzle
+    height: 300px
+    img
+      max-width: 14px
+      max-height: 97px
+
+@media (min-width: 1100px)
+  .puzzle
+    height: 60%
+    img
+      max-width: 16px
+      max-height: 99px
+
+@media (min-width: 1300px)
+  .puzzle
+    height: 65%
+    img
+      max-width: 17px
+      max-height: 100px
+
+@media (min-width: 1500px)
+  .puzzle
+    height: 70%
+    img
+      max-width: 18px
+      max-height: 101px
