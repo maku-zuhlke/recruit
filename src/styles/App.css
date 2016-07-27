@@ -160,7 +160,6 @@ img {
   background-clip: content-box;
   background-color: rgba(255,255,255,0.4);
   padding-bottom: 1%;
-  height: 100%;
 }
 .puzzleRow .contentPuzzle .challenge {
   height: 100%;
@@ -236,6 +235,9 @@ img {
 }
 /* Media queries for matches */
 @media only screen and (min-width: 300px) and (max-width: 399px) {
+  .contentPuzzle {
+    height: 240px;
+  }
   .puzzle {
     height: 120px;
   }
@@ -262,6 +264,9 @@ img {
   }
 }
 @media only screen and (min-width: 400px) {
+  .contentPuzzle {
+    height: 300px;
+  }
   .puzzle {
     height: 170px;
   }
@@ -276,6 +281,9 @@ img {
   }
 }
 @media only screen and (min-width: 500px) {
+  .contentPuzzle {
+    height: 340px;
+  }
   .puzzle {
     height: 200px;
   }
@@ -290,6 +298,9 @@ img {
   }
 }
 @media only screen and (min-width: 600px) {
+  .contentPuzzle {
+    height: 380px;
+  }
   .puzzle {
     height: 240px;
   }
@@ -304,6 +315,9 @@ img {
   }
 }
 @media only screen and (min-width: 700px) {
+  .contentPuzzle {
+    height: 380px;
+  }
   .puzzle {
     height: 240px;
   }
@@ -318,6 +332,9 @@ img {
   }
 }
 @media only screen and (min-width: 768px) {
+  .contentPuzzle {
+    height: 380px;
+  }
   .puzzle {
     height: 240px;
   }
@@ -332,6 +349,9 @@ img {
   }
 }
 @media only screen and (min-width: 800px) {
+  .contentPuzzle {
+    height: 400px;
+  }
   .puzzle {
     height: 240px;
   }
@@ -346,6 +366,9 @@ img {
   }
 }
 @media only screen and (min-width: 900px) {
+  .contentPuzzle {
+    height: 420px;
+  }
   .puzzle {
     height: 280px;
   }
@@ -360,6 +383,9 @@ img {
   }
 }
 @media only screen and (min-width: 1000px) {
+  .contentPuzzle {
+    height: 380px;
+  }
   .puzzle {
     height: 240px;
   }
@@ -374,6 +400,9 @@ img {
   }
 }
 @media only screen and (min-width: 1190px) {
+  .contentPuzzle {
+    height: 500px;
+  }
   .puzzle {
     height: 320px;
   }
@@ -388,6 +417,9 @@ img {
   }
 }
 @media only screen and (min-width: 1440px) {
+  .contentPuzzle {
+    height: 580px;
+  }
   .puzzle {
     height: 360px;
   }
@@ -402,6 +434,9 @@ img {
   }
 }
 @media only screen and (min-width: 1700px) {
+  .contentPuzzle {
+    height: 620px;
+  }
   .puzzle {
     height: 400px;
   }
@@ -416,6 +451,9 @@ img {
   }
 }
 @media only screen and (min-width: 2000px) {
+  .contentPuzzle {
+    height: 720px;
+  }
   .puzzle {
     height: 500px;
   }
@@ -430,6 +468,9 @@ img {
   }
 }
 @media only screen and (min-width: 2300px) {
+  .contentPuzzle {
+    height: 820px;
+  }
   .puzzle {
     height: 600px;
   }
@@ -444,6 +485,9 @@ img {
   }
 }
 @media only screen and (min-width: 2600px) {
+  .contentPuzzle {
+    height: 880px;
+  }
   .puzzle {
     height: 660px;
   }
