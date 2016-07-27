@@ -30,6 +30,7 @@ op_zuhlke_colours()
 
 html
   height 100%
+  width: 100%
 
 body
   background: url("/images/bcgr.jpg") no-repeat fixed
@@ -213,6 +214,28 @@ img
 .placeholder
   opacity: 0.08
 
+/* Media queries for matches */
+@media only screen and (min-width: 300px) and (max-width: 399px)
+  .puzzle
+    height: 120px
+    img
+      max-width: 6px
+      max-height: 70px
+    .numberCol
+      width: 23%
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -12px
+          margin-left: -5px
+    .operation
+      .horizontal
+        .top, .middle, .bottom
+          margin-left: 10px
+      .verticalZindex
+        .plus
+          margin-left: 15px
+
 @media only screen and (min-width: 400px)
   .puzzle
     height: 170px
@@ -248,16 +271,16 @@ img
 
 @media only screen and (min-width: 700px)
   .puzzle
-    height: 280px
+    height: 240px
     img
-      max-width: 14px
-      max-height: 98px
+      max-width: 12px
+      max-height: 94px
     .number
       .horizontal
         .top, .middle, .bottom
-          margin-top: 5px
+          margin-top: 10px
 
-@media only screen and (min-width: 770px)
+@media only screen and (min-width: 768px)
   .puzzle
     height: 240px
     img
@@ -270,9 +293,9 @@ img
 
 @media only screen and (min-width: 800px)
   .puzzle
-    height: 280px
+    height: 240px
     img
-      max-width: 14px
+      max-width: 12px
       max-height: 98px
     .number
       .horizontal
@@ -288,7 +311,7 @@ img
     .number
       .horizontal
         .top, .middle, .bottom
-          margin-top: -10px
+          margin-top: -8px
 
 @media only screen and (min-width: 1000px)
   .puzzle

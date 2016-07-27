@@ -1,6 +1,7 @@
 /* Base Application Styles */
 html {
   height: 100%;
+  width: 100%;
 }
 body {
   background: url("/images/bcgr.jpg") no-repeat fixed;
@@ -233,6 +234,33 @@ img {
 .placeholder {
   opacity: 0.08;
 }
+/* Media queries for matches */
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+  .puzzle {
+    height: 120px;
+  }
+  .puzzle img {
+    max-width: 6px;
+    max-height: 70px;
+  }
+  .puzzle .numberCol {
+    width: 23%;
+  }
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: -12px;
+    margin-left: -5px;
+  }
+  .puzzle .operation .horizontal .top,
+  .puzzle .operation .horizontal .middle,
+  .puzzle .operation .horizontal .bottom {
+    margin-left: 10px;
+  }
+  .puzzle .operation .verticalZindex .plus {
+    margin-left: 15px;
+  }
+}
 @media only screen and (min-width: 400px) {
   .puzzle {
     height: 170px;
@@ -277,19 +305,19 @@ img {
 }
 @media only screen and (min-width: 700px) {
   .puzzle {
-    height: 280px;
+    height: 240px;
   }
   .puzzle img {
-    max-width: 14px;
-    max-height: 98px;
+    max-width: 12px;
+    max-height: 94px;
   }
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
-    margin-top: 5px;
+    margin-top: 10px;
   }
 }
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 768px) {
   .puzzle {
     height: 240px;
   }
@@ -305,10 +333,10 @@ img {
 }
 @media only screen and (min-width: 800px) {
   .puzzle {
-    height: 280px;
+    height: 240px;
   }
   .puzzle img {
-    max-width: 14px;
+    max-width: 12px;
     max-height: 98px;
   }
   .puzzle .number .horizontal .top,
@@ -328,7 +356,7 @@ img {
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
-    margin-top: -10px;
+    margin-top: -8px;
   }
 }
 @media only screen and (min-width: 1000px) {
