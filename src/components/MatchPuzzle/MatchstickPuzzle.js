@@ -117,7 +117,7 @@ class MatchstickPuzzle extends Component {
     return (
       <div className="center">
         <Instruction instruction={this.resolveInstruction()}/>
-        <div className="puzzle col-xs-12 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+        <div className="puzzle col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
           <div className="col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 numberCol">{this.renderNumberSkeleton(0)}</div>
           {this.renderOperationSkeleton()}
           <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(1)}</div>
