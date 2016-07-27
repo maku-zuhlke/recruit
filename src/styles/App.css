@@ -168,7 +168,6 @@ img {
   height: 50%;
   font-size: 0;
   position: relative;
-  margin-right: 1%;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal {
   height: 50%;
@@ -179,7 +178,7 @@ img {
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom {
   width: 60%;
-  height: 90%;
+  height: 50%;
   display: inline-block;
   -webkit-transform: rotate(90deg);
 }
@@ -187,109 +186,107 @@ img {
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom .match {
   display: inline-block;
-  background-color: #7a43b6;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
-  height: 60%;
-  z-index: 100;
+  height: 65%;
+  z-index: 1000;
   bottom: 0;
   position: absolute;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus {
-  z-index: 100;
-  height: 100%;
+  z-index: 1000;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus .match {
+  height: 100%;
   display: inline-block;
-  background-color: #00d6b2;
+  margin-left: -25px;
 }
-.puzzleRow .contentPuzzle .challenge .puzzle .number {
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol {
+  height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number {
   height: 100%;
   font-size: 0;
-  position: relative;
-  margin-left: 1%;
 }
-.puzzleRow .contentPuzzle .challenge .puzzle .number .vertical {
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .vertical {
   height: 30%;
 }
-.puzzleRow .contentPuzzle .challenge .puzzle .number .vertical .match {
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .vertical .match {
   display: inline-block;
-  background-color: #69c;
 }
-.puzzleRow .contentPuzzle .challenge .puzzle .number .horizontal {
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal {
   -webkit-transform: rotate(90deg);
   display: inline-block;
   height: 8%;
   width: 60%;
 }
-.puzzleRow .contentPuzzle .challenge .puzzle .number .horizontal .match {
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .top,
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .middle,
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .bottom {
+  height: 50%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .top .match,
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .middle .match,
+.puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .bottom .match {
   display: inline-block;
-  background-color: #e9dc51;
 }
 .placeholder {
   opacity: 0.08;
 }
-@media (min-width: 320px) {
+@media only screen and (min-width: 400px) {
   .puzzle {
-    height: 130px;
+    height: 170px;
   }
   .puzzle img {
-    max-width: 7px;
-    max-height: 84px;
+    max-width: 8px;
+    max-height: 90px;
+  }
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: -5px;
   }
 }
-@media (min-width: 400px) {
+@media only screen and (min-width: 500px) {
   .puzzle {
-    height: 210px;
+    height: 200px;
   }
   .puzzle img {
-    max-width: 11px;
+    max-width: 10px;
+    max-height: 92px;
+  }
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: -1px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .puzzle {
+    height: 240px;
+  }
+  .puzzle img {
+    max-width: 12px;
     max-height: 94px;
   }
-}
-@media (min-width: 768px) {
-  .puzzle {
-    height: 260px;
-  }
-  .puzzle img {
-    max-width: 13px;
-    max-height: 96px;
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: 3px;
   }
 }
-@media (min-width: 800px) {
+@media only screen and (min-width: 700px) {
   .puzzle {
-    height: 300px;
+    height: 280px;
   }
   .puzzle img {
     max-width: 14px;
-    max-height: 97px;
+    max-height: 98px;
   }
-}
-@media (min-width: 1100px) {
-  .puzzle {
-    height: 60%;
-  }
-  .puzzle img {
-    max-width: 16px;
-    max-height: 99px;
-  }
-}
-@media (min-width: 1300px) {
-  .puzzle {
-    height: 65%;
-  }
-  .puzzle img {
-    max-width: 17px;
-    max-height: 100px;
-  }
-}
-@media (min-width: 1500px) {
-  .puzzle {
-    height: 70%;
-  }
-  .puzzle img {
-    max-width: 18px;
-    max-height: 101px;
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: 3px;
   }
 }
 @-moz-keyframes fromBack {
