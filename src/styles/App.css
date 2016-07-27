@@ -249,7 +249,7 @@ img {
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
-    margin-top: -12px;
+    margin-top: -15px;
     margin-left: -5px;
   }
   .puzzle .operation .horizontal .top,
