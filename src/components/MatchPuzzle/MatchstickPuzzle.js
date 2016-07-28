@@ -134,7 +134,7 @@ class MatchstickPuzzle extends Component {
             />
           </div>
         </div>
-        {(this.state.matches.win && (!this.state.end && this.state.matches.moves >= 0)) && <Win />}
+        {this.state.matches.win && <Win />}
         {((this.state.end || this.state.matches.moves <= 0) && !this.state.matches.win) && <Fail text={this.state.end ? "Time's up, game over!" : "You're out of moves, game over!"} />}
       </div>
     );

@@ -31,7 +31,7 @@ export default function matches(state = initialState, action) {
       }).reduce((current, next) => {
         return current && next;
       });
-      state.win = correctNumbers && correctOperation;
+      state.win = correctNumbers && correctOperation && state.moves == 0;
       return state;
 
     case REMOVE:

@@ -112,6 +112,7 @@ describe('MatchstickPuzzleClass', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
     matches.win = true;
+    matches.moves = 0;
     matchPuzzle.setState({ matches: matches });
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
@@ -137,8 +138,11 @@ describe('MatchstickPuzzleClass', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
     matches.win = true;
+    matches.moves = 0;
+    matchPuzzle.setState({ matches: matches });
+    matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
+    expect(matchPuzzleNode.children.length).toEqual(4);
     var newState = { matches: matches };
-
     matchPuzzleDnD.props.timer.timesup = true;
     matchPuzzle.timeIsUp(newState);
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
