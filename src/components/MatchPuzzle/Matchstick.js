@@ -24,8 +24,9 @@ class Matchstick extends Component {
 
   render() {
     const { pos, isDropped, isDragging, connectDragSource } = this.props;
+    const opacity = isDragging ? 0.4 : 1;
     return connectDragSource(
-      <img src="images/match_out.png"/>
+      <img style={{ opacity }} src="images/match_out.png"/>
     );
   }
 }
