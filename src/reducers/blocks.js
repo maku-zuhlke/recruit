@@ -2,15 +2,11 @@
  * Created by lewa on 27/06/2016.
  */
 import { VERIFY_CODE_ORDER, REPOSITION_CODE_BLOCKS } from '../actions/const';
+import { randomChallenge } from '../utils/randomChallenge';
 import * as problems from '../data/scratchyProblems';
 import update from 'react/lib/update';
 
-function randomChallenge() {
-  var keys = Object.keys(problems);
-  return problems[keys[keys.length * Math.random() << 0]]
-}
-
-export default function blocks(state = randomChallenge(), action) {
+export default function blocks(state = randomChallenge(problems), action) {
   switch (action.type) {
     case VERIFY_CODE_ORDER:
       state.win = state.blocks.map((item, i) => {
