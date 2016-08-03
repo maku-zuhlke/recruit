@@ -10,18 +10,18 @@ import Fail from '../Fail';
 import WrongAnswer from '../WrongAnswer';
 import $ from 'jquery';
 import { default as BlockDragLayer } from './BlockDragLayer';
-import { timesUpText } from '../../data/strings';
+import { timesUpText, doneButton } from '../../data/strings';
 
 class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { blocks: props.blocks, attempt: false, timer: props.timer, end: false };
     this.moveBlock = this.moveBlock.bind(this);
-    this.submitOrder = this.submitOrder.bind(this);
+    this.done = this.done.bind(this);
     this.timeIsUp = this.timeIsUp.bind(this);
   }
 
-  submitOrder() {
+  done() {
     this.props.actions.verifyCodeOrder();
     this.setState({ attempt: true });
   }
@@ -61,7 +61,7 @@ class BlockList extends Component {
               callback={this.timeIsUp}
             />
           </div>
-          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default done" onClick={this.submitOrder}>It's done</button></div>
+          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default done" onClick={this.done}>{doneButton}</button></div>
         </div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {this.state.blocks.win && <Win />}

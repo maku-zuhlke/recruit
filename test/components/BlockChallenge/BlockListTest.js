@@ -82,14 +82,14 @@ describe('BlockListClass', () => {
 
   it('should change state.attempt when attempt of submission is made', () => {
     expect(blockList.state.attempt).toEqual(false);
-    blockList.submitOrder();
+    blockList.done();
     expect(blockList.state.attempt).toEqual(true);
   });
 
   it('should call verifyCodeOrder after submission', () => {
     expect(blockListDnD.props.actions.verifyCodeOrder.calls.length).toEqual(0);
     expect(blockList.props.actions.verifyCodeOrder.calls.length).toEqual(0);
-    blockList.submitOrder();
+    blockList.done();
     expect(blockListDnD.props.actions.verifyCodeOrder.calls.length).toEqual(1);
     expect(blockList.props.actions.verifyCodeOrder.calls.length).toEqual(1);
   });
