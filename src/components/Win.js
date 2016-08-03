@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { ScaleModal } from 'boron';
 import { winText } from '../data/strings';
-import begin from 'utils/pixelateHelper.js';
+import { begin } from 'utils/pixelateHelper.js';
 
 class Win extends Component {
   constructor(props, context) {
