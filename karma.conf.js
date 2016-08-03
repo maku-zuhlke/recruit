@@ -10,8 +10,8 @@ module.exports = function(config) {
     files: [
       'test/loadtests.js'
     ],
-    proxies : {
-    '/images/': '/base/images/'
+    proxies: {
+      '/images/': 'http://localhost:8000/images/'
     },
     port: 8000,
     captureTimeout: 60000,
