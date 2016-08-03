@@ -10,6 +10,9 @@ module.exports = function(config) {
     files: [
       'test/loadtests.js'
     ],
+    proxies : {
+    '/images/': '/base/images/'
+    },
     port: 8000,
     captureTimeout: 60000,
     frameworks: [ 'mocha', 'chai' ],
