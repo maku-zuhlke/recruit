@@ -33,7 +33,7 @@ class BlockList extends Component {
   }
 
   moveBlock(dragIndex, hoverIndex) {
-    this.props.actions.sort(dragIndex, hoverIndex);
+    this.props.actions.repositionCodeBlocks(dragIndex, hoverIndex);
     this.setState({ attempt: false });
   }
 

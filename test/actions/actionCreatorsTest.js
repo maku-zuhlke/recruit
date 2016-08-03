@@ -16,15 +16,15 @@ describe('blockActions', () => {
     expect(blockActions.verifyCodeOrder()).toEqual(expectedAction)
   });
 
-  it('should create an action to sort blocks', () => {
+  it('should create an action to reposition blocks of code', () => {
     const dragIndex = 0;
     const hoverIndex = 1;
     const expectedAction = {
-      type: types.SORT,
+      type: types.REPOSITION_CODE_BLOCKS,
       dragIndex,
       hoverIndex
     };
-    expect(blockActions.sort(dragIndex, hoverIndex)).toEqual(expectedAction)
+    expect(blockActions.repositionCodeBlocks(dragIndex, hoverIndex)).toEqual(expectedAction)
   });
 });
 

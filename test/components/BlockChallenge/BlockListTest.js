@@ -47,7 +47,7 @@ describe('BlockListClass', () => {
     };
     let actions = {
       verifyCodeOrder: expect.createSpy(),
-      sort: expect.createSpy()
+      repositionCodeBlocks: expect.createSpy()
     };
     let timerActions = {
       startTimer: expect.createSpy(),
@@ -145,11 +145,11 @@ describe('BlockListClass', () => {
     expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
-  it('should call sort after block movement', () => {
-    expect(blockListDnD.props.actions.sort.calls.length).toEqual(0);
-    expect(blockList.props.actions.sort.calls.length).toEqual(0);
+  it('should call repositionCodeBlocks after block movement', () => {
+    expect(blockListDnD.props.actions.repositionCodeBlocks.calls.length).toEqual(0);
+    expect(blockList.props.actions.repositionCodeBlocks.calls.length).toEqual(0);
     blockList.moveBlock();
-    expect(blockListDnD.props.actions.sort.calls.length).toEqual(1);
-    expect(blockList.props.actions.sort.calls.length).toEqual(1);
+    expect(blockListDnD.props.actions.repositionCodeBlocks.calls.length).toEqual(1);
+    expect(blockList.props.actions.repositionCodeBlocks.calls.length).toEqual(1);
   });
 });

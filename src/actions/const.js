@@ -2,7 +2,7 @@
 /* Coding challenge actions (Blocklist) */
 export const VERIFY_CODE_ORDER = 'VERIFY_CODE_ORDER';
 
-export const SORT = 'SORT';
+export const REPOSITION_CODE_BLOCKS = 'REPOSITION_CODE_BLOCKS';
 
 /* Timer actions */
 export const START_TIMER = 'START_TIMER';

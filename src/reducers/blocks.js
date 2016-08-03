@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 27/06/2016.
  */
-import { VERIFY_CODE_ORDER, SORT } from '../actions/const';
+import { VERIFY_CODE_ORDER, REPOSITION_CODE_BLOCKS } from '../actions/const';
 import * as problems from '../data/scratchyProblems';
 import update from 'react/lib/update';
 
@@ -19,7 +19,7 @@ export default function blocks(state = randomChallenge(), action) {
         return current && next;
       });
       return state;
-    case SORT:
+    case REPOSITION_CODE_BLOCKS:
       const dragBlock = state.blocks[action.dragIndex];
       state.blocks = update(state.blocks, {
         $splice: [

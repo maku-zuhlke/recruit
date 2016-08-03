@@ -40,19 +40,19 @@ describe('blocksReducer', () => {
     expect(newState.win).toBe(true);
   });
 
-  it('should handle SORT - no drag', () => {
+  it('should handle REPOSITION_CODE_BLOCKS - no drag', () => {
     const dragIndex = 0;
     const hoverIndex = dragIndex;
     var blocks = initialState.blocks;
-    var newBlocks = reducer(initialState, {type: types.SORT, dragIndex, hoverIndex}).blocks;
+    var newBlocks = reducer(initialState, {type: types.REPOSITION_CODE_BLOCKS, dragIndex, hoverIndex}).blocks;
     expect(newBlocks).toEqual(blocks);
   });
 
-  it('should handle SORT - drag', () => {
+  it('should handle REPOSITION_CODE_BLOCKS - drag', () => {
     var blocks = initialState.blocks;
     const dragIndex = 0;
     const hoverIndex = 1;
-    var newBlocks = reducer(initialState, {type: types.SORT, dragIndex, hoverIndex}).blocks;
+    var newBlocks = reducer(initialState, {type: types.REPOSITION_CODE_BLOCKS, dragIndex, hoverIndex}).blocks;
     expect(newBlocks).toNotEqual(blocks);
   });
 });
