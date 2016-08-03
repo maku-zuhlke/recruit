@@ -46,7 +46,7 @@ describe('BlockListClass', () => {
       offset: Date.now()
     };
     let actions = {
-      verifyOrder: expect.createSpy(),
+      verifyCodeOrder: expect.createSpy(),
       sort: expect.createSpy()
     };
     let timerActions = {
@@ -89,12 +89,12 @@ describe('BlockListClass', () => {
     expect(blockList.state.attempt).toEqual(true);
   });
 
-  it('should call verifyOrder after submission', () => {
-    expect(blockListDnD.props.actions.verifyOrder.calls.length).toEqual(0);
-    expect(blockList.props.actions.verifyOrder.calls.length).toEqual(0);
+  it('should call verifyCodeOrder after submission', () => {
+    expect(blockListDnD.props.actions.verifyCodeOrder.calls.length).toEqual(0);
+    expect(blockList.props.actions.verifyCodeOrder.calls.length).toEqual(0);
     blockList.submitOrder();
-    expect(blockListDnD.props.actions.verifyOrder.calls.length).toEqual(1);
-    expect(blockList.props.actions.verifyOrder.calls.length).toEqual(1);
+    expect(blockListDnD.props.actions.verifyCodeOrder.calls.length).toEqual(1);
+    expect(blockList.props.actions.verifyCodeOrder.calls.length).toEqual(1);
   });
 
   it('should render Win component if win is true', () => {

@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 27/06/2016.
  */
-import { VERIFY, SORT } from '../actions/const';
+import { VERIFY_CODE_ORDER, SORT } from '../actions/const';
 import * as problems from '../data/scratchyProblems';
 import update from 'react/lib/update';
 
@@ -12,7 +12,7 @@ function randomChallenge() {
 
 export default function blocks(state = randomChallenge(), action) {
   switch (action.type) {
-    case VERIFY:
+    case VERIFY_CODE_ORDER:
       state.win = state.blocks.map((item, i) => {
         return item.id === state.correctOrder[i];
       }).reduce((current, next) => {

@@ -9,11 +9,11 @@ import * as timerActions from 'actions/indexTimer';
 import * as types from 'actions/const';
 
 describe('blockActions', () => {
-  it('should create an action to verify the state of the blocks', () => {
+  it('should create an action to verify the state/order of the blocks', () => {
     const expectedAction = {
-      type: types.VERIFY
+      type: types.VERIFY_CODE_ORDER
     };
-    expect(blockActions.verifyOrder()).toEqual(expectedAction)
+    expect(blockActions.verifyCodeOrder()).toEqual(expectedAction)
   });
 
   it('should create an action to sort blocks', () => {

@@ -21,7 +21,7 @@ class BlockList extends Component {
   }
 
   submitOrder() {
-    this.props.actions.verifyOrder();
+    this.props.actions.verifyCodeOrder();
     this.setState({ attempt: true });
   }
 

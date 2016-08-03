@@ -3,8 +3,8 @@
  */
 import * as types from './const';
 
-export function verifyOrder() {
-  return { type: types.VERIFY }
+export function verifyCodeOrder() {
+  return { type: types.VERIFY_CODE_ORDER }
 }
 
 export function sort(dragIndex, hoverIndex) {

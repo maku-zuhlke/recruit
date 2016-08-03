@@ -27,16 +27,16 @@ describe('blocksReducer', () => {
     expect(reducer(initialState, {})).toEqual(initialState);
   });
 
-  it('should handle VERIFY - no change in state', () => {
-    expect(reducer(initialState, {type: types.VERIFY})).toEqual(initialState);
+  it('should handle VERIFY_CODE_ORDER - no change in state', () => {
+    expect(reducer(initialState, {type: types.VERIFY_CODE_ORDER})).toEqual(initialState);
   });
 
-  it('should handle VERIFY - change in state', () => {
+  it('should handle VERIFY_CODE_ORDER - change in state', () => {
     var reorderedBlocksState = initialState;
     reorderedBlocksState.blocks = [
       {text: 'pieceOfCode2', id: 2},
       {text: 'pieceOfCode1', id: 1}];
-    var newState = reducer(reorderedBlocksState, {type: types.VERIFY});
+    var newState = reducer(reorderedBlocksState, {type: types.VERIFY_CODE_ORDER});
     expect(newState.win).toBe(true);
   });
 
