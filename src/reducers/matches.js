@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 21/07/2016.
  */
-import { CHECK, REMOVE, PLACE } from '../actions/const';
+import { CHECK, REMOVE_MATCH, PLACE_MATCH } from '../actions/const';
 
 const initialState = {
   numbers :[[1,1,0,1,1,0,1],[0,1,1,0,1,1,1],[1,1,1,1,1,1,1]],
@@ -34,7 +34,7 @@ export default function matches(state = initialState, action) {
       state.win = correctNumbers && correctOperation && state.moves == 0;
       return state;
 
-    case REMOVE:
+    case REMOVE_MATCH:
       if (action.before[0] == 3) {
         state.operation[action.before[1]] = 0;
       } else {
@@ -42,7 +42,7 @@ export default function matches(state = initialState, action) {
       }
       return state;
 
-    case PLACE:
+    case PLACE_MATCH:
       if (action.after[0] == 3) {
         state.operation[action.after[1]] = 1;
       } else {

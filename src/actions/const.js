@@ -14,6 +14,6 @@ export const TICK_TIMER = 'TICK_TIMER';
 /* Matchstick puzzle actions */
 export const CHECK = 'CHECK';
 
-export const REMOVE = 'REMOVE';
+export const REMOVE_MATCH = 'REMOVE_MATCH';
 
-export const PLACE = 'PLACE';
+export const PLACE_MATCH = 'PLACE_MATCH';

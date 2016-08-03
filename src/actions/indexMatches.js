@@ -4,11 +4,11 @@
 import * as types from './const';
 
 export function removeMatch(before) {
-  return { type: types.REMOVE, before }
+  return { type: types.REMOVE_MATCH, before }
 }
 
 export  function placeMatch(after) {
-  return { type: types.PLACE, after }
+  return { type: types.PLACE_MATCH, after }
 }
 
 export function checkMatches() {
