@@ -2,16 +2,10 @@
  * Created by lewa on 21/07/2016.
  */
 import { CHECK_MATCHES_POSITIONS, REMOVE_MATCH, PLACE_MATCH } from '../actions/const';
+import { randomChallenge } from '../utils/randomChallenge';
+import * as problems from '../data/matchstickProblems';
 
-const initialState = {
-  numbers :[[1,1,0,1,1,0,1],[0,1,1,0,1,1,1],[1,1,1,1,1,1,1]],
-  operation: [1,0,0],
-  moves: 2,
-  correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,1,0,1],[1,1,0,1,1,1,1]], operation: [1,0,0]},
-  win: false
-};
-
-export default function matches(state = initialState, action) {
+export default function matches(state = randomChallenge(problems), action) {
   switch (action.type) {
     case CHECK_MATCHES_POSITIONS:
       state.moves = state.moves - 1;
