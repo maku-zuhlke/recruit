@@ -26,8 +26,14 @@ describe('MatchstickPuzzleClass', () => {
   let matches;
   let matchPuzzleDnD;
   let matchPuzzle;
+  let winText;
+  let timesupText;
+  let outOfMovesText;
 
   beforeEach(() => {
+    winText = "Register with Zühlke's talent database";
+    timesupText = "Time's up, game over!";
+    outOfMovesText = "You're out of moves, game over!";
     const MatchstickPuzzleContext = DragDropContext(TestBackend) (MatchstickPuzzle);
     matches = {
       numbers :[[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,1,1,1,0,0,0]],
@@ -111,51 +117,71 @@ describe('MatchstickPuzzleClass', () => {
   it('should render Win component if win is true', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.innerText.includes(winText)).toBe(false);
+
     matches.win = true;
     matches.moves = 0;
     matchPuzzle.setState({ matches: matches });
+
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
   });
 
   it('should render Fail component if time is up', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
     var newState = { matches: matches };
 
     matchPuzzleDnD.props.timer.timesup = false;
     matchPuzzle.timeIsUp(newState);
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
 
     matchPuzzleDnD.props.timer.timesup = true;
     matchPuzzle.timeIsUp(newState);
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(true);
   });
 
   it('should not render Fail component if time is up but win is true', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.innerText.includes(winText)).toBe(false);
+    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+
     matches.win = true;
     matches.moves = 0;
     matchPuzzle.setState({ matches: matches });
+
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
+    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+
     var newState = { matches: matches };
     matchPuzzleDnD.props.timer.timesup = true;
     matchPuzzle.timeIsUp(newState);
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
+    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
   });
 
   it('should render Fail component if out of moves', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.innerText.includes(outOfMovesText)).toBe(false);
+
     matches.moves = 0;
     matchPuzzle.setState({ matches: matches });
+
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.innerText.includes(outOfMovesText)).toBe(true);
   });
 
   it('should render singular instruction', () => {
