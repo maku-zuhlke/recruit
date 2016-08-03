@@ -28,8 +28,10 @@ describe('MainClass', () => {
   let main;
   let blocks;
   let matches;
+  let buttonsText;
 
   beforeEach(() => {
+    buttonsText = "Coding challengePuzzle challenge";
     const MainContext = DragDropContext(TestBackend) (Main);
     blocks = {
       correctOrder: [2, 1],
@@ -88,13 +90,21 @@ describe('MainClass', () => {
     expect(mainNode.children[1].children[0].children.length).toEqual(2); /* content div */
     expect(mainNode.children[1].children[0].children[0].children.length).toEqual(1); /* button element */
     expect(mainNode.children[1].children[0].children[0].children[0].children.length).toEqual(0); /* span element */
+    expect(mainNode.innerText.includes(buttonsText)).toBe(true);
+    expect(mainNode.innerText.includes(blocks.blocks[0].text)).toBe(false);
+    expect(mainNode.innerText.includes(blocks.blocks[1].text)).toBe(false);
+
     main.startCoding();
+
     mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */
     expect(mainNode.children[1].children[0].children.length).toEqual(1); /* content div */
     expect(mainNode.children[1].children[0].children[0].children.length).toEqual(1);  /* list element */
     expect(mainNode.children[1].children[0].children[0].children[0].children.length).toBeGreaterThan(0);  /* block element */
+    expect(mainNode.innerText.includes(buttonsText)).toBe(false);
+    expect(mainNode.innerText.includes(blocks.blocks[0].text)).toBe(true);
+    expect(mainNode.innerText.includes(blocks.blocks[1].text)).toBe(true);
   });
 
   it('should set state.startPuzzle to true', () => {
@@ -104,18 +114,25 @@ describe('MainClass', () => {
   });
 
   it('should render MatchstickPuzzle component after starting the puzzle challenge', () => {
+    var instruction = "Solve the equation moving " + matches.moves + " matches";
     var mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */
     expect(mainNode.children[1].children[0].children.length).toEqual(2); /* content div */
     expect(mainNode.children[1].children[0].children[0].children.length).toEqual(1); /* button element */
     expect(mainNode.children[1].children[0].children[0].children[0].children.length).toEqual(0); /* span element */
+    expect(mainNode.innerText.includes(buttonsText)).toBe(true);
+    expect(mainNode.innerText.includes(instruction)).toBe(false);
+
     main.startPuzzle();
+
     mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */
     expect(mainNode.children[1].children[0].children.length).toEqual(1); /* content div */
     expect(mainNode.children[1].children[0].children[0].children.length).toEqual(1);  /* list element */
     expect(mainNode.children[1].children[0].children[0].children[0].children.length).toBeGreaterThan(0);  /* block element */
+    expect(mainNode.innerText.includes(buttonsText)).toBe(false);
+    expect(mainNode.innerText.includes(instruction)).toBe(true);
   });
 });
