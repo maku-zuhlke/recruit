@@ -40,6 +40,16 @@ describe('matchesReducer', () => {
     expect(reducer(initialState, {type: types.CHECK}).win).toEqual(true);
   });
 
+  it('should handle CHECK - moves != 0', () => {
+    expect(initialState.win).toEqual(false);
+    const before = [2, 1];
+    reducer(initialState, {type: types.REMOVE, before});
+    const after = [3, 1];
+    reducer(initialState, {type: types.PLACE, after});
+    initialState.moves = 2;
+    expect(reducer(initialState, {type: types.CHECK}).win).toEqual(false);
+  });
+
   it('should handle REMOVE - removing from number', () => {
     const before = [1, 2];
     expect(reducer(initialState, {type: types.REMOVE, before}).numbers[before[0]]).toEqual([0,0,0,1,0,0,0]);
