@@ -26,28 +26,28 @@ describe('matchesReducer', () => {
     expect(reducer(initialState, {})).toEqual(initialState);
   });
 
-  it('should handle CHECK - decreasing number of moves', () => {
+  it('should handle CHECK_MATCHES_POSITIONS - decreasing number of moves', () => {
     expect(initialState.moves).toEqual(1);
-    expect(reducer(initialState, {type: types.CHECK}).moves).toEqual(0);
+    expect(reducer(initialState, {type: types.CHECK_MATCHES_POSITIONS}).moves).toEqual(0);
   });
 
-  it('should handle CHECK - win', () => {
+  it('should handle CHECK_MATCHES_POSITIONS - win', () => {
     expect(initialState.win).toEqual(false);
     const before = [2, 1];
     reducer(initialState, {type: types.REMOVE_MATCH, before});
     const after = [3, 1];
     reducer(initialState, {type: types.PLACE_MATCH, after});
-    expect(reducer(initialState, {type: types.CHECK}).win).toEqual(true);
+    expect(reducer(initialState, {type: types.CHECK_MATCHES_POSITIONS}).win).toEqual(true);
   });
 
-  it('should handle CHECK - moves != 0', () => {
+  it('should handle CHECK_MATCHES_POSITIONS - moves != 0', () => {
     expect(initialState.win).toEqual(false);
     const before = [2, 1];
     reducer(initialState, {type: types.REMOVE_MATCH, before});
     const after = [3, 1];
     reducer(initialState, {type: types.PLACE_MATCH, after});
     initialState.moves = 2;
-    expect(reducer(initialState, {type: types.CHECK}).win).toEqual(false);
+    expect(reducer(initialState, {type: types.CHECK_MATCHES_POSITIONS}).win).toEqual(false);
   });
 
   it('should handle REMOVE_MATCH - removing from number', () => {

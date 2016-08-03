@@ -49,9 +49,9 @@ describe('matchesActions', () => {
 
   it('should create an action to check matches positions', () => {
     const expectedAction = {
-      type: types.CHECK
+      type: types.CHECK_MATCHES_POSITIONS
     };
-    expect(matchesActions.checkMatches()).toEqual(expectedAction);
+    expect(matchesActions.checkMatchesPositions()).toEqual(expectedAction);
   });
 });
 

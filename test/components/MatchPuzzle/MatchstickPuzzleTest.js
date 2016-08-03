@@ -49,11 +49,11 @@ describe('MatchstickPuzzleClass', () => {
     let actions = {
       removeMatch: expect.createSpy(),
       placeMatch: expect.createSpy(),
-      checkMatches: expect.createSpy()
+      checkMatchesPositions: expect.createSpy()
     };
     let timerActions = {
       startTimer: expect.createSpy(),
-      tick: expect.createSpy()
+      tickTimer: expect.createSpy()
     };
     matchPuzzleDnD = TestUtils.renderIntoDocument(
       <MatchstickPuzzleContext matches={matches} actions={actions} timer={timer} timerActions={timerActions}/>
@@ -104,14 +104,14 @@ describe('MatchstickPuzzleClass', () => {
     expect(matchPuzzle.props.actions.placeMatch.calls.length).toEqual(1);
   });
 
-  it('should call checkMatches after match movement', () => {
-    expect(matchPuzzleDnD.props.actions.checkMatches.calls.length).toEqual(0);
-    expect(matchPuzzle.props.actions.checkMatches.calls.length).toEqual(0);
+  it('should call checkMatchesPositions after match movement', () => {
+    expect(matchPuzzleDnD.props.actions.checkMatchesPositions.calls.length).toEqual(0);
+    expect(matchPuzzle.props.actions.checkMatchesPositions.calls.length).toEqual(0);
 
     matchPuzzle.handleDrop({pos: [0, 0]}, [1, 2]);
 
-    expect(matchPuzzleDnD.props.actions.checkMatches.calls.length).toEqual(1);
-    expect(matchPuzzle.props.actions.checkMatches.calls.length).toEqual(1);
+    expect(matchPuzzleDnD.props.actions.checkMatchesPositions.calls.length).toEqual(1);
+    expect(matchPuzzle.props.actions.checkMatchesPositions.calls.length).toEqual(1);
   });
 
   it('should render Win component if win is true', () => {

@@ -11,6 +11,6 @@ export  function placeMatch(after) {
   return { type: types.PLACE_MATCH, after }
 }
 
-export function checkMatches() {
-  return { type: types.CHECK }
+export function checkMatchesPositions() {
+  return { type: types.CHECK_MATCHES_POSITIONS }
 }

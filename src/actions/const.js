@@ -12,7 +12,7 @@ export const STOP_TIMER = 'STOP_TIMER';
 export const TICK_TIMER = 'TICK_TIMER';
 
 /* Matchstick puzzle actions */
-export const CHECK = 'CHECK';
+export const CHECK_MATCHES_POSITIONS = 'CHECK_MATCHES_POSITIONS';
 
 export const REMOVE_MATCH = 'REMOVE_MATCH';
 

@@ -54,7 +54,7 @@ class MatchstickPuzzle extends Component {
   handleDrop(match, place) {
     this.props.actions.removeMatch(match.pos);
     this.props.actions.placeMatch(place);
-    this.props.actions.checkMatches();
+    this.props.actions.checkMatchesPositions();
     this.setState(this.state);
   }
 
