@@ -8,11 +8,10 @@ module.exports = function(config) {
     basePath: '',
     browsers: [ 'PhantomJS' ],
     files: [
-      'test/loadtests.js'
+      'test/loadtests.js',
+      {pattern: 'src/images/*.jpg', watched: false, included: false, served: true},
+      {pattern: 'src/images/*.png', watched: false, included: false, served: true}
     ],
-    proxies: {
-      '/images/': 'http://localhost:8000/images/'
-    },
     port: 8000,
     captureTimeout: 60000,
     frameworks: [ 'mocha', 'chai' ],
@@ -34,6 +33,9 @@ module.exports = function(config) {
         { type: 'html' },
         { type: 'text' }
       ]
+    },
+    proxies: {
+      '/images/': 'http://localhost:8000/base/src/images'
     }
   });
 };
