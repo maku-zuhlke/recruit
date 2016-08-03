@@ -37,7 +37,7 @@ describe('TimerClass', () => {
     let actions = {
       startTimer: expect.createSpy(),
       stopTimer: expect.createSpy(),
-      tick: expect.createSpy()
+      tickTimer: expect.createSpy()
     };
     let callback = expect.createSpy();
     timer = TestUtils.renderIntoDocument(<Timer timer={timerProps} actions={actions} callback={callback} />);
@@ -72,9 +72,9 @@ describe('TimerClass', () => {
   });
 
   it('should call tick within progress()', () => {
-    expect(timer.props.actions.tick.calls.length).toEqual(0);
+    expect(timer.props.actions.tickTimer.calls.length).toEqual(0);
     timer.progress();
-    expect(timer.props.actions.tick.calls.length).toEqual(1);
+    expect(timer.props.actions.tickTimer.calls.length).toEqual(1);
   });
 
   it('should update props within progress()', () => {

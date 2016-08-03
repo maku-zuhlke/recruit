@@ -1,4 +1,4 @@
-import { START_TIMER, STOP_TIMER, TICK } from '../actions/const';
+import { START_TIMER, STOP_TIMER, TICK_TIMER } from '../actions/const';
 
 const initialState = {
   time: 0,
@@ -12,7 +12,7 @@ export default function timer(state = initialState, action) {
       return state;
     case STOP_TIMER:
       return initialState;
-    case TICK:
+    case TICK_TIMER:
       state.time = state.time - (action.time - state.offset);
       state.offset = action.time;
       return state;

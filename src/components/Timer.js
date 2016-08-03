@@ -21,7 +21,7 @@ class Timer extends Component {
   }
 
   progress = () => {
-    this.props.actions.tick(Date.now());
+    this.props.actions.tickTimer(Date.now());
     this._interval = requestAnimationFrame(this.progress);
     this.forceUpdate();
     if (this.props.timer.time <= -59000) {

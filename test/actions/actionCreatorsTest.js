@@ -68,10 +68,10 @@ describe('timerActions', () => {
   it('should create an action to tick timer', () => {
     const time = 60;
     const expectedAction = {
-      type: types.TICK,
+      type: types.TICK_TIMER,
       time
     };
-    expect(timerActions.tick(time)).toEqual(expectedAction);
+    expect(timerActions.tickTimer(time)).toEqual(expectedAction);
   });
 
   it('should create an action to stop timer', () => {

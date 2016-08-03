@@ -4,8 +4,8 @@ export function startTimer(offset) {
   return { type: types.START_TIMER, offset }
 }
 
-export function tick(time) {
-  return { type: types.TICK, time }
+export function tickTimer(time) {
+  return { type: types.TICK_TIMER, time }
 }
 
 export function stopTimer() {
