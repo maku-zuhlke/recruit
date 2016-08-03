@@ -1,6 +1,8 @@
 /**
  * Created by lewa on 03/08/2016.
  */
+export const wrongAnswerText = "Oh, it's wrong, try again, it's worth it!";
+
 export const winText = "Register with Zühlke's talent database";
 
 export const timesUpText = "Time's up, game over!";
