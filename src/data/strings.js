@@ -12,3 +12,5 @@ export const outOfMovesText = "You're out of moves, game over!";
 export const matchPuzzleInstruction = "Solve the equation moving ";
 
 export const codeBlocksInstruction = "Reorder the blocks of code to ";
+
+export const doneButton = "It's done";
