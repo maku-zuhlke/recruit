@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Timer extends Component {
   constructor(props, context) {
     super(props, context);
+    this.interval = -59000;
     this.state = { time: this.props.timer.time, offset: this.props.timer.offset }
   }
 
@@ -24,7 +25,7 @@ class Timer extends Component {
     this.props.actions.tickTimer(Date.now());
     this._interval = requestAnimationFrame(this.progress);
     this.forceUpdate();
-    if (this.props.timer.time <= -59000) {
+    if (this.props.timer.time <= this.interval) {
       this.props.timer.timesup = true;
       this.props.callback();
       this.stop();
