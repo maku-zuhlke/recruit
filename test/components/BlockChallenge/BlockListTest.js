@@ -27,8 +27,12 @@ describe('BlockListClass', () => {
   let blockList;
   let blockListDnD;
   let blocks;
+  let winText;
+  let timesupText;
 
   beforeEach(() => {
+    winText = "Register with Zühlke's talent database";
+    timesupText = "Time's up, game over!";
     const BlockListContext = DragDropContext(TestBackend) (BlockList);
     blocks = {
       correctOrder: [2, 1],
@@ -96,31 +100,40 @@ describe('BlockListClass', () => {
   it('should render Win component if win is true', () => {
     var blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.innerText.includes(winText)).toBe(false);
+
     blocks.win = true;
     blockList.setState({ blocks: blocks });
+
     blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
   it('should render Fail component if time is up', () => {
     var blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.innerText.includes(timesupText)).toBe(false);
     var newState = { blocks: blocks };
 
     blockListDnD.props.timer.timesup = false;
     blockList.timeIsUp(newState);
     blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.innerText.includes(timesupText)).toBe(false);
 
     blockListDnD.props.timer.timesup = true;
     blockList.timeIsUp(newState);
     blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.innerText.includes(timesupText)).toBe(true);
   });
 
   it('should not render Fail component if time is up but win is true', () => {
     var blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.innerText.includes(timesupText)).toBe(false);
+    expect(blockListNode.innerText.includes(winText)).toBe(false);
     blocks.win = true;
     var newState = { blocks: blocks };
 
@@ -128,6 +141,8 @@ describe('BlockListClass', () => {
     blockList.timeIsUp(newState);
     blockListNode = ReactDOM.findDOMNode(blockListDnD);
     expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.innerText.includes(timesupText)).toBe(false);
+    expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
   it('should call sort after block movement', () => {
