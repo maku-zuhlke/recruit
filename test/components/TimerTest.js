@@ -78,10 +78,11 @@ describe('TimerClass', () => {
   });
 
   it('should update props within progress()', () => {
+    var timeOver = -59001;
     expect(timer.props.timer.timesup).toEqual(false);
     expect(timer.props.callback.calls.length).toEqual(0);
     expect(timer.props.actions.stopTimer.calls.length).toEqual(0);
-    timer.props.timer.time = -59001;
+    timer.props.timer.time = timeOver;
     timer.progress();
     expect(timer.props.timer.timesup).toEqual(true);
     expect(timer.props.callback.calls.length).toEqual(1);
