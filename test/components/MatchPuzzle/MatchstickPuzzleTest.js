@@ -9,6 +9,7 @@ import createComponent from 'helpers/shallowRenderHelper';
 import MatchstickPuzzle from 'components/MatchPuzzle/MatchstickPuzzle';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
+import { winText, timesUpText, outOfMovesText, matchPuzzleInstruction } from 'data/strings';
 
 describe('MatchstickPuzzleShallowComponent', () => {
   let MatchstickPuzzleComponent;
@@ -26,14 +27,8 @@ describe('MatchstickPuzzleClass', () => {
   let matches;
   let matchPuzzleDnD;
   let matchPuzzle;
-  let winText;
-  let timesupText;
-  let outOfMovesText;
 
   beforeEach(() => {
-    winText = "Register with Zühlke's talent database";
-    timesupText = "Time's up, game over!";
-    outOfMovesText = "You're out of moves, game over!";
     const MatchstickPuzzleContext = DragDropContext(TestBackend) (MatchstickPuzzle);
     matches = {
       numbers :[[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,1,1,1,0,0,0]],
@@ -131,27 +126,27 @@ describe('MatchstickPuzzleClass', () => {
   it('should render Fail component if time is up', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
-    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+    expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
     var newState = { matches: matches };
 
     matchPuzzleDnD.props.timer.timesup = false;
     matchPuzzle.timeIsUp(newState);
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
-    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+    expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
 
     matchPuzzleDnD.props.timer.timesup = true;
     matchPuzzle.timeIsUp(newState);
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
-    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(true);
+    expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(true);
   });
 
   it('should not render Fail component if time is up but win is true', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(3);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(false);
-    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+    expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
 
     matches.win = true;
     matches.moves = 0;
@@ -160,7 +155,7 @@ describe('MatchstickPuzzleClass', () => {
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
-    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+    expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
 
     var newState = { matches: matches };
     matchPuzzleDnD.props.timer.timesup = true;
@@ -168,7 +163,7 @@ describe('MatchstickPuzzleClass', () => {
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzleDnD);
     expect(matchPuzzleNode.children.length).toEqual(4);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
-    expect(matchPuzzleNode.innerText.includes(timesupText)).toBe(false);
+    expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
   });
 
   it('should render Fail component if out of moves', () => {
@@ -185,13 +180,13 @@ describe('MatchstickPuzzleClass', () => {
   });
 
   it('should render singular instruction', () => {
-    expect(matchPuzzle.resolveInstruction()).toEqual('Solve the equation moving 1 match');
+    expect(matchPuzzle.resolveInstruction()).toEqual(matchPuzzleInstruction + '1 match');
   });
 
   it('should render plural instruction', () => {
     matches.moves = 2;
     matchPuzzle.setState({ matches: matches });
-    expect(matchPuzzle.resolveInstruction()).toEqual('Solve the equation moving 2 matches');
+    expect(matchPuzzle.resolveInstruction()).toEqual(matchPuzzleInstruction + '2 matches');
   });
 
   it('should map binary list to matchstick number', () => {

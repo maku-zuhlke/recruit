@@ -10,6 +10,7 @@ import Fail from '../Fail';
 import WrongAnswer from '../WrongAnswer';
 import $ from 'jquery';
 import { default as BlockDragLayer } from './BlockDragLayer';
+import { timesUpText } from '../../data/strings';
 
 class BlockList extends Component {
   constructor(props, context) {
@@ -64,7 +65,7 @@ class BlockList extends Component {
         </div>
         {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
         {this.state.blocks.win && <Win />}
-        {(this.state.end && !this.state.blocks.win) && <Fail text={"Time's up, game over!"}/>}
+        {(this.state.end && !this.state.blocks.win) && <Fail text={timesUpText}/>}
       </div>
     )
   }

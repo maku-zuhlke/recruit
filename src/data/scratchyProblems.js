@@ -1,5 +1,7 @@
+import { codeBlocksInstruction } from './strings';
+
 export const fibonacci = {
-  instruction: 'Reorder the blocks of code to solve the fibonacci challenge.',
+  instruction: codeBlocksInstruction + 'solve the fibonacci challenge.',
   correctOrder: [4, 1, 6, 3, 2, 5],
   blocks: [{
     text: 'int f = 0;\nint g = 1;',
@@ -29,7 +31,7 @@ export const fibonacci = {
 };
 
 export const rotate = {
-  instruction: 'Reorder the blocks of code to rotate an array of n elements to the right by k steps.\n For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].',
+  instruction: codeBlocksInstruction + 'rotate an array of n elements to the right by k steps.\n For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].',
   correctOrder: [4, 8, 3, 10, 1, 2, 7, 5, 9, 6],
   blocks: [{
     text: 'for (int i = 0; i &lt; k; i++){',
@@ -75,7 +77,7 @@ export const rotate = {
 };
 
 export const bubbleSort = {
-  instruction: 'Reorder the blocks of code to build the bubble sort method',
+  instruction: codeBlocksInstruction + 'build the bubble sort method',
   correctOrder: [7, 4, 5, 2, 1, 8, 6, 3],
   blocks: [
     {

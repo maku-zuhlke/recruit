@@ -9,6 +9,7 @@ import Timer from '../Timer';
 import Fail from '../Fail';
 import Win from '../Win';
 import $ from 'jquery';
+import { timesUpText, outOfMovesText, matchPuzzleInstruction } from '../../data/strings';
 
 class MatchstickPuzzle extends Component {
   constructor(props, context) {
@@ -63,7 +64,7 @@ class MatchstickPuzzle extends Component {
     if (this.state.matches.moves == 1) {
       m = " match";
     }
-    return "Solve the equation moving " + this.state.matches.moves + m;
+    return matchPuzzleInstruction + this.state.matches.moves + m;
   }
 
   renderNumberSkeleton(number) {
@@ -135,7 +136,7 @@ class MatchstickPuzzle extends Component {
           </div>
         </div>
         {this.state.matches.win && <Win />}
-        {((this.state.end || this.state.matches.moves <= 0) && !this.state.matches.win) && <Fail text={this.state.end ? "Time's up, game over!" : "You're out of moves, game over!"} />}
+        {((this.state.end || this.state.matches.moves <= 0) && !this.state.matches.win) && <Fail text={this.state.end ? timesUpText : outOfMovesText} />}
       </div>
     );
   }
