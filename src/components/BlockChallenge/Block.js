@@ -89,7 +89,7 @@ class Block extends Component {
       return <span key={i} className={item.className}>{this.escape(item.innerHTML)}</span>
     });
     return connectDragSource(connectDropTarget(
-        <pre id={block.id} {...this.props} className="prettyprint btn code"><code className="prettyprint lang-java">{spans}</code></pre>));
+        <pre id={block.id} className="prettyprint btn code"><code className="prettyprint lang-java">{spans}</code></pre>));
   }
 }
 

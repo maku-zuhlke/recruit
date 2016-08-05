@@ -3,34 +3,47 @@ import React, { Component } from 'react';
 class Timer extends Component {
   constructor(props, context) {
     super(props, context);
-    this.interval = -59000;
-    this.state = { time: this.props.timer.time, offset: this.props.timer.offset }
+    this.state = {
+      time: this.props.time * 1000,
+      timesup: false
+    }
   }
 
   componentDidMount() {
     this.start();
   }
 
+  componentWillUnmount() {
+    this.stop();
+  }
+
   start() {
     this._interval = requestAnimationFrame(this.progress);
-    this.props.actions.startTimer(Date.now());
+    this.setState({
+      offset: Date.now()
+    });
   }
 
   stop() {
-    this.props.actions.stopTimer();
+    this.setState({
+      time: 0,
+      timesup: false
+    });
     cancelAnimationFrame(this._interval);
   }
 
   progress = () => {
-    this.props.actions.tickTimer(Date.now());
     this._interval = requestAnimationFrame(this.progress);
-    this.forceUpdate();
-    if (this.props.timer.time <= this.interval) {
-      this.props.timer.timesup = true;
+    this.setState({
+      time: this.state.time - (Date.now() - this.state.offset),
+      offset: Date.now()
+    });
+    if (this.state.time <= 0) {
+      this.setState({timesup: true});
       this.props.callback();
       this.stop();
     }
-  }
+  };
 
   format(time) {
     const pad = (time, length) => {
@@ -47,11 +60,15 @@ class Timer extends Component {
   render() {
     return (
       <div className="timer">
-        <span>{ this.format(this.props.timer.time) }</span>
+        <span>{ this.format(this.state.time) }</span>
       </div>
     );
   }
 }
+
+Timer.defaultProps = {
+  time: 60
+};
 
 export default Timer
 

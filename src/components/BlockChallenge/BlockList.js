@@ -8,38 +8,33 @@ import Timer from '../Timer';
 import Win from '../Win';
 import Fail from '../Fail';
 import WrongAnswer from '../WrongAnswer';
-import $ from 'jquery';
 import { default as BlockDragLayer } from './BlockDragLayer';
 import { timesUpText, doneButton } from '../../data/strings';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as BlockActions from '../../actions/indexBlock';
 
-class BlockList extends Component {
+export class BlockList extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { blocks: props.blocks, attempt: false, timer: props.timer, end: false };
     this.moveBlock = this.moveBlock.bind(this);
-    this.done = this.done.bind(this);
     this.timeIsUp = this.timeIsUp.bind(this);
   }
 
   done() {
-    this.props.actions.verifyCodeOrder();
-    this.setState({ attempt: true });
+    this.props.actions.checkSolution();
   }
 
-  timeIsUp(obj) {
-    if (this.props.timer.timesup) {
-      obj = $.extend({}, obj, { end: true });
-      this.setState(obj);
-    }
+  timeIsUp() {
+    this.props.actions.timeIsUp();
   }
 
   moveBlock(dragIndex, hoverIndex) {
-    this.props.actions.repositionCodeBlocks(dragIndex, hoverIndex);
-    this.setState({ attempt: false });
+    this.props.actions.moveCodeBlock(dragIndex, hoverIndex);
   }
 
   render() {
-    var listItems = this.state.blocks.blocks.map(function(block, i) {
+    var listItems = this.props.blocks.blocks.map((block, i) => {
       return (
        <Block
           key={block.id}
@@ -48,27 +43,39 @@ class BlockList extends Component {
           block={block}/>
       );
     }, this);
-
     return (
       <div>
-        <Instruction instruction={this.state.blocks.instruction}/>
+        <Instruction instruction={this.props.blocks.instruction}/>
         <div className="center">
           <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
-            <Timer
-              timer={this.state.timer}
-              actions={this.props.timerActions}
-              callback={this.timeIsUp}
-            />
+            <Timer callback={this.timeIsUp} />
           </div>
-          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default done" onClick={this.done}>{doneButton}</button></div>
+          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default done" onClick={this.done.bind(this)}>{doneButton}</button></div>
         </div>
-        {(!this.state.blocks.win && this.state.attempt) && <WrongAnswer />}
-        {this.state.blocks.win && <Win />}
-        {(this.state.end && !this.state.blocks.win) && <Fail text={timesUpText}/>}
+        {(!this.props.blocks.win && this.props.blocks.attempt) && <WrongAnswer />}
+        {this.props.blocks.win && <Win />}
+        {(this.props.blocks.end && !this.props.blocks.win) && <Fail text={timesUpText}/>}
       </div>
     )
   }
 }
 
-export default (BlockList);
+function mapStateToProps(state) {
+  /* Populated by react-webpack-redux:reducer */
+  return {
+    blocks: {
+      ...state.blocks,
+      win: state.blocks.numberOfItemsInWrongPosition === 0
+    }
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  /* Populated by react-webpack-redux:action */
+  return {
+    actions: bindActionCreators(BlockActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (BlockList);

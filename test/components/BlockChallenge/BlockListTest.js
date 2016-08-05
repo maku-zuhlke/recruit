@@ -5,12 +5,14 @@
 import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
 import TestUtils from 'react-addons-test-utils';
-import BlockList from 'components/BlockChallenge/BlockList';
+import ConnectedBlockList, { BlockList } from 'components/BlockChallenge/BlockList';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
-import { winText, timesUpText } from 'data/strings';
+import { winText, timesUpText, wrongAnswerText } from 'data/strings';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
 describe('BlockListShallowComponent', () => {
   let BlockListComponent;
@@ -24,35 +26,76 @@ describe('BlockListShallowComponent', () => {
   });
 });
 
-describe('BlockListClass', () => {
+describe('BlockListUnconnectedComponent', () => {
   let blockList;
-  let blockListDnD;
-  let blocks;
 
   beforeEach(() => {
-    const BlockListContext = DragDropContext(TestBackend) (BlockList);
-    blocks = {
+    var blocks = {
       correctOrder: [2, 1],
       blocks: [
         {text: 'pieceOfCode1', id: 1},
         {text: 'pieceOfCode2', id: 2}],
       win: false
     };
-    let timer = {
-      time: 0,
-      offset: Date.now()
+    var actions = {
+      checkSolution: expect.createSpy(),
+      timeIsUp: expect.createSpy(),
+      moveCodeBlock: expect.createSpy()
     };
-    let actions = {
-      verifyCodeOrder: expect.createSpy(),
-      repositionCodeBlocks: expect.createSpy()
-    };
-    let timerActions = {
-      startTimer: expect.createSpy(),
-      tick: expect.createSpy()
-    };
-    blockListDnD = TestUtils.renderIntoDocument(
-      <BlockListContext blocks={blocks} actions={actions} timer={timer} timerActions={timerActions}/>
+    var BlockListContext = DragDropContext(TestBackend) (BlockList);
+    var DecoratedBlockList = TestUtils.renderIntoDocument(
+      <BlockListContext blocks={blocks} actions={actions} />
     );
+    blockList = DecoratedBlockList.refs.child;
+  });
+
+  it('should call checkSolution', () => {
+    expect(blockList.props.actions.checkSolution.calls.length).toEqual(0);
+    blockList.done();
+    expect(blockList.props.actions.checkSolution.calls.length).toEqual(1);
+  });
+
+  it('should call timeIsUp', () => {
+    expect(blockList.props.actions.timeIsUp.calls.length).toEqual(0);
+    blockList.timeIsUp();
+    expect(blockList.props.actions.timeIsUp.calls.length).toEqual(1);
+  });
+
+  it('should call moveBlock', () => {
+    expect(blockList.props.actions.moveCodeBlock.calls.length).toEqual(0);
+    blockList.moveBlock(0, 1);
+    expect(blockList.props.actions.moveCodeBlock.calls.length).toEqual(1);
+  });
+});
+
+describe('BlockListConnectedComponent', () => {
+  let blockList;
+  let blockListDnD;
+  let initialState;
+  let BlockListContext;
+  let mockStore;
+  let store;
+
+  beforeEach(() => {
+    BlockListContext = DragDropContext(TestBackend) (ConnectedBlockList);
+    initialState = {
+      blocks: {
+        correctOrder: [2, 1],
+        blocks: [
+          {text: 'pieceOfCode1', id: 1},
+          {text: 'pieceOfCode2', id: 2}],
+        win: false
+      }
+    };
+    mockStore = configureStore([]);
+    store = mockStore(initialState);
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={store}>
+        <BlockListContext/>
+      </Provider>
+    );
+    blockListDnD = TestUtils.findRenderedComponentWithType(provider, BlockListContext);
+
     blockList = blockListDnD.refs.child;
   });
 
@@ -60,93 +103,120 @@ describe('BlockListClass', () => {
     expect(TestUtils.isCompositeComponent(blockListDnD)).toBe(true);
   });
 
-  it('should have props/state', () => {
-    expect(blockListDnD.props).toExist();
-    expect(blockList.state).toExist();
+  it('should have props', () => {
+    expect(blockList.stateProps).toExist();
   });
 
-  it('should have props.blocks/state.blocks', () => {
-    expect(blockListDnD.props.blocks).toExist();
-    expect(blockList.state.blocks).toExist();
+  it('should have stateProps.blocks', () => {
+    expect(blockList.stateProps.blocks).toExist();
   });
 
-  it('should have false state.attempt and state.end', () => {
-    expect(blockList.state.attempt).toBe(false);
-    expect(blockList.state.end).toBe(false);
+  it('should not have false stateProps.attempt and stateProps.end', () => {
+    expect(blockList.stateProps.attempt).toBe(undefined);
+    expect(blockList.stateProps.end).toBe(undefined);
   });
 
   it('should match param blocks', () => {
-    expect(blockListDnD.props.blocks).toEqual(blocks);
-    expect(blockList.state.blocks).toEqual(blocks);
+    expect(blockList.stateProps.blocks).toEqual(initialState.blocks);
   });
 
-  it('should change state.attempt when attempt of submission is made', () => {
-    expect(blockList.state.attempt).toEqual(false);
-    blockList.done();
-    expect(blockList.state.attempt).toEqual(true);
+  it('should render WrongAnswer component if an unsuccessful attempt was made', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.innerText.includes(wrongAnswerText)).toBe(false);
+
+    initialState.blocks.attempt = true;
+    store = mockStore(initialState);
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={store}>
+        <BlockListContext/>
+      </Provider>
+    );
+    blockListDnD = TestUtils.findRenderedComponentWithType(provider, BlockListContext);
+    blockList = blockListDnD.refs.child;
+
+    blockListNode = ReactDOM.findDOMNode(blockList);
+    expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.innerText.includes(wrongAnswerText)).toBe(true);
   });
 
-  it('should call verifyCodeOrder after submission', () => {
-    expect(blockListDnD.props.actions.verifyCodeOrder.calls.length).toEqual(0);
-    expect(blockList.props.actions.verifyCodeOrder.calls.length).toEqual(0);
-    blockList.done();
-    expect(blockListDnD.props.actions.verifyCodeOrder.calls.length).toEqual(1);
-    expect(blockList.props.actions.verifyCodeOrder.calls.length).toEqual(1);
-  });
-
-  it('should render Win component if win is true', () => {
-    var blockListNode = ReactDOM.findDOMNode(blockListDnD);
+  it('should render Win component if numberOfItemsInWrongPosition is 0', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(2);
     expect(blockListNode.innerText.includes(winText)).toBe(false);
 
-    blocks.win = true;
-    blockList.setState({ blocks: blocks });
+    initialState.blocks.numberOfItemsInWrongPosition = 0;
+    store = mockStore(initialState);
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={store}>
+        <BlockListContext/>
+      </Provider>
+    );
+    blockListDnD = TestUtils.findRenderedComponentWithType(provider, BlockListContext);
+    blockList = blockListDnD.refs.child;
 
-    blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(3);
     expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
   it('should render Fail component if time is up', () => {
-    var blockListNode = ReactDOM.findDOMNode(blockListDnD);
-    expect(blockListNode.children.length).toEqual(2);
-    expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
-    var newState = { blocks: blocks };
-
-    blockListDnD.props.timer.timesup = false;
-    blockList.timeIsUp(newState);
-    blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    var blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(2);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
 
-    blockListDnD.props.timer.timesup = true;
-    blockList.timeIsUp(newState);
-    blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    initialState.blocks.end = true;
+    store = mockStore(initialState);
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={store}>
+        <BlockListContext/>
+      </Provider>
+    );
+    blockListDnD = TestUtils.findRenderedComponentWithType(provider, BlockListContext);
+    blockList = blockListDnD.refs.child;
+
+    blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(3);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(true);
   });
 
-  it('should not render Fail component if time is up but win is true', () => {
-    var blockListNode = ReactDOM.findDOMNode(blockListDnD);
+  it('should not render Fail component if time is up but numberOfItemsInWrongPosition is 0', () => {
+    var blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(2);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
     expect(blockListNode.innerText.includes(winText)).toBe(false);
-    blocks.win = true;
-    var newState = { blocks: blocks };
 
-    blockListDnD.props.timer.timesup = true;
-    blockList.timeIsUp(newState);
-    blockListNode = ReactDOM.findDOMNode(blockListDnD);
+    initialState.blocks.end = true;
+    initialState.blocks.numberOfItemsInWrongPosition = 0;
+    store = mockStore(initialState);
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={store}>
+        <BlockListContext/>
+      </Provider>
+    );
+    blockListDnD = TestUtils.findRenderedComponentWithType(provider, BlockListContext);
+    blockList = blockListDnD.refs.child;
+
+    blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(3);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
     expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
-  it('should call repositionCodeBlocks after block movement', () => {
-    expect(blockListDnD.props.actions.repositionCodeBlocks.calls.length).toEqual(0);
-    expect(blockList.props.actions.repositionCodeBlocks.calls.length).toEqual(0);
-    blockList.moveBlock();
-    expect(blockListDnD.props.actions.repositionCodeBlocks.calls.length).toEqual(1);
-    expect(blockList.props.actions.repositionCodeBlocks.calls.length).toEqual(1);
+  it('should have checkSolution action', () => {
+    expect(blockList.dispatchProps.actions.checkSolution).toExist();
+    expect(typeof(blockList.dispatchProps.actions.checkSolution)).toBe('function');
+  });
+
+  it('should have timeIsUp action', () => {
+    expect(blockList.dispatchProps.actions.timeIsUp).toExist();
+    expect(typeof(blockList.dispatchProps.actions.timeIsUp)).toBe('function');
+  });
+
+  it('should have moveCodeBlock action', () => {
+    expect(blockList.dispatchProps.actions.moveCodeBlock).toExist();
+    expect(typeof(blockList.dispatchProps.actions.moveCodeBlock)).toBe('function');
   });
 });
+
+

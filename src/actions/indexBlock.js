@@ -3,10 +3,14 @@
  */
 import * as types from './const';
 
-export function verifyCodeOrder() {
-  return { type: types.VERIFY_CODE_ORDER }
-}
+export const checkSolution = () => ({
+  type: types.BLOCKS_CHECK_SOLUTION
+});
 
-export function repositionCodeBlocks(dragIndex, hoverIndex) {
-  return { type: types.REPOSITION_CODE_BLOCKS, dragIndex, hoverIndex }
-}
+export const moveCodeBlock = (dragIndex, hoverIndex) => ({
+  type: types.BLOCKS_MOVE_CODE, dragIndex, hoverIndex
+});
+
+export const timeIsUp = () => ({
+  type: types.BLOCKS_TIMES_UP
+});

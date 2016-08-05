@@ -1,15 +1,10 @@
 /* Populated by react-webpack-redux:action */
 /* Coding challenge actions (Blocklist) */
-export const VERIFY_CODE_ORDER = 'VERIFY_CODE_ORDER';
+export const BLOCKS_CHECK_SOLUTION = 'BLOCKS_CHECK_SOLUTION';
 
-export const REPOSITION_CODE_BLOCKS = 'REPOSITION_CODE_BLOCKS';
+export const BLOCKS_MOVE_CODE = 'BLOCKS_MOVE_CODE';
 
-/* Timer actions */
-export const START_TIMER = 'START_TIMER';
-
-export const STOP_TIMER = 'STOP_TIMER';
-
-export const TICK_TIMER = 'TICK_TIMER';
+export const BLOCKS_TIMES_UP = 'BLOCKS_TIMES_UP';
 
 /* Matchstick puzzle actions */
 export const CHECK_MATCHES_POSITIONS = 'CHECK_MATCHES_POSITIONS';

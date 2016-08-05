@@ -5,26 +5,32 @@
 import expect from 'expect';
 import * as blockActions from 'actions/indexBlock';
 import * as matchesActions from 'actions/indexMatches';
-import * as timerActions from 'actions/indexTimer';
 import * as types from 'actions/const';
 
 describe('blockActions', () => {
-  it('should create an action to verify the state/order of the blocks', () => {
+  it('should create an action to check the order of blocks', () => {
     const expectedAction = {
-      type: types.VERIFY_CODE_ORDER
+      type: types.BLOCKS_CHECK_SOLUTION
     };
-    expect(blockActions.verifyCodeOrder()).toEqual(expectedAction)
+    expect(blockActions.checkSolution()).toEqual(expectedAction)
   });
 
-  it('should create an action to reposition blocks of code', () => {
+  it('should create an action to move block of code', () => {
     const dragIndex = 0;
     const hoverIndex = 1;
     const expectedAction = {
-      type: types.REPOSITION_CODE_BLOCKS,
+      type: types.BLOCKS_MOVE_CODE,
       dragIndex,
       hoverIndex
     };
-    expect(blockActions.repositionCodeBlocks(dragIndex, hoverIndex)).toEqual(expectedAction)
+    expect(blockActions.moveCodeBlock(dragIndex, hoverIndex)).toEqual(expectedAction)
+  });
+
+  it('should create an action to change the timesup attribute inside blocks', () => {
+    const expectedAction = {
+      type: types.BLOCKS_TIMES_UP
+    };
+    expect(blockActions.timeIsUp()).toEqual(expectedAction)
   });
 });
 
@@ -52,32 +58,5 @@ describe('matchesActions', () => {
       type: types.CHECK_MATCHES_POSITIONS
     };
     expect(matchesActions.checkMatchesPositions()).toEqual(expectedAction);
-  });
-});
-
-describe('timerActions', () => {
-  it('should create an action to start timer', () => {
-    const offset = 10;
-    const expectedAction = {
-      type: types.START_TIMER,
-      offset
-    };
-    expect(timerActions.startTimer(offset)).toEqual(expectedAction);
-  });
-
-  it('should create an action to tick timer', () => {
-    const time = 60;
-    const expectedAction = {
-      type: types.TICK_TIMER,
-      time
-    };
-    expect(timerActions.tickTimer(time)).toEqual(expectedAction);
-  });
-
-  it('should create an action to stop timer', () => {
-    const expectedAction = {
-      type: types.STOP_TIMER
-    };
-    expect(timerActions.stopTimer()).toEqual(expectedAction);
   });
 });

@@ -11,15 +11,12 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
-import * as BlockActions from '../actions/indexBlock';
-import * as TimerActions from '../actions/indexTimer';
 import * as MatchesActions from '../actions/indexMatches';
 
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const { blocks, actions, timer, timerActions, matches, matchesActions } = this.props;
-    return <Main actions={actions} blocks={blocks} timer={timer} timerActions={timerActions} matches={matches} matchesActions={matchesActions}/>;
+    return <Main {...this.props} />;
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -30,19 +27,15 @@ class App extends Component {
 App.propTypes = {
   blocks: PropTypes.object.isRequired,
   matches: PropTypes.object.isRequired,
-  timer: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-  matchesActions: PropTypes.object.isRequired,
-  timerActions: PropTypes.object.isRequired
+  matchesActions: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
-  const props = {blocks: state.blocks, timer: state.timer, matches: state.matches};
-  return props;
+  return {...state};
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actionMap = { actions: bindActionCreators(BlockActions, dispatch), timerActions: bindActionCreators(TimerActions, dispatch), matchesActions: bindActionCreators(MatchesActions, dispatch) };
+  const actionMap = { matchesActions: bindActionCreators(MatchesActions, dispatch) };
   return actionMap;
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

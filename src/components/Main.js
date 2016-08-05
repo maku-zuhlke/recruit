@@ -13,13 +13,6 @@ class AppComponent extends React.Component {
     this.state = { startCoding: false, startPuzzle: false, contentClass: "content", rowClass: "contentRow"};
   }
 
-  renderBlockList() {
-    const { blocks, actions, timer, timerActions } = this.props;
-    return(
-      <BlockList blocks={blocks} actions={actions} timer={timer} timerActions={timerActions} />
-    )
-  }
-
   renderMatchstickPuzzle() {
     const { matches, matchesActions, timer, timerActions } = this.props;
     return(
@@ -43,10 +36,14 @@ class AppComponent extends React.Component {
         </div>
         <div className={this.state.rowClass + " row"}>
           <div className={this.state.contentClass + " col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center"}>
-            { !(this.state.startCoding || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startCoding.bind(this)}><span className="test">Coding challenge</span></button> }
-            { !(this.state.startCoding || this.state.startPuzzle) && <button className="btn btn-default start" onClick={this.startPuzzle.bind(this)}><span className="test">Puzzle challenge</span></button> }
+            { !(this.state.startCoding || this.state.startPuzzle) &&
+              <div>
+                <button className="btn btn-default start" onClick={this.startCoding.bind(this)}><span className="test">Coding challenge</span></button>
+                <button className="btn btn-default start" onClick={this.startPuzzle.bind(this)}><span className="test">Puzzle challenge</span></button>
+              </div>
+            }
             { (this.state.startPuzzle && !this.state.startCoding) && <div className="challenge">{ this.renderMatchstickPuzzle() }</div> }
-            { (this.state.startCoding && !this.state.startPuzzle) && <div className="challenge">{ this.renderBlockList() }</div> }
+            { (!this.state.startPuzzle && this.state.startCoding) && <div className="challenge"><BlockList/></div> }
           </div>
         </div>
       </div>

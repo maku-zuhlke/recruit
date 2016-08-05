@@ -77,7 +77,7 @@ export const rotate = {
 };
 
 export const bubbleSort = {
-  instruction: codeBlocksInstruction + 'build the bubble sort method',
+  instruction: codeBlocksInstruction+ 'build the bubble sort method',
   correctOrder: [7, 4, 5, 2, 1, 8, 6, 3],
   blocks: [
     {
