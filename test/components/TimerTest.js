@@ -78,7 +78,7 @@ describe('TimerClass', () => {
     expect(timer.state).toEqual(currentState);
     timer.progress();
     expect(timer.state.time).toBeLessThanOrEqualTo(currentState.time);
-    expect(timer.state.offset).toBeGreaterThan(currentState.offset);
+    expect(timer.state.offset).toBeGreaterThanOrEqualTo(currentState.offset);
   });
 
   it('should call callback function when time is up', () => {
