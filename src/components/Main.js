@@ -36,7 +36,7 @@ class AppComponent extends React.Component {
               </div>
             }
             { (this.state.startPuzzle && !this.state.startCoding) && <div className="challenge"><MatchstickPuzzle /></div> }
-            { (!this.state.startPuzzle && this.state.startCoding) && <div className="challenge"><BlockList/></div> }
+            { (!this.state.startPuzzle && this.state.startCoding) && <div className="challenge"><BlockList /></div> }
           </div>
         </div>
       </div>

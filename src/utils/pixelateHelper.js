@@ -86,4 +86,4 @@ export const begin = () => {
   } else {
     setTimeout(begin, 15);
   }
-}
+};
