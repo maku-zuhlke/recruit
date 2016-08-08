@@ -59,7 +59,7 @@ export class MatchstickPuzzle extends Component {
 
   resolveInstruction() {
     var m = " matches";
-    if (this.props.matches.moves == 1) {
+    if (this.props.matches.moves === 1) {
       m = " match";
     }
     return matchPuzzleInstruction + this.props.matches.moves + m;

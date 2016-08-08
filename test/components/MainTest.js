@@ -42,40 +42,27 @@ describe('MainClass', () => {
           {text: 'pieceOfCode2', id: 2}],
         win: false,
         numberOfItemsInWrongPosition: 2
+      },
+      matches: {
+        numbers :[[1,1,0,1,1,0,1],[0,1,1,0,1,1,1],[1,1,1,1,1,1,1]],
+        operation: [1,0,0],
+        moves: 2,
+        correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,1,0,1],[1,1,0,1,1,1,1]], operation:[1,0,0]},
+        win: false,
+        correctOperation: false,
+        correctNumbers: false
       }
     };
-    matches = {
-      numbers :[[1,1,0,1,1,0,1],[0,1,1,0,1,1,1],[1,1,1,1,1,1,1]],
-      operation: [1,0,0],
-      moves: 2,
-      correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,1,0,1],[1,1,0,1,1,1,1]], operation:[1,0,0]},
-      win: false
-    };
-    let timer = {
-      time: 0,
-      offset: Date.now()
-    };
-    let timerActions = {
-      startTimer: expect.createSpy(),
-      tick: expect.createSpy()
-    };
+
     const mockStore = configureStore([]);
     const store = mockStore(initialState);
     let provider = TestUtils.renderIntoDocument(
       <Provider store={store}>
-        <MainContext matches={matches} timer={timer} timerActions={timerActions} />
+        <MainContext />
       </Provider>
     );
-    var mainDnD = TestUtils.findRenderedComponentWithType(provider, MainContext)
+    var mainDnD = TestUtils.findRenderedComponentWithType(provider, MainContext);
     main = mainDnD.getDecoratedComponentInstance().refs.child;
-  });
-
-  it('should return MatchstickPuzzle component', () => {
-    expect(main.renderMatchstickPuzzle().type).toBe(MatchstickPuzzle);
-  });
-
-  it('should have matches inside MatchstickPuzzle component', () => {
-    expect(main.renderMatchstickPuzzle().props.matches).toEqual(matches);
   });
 
   it('should set state.startCoding to true', () => {
@@ -117,7 +104,7 @@ describe('MainClass', () => {
   });
 
   it('should render MatchstickPuzzle component after starting the puzzle challenge', () => {
-    var instruction = "Solve the equation moving " + matches.moves + " matches";
+    var instruction = "Solve the equation moving " + initialState.matches.moves + " matches";
     var mainNode = ReactDOM.findDOMNode(main);
     expect(mainNode.children.length).toEqual(2); /* rows */
     expect(mainNode.children[1].children.length).toEqual(1); /* content row */
