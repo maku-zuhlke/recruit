@@ -111,7 +111,7 @@ describe('BlockListConnectedComponent', () => {
     expect(blockList.stateProps.blocks).toExist();
   });
 
-  it('should not have false stateProps.attempt and stateProps.end', () => {
+  it('should not have stateProps.attempt and stateProps.end', () => {
     expect(blockList.stateProps.attempt).toBe(undefined);
     expect(blockList.stateProps.end).toBe(undefined);
   });
@@ -160,7 +160,7 @@ describe('BlockListConnectedComponent', () => {
     expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
-  it('should render Fail component if time is up', () => {
+  it('should render Fail component if end is true', () => {
     var blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(2);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
@@ -180,7 +180,7 @@ describe('BlockListConnectedComponent', () => {
     expect(blockListNode.innerText.includes(timesUpText)).toBe(true);
   });
 
-  it('should not render Fail component if time is up but numberOfItemsInWrongPosition is 0', () => {
+  it('should not render Fail component if end is true but numberOfItemsInWrongPosition is 0', () => {
     var blockListNode = ReactDOM.findDOMNode(blockList);
     expect(blockListNode.children.length).toEqual(2);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
