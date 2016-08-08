@@ -77,7 +77,7 @@ describe('TimerClass', () => {
     var currentState = {...timer.state};
     expect(timer.state).toEqual(currentState);
     timer.progress();
-    expect(timer.state.time).toBeLessThan(currentState.time);
+    expect(timer.state.time).toBeLessThanOrEqualTo(currentState.time);
     expect(timer.state.offset).toBeGreaterThan(currentState.offset);
   });
 
