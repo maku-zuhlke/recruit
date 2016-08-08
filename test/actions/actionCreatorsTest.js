@@ -59,4 +59,12 @@ describe('matchesActions', () => {
     };
     expect(matchesActions.checkMatchesPositions()).toEqual(expectedAction);
   });
+
+  it('should create an action to change the timesup attribute inside matches', () => {
+    const expectedAction = {
+      type: types.MATCHES_TIMES_UP
+    };
+    expect(matchesActions.timeIsUp()).toEqual(expectedAction);
+  });
 });
+
