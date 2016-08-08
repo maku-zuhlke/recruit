@@ -3,6 +3,7 @@
  */
 'use strict';
 import expect from 'expect';
+import { isFSA } from 'flux-standard-action';
 import * as blockActions from 'actions/indexBlock';
 import * as matchesActions from 'actions/indexMatches';
 import * as types from 'actions/const';
@@ -12,7 +13,8 @@ describe('blockActions', () => {
     const expectedAction = {
       type: types.BLOCKS_CHECK_SOLUTION
     };
-    expect(blockActions.checkSolution()).toEqual(expectedAction)
+    expect(blockActions.checkSolution()).toEqual(expectedAction);
+    expect(isFSA(blockActions.checkSolution())).toEqual(true);
   });
 
   it('should create an action to move block of code', () => {
@@ -25,14 +27,16 @@ describe('blockActions', () => {
         hoverIndex
       }
     };
-    expect(blockActions.moveCodeBlock(dragIndex, hoverIndex)).toEqual(expectedAction)
+    expect(blockActions.moveCodeBlock(dragIndex, hoverIndex)).toEqual(expectedAction);
+    expect(isFSA(blockActions.moveCodeBlock(dragIndex, hoverIndex))).toEqual(true);
   });
 
   it('should create an action to change the timesup attribute inside blocks', () => {
     const expectedAction = {
       type: types.BLOCKS_TIMES_UP
     };
-    expect(blockActions.timeIsUp()).toEqual(expectedAction)
+    expect(blockActions.timeIsUp()).toEqual(expectedAction);
+    expect(isFSA(blockActions.timeIsUp())).toEqual(true);
   });
 });
 
@@ -46,6 +50,7 @@ describe('matchesActions', () => {
       }
     };
     expect(matchesActions.removeMatch(before)).toEqual(expectedAction);
+    expect(isFSA(matchesActions.removeMatch(before))).toEqual(true);
   });
 
   it('should create an action to place match', () => {
@@ -57,6 +62,7 @@ describe('matchesActions', () => {
       }
     };
     expect(matchesActions.placeMatch(after)).toEqual(expectedAction);
+    expect(isFSA(matchesActions.placeMatch(after))).toEqual(true);
   });
 
   it('should create an action to check matches positions', () => {
@@ -64,6 +70,7 @@ describe('matchesActions', () => {
       type: types.MATCHES_CHECK_POSITIONS
     };
     expect(matchesActions.checkMatchesPositions()).toEqual(expectedAction);
+    expect(isFSA(matchesActions.checkMatchesPositions())).toEqual(true);
   });
 
   it('should create an action to change the timesup attribute inside matches', () => {
@@ -71,6 +78,6 @@ describe('matchesActions', () => {
       type: types.MATCHES_TIMES_UP
     };
     expect(matchesActions.timeIsUp()).toEqual(expectedAction);
+    expect(isFSA(matchesActions.timeIsUp())).toEqual(true);
   });
 });
-
