@@ -4,11 +4,17 @@
 import * as types from './const';
 
 export const removeMatch = (before) => ({
-  type: types.MATCHES_REMOVE_MATCH, before
+  type: types.MATCHES_REMOVE_MATCH,
+  payload: {
+    before
+  }
 });
 
 export const placeMatch = (after) => ({
-  type: types.MATCHES_PLACE_MATCH, after
+  type: types.MATCHES_PLACE_MATCH,
+  payload: {
+    after
+  }
 });
 
 export const checkMatchesPositions = () => ({

@@ -20,8 +20,10 @@ describe('blockActions', () => {
     const hoverIndex = 1;
     const expectedAction = {
       type: types.BLOCKS_MOVE_CODE,
-      dragIndex,
-      hoverIndex
+      payload: {
+        dragIndex,
+        hoverIndex
+      }
     };
     expect(blockActions.moveCodeBlock(dragIndex, hoverIndex)).toEqual(expectedAction)
   });
@@ -39,7 +41,9 @@ describe('matchesActions', () => {
     const before = [0, 0];
     const expectedAction = {
       type: types.MATCHES_REMOVE_MATCH,
-      before
+      payload: {
+        before
+      }
     };
     expect(matchesActions.removeMatch(before)).toEqual(expectedAction);
   });
@@ -48,7 +52,9 @@ describe('matchesActions', () => {
     const after = [1, 2];
     const expectedAction = {
       type: types.MATCHES_PLACE_MATCH,
-      after
+      payload: {
+        after
+      }
     };
     expect(matchesActions.placeMatch(after)).toEqual(expectedAction);
   });

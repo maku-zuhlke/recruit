@@ -11,7 +11,7 @@ export default function blocks(state = randomChallenge(problems), action) {
     case BLOCKS_CHECK_SOLUTION:
       return withNumberOfItemsInWrongPosition(state);
     case BLOCKS_MOVE_CODE:
-      return withRearrangedBlocks(state, action.dragIndex, action.hoverIndex);
+      return withRearrangedBlocks(state, action.payload.dragIndex, action.payload.hoverIndex);
     case BLOCKS_TIMES_UP:
       return withTimesUp(state);
     default:

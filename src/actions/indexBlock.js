@@ -8,7 +8,11 @@ export const checkSolution = () => ({
 });
 
 export const moveCodeBlock = (dragIndex, hoverIndex) => ({
-  type: types.BLOCKS_MOVE_CODE, dragIndex, hoverIndex
+  type: types.BLOCKS_MOVE_CODE,
+  payload: {
+    dragIndex,
+    hoverIndex
+  }
 });
 
 export const timeIsUp = () => ({

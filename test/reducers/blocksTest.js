@@ -53,7 +53,12 @@ describe('blocksReducer', () => {
     var blocks = initialState.blocks.slice(0);
     const dragIndex = 0;
     const hoverIndex = dragIndex;
-    var newBlocks = reducer(initialState, {type: types.BLOCKS_MOVE_CODE, dragIndex, hoverIndex}).blocks;
+    var newBlocks = reducer(initialState, {
+      type: types.BLOCKS_MOVE_CODE,
+      payload: {
+        dragIndex,
+        hoverIndex }
+    }).blocks;
     expect(newBlocks).toEqual(blocks);
   });
 
@@ -61,7 +66,13 @@ describe('blocksReducer', () => {
     var blocks = initialState.blocks.slice(0);
     const dragIndex = 0;
     const hoverIndex = 1;
-    var newBlocks = reducer(initialState, {type: types.BLOCKS_MOVE_CODE, dragIndex, hoverIndex}).blocks;
+    var newBlocks = reducer(initialState, {
+      type: types.BLOCKS_MOVE_CODE,
+      payload: {
+        dragIndex,
+        hoverIndex
+      }
+    }).blocks;
     expect(newBlocks).toNotEqual(blocks);
   });
 

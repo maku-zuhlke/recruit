@@ -11,10 +11,10 @@ export default function matches(state = randomChallenge(problems), action) {
       return withCheckedPositions(state);
 
     case MATCHES_REMOVE_MATCH:
-      return withoutRemovedMatch(state, action.before);
+      return withoutRemovedMatch(state, action.payload.before);
 
     case MATCHES_PLACE_MATCH:
-      return withPlacedMatch(state, action.after);
+      return withPlacedMatch(state, action.payload.after);
 
     case MATCHES_TIMES_UP:
       return withTimesUp(state);
