@@ -270,7 +270,7 @@ img {
 }
 @media only screen and (min-width: 400px) {
   .contentPuzzle {
-    height: 310px;
+    height: 280px;
   }
   .puzzle {
     height: 170px;
@@ -287,7 +287,7 @@ img {
 }
 @media only screen and (min-width: 500px) {
   .contentPuzzle {
-    height: 340px;
+    height: 320px;
   }
   .puzzle {
     height: 200px;
@@ -304,7 +304,7 @@ img {
 }
 @media only screen and (min-width: 600px) {
   .contentPuzzle {
-    height: 380px;
+    height: 360px;
   }
   .puzzle {
     height: 240px;
@@ -321,7 +321,7 @@ img {
 }
 @media only screen and (min-width: 700px) {
   .contentPuzzle {
-    height: 380px;
+    height: 360px;
   }
   .puzzle {
     height: 240px;
@@ -338,7 +338,7 @@ img {
 }
 @media only screen and (min-width: 768px) {
   .contentPuzzle {
-    height: 380px;
+    height: 360px;
   }
   .puzzle {
     height: 240px;
@@ -372,7 +372,7 @@ img {
 }
 @media only screen and (min-width: 1000px) {
   .contentPuzzle {
-    height: 380px;
+    height: 370px;
   }
   .puzzle {
     height: 240px;
@@ -389,7 +389,7 @@ img {
 }
 @media only screen and (min-width: 1190px) {
   .contentPuzzle {
-    height: 500px;
+    height: 460px;
   }
   .puzzle {
     height: 320px;
@@ -406,7 +406,7 @@ img {
 }
 @media only screen and (min-width: 1440px) {
   .contentPuzzle {
-    height: 580px;
+    height: 510px;
   }
   .puzzle {
     height: 360px;
@@ -423,7 +423,7 @@ img {
 }
 @media only screen and (min-width: 1700px) {
   .contentPuzzle {
-    height: 620px;
+    height: 580px;
   }
   .puzzle {
     height: 400px;
@@ -440,7 +440,7 @@ img {
 }
 @media only screen and (min-width: 2000px) {
   .contentPuzzle {
-    height: 720px;
+    height: 680px;
   }
   .puzzle {
     height: 500px;
@@ -457,7 +457,7 @@ img {
 }
 @media only screen and (min-width: 2300px) {
   .contentPuzzle {
-    height: 820px;
+    height: 800px;
   }
   .puzzle {
     height: 600px;
