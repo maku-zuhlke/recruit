@@ -8,10 +8,8 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
-import * as MatchesActions from '../actions/indexMatches';
 
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
@@ -26,16 +24,12 @@ class App extends Component {
  */
 App.propTypes = {
   blocks: PropTypes.object.isRequired,
-  matches: PropTypes.object.isRequired,
-  matchesActions: PropTypes.object.isRequired
+  matches: PropTypes.object.isRequired
 };
+
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   return {...state};
 }
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
-  const actionMap = { matchesActions: bindActionCreators(MatchesActions, dispatch) };
-  return actionMap;
-}
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default connect(mapStateToProps)(App);

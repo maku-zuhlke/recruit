@@ -38,7 +38,7 @@ describe('matchesActions', () => {
   it('should create an action to remove match', () => {
     const before = [0, 0];
     const expectedAction = {
-      type: types.REMOVE_MATCH,
+      type: types.MATCHES_REMOVE_MATCH,
       before
     };
     expect(matchesActions.removeMatch(before)).toEqual(expectedAction);
@@ -47,7 +47,7 @@ describe('matchesActions', () => {
   it('should create an action to place match', () => {
     const after = [1, 2];
     const expectedAction = {
-      type: types.PLACE_MATCH,
+      type: types.MATCHES_PLACE_MATCH,
       after
     };
     expect(matchesActions.placeMatch(after)).toEqual(expectedAction);
@@ -55,7 +55,7 @@ describe('matchesActions', () => {
 
   it('should create an action to check matches positions', () => {
     const expectedAction = {
-      type: types.CHECK_MATCHES_POSITIONS
+      type: types.MATCHES_CHECK_POSITIONS
     };
     expect(matchesActions.checkMatchesPositions()).toEqual(expectedAction);
   });

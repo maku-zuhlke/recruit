@@ -1,50 +1,96 @@
 /**
  * Created by lewa on 21/07/2016.
  */
-import { CHECK_MATCHES_POSITIONS, REMOVE_MATCH, PLACE_MATCH } from '../actions/const';
+import { MATCHES_CHECK_POSITIONS, MATCHES_REMOVE_MATCH, MATCHES_PLACE_MATCH, MATCHES_TIMES_UP } from '../actions/const';
 import { randomChallenge } from '../utils/randomChallenge';
 import * as problems from '../data/matchstickProblems';
 
 export default function matches(state = randomChallenge(problems), action) {
   switch (action.type) {
-    case CHECK_MATCHES_POSITIONS:
-      state.moves = state.moves - 1;
-      var correctNumbers = state.numbers.map((item, i) => {
-        var subResult = item.map((num, ind) => {
-          return (num === state.correctPositions.numbers[i][ind]);
-        }).reduce((current, next) => {
-          return current && next;
-        });
-        return subResult;
+    case MATCHES_CHECK_POSITIONS:
+      return withCheckedPositions(state);
 
-      }).reduce((current, next) => {
-        return current && next;
-      });
-      var correctOperation = state.operation.map((item, i) => {
-        return (item === state.correctPositions.operation[i]);
-      }).reduce((current, next) => {
-        return current && next;
-      });
-      state.win = correctNumbers && correctOperation && state.moves == 0;
-      return state;
+    case MATCHES_REMOVE_MATCH:
+      return withoutRemovedMatch(state, action.before);
 
-    case REMOVE_MATCH:
-      if (action.before[0] == 3) {
-        state.operation[action.before[1]] = 0;
-      } else {
-        state.numbers[action.before[0]][action.before[1]] = 0;
-      }
-      return state;
+    case MATCHES_PLACE_MATCH:
+      return withPlacedMatch(state, action.after);
 
-    case PLACE_MATCH:
-      if (action.after[0] == 3) {
-        state.operation[action.after[1]] = 1;
-      } else {
-        state.numbers[action.after[0]][action.after[1]] = 1;
-      }
-      return state;
+    case MATCHES_TIMES_UP:
+      return withTimesUp(state);
 
     default:
       return state;
   }
 }
+
+const withTimesUp = (state) => {
+  return  {
+    ...state,
+    end: true
+  }
+};
+
+const OPERATION = 3;
+const withoutRemovedMatch = (state, matchPosition) => {
+  if (matchPosition[0] === OPERATION) {
+    var operation = state.operation;
+    operation[matchPosition[1]] = 0;
+    return {
+      ...state,
+      operation: operation
+    }
+  } else {
+    var numbers = state.numbers;
+    numbers[matchPosition[0]][matchPosition[1]] = 0;
+    return {
+      ...state,
+      numbers: numbers
+    }
+  }
+};
+
+const withPlacedMatch = (state, matchPosition) => {
+  if (matchPosition[0] === OPERATION) {
+    var operation = state.operation;
+    operation[matchPosition[1]] = 1;
+    return {
+      ...state,
+      operation: operation
+    }
+  } else {
+    var numbers = state.numbers;
+    numbers[matchPosition[0]][matchPosition[1]] = 1;
+    return {
+      ...state,
+      numbers: numbers
+    }
+  }
+};
+
+const isMatchInCorrectPosition = (match, correctPosition) => match === correctPosition;
+
+const isNumberCorrect = (number, correctNumber) => {
+  return !(number.filter((item, i) => {
+    return !isMatchInCorrectPosition(item, correctNumber[i]);
+  })).length;
+};
+
+const isOperationCorrect = (operation, correctOperation) => {
+  return !(operation.filter((item, i) => {
+    return !isMatchInCorrectPosition(item, correctOperation[i]);
+  })).length;
+};
+
+const withCheckedPositions = (state) => {
+  return {
+    ...state,
+    moves: state.moves - 1,
+    correctOperation: isOperationCorrect(state.operation, state.correctPositions.operation),
+    correctNumbers: state.numbers.map((number, ind) => {
+      return isNumberCorrect(number, state.correctPositions.numbers[ind]);
+    }).reduce((current, next) => {
+      return current && next;
+    })
+  }
+};

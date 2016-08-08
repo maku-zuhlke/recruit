@@ -8,10 +8,12 @@ import Instruction from '../Instruction';
 import Timer from '../Timer';
 import Fail from '../Fail';
 import Win from '../Win';
-import $ from 'jquery';
 import { timesUpText, outOfMovesText, matchPuzzleInstruction } from '../../data/strings';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as MatchesActions from '../../actions/indexMatches';
 
-class MatchstickPuzzle extends Component {
+export class MatchstickPuzzle extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { matches: props.matches, timer: props.timer, end: false };
@@ -19,16 +21,13 @@ class MatchstickPuzzle extends Component {
     this.handleDrop = this.handleDrop.bind(this);
   }
 
-  timeIsUp(obj) {
-    if (this.props.timer.timesup) {
-      obj = $.extend({}, obj, { end: true });
-      this.setState(obj);
-    }
+  timeIsUp() {
+    this.props.actions.timeIsUp();
   }
 
   mapNumber(list) {
     var mappedNumber = [];
-    var number = this.state.matches.numbers[list];
+    var number = this.props.matches.numbers[list];
     for (var i = 0; i < number.length; i++) {
       if (number[i] == 1) {
         mappedNumber.push({hidden: false, pos: [list, i]});
@@ -41,7 +40,7 @@ class MatchstickPuzzle extends Component {
 
   mapOperation() {
     var mappedOperation = [];
-    var operation = this.state.matches.operation;
+    var operation = this.props.matches.operation;
     for (var i = 0; i < operation.length; i++) {
       if (operation[i] == 1) {
         mappedOperation.push({hidden: false, pos: [3, i]});
@@ -56,15 +55,14 @@ class MatchstickPuzzle extends Component {
     this.props.actions.removeMatch(match.pos);
     this.props.actions.placeMatch(place);
     this.props.actions.checkMatchesPositions();
-    this.setState(this.state);
   }
 
   resolveInstruction() {
     var m = " matches";
-    if (this.state.matches.moves == 1) {
+    if (this.props.matches.moves == 1) {
       m = " match";
     }
-    return matchPuzzleInstruction + this.state.matches.moves + m;
+    return matchPuzzleInstruction + this.props.matches.moves + m;
   }
 
   renderNumberSkeleton(number) {
@@ -129,17 +127,32 @@ class MatchstickPuzzle extends Component {
         <div className="extras">
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
-              timer={this.state.timer}
-              actions={this.props.timerActions}
               callback={this.timeIsUp}
             />
           </div>
         </div>
-        {this.state.matches.win && <Win />}
-        {((this.state.end || this.state.matches.moves <= 0) && !this.state.matches.win) && <Fail text={this.state.end ? timesUpText : outOfMovesText} />}
+        {this.props.matches.win && <Win />}
+        {((this.props.matches.end || this.props.matches.moves <= 0) && !this.props.matches.win) && <Fail text={this.props.matches.end ? timesUpText : outOfMovesText} />}
       </div>
     );
   }
 }
 
-export default MatchstickPuzzle
+function mapStateToProps(state) {
+  /* Populated by react-webpack-redux:reducer */
+  return {
+    matches: {
+      ...state.matches,
+      win: state.matches.correctOperation && state.matches.correctNumbers && state.matches.moves === 0
+    }
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  /* Populated by react-webpack-redux:action */
+  return {
+    actions: bindActionCreators(MatchesActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (MatchstickPuzzle);

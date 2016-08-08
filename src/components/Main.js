@@ -13,13 +13,6 @@ class AppComponent extends React.Component {
     this.state = { startCoding: false, startPuzzle: false, contentClass: "content", rowClass: "contentRow"};
   }
 
-  renderMatchstickPuzzle() {
-    const { matches, matchesActions, timer, timerActions } = this.props;
-    return(
-      <MatchstickPuzzle matches={matches} actions={matchesActions} timer={timer} timerActions={timerActions}/>
-    );
-  }
-
   startCoding() {
     this.setState({ startCoding : true });
   }
@@ -42,7 +35,7 @@ class AppComponent extends React.Component {
                 <button className="btn btn-default start" onClick={this.startPuzzle.bind(this)}><span className="test">Puzzle challenge</span></button>
               </div>
             }
-            { (this.state.startPuzzle && !this.state.startCoding) && <div className="challenge">{ this.renderMatchstickPuzzle() }</div> }
+            { (this.state.startPuzzle && !this.state.startCoding) && <div className="challenge"><MatchstickPuzzle /></div> }
             { (!this.state.startPuzzle && this.state.startCoding) && <div className="challenge"><BlockList/></div> }
           </div>
         </div>
