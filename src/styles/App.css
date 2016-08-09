@@ -239,7 +239,7 @@ img {
   opacity: 0.8;
 }
 /* Media queries for matches */
-@media only screen and (min-width: 300px) and (max-width: 399px) {
+@media only screen and (min-width: 300px) and (max-width: 359px) {
   .contentPuzzle {
     height: 240px;
   }
@@ -256,8 +256,37 @@ img {
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
-    margin-top: -12px;
-    margin-left: -5px;
+    margin-top: -15px;
+    margin-left: -7px;
+  }
+  .puzzle .operation .horizontal .top,
+  .puzzle .operation .horizontal .middle,
+  .puzzle .operation .horizontal .bottom {
+    margin-left: 10px;
+  }
+  .puzzle .operation .verticalZindex .plus {
+    margin-left: 15px;
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 399px) {
+  .contentPuzzle {
+    height: 240px;
+  }
+  .puzzle {
+    height: 120px;
+  }
+  .puzzle img {
+    max-width: 6px;
+    max-height: 70px;
+  }
+  .puzzle .numberCol {
+    width: 20%;
+  }
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: -15px;
+    margin-left: -7px;
   }
   .puzzle .operation .horizontal .top,
   .puzzle .operation .horizontal .middle,
@@ -273,7 +302,7 @@ img {
     height: 280px;
   }
   .puzzle {
-    height: 170px;
+    height: 155px;
   }
   .puzzle img {
     max-width: 8px;
@@ -282,10 +311,11 @@ img {
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
-    margin-top: -5px;
+    margin-top: -4px;
+    margin-left: 1px;
   }
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 490px) {
   .contentPuzzle {
     height: 320px;
   }
@@ -300,6 +330,24 @@ img {
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -1px;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .contentPuzzle {
+    height: 320px;
+  }
+  .puzzle {
+    height: 200px;
+  }
+  .puzzle img {
+    max-width: 10px;
+    max-height: 92px;
+  }
+  .puzzle .number .horizontal .top,
+  .puzzle .number .horizontal .middle,
+  .puzzle .number .horizontal .bottom {
+    margin-top: 5px;
+    margin-left: 5px;
   }
 }
 @media only screen and (min-width: 600px) {
