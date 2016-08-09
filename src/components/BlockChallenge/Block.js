@@ -81,6 +81,7 @@ class Block extends Component {
   escape(code) {
     return code.replace('&gt;', '>').replace('&lt;', '<');
   }
+  
 
   render() {
     const { connectDragSource, connectDropTarget, block } = this.props;

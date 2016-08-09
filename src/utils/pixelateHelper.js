@@ -16,7 +16,7 @@ export default function begin() {
 
     /// some image, we are not struck with CORS restrictions as we
     /// do not use pixel buffer to pixelate, so any image will do
-    img.src = 'images/logo-zuhlke.png';
+    img.src = 'images/logo-zuhlke-big.jpg';
 
 
 /// MAIN function

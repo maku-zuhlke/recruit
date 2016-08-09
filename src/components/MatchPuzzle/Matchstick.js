@@ -7,9 +7,8 @@ import ItemTypes from '../ItemTypes';
 
 const matchSource = {
   beginDrag(props) {
-    console.log('@@@@@@@@@@@@@@@@@@@@', props)
     return {
-      name: props.name
+      pos: props.pos
     }
   }
 };
@@ -18,15 +17,15 @@ class Matchstick extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired,
+    pos: PropTypes.array.isRequired,
     isDropped: PropTypes.bool
   };
 
   render() {
-    const { name, isDropped, isDragging, connectDragSource } = this.props;
-    return connectDragSource(<div className="match">
+    const { pos, isDropped, isDragging, connectDragSource } = this.props;
+    return connectDragSource(
       <img src="images/match_out.png"/>
-    </div>);
+    );
   }
 }
 
