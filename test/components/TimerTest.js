@@ -7,7 +7,6 @@ import TestUtils from 'react-addons-test-utils';
 import createComponent from 'helpers/shallowRenderHelper';
 import Timer from 'components/Timer';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 describe('TimerShallowComponent', () => {
   let TimerComponent;
@@ -26,21 +25,12 @@ describe('TimerShallowComponent', () => {
 });
 
 describe('TimerClass', () => {
-  let timerProps;
   let timer;
+  let callback;
 
   beforeEach(() => {
-    timerProps = {
-      time: 0,
-      timesup: false
-    };
-    let actions = {
-      startTimer: expect.createSpy(),
-      stopTimer: expect.createSpy(),
-      tick: expect.createSpy()
-    };
-    let callback = expect.createSpy();
-    timer = TestUtils.renderIntoDocument(<Timer timer={timerProps} actions={actions} callback={callback} />);
+    callback = expect.createSpy();
+    timer = TestUtils.renderIntoDocument(<Timer callback={callback}/>);
   });
 
   it('should exist', () => {
@@ -52,39 +42,65 @@ describe('TimerClass', () => {
   });
 
   it('should match props.timer to param timer', () => {
-    expect(timer.props.timer).toEqual(timerProps);
+    var timerProps = {
+      callback: callback,
+      time: 60
+    };
+    expect(timer.props).toEqual(timerProps);
   });
 
-  it('should have called startTimer when mounting', () => {
-    expect(timer.props.actions.startTimer.calls.length).toEqual(1);
+  it('should have called start, and set offset, when mounting', () => {
+    expect(timer.state.offset).toExist();
   });
 
-  it('should call startTimer within start()', () => {
-    expect(timer.props.actions.startTimer.calls.length).toEqual(1);
+  it('should change offset after start()', () => {
+    var oldOffset = timer.state.offset;
+    expect(timer.state.offset).toEqual(oldOffset);
     timer.start();
-    expect(timer.props.actions.startTimer.calls.length).toEqual(2);
+    expect(timer.state.offset).toBeGreaterThanOrEqualTo(oldOffset);
   });
 
-  it('should call stopTimer within stop()', () => {
-    expect(timer.props.actions.stopTimer.calls.length).toEqual(0);
+  it('should return to initial state after stop()', () => {
+    var initialState = {
+      time: 0,
+      timesup: false,
+      offset: timer.state.offset
+    };
+    expect(timer.state.time).toEqual(60000);
+    expect(timer.state).toNotEqual(initialState);
     timer.stop();
-    expect(timer.props.actions.stopTimer.calls.length).toEqual(1);
+    expect(timer.state.time).toEqual(0);
+    expect(timer.state).toEqual(initialState);
   });
 
-  it('should call tick within progress()', () => {
-    expect(timer.props.actions.tick.calls.length).toEqual(0);
+  it('should decrease time after progress()', () => {
+    var currentState = {...timer.state};
+    expect(timer.state).toEqual(currentState);
     timer.progress();
-    expect(timer.props.actions.tick.calls.length).toEqual(1);
+    expect(timer.state.time).toBeLessThanOrEqualTo(currentState.time);
+    expect(timer.state.offset).toBeGreaterThanOrEqualTo(currentState.offset);
   });
 
-  it('should update props within progress()', () => {
-    expect(timer.props.timer.timesup).toEqual(false);
+  it('should call callback function when time is up', () => {
+    timer.setState({time: 0});
     expect(timer.props.callback.calls.length).toEqual(0);
-    expect(timer.props.actions.stopTimer.calls.length).toEqual(0);
-    timer.props.timer.time = -59001;
     timer.progress();
-    expect(timer.props.timer.timesup).toEqual(true);
     expect(timer.props.callback.calls.length).toEqual(1);
-    expect(timer.props.actions.stopTimer.calls.length).toEqual(1);
+  });
+
+  it('should call stop() after unmount', () => {
+    var initialState = {
+      time: 0,
+      timesup: false,
+      offset: timer.state.offset
+    };
+    timer.componentWillUnmount();
+    expect(timer.state.time).toEqual(0);
+    expect(timer.state).toEqual(initialState);
   });
 });
+
+const then = (callback, timeout) => {
+  setTimeout(callback, timeout > 0 ?  timeout : 0);
+  return {then: then};
+};

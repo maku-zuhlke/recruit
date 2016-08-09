@@ -2,95 +2,100 @@
  * Created by lewa on 19/07/2016.
  */
 import React, { Component } from 'react';
-import Matchstick from "./Matchstick";
 import MatchPlaceholder from "./MatchPlaceholder";
 import MatchDragLayer from "./MatchDragLayer";
 import Instruction from '../Instruction';
 import Timer from '../Timer';
 import Fail from '../Fail';
 import Win from '../Win';
-import { DragDropContext } from 'react-dnd';
-import { default as TouchBackend } from 'react-dnd-touch-backend';
-import $ from 'jquery';
+import { timesUpText, outOfMovesText, matchPuzzleInstruction } from '../../data/strings';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as MatchesActions from '../../actions/indexMatches';
 
-class MatchstickPuzzle extends Component {
+export class MatchstickPuzzle extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { matches: props.matches, timer: props.timer, end: false };
     this.timeIsUp = this.timeIsUp.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
   }
 
-  timeIsUp(obj) {
-    if (this.props.timer.timesup) {
-      obj = $.extend({}, obj, { end: true });
-      this.setState(obj);
-    }
+  timeIsUp() {
+    this.props.actions.timeIsUp();
   }
 
-  translate(list) {
-    var renderedObj = [];
-    var item = this.state.matches.numbers[list];
-    for (var i = 0; i < item.length; i++) {
-      if (item[i] == 1) {
-        renderedObj.push({hidden: false, pos: [list, i]});
+  mapNumber(list) {
+    var mappedNumber = [];
+    var number = this.props.matches.numbers[list];
+    for (var i = 0; i < number.length; i++) {
+      if (number[i] == 1) {
+        mappedNumber.push({hidden: false, pos: [list, i]});
       } else {
-        renderedObj.push({hidden: true});
+        mappedNumber.push({hidden: true});
       }
     }
-    return renderedObj;
+    return mappedNumber;
   }
 
-  translateOp() {
-    var renderedObj = [];
-    var item = this.state.matches.operation;
-    for (var i = 0; i < item.length; i++) {
-      if (item[i] == 1) {
-        renderedObj.push({hidden: false, pos: [3, i]});
+  mapOperation() {
+    var mappedOperation = [];
+    var operation = this.props.matches.operation;
+    for (var i = 0; i < operation.length; i++) {
+      if (operation[i] == 1) {
+        mappedOperation.push({hidden: false, pos: [3, i]});
       } else {
-        renderedObj.push({hidden: true});
+        mappedOperation.push({hidden: true});
       }
     }
-    return renderedObj;
+    return mappedOperation;
   }
 
   handleDrop(match, place) {
     this.props.actions.removeMatch(match.pos);
     this.props.actions.placeMatch(place);
-    this.props.actions.checkMatches();
-    this.setState(this.state);
+    this.props.actions.checkMatchesPositions();
+  }
+
+  resolveInstruction() {
+    var m = " matches";
+    if (this.props.matches.moves === 1) {
+      m = " match";
+    }
+    return matchPuzzleInstruction + this.props.matches.moves + m;
   }
 
   renderNumberSkeleton(number) {
-    var matchesObj = this.translate(number);
+    var matchesObj = this.mapNumber(number);
     return (
-      <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 number">
+      <div className="number">
         <div className="row horizontal">
-          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[1]} pos={[number, 1]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="top col-xs-10 col-xs-offset-1" match={matchesObj[1]} pos={[number, 1]} onDrop={this.handleDrop}/>
         </div><div className="row vertical">
-          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[0]} pos={[number, 0]} onDrop={this.handleDrop.bind(this)}/>
-          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={matchesObj[2]} pos={[number, 2]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[0]} pos={[number, 0]} onDrop={this.handleDrop}/>
+          <MatchPlaceholder classes="right col-xs-1 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-3 col-lg-1 col-lg-offset-4" match={matchesObj[2]} pos={[number, 2]} onDrop={this.handleDrop}/>
         </div><div className="row horizontal">
-          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[6]} pos={[number, 6]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[6]} pos={[number, 6]} onDrop={this.handleDrop}/>
         </div><div className="row vertical">
-          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[5]} pos={[number, 5]} onDrop={this.handleDrop.bind(this)}/>
-          <MatchPlaceholder classes="right col-xs-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-1 col-lg-offset-4" match={matchesObj[3]} pos={[number, 3]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="left col-xs-1 col-sm-3 col-md-2 col-lg-1" match={matchesObj[5]} pos={[number, 5]} onDrop={this.handleDrop}/>
+          <MatchPlaceholder classes="right col-xs-1 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-3 col-lg-1 col-lg-offset-4" match={matchesObj[3]} pos={[number, 3]} onDrop={this.handleDrop}/>
         </div><div className="row horizontal">
-          <MatchPlaceholder classes="bottom col-xs-10" match={matchesObj[4]} pos={[number, 4]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="bottom col-xs-10" match={matchesObj[4]} pos={[number, 4]} onDrop={this.handleDrop}/>
         </div>
       </div>
     );
   }
 
   renderOperationSkeleton() {
-    var matchesObj = this.translateOp();
+    var matchesObj = this.mapOperation();
     return(
-      <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2 operation">
+      <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 operation">
         <div className="row horizontal">
-          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[0]} pos={[3, 0]} onDrop={this.handleDrop.bind(this)}/>
-          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[1]} pos={[3, 1]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="top col-xs-10" match={matchesObj[0]} pos={[3, 0]} onDrop={this.handleDrop}/>
+          <MatchPlaceholder classes="middle col-xs-10" match={matchesObj[1]} pos={[3, 1]} onDrop={this.handleDrop}/>
         </div>
         <div className="row verticalZindex">
-          <MatchPlaceholder classes="plus col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2" match={matchesObj[2]} pos={[3, 2]} onDrop={this.handleDrop.bind(this)}/>
+          <MatchPlaceholder classes="plus col-xs-1 col-sm-1 col-md-1 col-lg-1" match={matchesObj[2]} pos={[3, 2]} onDrop={this.handleDrop}/>
         </div>
       </div>
     );
@@ -100,8 +105,8 @@ class MatchstickPuzzle extends Component {
     return(
       <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 operation">
         <div className="row horizontal">
-          <div className="top col-xs-10"><div className="match"><img src="images/match_out.png"/></div></div>
-          <div className="bottom col-xs-10"><div className="match"><img src="images/match_out.png"/></div></div>
+          <div className="top col-xs-10"><div className="match equalSign"><img src="images/match_equal.png"/></div></div>
+          <div className="bottom col-xs-10"><div className="match equalSign"><img src="images/match_equal.png"/></div></div>
         </div>
       </div>
     );
@@ -110,29 +115,44 @@ class MatchstickPuzzle extends Component {
   render() {
     return (
       <div className="center">
-        <Instruction instruction={"Solve the equation moving " + this.state.matches.moves + " matches"}/>
-        <div className="puzzle col-xs-12 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
-          {this.renderNumberSkeleton(0)}
+        <Instruction instruction={this.resolveInstruction()}/>
+        <div className="puzzle col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <div className="col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 numberCol">{this.renderNumberSkeleton(0)}</div>
           {this.renderOperationSkeleton()}
-          {this.renderNumberSkeleton(1)}
+          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(1)}</div>
           {this.renderOperationEqualsSkeleton()}
-          {this.renderNumberSkeleton(2)}
-          <MatchDragLayer key="__preview" name="Match" />
+          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(2)}</div>
+          <MatchDragLayer key="__previewPuzzle" name="Match" />
         </div>
         <div className="extras">
           <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
             <Timer
-              timer={this.state.timer}
-              actions={this.props.timerActions}
               callback={this.timeIsUp}
             />
           </div>
         </div>
-        {this.state.matches.win && <Win />}
-        {(this.state.end && !this.state.matches.win) && <Fail />}
+        {this.props.matches.win && <Win />}
+        {((this.props.matches.end || this.props.matches.moves <= 0) && !this.props.matches.win) && <Fail text={this.props.matches.end ? timesUpText : outOfMovesText} />}
       </div>
     );
   }
 }
 
-export default DragDropContext(TouchBackend({ enableMouseEvents: true })) (MatchstickPuzzle)
+function mapStateToProps(state) {
+  /* Populated by react-webpack-redux:reducer */
+  return {
+    matches: {
+      ...state.matches,
+      win: state.matches.correctOperation && state.matches.correctNumbers && state.matches.moves === 0
+    }
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  /* Populated by react-webpack-redux:action */
+  return {
+    actions: bindActionCreators(MatchesActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (MatchstickPuzzle);

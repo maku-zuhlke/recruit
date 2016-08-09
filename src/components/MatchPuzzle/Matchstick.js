@@ -18,13 +18,15 @@ class Matchstick extends Component {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
     pos: PropTypes.array.isRequired,
-    isDropped: PropTypes.bool
+    type: PropTypes.string.isRequired
   };
 
   render() {
-    const { pos, isDropped, isDragging, connectDragSource } = this.props;
+    const { isDragging, connectDragSource } = this.props;
+    const opacity = isDragging ? 0.4 : 1;
+    const cursor = 'move';
     return connectDragSource(
-      <img src="images/match_out.png"/>
+      <img style={{ cursor, opacity }} src="images/match_out.png" draggable="true"/>
     );
   }
 }

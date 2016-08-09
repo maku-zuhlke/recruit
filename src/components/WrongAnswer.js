@@ -2,6 +2,7 @@
  * Created by lewa on 29/06/2016.
  */
 import React, { Component } from 'react';
+import { wrongAnswerText } from '../data/strings';
 
 class WrongAnswer extends Component {
   constructor(props, context) {
@@ -11,7 +12,7 @@ class WrongAnswer extends Component {
   render() {
     return (
       <div className="col-xs-12">
-        <div className="col-xs-10 col-xs-offset-1 center space">Oh, it's wrong, try again, it's worth it!</div>
+        <div className="col-xs-10 col-xs-offset-1 center space">{wrongAnswerText}</div>
       </div>
     );
   }

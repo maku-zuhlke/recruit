@@ -7,7 +7,7 @@ import { ScaleModal } from 'boron';
 class Fail extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {showModal: false}
+    this.state = { showModal: false }
   }
 
   componentDidMount() {
@@ -16,9 +16,9 @@ class Fail extends Component {
 
   render() {
     return (
-      <div className="row center"><ScaleModal ref="modal">
+      <div className="row center"><ScaleModal ref="modal" closeOnClick={false}>
         <div className="fail col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
-          <h1>Time's up, game over!</h1>
+          <h1>{ this.props.text }</h1>
           <a href="/">Try again</a>
         </div>
       </ScaleModal></div>

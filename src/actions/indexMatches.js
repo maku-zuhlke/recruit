@@ -3,14 +3,24 @@
  */
 import * as types from './const';
 
-export function removeMatch(before) {
-  return { type: types.REMOVE, before }
-}
+export const removeMatch = (before) => ({
+  type: types.MATCHES_REMOVE_MATCH,
+  payload: {
+    before
+  }
+});
 
-export  function placeMatch(after) {
-  return { type: types.PLACE, after }
-}
+export const placeMatch = (after) => ({
+  type: types.MATCHES_PLACE_MATCH,
+  payload: {
+    after
+  }
+});
 
-export function checkMatches() {
-  return { type: types.CHECK }
-}
+export const checkMatchesPositions = () => ({
+  type: types.MATCHES_CHECK_POSITIONS
+});
+
+export const timeIsUp = () => ({
+  type: types.MATCHES_TIMES_UP
+});

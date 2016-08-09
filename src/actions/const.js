@@ -1,16 +1,16 @@
 /* Populated by react-webpack-redux:action */
-export const VERIFY = 'VERIFY';
+/* Coding challenge actions (Blocklist) */
+export const BLOCKS_CHECK_SOLUTION = 'BLOCKS_CHECK_SOLUTION';
 
-export const SORT = 'SORT';
+export const BLOCKS_MOVE_CODE = 'BLOCKS_MOVE_CODE';
 
-export const START_TIMER = 'START_TIMER';
+export const BLOCKS_TIMES_UP = 'BLOCKS_TIMES_UP';
 
-export const STOP_TIMER = 'STOP_TIMER';
+/* Matchstick puzzle actions */
+export const MATCHES_CHECK_POSITIONS = 'MATCHES_CHECK_POSITIONS';
 
-export const TICK = 'TICK';
+export const MATCHES_REMOVE_MATCH = 'MATCHES_REMOVE_MATCH';
 
-export const CHECK = 'CHECK';
+export const MATCHES_PLACE_MATCH = 'MATCHES_PLACE_MATCH';
 
-export const REMOVE = 'REMOVE';
-
-export const PLACE = 'PLACE';
+export const MATCHES_TIMES_UP = 'MATCHES_TIMES_UP';
