@@ -1,12 +1,12 @@
 /// (C) Ken Fyrstenberg Nilsen, Abdias Software, CC3.0-attribute.
-export const begin = () => {
+var E = window;
+pixelateBegin: E.pixelateBegin = function() {
   if (document.getElementById('canvas')) {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d'),
       img = new Image(),
       play = false;
-
-    /// turn off image smoothing - this will give the pixelated effect
+     /// turn off image smoothing - this will give the pixelated effect
     ctx.mozImageSmoothingEnabled = false;
     ctx.webkitImageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
@@ -19,7 +19,7 @@ export const begin = () => {
     img.src = 'images/logo-zuhlke.png';
 
 
-/// MAIN function
+    /// MAIN function
     function pixelate(v) {
       var t = 1;
       if (v > 50) {
@@ -41,8 +41,8 @@ export const begin = () => {
       ctx.drawImage(canvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
     }
 
-/// This runs the demo animation to give an impression of
-/// performance.
+    /// This runs the demo animation to give an impression of
+    /// performance.
     function toggleAnim() {
 
       /// limit blocksize as we don't want to animate tiny blocks
@@ -75,15 +75,15 @@ export const begin = () => {
       }
     }
 
-/// poly-fill for requestAnmationFrame with fallback for older
-/// browsers which do not support rAF.
-    window.requestAnimationFrame = (function () {
-      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-          window.setTimeout(callback, 1000 / 60);
+    /// poly-fill for requestAnmationFrame with fallback for older
+    /// browsers which do not support rAF.
+    requestAnimationFrame = (function () {
+      return E.requestAnimationFrame || E.webkitRequestAnimationFrame || E.mozRequestAnimationFrame || function (callback) {
+          E.setTimeout(callback, 1000 / 60);
         };
     })();
     toggleAnim();
   } else {
-    setTimeout(begin, 15);
+    setTimeout(E.pixelateBegin, 15);
   }
 };

@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { ScaleModal } from 'boron';
 import { winText } from '../data/strings';
-import { begin } from 'utils/pixelateHelper.js';
+import 'utils/pixelateHelper.js';
 
 class Win extends Component {
   constructor(props, context) {
@@ -14,7 +14,7 @@ class Win extends Component {
 
   componentDidMount() {
     this.refs.modal.show();
-    begin();
+    window.pixelateBegin();
   }
 
   render() {
@@ -30,4 +30,3 @@ class Win extends Component {
 }
 
 export default Win
-
