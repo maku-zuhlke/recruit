@@ -156,18 +156,27 @@ img
     font-size: larger
     text-decoration: underline
 
-svg 
-  -webkit-transform: rotate(-90deg)
-  transform: rotate(-90deg)
+svg
+  circle
+    -webkit-transform: rotate(-90deg)
+    transform: rotate(-90deg)
+    transform-origin: 50% 50%
 
+text
+  x: 50% 
+  y: 50%
+  stroke: orange 
+  fill: orange
 
 .circle_animation 
-  stroke-dasharray: 220 /* this value is the pixel circumference of the circle */
+  stroke-dasharray: 215 /* this value is the pixel circumference of the circle */
   stroke-dashoffset: 0
   transition: all 1s linear
-
-
-
+  stroke: orange
+  r: 35 
+  cy: 81
+  cx: 81 
+  fill: white
 
 .fail
   background-color: white
