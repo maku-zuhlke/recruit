@@ -68,7 +68,7 @@ describe('BlockListUnconnectedComponent', () => {
   });
 });
 
-describe('BlockListConnectedComponent', () => {
+/*describe('BlockListConnectedComponent', () => {
   let blockList;
   let blockListDnD;
   let initialState;
@@ -217,6 +217,6 @@ describe('BlockListConnectedComponent', () => {
     expect(blockList.dispatchProps.actions.moveCodeBlock).toExist();
     expect(typeof(blockList.dispatchProps.actions.moveCodeBlock)).toBe('function');
   });
-});
+});*/
 
 

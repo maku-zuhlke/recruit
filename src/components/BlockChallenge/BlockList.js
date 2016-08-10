@@ -44,18 +44,24 @@ export class BlockList extends Component {
       );
     }, this);
     return (
-      <div>
-        <Instruction instruction={this.props.blocks.instruction}/>
-        <div className="center">
-          <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
-          <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
-            <Timer callback={this.timeIsUp} />
+      <div className="contentRow row">
+        <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
+          <div className="challenge">
+            <Instruction instruction={this.props.blocks.instruction}/>
+            <div className="center">
+              <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
+              <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
+                <Timer callback={this.timeIsUp} />
+              </div>
+              <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
+                <button className="btn btn-default done" onClick={this.done.bind(this)}>{doneButton}</button>
+              </div>
+            </div>
+            {(!this.props.blocks.win && this.props.blocks.attempt) && <WrongAnswer />}
+            {this.props.blocks.win && <Win />}
+            {(this.props.blocks.end && !this.props.blocks.win) && <Fail text={timesUpText}/>}
           </div>
-          <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3"><button className="btn btn-default done" onClick={this.done.bind(this)}>{doneButton}</button></div>
         </div>
-        {(!this.props.blocks.win && this.props.blocks.attempt) && <WrongAnswer />}
-        {this.props.blocks.win && <Win />}
-        {(this.props.blocks.end && !this.props.blocks.win) && <Fail text={timesUpText}/>}
       </div>
     )
   }
