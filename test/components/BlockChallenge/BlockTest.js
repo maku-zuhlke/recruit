@@ -34,7 +34,6 @@ describe('BlockComponent', () => {
 
 describe('BlockClass', () => {
   let block;
-  var test;
   let otherBlock;
   let backend;
   let ind;
@@ -47,7 +46,6 @@ describe('BlockClass', () => {
     block = TestUtils.renderIntoDocument(
       <BlockContext block={firstBlock} index={ind} isDragging={false} moveBlock={moveBlock}/>
     );
-    test = TestUtils.findRenderedComponentWithType(block, Block);
     backend = block.getManager().getBackend();
 
     const thirdBlock = {text: 'anotherPieceOfCode', id: 2};
@@ -58,13 +56,14 @@ describe('BlockClass', () => {
   });
 
   it('should not change index or call moveBlock while hovering itself', () => {
-    expect(test.props.index).toEqual(ind);
-    expect(test.props.moveBlock.calls.length).toEqual(0);
-    console.log(test.getHandlerId())
+    let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
+    expect(blockComponent.props.index).toEqual(ind);
+    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
+    console.log(blockComponent.getHandlerId())
     backend.simulateBeginDrag(['S3']);
-    backend.simulateHover([test.getDecoratedComponentInstance().getHandlerId()]);
-    expect(test.props.index).toEqual(ind);
-    expect(test.props.moveBlock.calls.length).toEqual(0);
+    backend.simulateHover([blockComponent.getDecoratedComponentInstance().getHandlerId()]);
+    expect(blockComponent.props.index).toEqual(ind);
+    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
   });
 /*
   it('should not call moveBlock while hovering a block below and not crossing its half', () => {
