@@ -16,11 +16,11 @@ describe('Menu', () => {
     expect(MenuComponent.type).toEqual('div');
   });
 
-  it('should have challenge selection buttons', () => {
+  it('should have challenge selection links', () => {
     let menu = TestUtils.renderIntoDocument(<Menu/>);
-    var menuComponent = ReactDOM.findDOMNode(menu);
-    expect(menuComponent.innerText.includes(codingChallengeButton)).toBe(true);
-    expect(menuComponent.innerText.includes(puzzleChallengeButton)).toBe(true);
+    let links = TestUtils.scryRenderedDOMComponentsWithTag(menu, 'span');
+    expect(ReactDOM.findDOMNode(links[0]).textContent).toBe(codingChallengeButton);
+    expect(ReactDOM.findDOMNode(links[1]).textContent).toBe(puzzleChallengeButton);
   });
 });
 
