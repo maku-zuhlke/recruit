@@ -44,6 +44,7 @@ export class BlockList extends Component {
       );
     }, this);
     return (
+      <div>
       <div className="contentRow row">
         <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
           <div className="challenge">
@@ -62,6 +63,7 @@ export class BlockList extends Component {
             {(this.props.blocks.end && !this.props.blocks.win) && <Fail text={timesUpText}/>}
           </div>
         </div>
+      </div>
       </div>
     )
   }

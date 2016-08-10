@@ -68,7 +68,7 @@ describe('BlockListUnconnectedComponent', () => {
   });
 });
 
-/*describe('BlockListConnectedComponent', () => {
+describe('BlockListConnectedComponent', () => {
   let blockList;
   let blockListDnD;
   let initialState;
@@ -122,7 +122,7 @@ describe('BlockListUnconnectedComponent', () => {
 
   it('should render WrongAnswer component if an unsuccessful attempt was made', () => {
     var blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(2);
     expect(blockListNode.innerText.includes(wrongAnswerText)).toBe(false);
 
     initialState.blocks.attempt = true;
@@ -136,13 +136,13 @@ describe('BlockListUnconnectedComponent', () => {
     blockList = blockListDnD.refs.child;
 
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(3);
     expect(blockListNode.innerText.includes(wrongAnswerText)).toBe(true);
   });
 
   it('should render Win component if numberOfItemsInWrongPosition is 0', () => {
     var blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(2);
     expect(blockListNode.innerText.includes(winText)).toBe(false);
 
     initialState.blocks.numberOfItemsInWrongPosition = 0;
@@ -156,13 +156,13 @@ describe('BlockListUnconnectedComponent', () => {
     blockList = blockListDnD.refs.child;
 
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(3);
     expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
 
   it('should render Fail component if end is true', () => {
     var blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(2);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
 
     initialState.blocks.end = true;
@@ -176,13 +176,13 @@ describe('BlockListUnconnectedComponent', () => {
     blockList = blockListDnD.refs.child;
 
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(3);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(true);
   });
 
   it('should not render Fail component if end is true but numberOfItemsInWrongPosition is 0', () => {
     var blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(2);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(2);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
     expect(blockListNode.innerText.includes(winText)).toBe(false);
 
@@ -198,7 +198,7 @@ describe('BlockListUnconnectedComponent', () => {
     blockList = blockListDnD.refs.child;
 
     blockListNode = ReactDOM.findDOMNode(blockList);
-    expect(blockListNode.children.length).toEqual(3);
+    expect(blockListNode.children[0].children[0].children[0].children.length).toEqual(3);
     expect(blockListNode.innerText.includes(timesUpText)).toBe(false);
     expect(blockListNode.innerText.includes(winText)).toBe(true);
   });
@@ -217,6 +217,6 @@ describe('BlockListUnconnectedComponent', () => {
     expect(blockList.dispatchProps.actions.moveCodeBlock).toExist();
     expect(typeof(blockList.dispatchProps.actions.moveCodeBlock)).toBe('function');
   });
-});*/
+});
 
 
