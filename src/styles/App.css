@@ -86,6 +86,10 @@ img {
   border-color: rgba(250,122,21,0.8);
   font-size: medium;
 }
+.start a,
+.start:focus a {
+  color: rgba(250,122,21,0.8);
+}
 .start:hover,
 .start:active,
 .start:active:hover {
@@ -93,6 +97,12 @@ img {
   color: rgba(255,255,255,0.8);
   border-color: rgba(250,122,21,0.8);
   font-size: medium;
+}
+.start:hover a,
+.start:active a,
+.start:active:hover a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
 }
 .code {
   margin-bottom: 0.5%;

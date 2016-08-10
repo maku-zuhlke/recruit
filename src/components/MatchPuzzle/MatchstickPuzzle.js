@@ -114,25 +114,29 @@ export class MatchstickPuzzle extends Component {
 
   render() {
     return (
-      <div className="center">
-        <Instruction instruction={this.resolveInstruction()}/>
-        <div className="puzzle col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-          <div className="col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 numberCol">{this.renderNumberSkeleton(0)}</div>
-          {this.renderOperationSkeleton()}
-          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(1)}</div>
-          {this.renderOperationEqualsSkeleton()}
-          <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(2)}</div>
-          <MatchDragLayer key="__previewPuzzle" name="Match" />
-        </div>
-        <div className="extras">
-          <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
-            <Timer
-              callback={this.timeIsUp}
-            />
+      <div className="puzzleRow row">
+        <div className="contentPuzzle col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
+          <div className="center challenge">
+            <Instruction instruction={this.resolveInstruction()}/>
+            <div className="puzzle col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+              <div className="col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 numberCol">{this.renderNumberSkeleton(0)}</div>
+              {this.renderOperationSkeleton()}
+              <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(1)}</div>
+              {this.renderOperationEqualsSkeleton()}
+              <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(2)}</div>
+              <MatchDragLayer key="__previewPuzzle" name="Match" />
+            </div>
+            <div className="extras">
+              <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
+                <Timer
+                  callback={this.timeIsUp}
+                />
+              </div>
+            </div>
+            {this.props.matches.win && <Win />}
+            {((this.props.matches.end || this.props.matches.moves <= 0) && !this.props.matches.win) && <Fail text={this.props.matches.end ? timesUpText : outOfMovesText} />}
           </div>
         </div>
-        {this.props.matches.win && <Win />}
-        {((this.props.matches.end || this.props.matches.moves <= 0) && !this.props.matches.win) && <Fail text={this.props.matches.end ? timesUpText : outOfMovesText} />}
       </div>
     );
   }
