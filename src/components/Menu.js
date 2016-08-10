@@ -17,7 +17,7 @@ class Menu extends Component {
           <Link to="/puzzle" className="btn btn-default start"><span>Puzzle challenge</span></Link>
         </div>
       </div>
-    )
+    );
   }
 }
 
