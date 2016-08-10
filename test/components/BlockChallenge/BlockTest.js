@@ -34,6 +34,7 @@ describe('BlockComponent', () => {
 
 describe('BlockClass', () => {
   let block;
+  var test;
   let otherBlock;
   let backend;
   let ind;
@@ -46,25 +47,26 @@ describe('BlockClass', () => {
     block = TestUtils.renderIntoDocument(
       <BlockContext block={firstBlock} index={ind} isDragging={false} moveBlock={moveBlock}/>
     );
+    test = TestUtils.findRenderedComponentWithType(block, Block);
     backend = block.getManager().getBackend();
 
     const thirdBlock = {text: 'anotherPieceOfCode', id: 2};
     const moveAnotherBlock = expect.createSpy();
-    otherBlock = TestUtils.renderIntoDocument(
+    /*otherBlock = TestUtils.renderIntoDocument(
       <BlockContext block={thirdBlock} index={2} isDragging={false} moveBlock={moveAnotherBlock}/>
-    );
+    );*/
   });
 
   it('should not change index or call moveBlock while hovering itself', () => {
-    let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
-    expect(blockComponent.props.index).toEqual(ind);
-    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
-    backend.simulateBeginDrag([blockComponent.getHandlerId()]);
-    backend.simulateHover([blockComponent.getDecoratedComponentInstance().getHandlerId()]);
-    expect(blockComponent.props.index).toEqual(ind);
-    expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
+    expect(test.props.index).toEqual(ind);
+    expect(test.props.moveBlock.calls.length).toEqual(0);
+    console.log(test.getHandlerId())
+    backend.simulateBeginDrag(['S3']);
+    backend.simulateHover([test.getDecoratedComponentInstance().getHandlerId()]);
+    expect(test.props.index).toEqual(ind);
+    expect(test.props.moveBlock.calls.length).toEqual(0);
   });
-
+/*
   it('should not call moveBlock while hovering a block below and not crossing its half', () => {
     let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
     let otherBlockComponent = TestUtils.findRenderedComponentWithType(otherBlock, Block);
@@ -101,5 +103,6 @@ describe('BlockClass', () => {
     });
     backend.simulateHover([otherBlockComponent.getDecoratedComponentInstance().getHandlerId()]);
     expect(otherBlockComponent.props.moveBlock.calls.length).toEqual(1);
-  });
+  });*/
 });
+
