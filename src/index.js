@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import configureStore from './stores';
+import { Router, Route, browserHistory } from 'react-router';
 import App from './containers/App';
 import BlockList from './components/BlockChallenge/BlockList';
 import MatchstickPuzzle from './components/MatchPuzzle/MatchstickPuzzle';

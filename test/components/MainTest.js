@@ -17,6 +17,3 @@ describe('MainComponent', () => {
     expect(MainComponent.props.className).toEqual('index');
   });
 });
-
-
-
