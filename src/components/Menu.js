@@ -1,11 +1,10 @@
 /**
  * Created by lewa on 10/08/2016.
  */
-
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class Menu extends React.Component {
+class Menu extends Component {
   constructor(props, context) {
     super(props, context);
   }
@@ -19,7 +18,7 @@ class Menu extends React.Component {
         </div>
       </div>
     )
-  };
+  }
 }
 
 export default Menu;
