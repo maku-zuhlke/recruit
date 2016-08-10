@@ -11,15 +11,15 @@ import Menu from './components/Menu';
 const store = configureStore();
 
 render((
-  <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route component={App}>
-        <Route path="/" component={Menu} />
-        <Route path="/coding" component={BlockList} />
-        <Route path="/puzzle" component={MatchstickPuzzle} />
-      </Route>
-    </Router>
-  </Provider>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route component={App}>
+          <Route path="/" component={Menu} />
+          <Route path="/coding" component={BlockList} />
+          <Route path="/puzzle" component={MatchstickPuzzle} />
+        </Route>
+      </Router>
+    </Provider>
   ),
   document.getElementById('app')
 );
