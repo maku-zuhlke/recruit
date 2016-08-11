@@ -141,16 +141,16 @@ img {
 .talent,
 .talent:focus {
   background: rgba(255,255,255,0.8);
-  color: #9a5c99;
-  border-color: #9a5c99;
+  color: #a0609e;
+  border-color: #a0609e;
   font-size: medium;
 }
 .talent:hover,
 .talent:active,
 .talent:active:hover {
-  background: #9a5c99;
+  background: #a0609e;
   color: rgba(255,255,255,0.8);
-  border-color: #9a5c99;
+  border-color: #a0609e;
   font-size: medium;
 }
 /* Animations - Zuhlke splash */
