@@ -18,7 +18,7 @@ describe('BlockListShallowComponent', () => {
   let BlockListComponent;
 
   beforeEach(() => {
-    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], win: false, correctOrder:[], end: false}});
+    BlockListComponent = createComponent(BlockList, {blocks: {blocks: [], correctOrder:[], end: false}});
   });
 
   it('should be div', () => {
@@ -35,7 +35,6 @@ describe('BlockListUnconnectedComponent', () => {
       blocks: [
         {text: 'pieceOfCode1', id: 1},
         {text: 'pieceOfCode2', id: 2}],
-      win: false
     };
     var actions = {
       checkSolution: expect.createSpy(),

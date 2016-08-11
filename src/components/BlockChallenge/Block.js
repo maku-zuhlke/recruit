@@ -79,7 +79,7 @@ class Block extends Component {
   }
 
   escape(code) {
-    return code.replace('&gt;', '>').replace('&lt;', '<');
+    return code.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;&amp;', '&&');
   }
 
   render() {
