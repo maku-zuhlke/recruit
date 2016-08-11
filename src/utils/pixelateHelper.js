@@ -14,7 +14,6 @@ pixelateBegin: E.pixelateBegin = function() {
     /// wait until image is actually available
     img.onload = pixelate;
 
-    /// do not use pixel buffer to pixelate, so any image will do
     img.src = 'images/logo-zuhlke-big.png';
 
     /// MAIN function
@@ -46,7 +45,6 @@ pixelateBegin: E.pixelateBegin = function() {
       var v = 1,
         dx = 0.2; /// "speed"
 
-      /// toggle play flag set by button "Animate"
       play = !play;
 
       /// if in play mode start loop
@@ -79,6 +77,7 @@ pixelateBegin: E.pixelateBegin = function() {
           E.setTimeout(callback, 1000 / 60);
         };
     })();
+
     toggleAnim();
   } else {
     setTimeout(E.pixelateBegin, 15);
