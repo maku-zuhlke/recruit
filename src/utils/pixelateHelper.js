@@ -6,18 +6,12 @@ pixelateBegin: E.pixelateBegin = function() {
     var ctx = canvas.getContext('2d'),
       img = new Image(),
       play = false;
-     /// turn off image smoothing - this will give the pixelated effect
-    ctx.mozImageSmoothingEnabled = false;
-    ctx.webkitImageSmoothingEnabled = false;
-    ctx.imageSmoothingEnabled = false;
 
     /// wait until image is actually available
     img.onload = pixelate;
 
-    /// some image, we are not struck with CORS restrictions as we
     /// do not use pixel buffer to pixelate, so any image will do
-    img.src = 'images/logo-zuhlke.png';
-
+    img.src = 'images/logo-zuhlke-big.png';
 
     /// MAIN function
     function pixelate(v) {
@@ -26,7 +20,6 @@ pixelateBegin: E.pixelateBegin = function() {
         t = 100;
       }
 
-      /// if in play mode use that value, else use slider value
       var size = (play ? v : t) * 0.01,
 
       /// cache scaled width and height
@@ -66,6 +59,9 @@ pixelateBegin: E.pixelateBegin = function() {
           dx = -dx;
         } else if (v > 50) {
           play = false;
+          ctx.mozImageSmoothingEnabled = true;
+          ctx.webkitImageSmoothingEnabled = true;
+          ctx.imageSmoothingEnabled = true;
         }
         /// pixelate image with current value
         pixelate(v);
