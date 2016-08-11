@@ -7,6 +7,10 @@ pixelateBegin: E.pixelateBegin = function() {
       img = new Image(),
       play = false;
 
+    ctx.mozImageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false;
+    ctx.imageSmoothingEnabled = false;
+
     /// wait until image is actually available
     img.onload = pixelate;
 
@@ -53,15 +57,12 @@ pixelateBegin: E.pixelateBegin = function() {
 
         /// increase or decrease value
         v += dx;
-        dx = (v > 20 ? 0.35 : 0.2);
+        dx = (v > 20 ? 0.36 : 0.2);
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;
         } else if (v > 50) {
           play = false;
-          ctx.mozImageSmoothingEnabled = true;
-          ctx.webkitImageSmoothingEnabled = true;
-          ctx.imageSmoothingEnabled = true;
         }
         /// pixelate image with current value
         pixelate(v);
