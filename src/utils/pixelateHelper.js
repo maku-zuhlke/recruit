@@ -57,7 +57,7 @@ pixelateBegin: E.pixelateBegin = function() {
 
         /// increase or decrease value
         v += dx;
-        dx = (v > 20 ? 0.36 : 0.2);
+        dx = (v > 20 ? 0.4 : 0.25);
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;
