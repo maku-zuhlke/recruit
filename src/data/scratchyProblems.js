@@ -50,7 +50,7 @@ export const bubbleSort = {
       id: 4
     },
     {
-      text: ' or (int i = 0; i < n; i++) {',
+      text: 'for (int i = 0; i < n; i++) {',
       id: 5
     },
     {
@@ -157,5 +157,39 @@ export const insertionSort = {
     {
       text: 'temp = numbers[j];',
       id: 9
+    }]
+};
+
+export const palindromes = {
+  instruction: codeBlocksInstruction + 'build method that checks if a given word is a palindrome',
+  correctOrder: [3, 5, 7, 2, 6, 1, 4],
+  blocks: [
+    {
+      text: 'isPalindrome = isPalindrome && isSameLetter;}}',
+      id: 1
+    },
+    {
+      text: 'for (int i = 0; i <= size/2; i++) {',
+      id: 2
+    },
+    {
+      text: 'public static boolean isPalindrome(String word) {',
+      id: 3
+    },
+    {
+      text: 'return isPalindrome;}',
+      id: 4
+    },
+    {
+      text: 'int size = word.length() - 1;\nboolean isSameLetter, isPalindrome = true;',
+      id: 5
+    },
+    {
+      text: 'isSameLetter = (word.charAt(i) == word.charAt(size - i));',
+      id: 6
+    },
+    {
+      text: 'if (size >= 2) {',
+      id: 7
     }]
 };
