@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import { codingChallengeButton, puzzleChallengeButton } from 'data/strings';
 
-describe('Menu', () => {
+describe('MenuComponent', () => {
   it('should be div', () => {
     let MenuComponent = createComponent(Menu);
     expect(MenuComponent.type).toEqual('div');

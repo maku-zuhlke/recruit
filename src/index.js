@@ -9,16 +9,18 @@ import MatchstickPuzzle from './components/MatchPuzzle/MatchstickPuzzle';
 import Menu from './components/Menu';
 
 const store = configureStore();
+const routes =
+  <Router history={browserHistory}>
+    <Route component={App}>
+      <Route path="/" component={Menu} />
+      <Route path="/coding" component={BlockList} />
+      <Route path="/puzzle" component={MatchstickPuzzle} />
+    </Route>
+  </Router>;
 
 render((
     <Provider store={store}>
-      <Router history={browserHistory}>
-        <Route component={App}>
-          <Route path="/" component={Menu} />
-          <Route path="/coding" component={BlockList} />
-          <Route path="/puzzle" component={MatchstickPuzzle} />
-        </Route>
-      </Router>
+      { routes }
     </Provider>
   ),
   document.getElementById('app')
