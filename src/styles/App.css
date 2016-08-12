@@ -126,15 +126,18 @@ img {
   font-size: larger;
   font-weight: bolder;
 }
-.fail {
+.failModal div {
+  max-width: 100%;
+}
+.failModal .fail {
   background-color: rgba(255,255,255,0.8);
   margin-bottom: 20%;
   padding-bottom: 4%;
 }
-.fail h1 {
+.failModal .fail h1 {
   color: rgba(250,122,21,0.8);
 }
-.fail a {
+.failModal .fail a {
   color: rgba(250,122,21,0.8);
   font-size: larger;
   text-decoration: underline;
