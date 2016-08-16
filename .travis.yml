@@ -15,11 +15,11 @@ install:
 script:
 - npm test
 deploy:
-- provider: s3
-  access_key_id: AKIAJYTW6IWPXMGLR4JA
-  secret_access_key:
-    secure: Y8te0Natb9n9gegIf36OvTwy5XYQpR4aL65Gqx0ogXFNOIFjUl8c3HyVqWjL3cOnkoYGcofIAYCbI1Gqzyiu2LcfGIiFxPZW6fAQYJWk51TF/Q8JdsljOSGk0EU+46dlZoPCJ3lqu0bEiKNEbgZAooT/v7C9aO6Vfz2JMk6XuAKF+usDnuR3INdoqDB7JE2jUSBVzk4RzJhIpr7pxMQ91yn3JPWwYP6zhhdB6k9KLmFvECT7Zw+/9DhrK3Oh+DMqvOWg6v7hJxULL3qFZK9JUwSSf7AsQuL0gHwrwrDmMkK4eFBoYs2M5hKC9zIG/aJ6KQI1z2+H9dQl2k8njzzVcm+IEtoKypKO1gWKNwvpYcMKvopvDc+LKLTy0V0C2oOseAUrL1kJBNWxCA329fbeOkxZasL7NQ0/zGbyfFR3yjw/8WCBFpAtkCcQdT1nGeroL/NyWxTE5to0zpufE2wCiEw0MDRdPUcM1F/PKGyfcQ0YemDY2tbf0fiA+XQvsTo9jkRJDAwVexGUOG1jYyFjXfMNQ6b/4Dx8KwdgRQiwyfOYZKD0Ai43kqLD8mU+V8RBJNVNZhs6Mu0vXKdG7Y4Y+OknDyFC9KI5EG4D4yhPLX1dAx7GaHuqZ6rkknP4blDS916PsvuVQBOCeL54DqBjiUqITP0LHdY9/5IrPHvgCNg=
-  bucket: zrecruit-bucket
-  skip_cleanup: true
-  acl: public_read
-  region: us-east-1
+  matrix:
+  - provider: s3
+    access_key_id: AKIAIZTGEZK2W4A55UBQ
+     secret_access_key:
+        secure: IkVLbGPyruCI9mWinf12uwEvM/CQMZb9/kKWzMe4KBXZT2tsWErdWQ2E/+CPC6/+x5w8DjjUzCRCEBud+RuThSKATMNdl2vAhS++2GOdjg8ibfvOgCJhzI0RJiQoMZPZFxPNqjPXRJq/LPCPVmvBqjArxkKodTI4gzH8POr8n86qL4w9hoJeO4OGgWXbITsoLamjFDCPNS6Ig2NuIJSxEAh6NDi6oAgnwKNqxler42DVp9HBNIB8ZvynenDZk6MpIY70aUsgMwN8+Whhww4w0PNGi+JVbUbW0lq6619Xy+ylUaICQiWpbAE4RYbu2GW6xfJq/lI1BGSu1D/lbsrsEue7BtHCp6cuGPTDdyPflTrvD+Heg2vDEErnvkvxGUZSeHcF+v/4fCnX3Vwbnn4cS9+j563tH1mEh0ksqRA5Hj5Xer3n9hSnsog/y8LuTG8gFzWbL4B9/R57xmqu1V8vie2/wEpdLZWPwMd8RuUa1L14OqkcvUtdIY70bEGI+WNRl1oCK0CCXrF9KCDBWLERfqfF6JqAjd4Z6SEenSfkSypIH79C/G1XAjYK92thFXRboheI/d9KZ4fay9Gu2g2tTNFGC35yeoJwQgmx1/qZC2ymUiZVYE+UKAxyUakKVo286H63rcIGUwcX7khOurLksfBmIFkXyWmfwAUBXXdFzoE=
+    bucket: zrecruit-bucket
+    skip_cleanup: true
+    region: us-east-1
