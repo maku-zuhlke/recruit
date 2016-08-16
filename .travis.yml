@@ -16,3 +16,10 @@ install:
 script:
   - npm run lint
   - npm test
+deploy:
+  provider: s3
+  access_key_id: "AKIAJYTW6IWPXMGLR4JA"
+  secret_access_key: "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"
+  bucket: "zrecruit"
+  skip_cleanup: true
+  region: "ireland"
