@@ -64,7 +64,6 @@ describe('BlockClass', () => {
     expect(blockComponent.props.index).toEqual(ind);
     expect(blockComponent.props.moveBlock.calls.length).toEqual(0);
   });
-
   it('should not call moveBlock while hovering a block below and not crossing its half', () => {
     let blockComponent = TestUtils.findRenderedComponentWithType(block, Block);
     let otherBlockComponent = TestUtils.findRenderedComponentWithType(otherBlock, Block);
@@ -103,3 +102,4 @@ describe('BlockClass', () => {
     expect(otherBlockComponent.props.moveBlock.calls.length).toEqual(1);
   });
 });
+

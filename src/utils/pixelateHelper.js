@@ -1,12 +1,12 @@
 /// (C) Ken Fyrstenberg Nilsen, Abdias Software, CC3.0-attribute.
-export const begin = () => {
+var E = window;
+pixelateBegin: E.pixelateBegin = function() {
   if (document.getElementById('canvas')) {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d'),
       img = new Image(),
       play = false;
 
-    /// turn off image smoothing - this will give the pixelated effect
     ctx.mozImageSmoothingEnabled = false;
     ctx.webkitImageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
@@ -14,19 +14,16 @@ export const begin = () => {
     /// wait until image is actually available
     img.onload = pixelate;
 
-    /// some image, we are not struck with CORS restrictions as we
-    /// do not use pixel buffer to pixelate, so any image will do
-    img.src = 'images/logo-zuhlke-big.jpg';
+    img.src = 'images/logo-zuhlke-big.png';
+    img.src = 'images/logo-zuhlke.png';
 
-
-/// MAIN function
+    /// MAIN function
     function pixelate(v) {
       var t = 1;
       if (v > 50) {
         t = 100;
       }
 
-      /// if in play mode use that value, else use slider value
       var size = (play ? v : t) * 0.01,
 
       /// cache scaled width and height
@@ -41,15 +38,14 @@ export const begin = () => {
       ctx.drawImage(canvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
     }
 
-/// This runs the demo animation to give an impression of
-/// performance.
+    /// This runs the demo animation to give an impression of
+    /// performance.
     function toggleAnim() {
 
       /// limit blocksize as we don't want to animate tiny blocks
       var v = 1,
         dx = 0.2; /// "speed"
 
-      /// toggle play flag set by button "Animate"
       play = !play;
 
       /// if in play mode start loop
@@ -60,7 +56,7 @@ export const begin = () => {
 
         /// increase or decrease value
         v += dx;
-        dx = (v > 20 ? 0.35 : 0.2);
+        dx = (v > 20 ? 0.4 : 0.25);
         /// if at min or max reverse delta
         if (v <= 1) {
           dx = -dx;
@@ -75,15 +71,16 @@ export const begin = () => {
       }
     }
 
-/// poly-fill for requestAnmationFrame with fallback for older
-/// browsers which do not support rAF.
-    window.requestAnimationFrame = (function () {
-      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-          window.setTimeout(callback, 1000 / 60);
+    /// poly-fill for requestAnmationFrame with fallback for older
+    /// browsers which do not support rAF.
+    requestAnimationFrame = (function () {
+      return E.requestAnimationFrame || E.webkitRequestAnimationFrame || E.mozRequestAnimationFrame || function (callback) {
+          E.setTimeout(callback, 1000 / 60);
         };
     })();
+
     toggleAnim();
   } else {
-    setTimeout(begin, 15);
+    setTimeout(E.pixelateBegin, 15);
   }
 };

@@ -152,7 +152,7 @@ describe('MatchstickPuzzleClass', () => {
 
   it('should render Win component if correctNumber and correctOperation are true and moves == 0', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(3);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(false);
 
     initialState.matches.correctNumbers = true;
@@ -168,13 +168,13 @@ describe('MatchstickPuzzleClass', () => {
     matchPuzzle = matchPuzzleDnD.refs.child;
 
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(4);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
   });
 
   it('should render Fail component if end is true', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(3);
     expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
 
     initialState.matches.end = true;
@@ -188,13 +188,13 @@ describe('MatchstickPuzzleClass', () => {
     matchPuzzle = matchPuzzleDnD.refs.child;
 
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(4);
     expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(true);
   });
 
   it('should not render Fail component if and is true but correctNumber and correctOperation are true and moves == 0', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(3);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(false);
     expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
 
@@ -212,14 +212,14 @@ describe('MatchstickPuzzleClass', () => {
     matchPuzzle = matchPuzzleDnD.refs.child;
 
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(4);
     expect(matchPuzzleNode.innerText.includes(winText)).toBe(true);
     expect(matchPuzzleNode.innerText.includes(timesUpText)).toBe(false);
   });
 
   it('should render Fail component if out of moves', () => {
     var matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(3);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(3);
     expect(matchPuzzleNode.innerText.includes(outOfMovesText)).toBe(false);
 
     initialState.matches.moves = 0;
@@ -233,7 +233,7 @@ describe('MatchstickPuzzleClass', () => {
     matchPuzzle = matchPuzzleDnD.refs.child;
 
     matchPuzzleNode = ReactDOM.findDOMNode(matchPuzzle);
-    expect(matchPuzzleNode.children.length).toEqual(4);
+    expect(matchPuzzleNode.children[0].children[0].children.length).toEqual(4);
     expect(matchPuzzleNode.innerText.includes(outOfMovesText)).toBe(true);
   });
 

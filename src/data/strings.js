@@ -14,3 +14,7 @@ export const matchPuzzleInstruction = "Solve the equation moving ";
 export const codeBlocksInstruction = "Reorder the blocks of code to ";
 
 export const doneButton = "It's done";
+
+export const codingChallengeButton = "Coding Challenge";
+
+export const puzzleChallengeButton = "Puzzle Challenge";

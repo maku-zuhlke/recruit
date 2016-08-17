@@ -14,8 +14,7 @@ describe('blocksReducer', () => {
       correctOrder: [2, 1],
       blocks: [
         { text: 'pieceOfCode1', id: 1},
-        { text: 'pieceOfCode2', id: 2}],
-      win: false
+        { text: 'pieceOfCode2', id: 2}]
     };
   });
 

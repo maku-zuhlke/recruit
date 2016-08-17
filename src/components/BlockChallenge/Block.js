@@ -75,17 +75,17 @@ class Block extends Component {
   };
 
   constructor(props, context) {
-    super(props, context)
+    super(props, context);
   }
 
   escape(code) {
-    return code.replace('&gt;', '>').replace('&lt;', '<');
+    return code.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;&amp;', '&&');
   }
   
 
   render() {
     const { connectDragSource, connectDropTarget, block } = this.props;
-    var t =  $.parseHTML(prettyPrintOne(block.text), false);
+    var t =  $.parseHTML(window.prettyPrintOne(block.text), false);
     var spans = t.map((item, i) => {
       return <span key={i} className={item.className}>{this.escape(item.innerHTML)}</span>
     });
