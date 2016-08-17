@@ -1,5 +1,5 @@
 require('normalize.css/normalize.css');
-require('styles/App2.styl');
+require('styles/App.styl');
 
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
