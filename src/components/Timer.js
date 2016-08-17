@@ -56,7 +56,7 @@ class Timer extends Component {
     time = new Date(time);
     let s = pad(time.getSeconds().toString(), 2);
 
-    var initialOffset = '215';
+    var initialOffset = '109';
     var time = 60;
     $('.circle_animation').css('stroke-dashoffset', initialOffset-(s*(initialOffset/time)));
     $('h2').text(s)
@@ -67,11 +67,11 @@ class Timer extends Component {
     return (
       <div className="timer">
           
-        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <svg width="55" height="55" xmlns="http://www.w3.org/2000/svg">
           <g>
             <title>Layer 1</title>
-            <circle id="circle" strokeWidth= "5" className="circle_animation"/>
-            <text transform = "rotate(90, 0, 72)">{this.format(this.state.time) }</text>
+            <circle id="circle" strokeWidth= "3" className="circle_animation"/>
+            <text transform = "rotate(0.1, -20000, 10000)">{this.format(this.state.time) }</text>
           </g>
         </svg>
       </div>

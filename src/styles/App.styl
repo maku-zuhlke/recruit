@@ -122,7 +122,7 @@ img
 @keyframes pop
   0%
     opacity:0
-    transform:scale(.5)
+    transform:scale(.0)
   50%
     opacity:1
   100%
@@ -160,22 +160,23 @@ svg
   circle
     -webkit-transform: rotate(-90deg)
     transform: rotate(-90deg)
-    transform-origin: 50% 50%
-
-text
+    transform-origin: 50% 50% 0
+svg  
+  text
   x: 50% 
   y: 50%
   stroke: orange 
   fill: orange
+  z-index: 1000
 
 .circle_animation 
-  stroke-dasharray: 215 /* this value is the pixel circumference of the circle */
+  stroke-dasharray: 109 /* this value is the pixel circumference of the circle */
   stroke-dashoffset: 0
   transition: all 1s linear
   stroke: orange
-  r: 35 
-  cy: 81
-  cx: 81 
+  r: 18
+  cy: 28
+  cx: 28
   fill: white
 
 .fail
