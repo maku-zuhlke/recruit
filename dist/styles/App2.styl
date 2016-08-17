@@ -1,0 +1,477 @@
+orange = rgba(250, 122, 21, 0.8)
+white = rgba(255, 255, 255, 0.8)
+lilac = rgba(160, 96, 158, 1)
+
+main_colours()
+  background: white
+  color: orange
+  border-color: orange
+  font-size: medium
+
+op_colours()
+  background: orange
+  color: white
+  border-color: orange
+  font-size: medium
+
+zuhlke_colours()
+  background: white
+  color: lilac
+  border-color: lilac
+  font-size: medium
+
+op_zuhlke_colours()
+  background: lilac
+  color: white
+  border-color: lilac
+  font-size: medium
+
+/* Base Application Styles */
+
+html
+  height 100%
+  width: 100%
+
+body
+  background: url("/images/bcgr.jpg") no-repeat fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  font-size: medium
+  height: 100%
+  width: 100%
+
+img
+  user-drag: none
+  user-select: none
+  -moz-user-select: none
+  -webkit-user-drag: none
+  -webkit-user-select: none
+  -ms-user-select: none
+
+#app
+  height: 100%
+
+.index
+  height: 100%
+  width: 100%
+
+.center
+  text-align: center
+  vertical-align: middle
+  height: 100%
+
+.logoRow
+  .logo
+    margin-top: 2%
+    left: 0
+    right: 0
+
+.contentRow
+  .content
+    left: 0
+    right: 0
+    z-index: 9999
+    background-clip: content-box
+    background-color: rgba(255, 255, 255, 0.4)
+    padding-bottom: 1%
+
+.win
+  div
+    max-width: 100%
+    max-height: 100%
+
+.done
+  vertical-align: bottom
+  float: right
+  margin-top: 5%
+  margin-bottom: 10%
+  &, &:focus
+    main_colours()
+  &:hover, &:active:hover, &:active
+    op_colours()
+
+.space
+  margin-top: 1.5%
+  margin-bottom: 1.5%
+  padding: 1% 0 1% 0
+  color: orange
+  font-weight: bolder
+  font-size: larger
+
+.start
+  margin-top: 10%
+  margin-bottom: 10%
+  &, &:focus
+    main_colours()
+    a
+      color: orange
+  &:hover, &:active, &:active:hover
+    op_colours()
+    a
+      color: white
+      text-decoration: none
+.code
+  margin-bottom: 0.5%
+  padding-bottom: 5%
+  padding-top: 20%
+  width: 80%
+  margin-left: 10%
+  font-size: medium
+  &:hover, &:active, &:active:hover
+    background: #4D5656
+
+.timer
+  color: orange
+  font-size: larger
+  font-weight: bolder
+
+.failModal
+  div
+    max-width: 100%
+  .fail
+    background-color: white
+    margin-bottom: 20%
+    padding-bottom: 4%
+    h1
+      color: orange
+    a
+      color: orange
+      font-size: larger
+      text-decoration: underline
+
+.talent
+  &, &:focus
+    zuhlke_colours()
+  &:hover, &:active, &:active:hover
+    op_zuhlke_colours()
+  animation: fromBack 1s linear 1.5s backwards
+
+/* Animations - Zuhlke splash */
+.image
+  #canvas
+    position: relative
+    z-index: 1000
+    width: 100%
+    height: 100%
+    animation: fromBack 0.5s linear 0s backwards
+
+@keyframes fromBack
+  0%
+    transform: scale(0)
+    opacity: 0
+  100%
+    transform: scale(1)
+    opacity: 1
+
+
+/* Matchstick */
+.puzzleRow
+  height: 70%
+  .contentPuzzle
+    left: 0
+    right: 0
+    z-index: 9999
+    background-clip: content-box
+    background-color: rgba(255, 255, 255, 0.4)
+    padding-bottom: 1%
+    .challenge
+      height: 100%
+      .puzzle
+        .operation
+          height: 50%
+          font-size: 0
+          position: relative
+          .horizontal
+            height: 50%
+            position: absolute
+            bottom: 0
+            .top, .middle, .bottom
+              width: 60%
+              height: 50%
+              display: inline-block
+              -webkit-transform: rotate(90deg)
+              .match
+                display: inline-block
+          .verticalZindex
+            height: 65%
+            z-index: 1000
+            bottom: 0
+            position: absolute
+            .plus
+              z-index: 1000
+              .match
+                height: 100%
+                display: inline-block
+                margin-left: -25px
+        .numberCol
+          height: 100%
+          .number
+            height: 100%
+            font-size: 0
+            .vertical
+              height: 30%
+              .match
+                display: inline-block
+            .horizontal
+              -webkit-transform: rotate(90deg)
+              display: inline-block
+              height: 8%
+              width: 60%
+              .top, .middle, .bottom
+                height: 50%
+                .match
+                  display: inline-block
+
+.placeholder
+  opacity: 0.08
+
+.equalSign
+  opacity: 0.8
+
+/* Media queries for matches */
+@media only screen and (min-width: 300px) and (max-width: 359px)
+  .contentPuzzle
+    height: 240px
+  .puzzle
+    height: 120px
+    img
+      max-width: 6px
+      max-height: 70px
+    .numberCol
+      width: 23%
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -15px
+          margin-left: -7px
+    .operation
+      .horizontal
+        .top, .middle, .bottom
+          margin-left: 10px
+      .verticalZindex
+        .plus
+          margin-left: 15px
+
+@media only screen and (min-width: 360px) and (max-width: 399px)
+  .contentPuzzle
+    height: 240px
+  .puzzle
+    height: 120px
+    img
+      max-width: 6px
+      max-height: 70px
+    .numberCol
+      width: 20%
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -15px
+          margin-left: -7px
+    .operation
+      .horizontal
+        .top, .middle, .bottom
+          margin-left: 10px
+      .verticalZindex
+        .plus
+          margin-left: 15px
+
+@media only screen and (min-width: 400px)
+  .contentPuzzle
+    height: 280px
+  .puzzle
+    height: 155px
+    img
+      max-width: 8px
+      max-height: 90px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -8px
+          margin-left: -1px
+
+@media only screen and (min-width: 430px)
+  .contentPuzzle
+    height: 280px
+  .puzzle
+    height: 155px
+    img
+      max-width: 8px
+      max-height: 90px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -5px
+          margin-left: 3px
+
+@media only screen and (min-width: 490px)
+  .contentPuzzle
+    height: 320px
+  .puzzle
+    height: 200px
+    img
+      max-width: 10px
+      max-height: 92px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -1px
+
+@media only screen and (min-width: 560px)
+  .contentPuzzle
+    height: 320px
+  .puzzle
+    height: 200px
+    img
+      max-width: 10px
+      max-height: 92px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: 5px
+          margin-left: 5px
+
+@media only screen and (min-width: 600px)
+  .contentPuzzle
+    height: 360px
+  .puzzle
+    height: 240px
+    img
+      max-width: 12px
+      max-height: 94px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: 8px
+
+@media only screen and (min-width: 700px)
+  .contentPuzzle
+    height: 360px
+  .puzzle
+    height: 240px
+    img
+      max-width: 12px
+      max-height: 94px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: 15px
+
+@media only screen and (min-width: 768px)
+  .contentPuzzle
+    height: 360px
+  .puzzle
+    height: 240px
+    img
+      max-width: 12px
+      max-height: 94px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -8px
+
+@media only screen and (min-width: 900px)
+  .contentPuzzle
+    height: 420px
+  .puzzle
+    height: 280px
+    img
+      max-width: 13px
+      max-height: 96px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -4px
+
+@media only screen and (min-width: 1000px)
+  .contentPuzzle
+    height: 370px
+  .puzzle
+    height: 240px
+    img
+      max-width: 12px
+      max-height: 94px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -8px
+
+@media only screen and (min-width: 1190px)
+  .contentPuzzle
+    height: 460px
+  .puzzle
+    height: 320px
+    img
+      max-width: 16px
+      max-height: 100px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -15px
+
+@media only screen and (min-width: 1439px)
+  .contentPuzzle
+    height: 510px
+  .puzzle
+    height: 360px
+    img
+      max-width: 18px
+      max-height: 101px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -12px
+
+@media only screen and (min-width: 1700px)
+  .contentPuzzle
+    height: 580px
+  .puzzle
+    height: 400px
+    img
+      max-width: 20px
+      max-height: 118px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: -5px
+
+
+@media only screen and (min-width: 2000px)
+  .contentPuzzle
+    height: 680px
+  .puzzle
+    height: 500px
+    img
+      max-width: 30px
+      max-height: 140px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: 0
+
+@media only screen and (min-width: 2300px)
+  .contentPuzzle
+    height: 800px
+  .puzzle
+    height: 600px
+    img
+      max-width: 40px
+      max-height: 162px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: 5px
+
+@media only screen and (min-width: 2560px)
+  .contentPuzzle
+    height: 880px
+  .puzzle
+    height: 660px
+    img
+      max-width: 50px
+      max-height: 184px
+    .number
+      .horizontal
+        .top, .middle, .bottom
+          margin-top: 5px
