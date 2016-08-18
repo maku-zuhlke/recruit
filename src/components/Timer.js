@@ -66,12 +66,10 @@ class Timer extends Component {
   render() {
     return (
       <div className="timer">
-          
         <svg width="55" height="55" xmlns="http://www.w3.org/2000/svg">
           <g>
-            <title>Layer 1</title>
-            <circle id="circle" strokeWidth= "3" className="circle_animation"/>
-            <text transform = "rotate(0.1, -20000, 9900)">{this.format(this.state.time) }</text>
+            <circle id="circle" strokeWidth="3" className="circle_animation"/>
+            <text transform="rotate(0.1, -20000, 9900)">{this.format(this.state.time) }</text>
           </g>
         </svg>
       </div>

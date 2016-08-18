@@ -125,10 +125,20 @@ img {
   color: rgba(250,122,21,0.8);
   font-size: larger;
   font-weight: bolder;
-}
-.timer .timer {
   position: relative;
-  float: left;
+  margin-top: -10px;
+}
+.timer svg {
+  x: 50%;
+  y: 50%;
+  stroke: rgba(250,122,21,0.8);
+  fill: rgba(250,122,21,0.8);
+  z-index: 1000;
+}
+.timer svg circle {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50% 0;
 }
 .timer h2 {
   text-align: center;
@@ -148,19 +158,6 @@ img {
   color: rgba(250,122,21,0.8);
   font-size: larger;
   text-decoration: underline;
-}
-svg circle {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  transform-origin: 50% 50% 0;
-}
-svg {
-text
-  x: 50%;
-  y: 50%;
-  stroke: rgba(250,122,21,0.8);
-  fill: rgba(250,122,21,0.8);
-  z-index: 1000;
 }
 .circle_animation {
   stroke-dasharray: 109 /* this value is the pixel circumference of the circle */;

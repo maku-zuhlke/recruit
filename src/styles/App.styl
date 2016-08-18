@@ -61,7 +61,7 @@ img
   text-align: center
   vertical-align: middle
   height: 100%
-  
+
 .logoRow
   .logo
     margin-top: 2%
@@ -126,18 +126,24 @@ img
   color: orange
   font-size: larger
   font-weight: bolder
-  
-  .timer 
-    position: relative
-    float: left
+  position: relative
+  margin-top: -10px
+  svg
+    x: 50%
+    y: 50%
+    stroke: orange
+    fill: orange
+    z-index: 1000
+    circle
+      -webkit-transform: rotate(-90deg)
+      transform: rotate(-90deg)
+      transform-origin: 50% 50% 0
+  h2
+    text-align: center
+    position: absolute
+    line-height: 125px
+    width: 100%
 
-
-.timer h2
-  text-align:center
-  position: absolute
-  line-height: 125px
-  width: 100%
-    
 .fail
   background-color: white
   margin-bottom: 20%
@@ -149,20 +155,7 @@ img
     font-size: larger
     text-decoration: underline
 
-svg
-  circle
-    -webkit-transform: rotate(-90deg)
-    transform: rotate(-90deg)
-    transform-origin: 50% 50% 0
-svg  
-  text
-  x: 50% 
-  y: 50%
-  stroke: orange 
-  fill: orange
-  z-index: 1000
-
-.circle_animation 
+.circle_animation
   stroke-dasharray: 109 /* this value is the pixel circumference of the circle */
   stroke-dashoffset: 0
   transition: all 1s linear
