@@ -481,6 +481,9 @@ img {
     max-width: 16px;
     max-height: 100px;
   }
+  .puzzle .operation .horizontal {
+    padding-left: 15px;
+  }
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
@@ -497,6 +500,9 @@ img {
   .puzzle img {
     max-width: 18px;
     max-height: 101px;
+  }
+  .puzzle .operation .horizontal {
+    padding-left: 15px;
   }
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
