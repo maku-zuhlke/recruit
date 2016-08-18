@@ -126,7 +126,7 @@ img {
   font-size: larger;
   font-weight: bolder;
   position: relative;
-  margin-top: -10px;
+  margin-bottom: 5px;
 }
 .timer svg {
   x: 50%;
@@ -225,6 +225,9 @@ img {
 }
 .puzzleRow .contentPuzzle .challenge {
   height: 100%;
+}
+.puzzleRow .contentPuzzle .challenge .puzzle {
+  margin-bottom: -10px;
 }
 .puzzleRow .contentPuzzle .challenge .puzzle .operation {
   height: 50%;
