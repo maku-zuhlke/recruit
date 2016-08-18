@@ -15,7 +15,6 @@ pixelateBegin: E.pixelateBegin = function() {
     img.onload = pixelate;
 
     img.src = 'images/logo-zuhlke-big.png';
-    img.src = 'images/logo-zuhlke.png';
 
     /// MAIN function
     function pixelate(v) {
