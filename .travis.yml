@@ -14,7 +14,6 @@ install:
 - npm rebuild
 script:
 - npm test
-pre_deploy:
 - npm run dist
 deploy:
 - provider: s3
