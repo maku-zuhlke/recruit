@@ -121,22 +121,6 @@ img
   font-size: medium
   &:hover, &:active, &:active:hover
     background: #4D5656
-  opacity: 0
-  transform:scale(.5)
-  for items in (1..10)
-    &:nth-child({items})      
-      animation: pop .5s  ease-out (.2*items)s forwards
-
-/* Animations - block display */
-@keyframes pop
-  0%
-    opacity:0
-    transform:scale(.0)
-  50%
-    opacity:1
-  100%
-    opacity:1
-    transform:scale(1)
 
 .timer
   color: orange

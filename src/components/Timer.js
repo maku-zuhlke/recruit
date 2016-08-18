@@ -71,7 +71,7 @@ class Timer extends Component {
           <g>
             <title>Layer 1</title>
             <circle id="circle" strokeWidth= "3" className="circle_animation"/>
-            <text transform = "rotate(0.1, -20000, 10000)">{this.format(this.state.time) }</text>
+            <text transform = "rotate(0.1, -20000, 9900)">{this.format(this.state.time) }</text>
           </g>
         </svg>
       </div>
