@@ -126,6 +126,52 @@ img {
   font-size: larger;
   font-weight: bolder;
 }
+.timer .timer {
+  position: relative;
+  float: left;
+}
+.timer h2 {
+  text-align: center;
+  position: absolute;
+  line-height: 125px;
+  width: 100%;
+}
+.fail {
+  background-color: rgba(255,255,255,0.8);
+  margin-bottom: 20%;
+  padding-bottom: 4%;
+}
+.fail h1 {
+  color: rgba(250,122,21,0.8);
+}
+.fail a {
+  color: rgba(250,122,21,0.8);
+  font-size: larger;
+  text-decoration: underline;
+}
+svg circle {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50% 0;
+}
+svg {
+text
+  x: 50%;
+  y: 50%;
+  stroke: rgba(250,122,21,0.8);
+  fill: rgba(250,122,21,0.8);
+  z-index: 1000;
+}
+.circle_animation {
+  stroke-dasharray: 109 /* this value is the pixel circumference of the circle */;
+  stroke-dashoffset: 0;
+  transition: all 1s linear;
+  stroke: rgba(250,122,21,0.8);
+  r: 18;
+  cy: 28;
+  cx: 28;
+  fill: rgba(255,255,255,0.8);
+}
 .failModal div {
   max-width: 100%;
 }
