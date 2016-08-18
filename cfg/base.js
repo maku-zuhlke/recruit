@@ -16,7 +16,7 @@ module.exports = {
   devtool: 'eval',
   output: {
     path: path.join(__dirname, '/../dist/assets'),
-    filename: 'app2.js',
+    filename: 'app3.js',
     publicPath: defaultSettings.publicPath
   },
   devServer: {
