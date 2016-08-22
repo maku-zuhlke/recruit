@@ -4,5 +4,5 @@
 
 export function randomChallenge(problems) {
   var keys = Object.keys(problems);
-  return problems[keys[keys.length * Math.random() << 0]]
+  return problems[keys[keys.length * Math.random() << 0]];
 }
