@@ -84,7 +84,7 @@ export const m10 = {
 export const m11 = {
   numbers :[[1,1,0,1,1,0,1],[1,1,1,1,1,0,1],[1,1,1,1,1,0,1]],
   operation: [1,0,1],
-  moves: 1,
+  moves: 2,
   correctPositions: {numbers: [[1,1,1,1,1,0,1],[1,1,1,1,1,0,1],[1,1,1,1,1,1,0]], operation: [1,0,0]},
   win: false
 };
@@ -94,5 +94,29 @@ export const m12 = {
   operation: [1,0,1],
   moves: 1,
   correctPositions: {numbers: [[0,1,1,0,1,1,1],[0,1,1,0,1,1,1],[1,0,1,1,0,0,1]], operation: [1,0,1]},
+  win: false
+};
+
+export const m13 = {
+  numbers :[[0,1,1,0,1,1,1],[1,1,1,1,1,0,1],[0,1,1,1,1,0,1]],
+  operation: [1,0,0],
+  moves: 2,
+  correctPositions: {numbers: [[0,1,1,1,1,0,1],[1,1,1,1,1,1,0],[0,1,1,1,1,0,1]], operation: [1,0,0]},
+  win: false
+};
+
+export const m14 = {
+  numbers :[[1,1,0,1,1,0,1],[1,1,1,1,1,1,1],[0,0,1,1,0,0,0]],
+  operation: [1,0,1],
+  moves: 1,
+  correctPositions: {numbers: [[1,1,1,1,1,0,1],[1,1,1,1,1,1,1],[0,0,1,1,0,0,0]], operation: [1,0,0]},
+  win: false
+};
+
+export const m15 = {
+  numbers :[[1,1,1,1,1,1,1],[0,0,1,1,0,0,0],[1,1,1,1,1,1,0]],
+  operation: [1,0,0],
+  moves: 1,
+  correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,0,1,1,0,0,0],[1,1,1,1,1,1,1]], operation: [1,0,0]},
   win: false
 };
