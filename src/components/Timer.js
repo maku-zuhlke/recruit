@@ -57,9 +57,8 @@ class Timer extends Component {
     let s = pad(time.getSeconds().toString(), 2);
 
     var initialOffset = '109';
-    var time = 60;
-    $('.circle_animation').css('stroke-dashoffset', initialOffset-(s*(initialOffset/time)));
-    $('h2').text(s)
+    $('.circle_animation').css('stroke-dashoffset', initialOffset-(s*(initialOffset/60)));
+    $('h2').text(s);
     return `${s}`
   }
 

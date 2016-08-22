@@ -374,3 +374,49 @@ export const binarySearch = {
       id: 11
     }]
 };
+
+export const removeDuplicates = {
+  instruction: codeBlocksInstruction + 'build a method that removes duplicate elements from an array',
+  correctOrder: [9, 5, 3, 7, 1, 8, 6, 10, 2, 4],
+  blocks: [
+    {
+      text: 'for (int i = 1; i < numbersWithDuplicates.length; i++) {',
+      id: 1
+    },
+    {
+      text: 'previous = number;}',
+      id: 2
+    },
+    {
+      text: 'int[] result = new int[numbersWithDuplicates.length];\nint previous = numbersWithDuplicates[0];',
+      id: 3
+    },
+    {
+      text: 'return result;}',
+      id: 4
+    },
+    {
+      text: 'Arrays.sort(numbersWithDuplicates);',
+      id: 5
+    },
+    {
+      text: 'if (previous != number) {',
+      id: 6
+    },
+    {
+      text: 'result[0] = previous;',
+      id: 7
+    },
+    {
+      text: 'int number = numbersWithDuplicates[i];',
+      id: 8
+    },
+    {
+      text: 'public static int[] removeDuplicates(int[] numbersWithDuplicates) {',
+      id: 9
+    },
+    {
+      text: 'result[i] = number;}',
+      id: 10
+    }]
+};
