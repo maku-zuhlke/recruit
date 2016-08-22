@@ -14,7 +14,6 @@ export function randomChallenge(challenge) {
     problems = coding;
   } else {
     problems = matches;
-    console.log(matches);
   }
   var keys = Object.keys(problems);
   var selected = keys[keys.length * Math.random() << 0];
