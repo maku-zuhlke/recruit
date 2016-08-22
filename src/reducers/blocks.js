@@ -3,10 +3,10 @@
  */
 import { BLOCKS_CHECK_SOLUTION, BLOCKS_MOVE_CODE, BLOCKS_TIMES_UP } from '../actions/const';
 import { randomChallenge } from '../utils/randomChallenge';
-import * as problems from '../data/scratchyProblems';
 import update from 'react/lib/update';
 
-export default function blocks(state = randomChallenge(problems), action) {
+let challenge = randomChallenge(1);
+export default function blocks(state = challenge, action) {
   switch (action.type) {
     case BLOCKS_CHECK_SOLUTION:
       return withNumberOfItemsInWrongPosition(state);

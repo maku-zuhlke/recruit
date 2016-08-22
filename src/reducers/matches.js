@@ -3,9 +3,9 @@
  */
 import { MATCHES_CHECK_POSITIONS, MATCHES_REMOVE_MATCH, MATCHES_PLACE_MATCH, MATCHES_TIMES_UP } from '../actions/const';
 import { randomChallenge } from '../utils/randomChallenge';
-import * as problems from '../data/matchstickProblems';
 
-export default function matches(state = randomChallenge(problems), action) {
+let challenge = randomChallenge(2);
+export default function matches(state = challenge, action) {
   switch (action.type) {
     case MATCHES_CHECK_POSITIONS:
       return withCheckedPositions(state);
