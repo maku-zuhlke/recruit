@@ -2,10 +2,11 @@
  * Created by lewa on 27/06/2016.
  */
 import { BLOCKS_CHECK_SOLUTION, BLOCKS_MOVE_CODE, BLOCKS_TIMES_UP } from '../actions/const';
+import { CODING } from '../data/strings';
 import { randomChallenge } from '../utils/randomChallenge';
 import update from 'react/lib/update';
 
-let challenge = randomChallenge(1);
+let challenge = randomChallenge(CODING);
 export default function blocks(state = challenge, action) {
   switch (action.type) {
     case BLOCKS_CHECK_SOLUTION:

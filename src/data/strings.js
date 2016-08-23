@@ -18,3 +18,7 @@ export const doneButton = "It's done";
 export const codingChallengeButton = "Coding Challenge";
 
 export const puzzleChallengeButton = "Puzzle Challenge";
+
+export const MATCHES = "matches";
+
+export const CODING = "coding";

@@ -2,9 +2,10 @@
  * Created by lewa on 21/07/2016.
  */
 import { MATCHES_CHECK_POSITIONS, MATCHES_REMOVE_MATCH, MATCHES_PLACE_MATCH, MATCHES_TIMES_UP } from '../actions/const';
+import { MATCHES } from '../data/strings';
 import { randomChallenge } from '../utils/randomChallenge';
 
-let challenge = randomChallenge(2);
+let challenge = randomChallenge(MATCHES);
 export default function matches(state = challenge, action) {
   switch (action.type) {
     case MATCHES_CHECK_POSITIONS:
