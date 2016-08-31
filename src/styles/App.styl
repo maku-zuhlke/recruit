@@ -195,6 +195,29 @@ img
     height: 100%
     animation: fromBack 0.5s linear 0s backwards
 
+
+/* Details */
+.details
+  .fields
+    margin-top: 10%
+    margin-bottom: 5%
+  label
+    color: orange
+    float: right
+    font-weight: bolder
+    font-size: larger
+  .field
+    display: table-cell
+    width: 75%
+    float: left
+    color: orange
+    background-color: white
+    border: none
+    border-radius: 2px
+    &:focus
+      box-shadow: 0 0 10px orange
+      border-color: orange
+
 @keyframes fromBack
   0%
     transform: scale(0)
