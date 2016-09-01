@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 class DetailsForm extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {name: "", email: ""};
+    this.state = {name: "", email: "", university: "", graduation: ""};
   }
 
   handleChange(event) {
@@ -16,7 +16,6 @@ class DetailsForm extends Component {
   }
 
   register() {
-
   }
 
   render() {
@@ -39,6 +38,22 @@ class DetailsForm extends Component {
                 </div>
                 <div className="col-xs-9">
                   <input className="field" id="email" type="email" value={this.state.email} onChange={this.handleChange.bind(this)}/>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-3">
+                  <label htmlFor="university">University</label>
+                </div>
+                <div className="col-xs-9">
+                  <input className="field" id="university" type="text" value={this.state.university} onChange={this.handleChange.bind(this)}/>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-3">
+                  <label htmlFor="graduation">Graduation year</label>
+                </div>
+                <div className="col-xs-9">
+                  <input className="field" id="graduation" type="text" value={this.state.graduation} onChange={this.handleChange.bind(this)}/>
                 </div>
               </div>
               <div className="row">
