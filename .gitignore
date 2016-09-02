@@ -3,3 +3,5 @@
 /coverage
 /src/.DS_Store
 /src/styles/.DS_Store
+
+node_modules/
