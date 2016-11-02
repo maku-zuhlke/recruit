@@ -20,7 +20,14 @@ class DetailsForm extends Component {
 
   render() {
     return(
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_wFTp21Be0FtnbChGvHnAjjn42x5BKB7VVZw063clz5Tiaw/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      <div className="center">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_wFTp21Be0FtnbChGvHnAjjn42x5BKB7VVZw063clz5Tiaw/viewform?embedded=true"
+              height="800"
+              width="775"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0">Loading...</iframe>
+        </div>
     );
     // return (
     //   <div className="details">
