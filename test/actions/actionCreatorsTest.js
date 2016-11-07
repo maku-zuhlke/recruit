@@ -7,6 +7,7 @@ import { isFSA } from 'flux-standard-action';
 import * as blockActions from 'actions/indexBlock';
 import * as matchesActions from 'actions/indexMatches';
 import * as types from 'actions/const';
+import {restartChallenge} from 'actions/restart';
 
 describe('blockActions', () => {
   it('should create an action to check the order of blocks', () => {
@@ -79,5 +80,14 @@ describe('matchesActions', () => {
     };
     expect(matchesActions.timeIsUp()).toEqual(expectedAction);
     expect(isFSA(matchesActions.timeIsUp())).toEqual(true);
+  });
+});
+
+describe('restartAction', () => {
+  it('should create an action to restart challenge', () => {
+    const expectedAction = {
+      type: 'RESTART_CHALLENGE'
+    };
+    expect(restartChallenge()).toEqual(expectedAction);
   });
 });

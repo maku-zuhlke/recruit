@@ -20,6 +20,9 @@ export default function matches(state = challenge, action) {
     case MATCHES_TIMES_UP:
       return withTimesUp(state);
 
+    case 'RESTART_CHALLENGE':
+      return restartChallenge(state);
+
     default:
       return state;
   }
@@ -95,3 +98,10 @@ const withCheckedPositions = (state) => {
     })
   }
 };
+
+
+const restartChallenge = (state) => {
+  var nextState = randomChallenge(MATCHES);
+  state = nextState;
+  return {...state}
+}

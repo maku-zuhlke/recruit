@@ -15,6 +15,8 @@ export default function blocks(state = challenge, action) {
       return withRearrangedBlocks(state, action.payload.dragIndex, action.payload.hoverIndex);
     case BLOCKS_TIMES_UP:
       return withTimesUp(state);
+    case 'RESTART_CHALLENGE':
+      return restartChallenge(state);
     default:
       return state;
   }
@@ -57,3 +59,9 @@ const withTimesUp = (state) => {
     end: true
   }
 };
+
+const restartChallenge = (state) => {
+  var nextState = randomChallenge(CODING);
+  state = nextState;
+  return {...state}
+}

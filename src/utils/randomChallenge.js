@@ -17,7 +17,7 @@ export function randomChallenge(challenge) {
   var selectedChallenge = problems[selected];
   delete problems[selected];
   localStorage.setItem(challenge, JSON.stringify(problems));
-  return selectedChallenge;
+  return {...selectedChallenge, uniqueID: Math.random()};
 }
 
 function isInLocalStorage(challenge){

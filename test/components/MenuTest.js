@@ -8,7 +8,7 @@ import Menu from 'components/Menu';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import { codingChallengeButton, puzzleChallengeButton } from 'data/strings';
+import { codingChallengeButton, puzzleChallengeButton, registerButton } from 'data/strings';
 
 describe('MenuComponent', () => {
   it('should be div', () => {
@@ -16,11 +16,13 @@ describe('MenuComponent', () => {
     expect(MenuComponent.type).toEqual('div');
   });
 
-  it('should have challenge selection links', () => {
+  it('should have challenge selection and register links', () => {
     let menu = TestUtils.renderIntoDocument(<Menu/>);
     let links = TestUtils.scryRenderedDOMComponentsWithTag(menu, 'span');
     expect(ReactDOM.findDOMNode(links[0]).textContent).toBe(codingChallengeButton);
     expect(ReactDOM.findDOMNode(links[1]).textContent).toBe(puzzleChallengeButton);
+    expect(ReactDOM.findDOMNode(links[2]).textContent).toBe(registerButton);
+
   });
 });
 

@@ -52,7 +52,7 @@ export class BlockList extends Component {
               <div className="center">
                 <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
                 <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
-                  <Timer callback={this.timeIsUp} />
+                  <Timer callback={this.timeIsUp} key={this.props.blocks.uniqueID}/>
                 </div>
                 <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
                   <button className="btn btn-default done" onClick={this.done.bind(this)}>{doneButton}</button>
@@ -75,7 +75,7 @@ function mapStateToProps(state) {
     blocks: {
       ...state.blocks,
       win: state.blocks.numberOfItemsInWrongPosition === 0
-    }
+    },
   };
 }
 

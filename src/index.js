@@ -9,6 +9,7 @@ import MatchstickPuzzle from './components/MatchPuzzle/MatchstickPuzzle';
 import DetailsForm from './components/DetailsForm';
 import Menu from './components/Menu';
 
+
 const store = configureStore();
 const routes =
   <Router history={browserHistory}>

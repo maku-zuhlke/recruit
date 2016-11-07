@@ -4,7 +4,7 @@
 'use strict';
 import expect from 'expect';
 import createComponent from 'helpers/shallowRenderHelper';
-import Fail from 'components/Fail';
+import {Fail} from 'components/Fail';
 import React from 'react';
 
 describe('FailShallowComponent', () => {

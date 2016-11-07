@@ -21,6 +21,8 @@ export class MatchstickPuzzle extends Component {
     this.handleDrop = this.handleDrop.bind(this);
   }
 
+
+
   timeIsUp() {
     this.props.actions.timeIsUp();
   }
@@ -113,6 +115,7 @@ export class MatchstickPuzzle extends Component {
   }
 
   render() {
+
     return (
       <div className="puzzleRow row">
         <div className="contentPuzzle col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
@@ -126,7 +129,7 @@ export class MatchstickPuzzle extends Component {
               <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(2)}</div>
               <MatchDragLayer key="__previewPuzzle" name="Match" />
             </div>
-            <div className="extras">
+            <div className="extras" key={this.props.matches.uniqueID}>
               <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
                 <Timer
                   callback={this.timeIsUp}
@@ -144,11 +147,12 @@ export class MatchstickPuzzle extends Component {
 
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
+
   return {
     matches: {
       ...state.matches,
       win: state.matches.correctOperation && state.matches.correctNumbers && state.matches.moves === 0
-    }
+    },
   };
 }
 
