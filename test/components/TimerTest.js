@@ -98,6 +98,18 @@ describe('TimerClass', () => {
     expect(timer.state.time).toEqual(0);
     expect(timer.state).toEqual(initialState);
   });
+
+  it('should reset timer', () => {
+    var initialState = {
+      time: 0,
+      timesup: false,
+      offset: timer.state.offset
+    };
+    timer.resetTimer();
+    // Round the time to allow for variations in processing speed
+    expect(Math.round(timer.state.time/100)).toBe(Math.round(Date.now()/100));
+    expect(timer.state.timesup).toEqual(false);
+  })
 });
 
 const then = (callback, timeout) => {

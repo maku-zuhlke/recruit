@@ -24,3 +24,7 @@ export const registerButton = "Register";
 export const MATCHES = "matches";
 
 export const CODING = "coding";
+
+export const yesText = "Yes";
+
+export const noText = "No";

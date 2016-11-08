@@ -17,7 +17,13 @@ describe('DetailsFormShallowComponent', () => {
 
   it('should be div', () => {
     expect(DetailsFormComponent.type).toEqual('div');
+
   });
+
+  it('should be iframe', () => {
+    expect(DetailsFormComponent.props.children.type).toEqual('iframe');
+  })
+
 });
 
 describe('DetailsFormClass', () => {
@@ -64,4 +70,8 @@ describe('DetailsFormClass', () => {
     detailsForm.handleChange(event);
     expect(detailsForm.state.graduation).toEqual(event.target.value);
   });
+
+
+
+
 });

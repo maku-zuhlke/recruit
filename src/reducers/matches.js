@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 21/07/2016.
  */
-import { MATCHES_CHECK_POSITIONS, MATCHES_REMOVE_MATCH, MATCHES_PLACE_MATCH, MATCHES_TIMES_UP } from '../actions/const';
+import { MATCHES_CHECK_POSITIONS, MATCHES_REMOVE_MATCH, MATCHES_PLACE_MATCH, MATCHES_TIMES_UP , RESTART_CHALLENGE} from '../actions/const';
 import { MATCHES } from '../data/strings';
 import { randomChallenge } from '../utils/randomChallenge';
 
@@ -20,7 +20,7 @@ export default function matches(state = challenge, action) {
     case MATCHES_TIMES_UP:
       return withTimesUp(state);
 
-    case 'RESTART_CHALLENGE':
+    case RESTART_CHALLENGE:
       return restartChallenge(state);
 
     default:

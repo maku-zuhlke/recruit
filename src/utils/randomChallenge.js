@@ -17,6 +17,7 @@ export function randomChallenge(challenge) {
   var selectedChallenge = problems[selected];
   delete problems[selected];
   localStorage.setItem(challenge, JSON.stringify(problems));
+  // Unique ID is given so that when a challenge is restarted, the timer is assigned a new uniqueID and consequently re-rendered
   return {...selectedChallenge, uniqueID: Math.random()};
 }
 

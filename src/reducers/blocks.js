@@ -1,7 +1,7 @@
 /**
  * Created by lewa on 27/06/2016.
  */
-import { BLOCKS_CHECK_SOLUTION, BLOCKS_MOVE_CODE, BLOCKS_TIMES_UP } from '../actions/const';
+import { BLOCKS_CHECK_SOLUTION, BLOCKS_MOVE_CODE, BLOCKS_TIMES_UP, RESTART_CHALLENGE } from '../actions/const';
 import { CODING } from '../data/strings';
 import { randomChallenge } from '../utils/randomChallenge';
 import update from 'react/lib/update';
@@ -15,7 +15,7 @@ export default function blocks(state = challenge, action) {
       return withRearrangedBlocks(state, action.payload.dragIndex, action.payload.hoverIndex);
     case BLOCKS_TIMES_UP:
       return withTimesUp(state);
-    case 'RESTART_CHALLENGE':
+    case RESTART_CHALLENGE:
       return restartChallenge(state);
     default:
       return state;

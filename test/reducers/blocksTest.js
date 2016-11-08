@@ -81,4 +81,11 @@ describe('blocksReducer', () => {
     expect(newState.end).toBe(true);
     expect(newState.attempt).toBe(false);
   });
+
+  it('should handle RESTART_CHALLENGE - restart match challenge', () => {
+    // TODO check that the timer resets, a random block challenge is loaded
+    expect(initialState.end).toBe(undefined);
+    var newState = reducer(initialState, {type: types.RESTART_CHALLENGE});
+    expect(newState.correctOrder).toNotBe([2,1]);
+  })
 });

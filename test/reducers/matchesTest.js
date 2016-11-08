@@ -161,4 +161,17 @@ describe('matchesReducer', () => {
     var newState = reducer(initialState, {type: types.MATCHES_TIMES_UP});
     expect(newState.end).toBe(true);
   });
+
+
+  it('should handle RESTART_CHALLENGE - restart match challenge', () => {
+    // TODO check that the timer resets, a random match challenge is loaded
+    expect(initialState.end).toBe(undefined);
+    var newState = reducer(initialState, {type: types.RESTART_CHALLENGE});
+    expect(newState.win).toBe(false);
+    expect(newState.correctPositions).toNotBe({numbers: [[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0]], operation:[1,1,0]});
+
+  })
+
+
+
 });

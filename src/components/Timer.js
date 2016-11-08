@@ -18,6 +18,13 @@ class Timer extends Component {
     this.stop();
   }
 
+  resetTimer(){
+    this.setState({
+      time: Date.now(),
+      timesup: false
+    })
+  }
+
   start() {
     this._interval = requestAnimationFrame(this.progress);
     this.setState({

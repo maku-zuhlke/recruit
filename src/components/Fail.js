@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import * as RestartAction from '../actions/restart';
 import { connect } from 'react-redux';
 import {browserHistory} from 'react-router';
+import { yesText, noText} from '../data/strings';
 
 export class Fail extends Component {
   constructor(props, context) {
@@ -18,12 +19,13 @@ export class Fail extends Component {
     this.refs.modal.show();
   }
 
-  restartMatchesChallenge(){
+  restartTheChallenge(){
     this.props.actions.restartChallenge();
   }
 
   goToDetailsPage(){
     browserHistory.push('/details')
+    //createMemoryHistory()
   }
 
   render() {
@@ -35,12 +37,12 @@ export class Fail extends Component {
           <h1>{ this.props.text }</h1>
 
           <p>
-            <button  className = "btn btn-default start btn-lg" onClick={this.restartMatchesChallenge.bind(this)}>
-              Yes
+            <button  className = "btn btn-default start btn-lg" onClick={this.restartTheChallenge.bind(this)}>
+              {yesText}
             </button>
 
             <button className = "btn btn-default start btn-lg" onClick={this.goToDetailsPage.bind(this)}>
-              No
+              {noText}
             </button>
           </p>
         </div>
