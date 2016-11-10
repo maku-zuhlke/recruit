@@ -24,7 +24,7 @@ class Win extends Component {
         <div className="image col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
           <div className="zuhlke"><canvas id="canvas" width="200" height="200"></canvas></div>
         </div>
-        <div className="col-xs-12"><Link to="/details" className="btn btn-default talent"><span>{winText}</span></Link></div>
+        <div className="col-xs-12"><Link to="/details" className="btn btn-default talent btn-lg"><span>{winText}</span></Link></div>
       </ScaleModal></div>
     );
   }

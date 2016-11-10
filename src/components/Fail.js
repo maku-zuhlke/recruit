@@ -55,7 +55,7 @@ export class Fail extends Component {
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   return {
-    uniqueID:{...state.uniqueID}
+
   }
 }
 

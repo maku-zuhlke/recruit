@@ -28,3 +28,5 @@ export const CODING = "coding";
 export const yesText = "Yes";
 
 export const noText = "No";
+
+export const welcomeText = "Welcome!";

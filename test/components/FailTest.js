@@ -51,7 +51,6 @@ describe('FailComponentButtons', () => {
   });
 
   it('should dispatch restart action', () => {
-
       expect(failChild.props.actions.restartChallenge.calls.length).toEqual(0);
       failChild.restartTheChallenge();
       expect(failChild.props.actions.restartChallenge.calls.length).toEqual(1);

@@ -65,7 +65,8 @@ img
 .logoRow
   .logo
     margin-top: 2%
-    left: 0
+    margin-bottom: 5%
+    left: 64.5%
     right: 0
 
 .contentRow
@@ -103,6 +104,8 @@ img
 .start
   margin-top: 10%
   margin-bottom: 10%
+  margin-right: 0.25%
+  margin-left: 0.25%
   &, &:focus
     main_colours()
     a
@@ -155,6 +158,15 @@ img
     font-size: larger
     text-decoration: underline
 
+.welcome
+  margin-bottom: -10%
+  padding-bottom: 0%
+  h1
+    color: orange
+    font-size: xx-large
+    font-weight : bolder
+
+
 .circle_animation
   stroke-dasharray: 109 /* this value is the pixel circumference of the circle */
   stroke-dashoffset: 0
@@ -181,9 +193,9 @@ img
 
 .talent
   &, &:focus
-    zuhlke_colours()
+    op_colours()
   &:hover, &:active, &:active:hover
-    op_zuhlke_colours()
+    main_colours()
   animation: fromBack 1s linear 1.5s backwards
 
 /* Animations - Zuhlke splash */

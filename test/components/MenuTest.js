@@ -15,6 +15,9 @@ import BlockList from "../../src/components/BlockChallenge/BlockList";
 import MatchstickPuzzle from "../../src/components/MatchPuzzle/MatchstickPuzzle";
 import DetailsForm from "../../src/components/DetailsForm";
 import App from "../../src/containers/App";
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+
 
 describe('MenuComponent', () => {
 
@@ -31,28 +34,6 @@ describe('MenuComponent', () => {
     expect(ReactDOM.findDOMNode(links[2]).textContent).toBe(registerButton);
 
   });
-
-  // it('should redirect codingChallenge button to coding page', () => {
-  //
-  //
-  //   const routes =
-  //     <Router history={browserHistory}>
-  //       <Route component={App}>
-  //         <Route path="/" component={Menu} />
-  //         <Route path="/coding" component={BlockList} />
-  //         <Route path="/puzzle" component={MatchstickPuzzle} />
-  //         <Route path="/details" component={DetailsForm} />
-  //       </Route>
-  //     </Router>;
-  //
-  //   let expectedRoute = '/coding';
-  //
-  //   let menu = TestUtils.renderIntoDocument(<Menu/>);
-  //   let links = TestUtils.scryRenderedDOMComponentsWithTag(menu, 'span');
-  //   TestUtils.Simulate.click(links[0]);
-  //   console.log(browserHistory.peek());
-  //   expect(browserHistory.peek().toBe('/coding'));
-  // });
 
 
 });
