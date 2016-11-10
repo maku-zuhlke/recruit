@@ -101,13 +101,13 @@ describe('TimerClass', () => {
 
   it('should reset timer', () => {
     var initialState = {
-      time: 0,
+      time: 60 * 1000,
       timesup: false,
       offset: timer.state.offset
     };
     timer.resetTimer();
     // Round the time to allow for variations in processing speed
-    expect(Math.round(timer.state.time/100)).toBe(Math.round(Date.now()/100));
+    expect(initialState.time).toBe(timer.state.time);
     expect(timer.state.timesup).toEqual(false);
   })
 });

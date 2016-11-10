@@ -2,22 +2,28 @@
  * Created by lewa on 19/07/2016.
  */
 import expect from 'expect';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import createComponent from 'helpers/shallowRenderHelper';
-import ConnectedMatchstickPuzzle, { MatchstickPuzzle } from 'components/MatchPuzzle/MatchstickPuzzle';
+import ConnectedMatchstickPuzzle, {MatchstickPuzzle} from 'components/MatchPuzzle/MatchstickPuzzle';
 import TestBackend from 'react-dnd-test-backend';
-import { DragDropContext } from 'react-dnd';
-import { winText, timesUpText, outOfMovesText, matchPuzzleInstruction } from 'data/strings';
-import { Provider } from 'react-redux';
+import {DragDropContext} from 'react-dnd';
+import {winText, timesUpText, outOfMovesText, matchPuzzleInstruction} from 'data/strings';
+import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 describe('MatchstickPuzzleShallowComponent', () => {
   let MatchstickPuzzleComponent;
 
   beforeEach(() => {
-    MatchstickPuzzleComponent = createComponent(MatchstickPuzzle, {matches: {numbers: [[],[],[]], operation: [], correctPositions: {numbers:[[],[],[]], operation:[]}}});
+    MatchstickPuzzleComponent = createComponent(MatchstickPuzzle, {
+      matches: {
+        numbers: [[], [], []],
+        operation: [],
+        correctPositions: {numbers: [[], [], []], operation: []}
+      }
+    });
   });
 
   it('should be div', () => {
@@ -31,10 +37,13 @@ describe('MatchstickPuzzleUnconnectedComponent', () => {
 
   beforeEach(() => {
     matches = {
-      numbers :[[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,1,1,1,0,0,0]],
-      operation: [1,0,0],
+      numbers: [[0, 0, 1, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 1, 1, 1, 0, 0, 0]],
+      operation: [1, 0, 0],
       moves: 1,
-      correctPositions: {numbers: [[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0]], operation:[1,1,0]},
+      correctPositions: {
+        numbers: [[0, 0, 1, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0]],
+        operation: [1, 1, 0]
+      },
       win: false
     };
 
@@ -44,9 +53,9 @@ describe('MatchstickPuzzleUnconnectedComponent', () => {
       checkMatchesPositions: expect.createSpy(),
       timeIsUp: expect.createSpy()
     };
-    var MatchstickPuzzleContext = DragDropContext(TestBackend) (MatchstickPuzzle);
+    var MatchstickPuzzleContext = DragDropContext(TestBackend)(MatchstickPuzzle);
     var DecoratedMatchstickPuzzle = TestUtils.renderIntoDocument(
-      <MatchstickPuzzleContext matches={matches} actions={actions} />
+      <MatchstickPuzzleContext matches={matches} actions={actions} timerProp={true}/>
     );
     matchstickPuzzle = DecoratedMatchstickPuzzle.refs.child;
   });
@@ -81,19 +90,25 @@ describe('MatchstickPuzzleUnconnectedComponent', () => {
 
   it('should render plural instruction', () => {
     matches.moves = 2;
-    matchstickPuzzle.setState({ matches: matches });
+    matchstickPuzzle.setState({matches: matches});
     expect(matchstickPuzzle.resolveInstruction()).toEqual(matchPuzzleInstruction + '2 matches');
   });
 
   it('should map binary list to matchstick number', () => {
-    var result = [{ hidden: true }, { hidden: true }, { hidden: false, pos: [0, 2] },
-      { hidden: false, pos: [0, 3] }, { hidden: true }, { hidden: true }, { hidden: true }];
+    var result = [{hidden: true}, {hidden: true}, {hidden: false, pos: [0, 2]},
+      {hidden: false, pos: [0, 3]}, {hidden: true}, {hidden: true}, {hidden: true}];
     expect(matchstickPuzzle.mapNumber(0)).toEqual(result);
   });
 
   it('should map binary list to matchstick operation', () => {
-    var result = [{ hidden: false, pos: [3, 0] }, { hidden: true }, { hidden: true }];
+    var result = [{hidden: false, pos: [3, 0]}, {hidden: true}, {hidden: true}];
     expect(matchstickPuzzle.mapOperation()).toEqual(result);
+  });
+
+  it('should toggle timerProp', () => {
+    var initialState = {timerProp: true};
+    matchstickPuzzle.toggleTimerProp();
+    expect(matchstickPuzzle.state.timerProp == false);
   });
 });
 
@@ -107,13 +122,16 @@ describe('MatchstickPuzzleClass', () => {
   let store;
 
   beforeEach(() => {
-    MatchstickPuzzleContext = DragDropContext(TestBackend) (ConnectedMatchstickPuzzle);
+    MatchstickPuzzleContext = DragDropContext(TestBackend)(ConnectedMatchstickPuzzle);
     initialState = {
       matches: {
-        numbers :[[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,1,1,1,0,0,0]],
-        operation: [1,0,0],
+        numbers: [[0, 0, 1, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 1, 1, 1, 0, 0, 0]],
+        operation: [1, 0, 0],
         moves: 1,
-        correctPositions: {numbers: [[0,0,1,1,0,0,0],[0,0,1,1,0,0,0],[0,0,1,1,0,0,0]], operation:[1,1,0]},
+        correctPositions: {
+          numbers: [[0, 0, 1, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0]],
+          operation: [1, 1, 0]
+        },
         correctNumbers: false,
         correctOperation: false,
         win: false
@@ -256,4 +274,5 @@ describe('MatchstickPuzzleClass', () => {
     expect(matchPuzzle.dispatchProps.actions.checkMatchesPositions).toExist();
     expect(typeof(matchPuzzle.dispatchProps.actions.checkMatchesPositions)).toBe('function');
   });
+
 });

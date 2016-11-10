@@ -35,7 +35,7 @@ module.exports = function(config) {
       ]
     },
     proxies: {
-      '/images/': 'http://localhost:8000/base/src/images'
+      '/images/': 'http://localhost:8000/base/src/images/'
     }
   });
 };

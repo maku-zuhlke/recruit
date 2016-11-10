@@ -19,12 +19,15 @@ export class BlockList extends Component {
     super(props, context);
     this.moveBlock = this.moveBlock.bind(this);
     this.timeIsUp = this.timeIsUp.bind(this);
+    this.state = {timerProp:false};
   }
 
   done() {
     this.props.actions.checkSolution();
   }
-
+  toggleTimerProp(){
+    this.state.timerProp = !this.state.timerProp;
+  }
   timeIsUp() {
     this.props.actions.timeIsUp();
   }
@@ -52,7 +55,7 @@ export class BlockList extends Component {
               <div className="center">
                 <div> {listItems} <BlockDragLayer key="__preview" name="Block" /> </div>
                 <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
-                  <Timer callback={this.timeIsUp} key={this.props.blocks.uniqueID}/>
+                  <Timer callback={this.timeIsUp} timerProp = {this.state.timerProp}/>
                 </div>
                 <div className="col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
                   <button className="btn btn-default done" onClick={this.done.bind(this)}>{doneButton}</button>
@@ -60,7 +63,7 @@ export class BlockList extends Component {
               </div>
               {(!this.props.blocks.win && this.props.blocks.attempt) && <WrongAnswer />}
               {this.props.blocks.win && <Win />}
-              {(this.props.blocks.end && !this.props.blocks.win) && <Fail text={timesUpText}/>}
+              {(this.props.blocks.end && !this.props.blocks.win) && <Fail text={timesUpText} callback={this.toggleTimerProp.bind(this)}/>}
             </div>
           </div>
         </div>
@@ -75,7 +78,7 @@ function mapStateToProps(state) {
     blocks: {
       ...state.blocks,
       win: state.blocks.numberOfItemsInWrongPosition === 0
-    },
+    }
   };
 }
 

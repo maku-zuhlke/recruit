@@ -30,11 +30,12 @@ describe('FailShallowComponent', () => {
 describe('FailComponentButtons', () => {
   let fail, failChild
   beforeEach(() => {
+    const callback = () => ({});
     fail = TestUtils.renderIntoDocument(<Fail/>);
     var action = {restartChallenge: expect.createSpy()};
     var FailContext = DragDropContext(TestBackend)(Fail);
     var DecoratedFail = TestUtils.renderIntoDocument(
-      <FailContext actions={action}/>
+      <FailContext actions={action} callback={callback}/>
     );
     failChild = DecoratedFail.refs.child;
   });

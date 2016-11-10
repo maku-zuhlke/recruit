@@ -16,12 +16,14 @@ import * as MatchesActions from '../../actions/indexMatches';
 export class MatchstickPuzzle extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { matches: props.matches, timer: props.timer, end: false };
+    this.state = { matches: props.matches, timer: props.timer, end: false, timerProp:false};
     this.timeIsUp = this.timeIsUp.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
   }
 
-
+  toggleTimerProp(){
+    this.state.timerProp = !this.state.timerProp;
+  }
 
   timeIsUp() {
     this.props.actions.timeIsUp();
@@ -129,15 +131,15 @@ export class MatchstickPuzzle extends Component {
               <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 numberCol">{this.renderNumberSkeleton(2)}</div>
               <MatchDragLayer key="__previewPuzzle" name="Match" />
             </div>
-            <div className="extras" key={this.props.matches.uniqueID}>
+            <div className="extras" >
               <div className="col-xs-3 col-xs-offset-1 col-lg-3 col-lg-offset-1">
                 <Timer
-                  callback={this.timeIsUp}
+                  callback={this.timeIsUp} timerProp = {this.state.timerProp}
                 />
               </div>
             </div>
             {this.props.matches.win && <Win />}
-            {((this.props.matches.end || this.props.matches.moves <= 0) && !this.props.matches.win) && <Fail text={this.props.matches.end ? timesUpText : outOfMovesText} />}
+            {((this.props.matches.end || this.props.matches.moves <= 0) && !this.props.matches.win) && <Fail text={this.props.matches.end ? timesUpText : outOfMovesText} callback={this.toggleTimerProp.bind(this)}/>}
           </div>
         </div>
       </div>
@@ -152,7 +154,7 @@ function mapStateToProps(state) {
     matches: {
       ...state.matches,
       win: state.matches.correctOperation && state.matches.correctNumbers && state.matches.moves === 0
-    },
+    }
   };
 }
 

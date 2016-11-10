@@ -21,11 +21,11 @@ export class Fail extends Component {
 
   restartTheChallenge(){
     this.props.actions.restartChallenge();
+    this.props.callback();
   }
 
   goToDetailsPage(){
     browserHistory.push('/details')
-    //createMemoryHistory()
   }
 
   render() {
@@ -52,7 +52,7 @@ export class Fail extends Component {
   }
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   return {
     uniqueID:{...state.uniqueID}
