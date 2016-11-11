@@ -39,11 +39,11 @@ export class Fail extends Component {
           <h1>{ this.props.text }</h1>
 
           <p>
-            <button  className = "btn btn-default start btn-lg" onClick={this.restartTheChallenge.bind(this)}>
+            <button  className = "btn btn-default yes_no_button btn-lg" onClick={this.restartTheChallenge.bind(this)}>
               {yesText}
             </button>
 
-            <button className = "btn btn-default start btn-lg" onClick={this.goToDetailsPage.bind(this)}>
+            <button className = "btn btn-default yes_no_button btn-lg" onClick={this.goToDetailsPage.bind(this)}>
               {noText}
             </button>
           </p>

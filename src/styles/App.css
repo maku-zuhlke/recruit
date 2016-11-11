@@ -5,6 +5,7 @@ html {
 }
 body {
   background: url("/images/bcgr.jpg") no-repeat fixed;
+  position: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

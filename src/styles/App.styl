@@ -34,6 +34,7 @@ html
 
 body
   background: url("/images/bcgr.jpg") no-repeat fixed
+  position: fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
@@ -115,6 +116,22 @@ img
     a
       color: white
       text-decoration: none
+
+.yes_no_button
+  margin-top: 10%
+  margin-bottom: 10%
+  margin-right: 5%
+  margin-left: 5%
+  &, &:focus
+    main_colours()
+    a
+      color: orange
+  &:hover, &:active, &:active:hover
+    op_colours()
+    a
+      color: white
+      text-decoration: none
+
 .code
   margin-bottom: 0.5%
   padding-bottom: 5%
