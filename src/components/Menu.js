@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { codingChallengeButton, puzzleChallengeButton, registerButton, welcomeText} from '../data/strings';
-
+import {WINTRGARDEN_REGISTRATION} from '../data/externalLinks';
 class Menu extends Component {
   constructor(props, context) {
     super(props, context);
@@ -19,7 +19,7 @@ class Menu extends Component {
             </div>
           <Link to="/coding" className="btn btn-default start btn-lg"><span>{codingChallengeButton}</span></Link>
           <Link to="/puzzle" className="btn btn-default start btn-lg"><span>{puzzleChallengeButton}</span></Link>
-          <Link to="/details" className="btn btn-default start btn-lg"><span>{registerButton}</span></Link>
+          <a href={WINTRGARDEN_REGISTRATION} rel="external" className="btn btn-default start btn-lg">{registerButton}</a>
         </div>
       </div>
     );
