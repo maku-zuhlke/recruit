@@ -14,6 +14,7 @@ function collect(monitor) {
   };
 }
 
+
 function getItemStyles(props) {
   const { currentOffset } = props;
   if (!currentOffset) {
