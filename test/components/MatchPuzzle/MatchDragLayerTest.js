@@ -40,8 +40,7 @@ describe('MatchkDragLayerClass', () => {
     let layer = TestUtils.renderIntoDocument(<OriginalLayer currentOffset={shape}/>);
     let layerDiv = TestUtils.findRenderedDOMComponentWithTag(layer, 'div');
     expect(layerDiv.style.display).toEqual('');
-    expect(layerDiv.style.pointerEvents).toEqual('none');
-    expect(layerDiv.style.transform).toEqual('translate(0px, 0px)');
-    expect(layerDiv.style.WebkitTransform).toEqual('translate(0px, 0px)');
+    expect(layerDiv.style.transform).toEqual('translate(0px, 0px) scale(1.5)');
+    expect(layerDiv.style.WebkitTransform).toEqual('translate(0px, 0px) scale(1.5)');
   });
 });
