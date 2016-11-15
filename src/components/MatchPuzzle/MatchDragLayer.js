@@ -12,7 +12,7 @@ const layerStyles = {
   zIndex: 100,
   left: 0,
   top: -35,
-  width: '0%',
+  width: '0%'
 };
 
 function getItemStyles(props) {
@@ -27,7 +27,7 @@ function getItemStyles(props) {
   const transform = `translate(${x}px, ${y}px) scale(1.5)`;
   return {
     transform: transform,
-    WebkitTransform: transform,
+    WebkitTransform: transform
   };
 }
 
@@ -57,7 +57,7 @@ class MatchDragLayer extends Component {
     return (
       <Matchstick connectDragSource="" connectDragPreview="" isDragging="" type='match'/>
     )
-  };
+  }
 
   render() {
 

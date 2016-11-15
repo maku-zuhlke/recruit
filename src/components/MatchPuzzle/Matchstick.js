@@ -12,9 +12,6 @@ const matchSource = {
     }
   }
 };
-const layerStyle = {
-  border: '1px solid red'
-}
 
 class Matchstick extends Component {
   constructor() {
@@ -29,16 +26,7 @@ class Matchstick extends Component {
     type: PropTypes.string.isRequired
   };
 
-  // onMouseDown(){
-  //   console.log(this.className);
-  //   console.log('clicked');
-  //
-  //   this.style = style;
-  //   console.log(this.style);
-  // }
-
   onSelectStyle() {
-
     this.setState
     (
       {
@@ -51,7 +39,6 @@ class Matchstick extends Component {
 
 
   onDeSelectStyle() {
-    console.log("mouse up")
     this.setState
     (
       {
@@ -68,8 +55,12 @@ class Matchstick extends Component {
     const transform = isDragging ? 'scale(0.6666)' : 'scale(1)';
     const cursor = 'move';
     return connectDragSource(
-      <div style={this.state.currentStyle} onMouseDown={this.onSelectStyle.bind(this)}
-           onMouseUp={this.onDeSelectStyle.bind(this)}>
+      <div style={this.state.currentStyle}
+           onMouseDown={this.onSelectStyle.bind(this)}
+           onMouseUp={this.onDeSelectStyle.bind(this)}
+           onTouchStart={this.onSelectStyle.bind(this)}
+           onTouchEnd={this.onDeSelectStyle.bind(this)}
+           >
         <img style={{cursor, opacity, transform}} src="images/match_out.png" draggable="true"/>
       </div>
     );
