@@ -18,8 +18,8 @@ describe('MatchstickShallowComponent', () => {
     MatchstickComponent = createComponent(Matchstick.DecoratedComponent, {connectDragSource: identity, isDragging: false, pos: [0, 0], type: "MATCH"});
   });
 
-  it('should be img', () => {
-    expect(MatchstickComponent.type).toEqual('img');
+  it('should be div', () => {
+    expect(MatchstickComponent.type).toEqual('div');
   });
 });
 

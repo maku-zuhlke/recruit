@@ -1,8 +1,8 @@
 /**
  * Created by lewa on 19/07/2016.
  */
-import React, { Component, PropTypes } from 'react';
-import { DragSource } from 'react-dnd';
+import React, {Component, PropTypes} from 'react';
+import {DragSource} from 'react-dnd';
 import ItemTypes from '../ItemTypes';
 
 const matchSource = {
@@ -12,8 +12,16 @@ const matchSource = {
     }
   }
 };
+const layerStyle = {
+  border: '1px solid red'
+}
 
 class Matchstick extends Component {
+  constructor() {
+    super();
+    this.state = {currentStyle: {}}
+  }
+
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
@@ -21,14 +29,68 @@ class Matchstick extends Component {
     type: PropTypes.string.isRequired
   };
 
+  // onMouseDown(){
+  //   console.log(this.className);
+  //   console.log('clicked');
+  //
+  //   this.style = style;
+  //   console.log(this.style);
+  // }
+
+  onSelectStyle() {
+
+    this.setState
+    (
+      {
+        currentStyle: {
+          transform: 'scale(1.5)'
+        }
+      }
+    );
+  }
+
+
+  onDeSelectStyle() {
+    console.log("mouse up")
+    this.setState
+    (
+      {
+        currentStyle: {
+          transform: 'scale(1)'
+        }
+      }
+    );
+  }
+
   render() {
-    const { isDragging, connectDragSource } = this.props;
+    const {isDragging, connectDragSource} = this.props;
     const opacity = isDragging ? 0.4 : 1;
+    const transform = isDragging ? 'scale(0.6666)' : 'scale(1)';
     const cursor = 'move';
     return connectDragSource(
-      <img style={{ cursor, opacity }} src="images/match_out.png" draggable="true"/>
+      <div style={this.state.currentStyle} onMouseDown={this.onSelectStyle.bind(this)}
+           onMouseUp={this.onDeSelectStyle.bind(this)}>
+        <img style={{cursor, opacity, transform}} src="images/match_out.png" draggable="true"/>
+      </div>
     );
   }
 }
 
-export default DragSource(ItemTypes.MATCH, matchSource, (connect, monitor) => ({ connectDragSource: connect.dragSource(), isDragging: monitor.isDragging()})) (Matchstick);
+export
+default
+
+DragSource(ItemTypes
+
+    .MATCH
+  ,
+  matchSource
+  , (connect
+    ,
+     monitor) => ( {
+    connectDragSource: connect.dragSource
+    (),
+    isDragging: monitor.isDragging
+    ()
+  }
+  ))
+(Matchstick);

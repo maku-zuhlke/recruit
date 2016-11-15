@@ -41,25 +41,6 @@ function collect(monitor) {
   };
 }
 
-// function getItemStyles(props) {
-//   const {currentOffset, initialOffset} = props;
-//   if (!currentOffset) {
-//     return {
-//       display: 'none'
-//     };
-//   }
-//   const {x, y} = currentOffset;
-//   var shiftedX = currentOffset.x;
-//   var shiftedY = currentOffset.y;
-//   const transform = `translate(${shiftedX}px, ${shiftedY}px)`;
-//   return {
-//     pointerEvents: 'none',
-//     border: '1px dotted orange',
-//     position: 'fixed',
-//     transform: transform,
-//     WebkitTransform: transform
-//   };
-// }
 
 class MatchDragLayer extends Component {
   static propTypes = {
