@@ -3,6 +3,7 @@ html {
   height: 100%;
   width: 100%;
 }
+
 body {
   background: url("/images/bcgr.jpg") no-repeat fixed;
   position: fixed;
@@ -14,6 +15,7 @@ body {
   height: 100%;
   width: 100%;
 }
+
 img {
   user-drag: none;
   user-select: none;
@@ -23,94 +25,108 @@ img {
   -ms-user-select: none;
 }
 
-
 #app {
   height: 100%;
 }
+
 .index {
   height: 100%;
   width: 100%;
 }
+
 .center {
   text-align: center;
   vertical-align: middle;
   height: 100%;
 }
+
 .logoRow .logo {
   margin-top: 2%;
   left: 0;
   right: 0;
 }
+
 .contentRow .content {
   left: 0;
   right: 0;
   z-index: 9999;
   background-clip: content-box;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   padding-bottom: 1%;
 }
+
 .win div {
   max-width: 100%;
   max-height: 100%;
 }
+
 .done {
   vertical-align: bottom;
   float: right;
   margin-top: 5%;
   margin-bottom: 10%;
 }
+
 .done,
 .done:focus {
-  background: rgba(255,255,255,0.8);
-  color: rgba(250,122,21,0.8);
-  border-color: rgba(250,122,21,0.8);
+  background: rgba(255, 255, 255, 0.8);
+  color: rgba(250, 122, 21, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
   font-size: medium;
 }
+
 .done:hover,
 .done:active:hover,
 .done:active {
-  background: rgba(250,122,21,0.8);
-  color: rgba(255,255,255,0.8);
-  border-color: rgba(250,122,21,0.8);
+  background: rgba(250, 122, 21, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
   font-size: medium;
 }
+
 .space {
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   padding: 1% 0 1% 0;
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
   font-weight: bolder;
   font-size: larger;
 }
+
 .start {
   margin-top: 10%;
   margin-bottom: 10%;
 }
+
 .start,
 .start:focus {
-  background: rgba(255,255,255,0.8);
-  color: rgba(250,122,21,0.8);
-  border-color: rgba(250,122,21,0.8);
+  background: rgba(255, 255, 255, 0.8);
+  color: rgba(250, 122, 21, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
   font-size: medium;
 }
+
 .start a,
 .start:focus a {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
 }
+
 .start:hover,
 .start:active,
 .start:active:hover {
-  background: rgba(250,122,21,0.8);
-  color: rgba(255,255,255,0.8);
-  border-color: rgba(250,122,21,0.8);
+  background: rgba(250, 122, 21, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
   font-size: medium;
 }
+
 .start:hover a,
 .start:active a,
 .start:active:hover a {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
 }
+
 .code {
   margin-bottom: 0.5%;
   padding-bottom: 5%;
@@ -119,93 +135,110 @@ img {
   margin-left: 10%;
   font-size: medium;
 }
+
 .code:hover,
 .code:active,
 .code:active:hover {
   background: #4d5656;
 }
+
 .timer {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
   font-size: larger;
   font-weight: bolder;
   position: relative;
   margin-bottom: 5px;
 }
+
 .timer svg {
   x: 50%;
   y: 50%;
-  stroke: rgba(250,122,21,0.8);
-  fill: rgba(250,122,21,0.8);
+  stroke: rgba(250, 122, 21, 0.8);
+  fill: rgba(250, 122, 21, 0.8);
   z-index: 1000;
 }
+
 .timer svg circle {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   transform-origin: 50% 50% 0;
 }
+
 .timer h2 {
   text-align: center;
   position: absolute;
   line-height: 125px;
   width: 100%;
 }
+
 .fail {
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20%;
   padding-bottom: 4%;
 }
+
 .fail h1 {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
 }
+
 .fail a {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
   font-size: larger;
   text-decoration: underline;
 }
+
 .circle_animation {
   stroke-dasharray: 109 /* this value is the pixel circumference of the circle */;
   stroke-dashoffset: 0;
   transition: all 1s linear;
-  stroke: rgba(250,122,21,0.8);
+  stroke: rgba(250, 122, 21, 0.8);
   r: 18;
   cy: 28;
   cx: 28;
-  fill: rgba(255,255,255,0.8);
+  fill: rgba(255, 255, 255, 0.8);
 }
+
 .failModal div {
   max-width: 100%;
 }
+
 .failModal .fail {
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20%;
   padding-bottom: 4%;
 }
+
 .failModal .fail h1 {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
 }
+
 .failModal .fail a {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
   font-size: larger;
   text-decoration: underline;
 }
+
 .talent {
   animation: fromBack 1s linear 1.5s backwards;
 }
+
 .talent,
 .talent:focus {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   color: #a0609e;
   border-color: #a0609e;
   font-size: medium;
 }
+
 .talent:hover,
 .talent:active,
 .talent:active:hover {
   background: #a0609e;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   border-color: #a0609e;
   font-size: medium;
 }
+
 /* Animations - Zuhlke splash */
 .image #canvas {
   position: relative;
@@ -214,58 +247,69 @@ img {
   height: 100%;
   animation: fromBack 0.5s linear 0s backwards;
 }
+
 /* Details */
 .details .fields {
   margin-top: 8%;
   margin-bottom: 5%;
 }
+
 .details label {
-  color: rgba(250,122,21,0.8);
+  color: rgba(250, 122, 21, 0.8);
   float: right;
   font-weight: bolder;
   font-size: larger;
 }
+
 .details .field {
   display: table-cell;
   width: 75%;
   float: left;
-  color: rgba(250,122,21,0.8);
-  background-color: rgba(255,255,255,0.8);
+  color: rgba(250, 122, 21, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   border: none;
   border-radius: 2px;
 }
+
 .details .field:focus {
-  box-shadow: 0 0 10px rgba(250,122,21,0.8);
-  border-color: rgba(250,122,21,0.8);
+  box-shadow: 0 0 10px rgba(250, 122, 21, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
 }
+
 /* Matchstick */
 .puzzleRow {
   height: 70%;
 }
+
 .puzzleRow .contentPuzzle {
   left: 0;
   right: 0;
   z-index: 9999;
   background-clip: content-box;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   padding-bottom: 1%;
 }
+
 .puzzleRow .contentPuzzle .challenge {
   height: 100%;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle {
   margin-bottom: -10px;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation {
   height: 50%;
   font-size: 0;
   position: relative;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal {
   height: 50%;
   position: absolute;
   bottom: 0;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom {
@@ -274,130 +318,161 @@ img {
   display: inline-block;
   -webkit-transform: rotate(90deg);
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .top .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .middle .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .horizontal .bottom .match {
   display: inline-block;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex {
   height: 65%;
   z-index: 1000;
   bottom: 0;
   position: absolute;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus {
   z-index: 1000;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .operation .verticalZindex .plus .match {
   height: 100%;
   display: inline-block;
   margin-left: -25px;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol {
   height: 100%;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number {
   height: 100%;
   font-size: 0;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .vertical {
   height: 30%;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .vertical .match {
   display: inline-block;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal {
   -webkit-transform: rotate(90deg);
   display: inline-block;
   height: 8%;
   width: 60%;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .top,
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .middle,
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .bottom {
   height: 50%;
 }
+
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .top .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .middle .match,
 .puzzleRow .contentPuzzle .challenge .puzzle .numberCol .number .horizontal .bottom .match {
   display: inline-block;
 }
+
 .placeholder {
   opacity: 0.08;
 }
+
 .equalSign {
   opacity: 0.8;
 }
+
 /* Media queries for matches */
 @media only screen and (min-width: 300px) and (max-width: 359px) {
   .contentPuzzle {
     height: 240px;
   }
+
   .puzzle {
     height: 120px;
   }
+
   .puzzle img {
     max-width: 6px;
     max-height: 70px;
   }
+
   .puzzle .numberCol {
     width: 23%;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -15px;
     margin-left: -7px;
   }
+
   .puzzle .operation .horizontal .top,
   .puzzle .operation .horizontal .middle,
   .puzzle .operation .horizontal .bottom {
     margin-left: 10px;
   }
+
   .puzzle .operation .verticalZindex .plus {
     margin-left: 15px;
   }
 }
+
 @media only screen and (min-width: 360px) and (max-width: 399px) {
   .contentPuzzle {
     height: 240px;
   }
+
   .puzzle {
     height: 120px;
   }
+
   .puzzle img {
     max-width: 6px;
     max-height: 70px;
   }
+
   .puzzle .numberCol {
     width: 20%;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -15px;
     margin-left: -7px;
   }
+
   .puzzle .operation .horizontal .top,
   .puzzle .operation .horizontal .middle,
   .puzzle .operation .horizontal .bottom {
     margin-left: 10px;
   }
+
   .puzzle .operation .verticalZindex .plus {
     margin-left: 15px;
   }
 }
+
 @media only screen and (min-width: 400px) {
   .contentPuzzle {
     height: 280px;
   }
+
   .puzzle {
     height: 155px;
   }
+
   .puzzle img {
     max-width: 8px;
     max-height: 90px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
@@ -405,17 +480,21 @@ img {
     margin-left: -1px;
   }
 }
+
 @media only screen and (min-width: 430px) {
   .contentPuzzle {
     height: 280px;
   }
+
   .puzzle {
     height: 155px;
   }
+
   .puzzle img {
     max-width: 8px;
     max-height: 90px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
@@ -423,34 +502,42 @@ img {
     margin-left: 3px;
   }
 }
+
 @media only screen and (min-width: 490px) {
   .contentPuzzle {
     height: 320px;
   }
+
   .puzzle {
     height: 200px;
   }
+
   .puzzle img {
     max-width: 10px;
     max-height: 92px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -1px;
   }
 }
+
 @media only screen and (min-width: 560px) {
   .contentPuzzle {
     height: 320px;
   }
+
   .puzzle {
     height: 200px;
   }
+
   .puzzle img {
     max-width: 10px;
     max-height: 92px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
@@ -458,199 +545,246 @@ img {
     margin-left: 5px;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .contentPuzzle {
     height: 360px;
   }
+
   .puzzle {
     height: 240px;
   }
+
   .puzzle img {
     max-width: 12px;
     max-height: 94px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: 8px;
   }
 }
+
 @media only screen and (min-width: 700px) {
   .contentPuzzle {
     height: 360px;
   }
+
   .puzzle {
     height: 240px;
   }
+
   .puzzle img {
     max-width: 12px;
     max-height: 94px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: 15px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .contentPuzzle {
     height: 360px;
   }
+
   .puzzle {
     height: 240px;
   }
+
   .puzzle img {
     max-width: 12px;
     max-height: 94px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -8px;
   }
 }
+
 @media only screen and (min-width: 900px) {
   .contentPuzzle {
     height: 420px;
   }
+
   .puzzle {
     height: 280px;
   }
+
   .puzzle img {
     max-width: 13px;
     max-height: 96px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -4px;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .contentPuzzle {
     height: 370px;
   }
+
   .puzzle {
     height: 240px;
   }
+
   .puzzle img {
     max-width: 12px;
     max-height: 94px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -8px;
   }
 }
+
 @media only screen and (min-width: 1190px) {
   .contentPuzzle {
     height: 460px;
   }
+
   .puzzle {
     height: 320px;
   }
+
   .puzzle img {
     max-width: 16px;
     max-height: 100px;
   }
+
   .puzzle .operation .horizontal {
     padding-left: 15px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -15px;
   }
 }
+
 @media only screen and (min-width: 1439px) {
   .contentPuzzle {
     height: 510px;
   }
+
   .puzzle {
     height: 360px;
   }
+
   .puzzle img {
     max-width: 18px;
     max-height: 101px;
   }
+
   .puzzle .operation .horizontal {
     padding-left: 15px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -12px;
   }
 }
+
 @media only screen and (min-width: 1700px) {
   .contentPuzzle {
     height: 580px;
   }
+
   .puzzle {
     height: 400px;
   }
+
   .puzzle img {
     max-width: 20px;
     max-height: 118px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: -5px;
   }
 }
+
 @media only screen and (min-width: 2000px) {
   .contentPuzzle {
     height: 680px;
   }
+
   .puzzle {
     height: 500px;
   }
+
   .puzzle img {
     max-width: 30px;
     max-height: 140px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: 0;
   }
 }
+
 @media only screen and (min-width: 2300px) {
   .contentPuzzle {
     height: 800px;
   }
+
   .puzzle {
     height: 600px;
   }
+
   .puzzle img {
     max-width: 40px;
     max-height: 162px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: 5px;
   }
 }
+
 @media only screen and (min-width: 2560px) {
   .contentPuzzle {
     height: 880px;
   }
+
   .puzzle {
     height: 660px;
   }
+
   .puzzle img {
     max-width: 50px;
     max-height: 184px;
   }
+
   .puzzle .number .horizontal .top,
   .puzzle .number .horizontal .middle,
   .puzzle .number .horizontal .bottom {
     margin-top: 5px;
   }
 }
+
 @-moz-keyframes fromBack {
   0% {
     transform: scale(0);
@@ -661,6 +795,7 @@ img {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes fromBack {
   0% {
     transform: scale(0);
@@ -671,6 +806,7 @@ img {
     opacity: 1;
   }
 }
+
 @-o-keyframes fromBack {
   0% {
     transform: scale(0);
@@ -681,6 +817,7 @@ img {
     opacity: 1;
   }
 }
+
 @keyframes fromBack {
   0% {
     transform: scale(0);
@@ -691,23 +828,26 @@ img {
     opacity: 1;
   }
 }
+
 .yesNoButton {
   position: relative;
   text-align: center;
 }
+
 .yesNoButton,
 .yesNoButton:focus {
-  background: rgba(255,255,255,0.8);
-  color: rgba(250,122,21,0.8);
-  border-color: rgba(250,122,21,0.8);
+  background: rgba(255, 255, 255, 0.8);
+  color: rgba(250, 122, 21, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
   font-size: medium;
 }
+
 .yesNoButton:hover,
 .yesNoButton:active:hover,
 .yesNoButton:active {
-  background: rgba(250,122,21,0.8);
-  color: rgba(255,255,255,0.8);
-  border-color: rgba(250,122,21,0.8);
+  background: rgba(250, 122, 21, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(250, 122, 21, 0.8);
   font-size: medium;
 }
 

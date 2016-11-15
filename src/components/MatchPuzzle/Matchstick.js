@@ -52,7 +52,6 @@ class Matchstick extends Component {
   render() {
     const {isDragging, connectDragSource} = this.props;
     const opacity = isDragging ? 0.4 : 1;
-    const transform = isDragging ? 'scale(0.6666)' : 'scale(1)';
     const cursor = 'move';
     return connectDragSource(
       <div style={this.state.currentStyle}
@@ -60,8 +59,10 @@ class Matchstick extends Component {
            onMouseUp={this.onDeSelectStyle.bind(this)}
            onTouchStart={this.onSelectStyle.bind(this)}
            onTouchEnd={this.onDeSelectStyle.bind(this)}
+           onMouseMove={this.onDeSelectStyle.bind(this)}
+           onTouchMove={this.onDeSelectStyle.bind(this)}
            >
-        <img style={{cursor, opacity, transform}} src="images/match_out.png" draggable="true"/>
+        <img style={{cursor, opacity}} src="images/match_out.png" draggable="true"/>
       </div>
     );
   }
