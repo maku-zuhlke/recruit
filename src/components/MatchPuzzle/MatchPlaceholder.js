@@ -26,7 +26,7 @@ class MatchPlaceholder extends Component {
 
   render() {
     const { isOver, connectDropTarget, classes, match, pos } = this.props;
-    let border = (isOver && match.hidden) ? '1px dashed gray' : 'none';
+    let border = (isOver && match.hidden) ? '2px dashed gray' : 'none';
 
     var result = <img src="images/match_out.png" className="placeholder"/>;
     if (!match.hidden) {
