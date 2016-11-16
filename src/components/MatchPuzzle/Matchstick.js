@@ -16,7 +16,11 @@ const matchSource = {
 class Matchstick extends Component {
   constructor() {
     super();
-    this.state = {currentStyle: {}}
+    this.state = {
+      currentStyle: {
+        transform: 'scale(1)'
+      }
+    }
   }
 
   static propTypes = {
@@ -61,7 +65,7 @@ class Matchstick extends Component {
            onTouchEnd={this.onDeSelectStyle.bind(this)}
            onMouseMove={this.onDeSelectStyle.bind(this)}
            onTouchMove={this.onDeSelectStyle.bind(this)}
-           >
+      >
         <img style={{cursor, opacity}} src="images/match_out.png" draggable="true"/>
       </div>
     );
