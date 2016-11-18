@@ -27,10 +27,11 @@ describe('TimerShallowComponent', () => {
 describe('TimerClass', () => {
   let timer;
   let callback;
+  let oldTimerProp = false;
 
   beforeEach(() => {
     callback = expect.createSpy();
-    timer = TestUtils.renderIntoDocument(<Timer callback={callback}/>);
+    timer = TestUtils.renderIntoDocument(<Timer callback={callback} timerProp={oldTimerProp}/>);
   });
 
   it('should exist', () => {
@@ -44,7 +45,8 @@ describe('TimerClass', () => {
   it('should match props.timer to param timer', () => {
     var timerProps = {
       callback: callback,
-      time: 60
+      time: 60,
+      timerProp: oldTimerProp
     };
     expect(timer.props).toEqual(timerProps);
   });
@@ -110,9 +112,28 @@ describe('TimerClass', () => {
     expect(initialState.time).toBe(timer.state.time);
     expect(timer.state.timesup).toEqual(false);
   })
+
+  it('should reset timer when receiving new timerProp', () => {
+    var initialState = {
+      time: 60 * 1000,
+      timesup: false,
+      offset: timer.state.offset
+    };
+    timer.start();
+    timer.componentWillReceiveProps(oldTimerProp);
+    expect(timer.state.timesup).toEqual(false);
+
+    var newTimerProp = true;
+
+    timer.componentWillReceiveProps(newTimerProp);
+    expect(initialState.time).toBe(timer.state.time);
+    expect(timer.state.timesup).toEqual(false);
+
+  })
+
 });
 
 const then = (callback, timeout) => {
-  setTimeout(callback, timeout > 0 ?  timeout : 0);
+  setTimeout(callback, timeout > 0 ? timeout : 0);
   return {then: then};
 };

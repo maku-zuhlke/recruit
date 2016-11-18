@@ -55,7 +55,7 @@ class MatchDragLayer extends Component {
 
   renderItem() {
     return (
-      <Matchstick connectDragSource="" connectDragPreview="" isDragging="" type='match'/>
+      <Matchstick connectDragSource="" connectDragPreview="" isDragging="" type='match' pos={[]}/>
     )
   }
 

@@ -56,5 +56,11 @@ describe('FailComponentButtons', () => {
       expect(failChild.props.actions.restartChallenge.calls.length).toEqual(1);
     }
   );
+  it('should dispatch restart action when component unmounts', () => {
+    expect(failChild.props.actions.restartChallenge.calls.length).toEqual(0);
+    failChild.componentWillUnmount();
+    expect(failChild.props.actions.restartChallenge.calls.length).toEqual(1);
+
+  })
 
 });

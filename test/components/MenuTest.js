@@ -28,7 +28,7 @@ describe('MenuComponent', () => {
 
   it('should have challenge selection and register links', () => {
     let menu = TestUtils.renderIntoDocument(<Menu/>);
-    let links = TestUtils.scryRenderedDOMComponentsWithTag(menu, 'a');
+    let links = TestUtils.scryRenderedDOMComponentsWithTag(menu, 'span');
     expect(ReactDOM.findDOMNode(links[0]).textContent).toBe(codingChallengeButton);
     expect(ReactDOM.findDOMNode(links[1]).textContent).toBe(puzzleChallengeButton);
     expect(ReactDOM.findDOMNode(links[2]).textContent).toBe(registerButton);

@@ -10,6 +10,10 @@ class Menu extends Component {
     super(props, context);
   }
 
+  openRegistrationInNewTab(){
+    window.open(WINTRGARDEN_REGISTRATION, '_blank');
+  }
+
   render(){
     return (
       <div className="contentRow row">
@@ -19,7 +23,7 @@ class Menu extends Component {
             </div>
           <Link to="/coding" className="btn btn-default start btn-lg"><span>{codingChallengeButton}</span></Link>
           <Link to="/puzzle" className="btn btn-default start btn-lg"><span>{puzzleChallengeButton}</span></Link>
-          <a href={WINTRGARDEN_REGISTRATION} rel="external" className="btn btn-default start btn-lg">{registerButton}</a>
+          <button className="btn btn-default start btn-lg" onClick={this.openRegistrationInNewTab.bind(this)}><span>{registerButton}</span></button>
         </div>
       </div>
     );

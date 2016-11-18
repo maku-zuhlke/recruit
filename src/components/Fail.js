@@ -6,7 +6,7 @@ import { ScaleModal } from 'boron';
 import { bindActionCreators } from 'redux';
 import * as RestartAction from '../actions/restart';
 import { connect } from 'react-redux';
-// import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 import { yesText, noText} from '../data/strings';
 import {WINTRGARDEN_REGISTRATION} from "../data/externalLinks";
 
@@ -26,8 +26,12 @@ export class Fail extends Component {
   }
 
   goToDetailsPage(){
-    // browserHistory.push('/details');
-    window.location = WINTRGARDEN_REGISTRATION;
+    window.open(WINTRGARDEN_REGISTRATION, '_blank');
+    browserHistory.push('/');
+  }
+
+  componentWillUnmount(){
+    this.props.actions.restartChallenge();
   }
 
   render() {
