@@ -4,7 +4,6 @@
 import { MATCHES_CHECK_POSITIONS, MATCHES_REMOVE_MATCH, MATCHES_PLACE_MATCH, MATCHES_TIMES_UP , RESTART_CHALLENGE} from '../actions/const';
 import { MATCHES } from '../data/strings';
 import { randomChallenge } from '../utils/randomChallenge';
-
 let challenge = randomChallenge(MATCHES);
 export default function matches(state = challenge, action) {
   switch (action.type) {
