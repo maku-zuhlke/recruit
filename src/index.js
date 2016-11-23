@@ -26,5 +26,5 @@ render((
       { routes }
     </Provider>
   ),
-  document.getElementById('app')
-);
+  document.getElementById('app'),
+)

@@ -69,7 +69,7 @@ export const m9 = {
   numbers :[[1,1,0,1,1,0,1],[0,1,1,1,0,0,0],[0,1,1,0,1,1,1]],
   operation: [1,0,1],
   moves: 1,
-  correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,0,0,0],[1,1,1,1,1,0,1]], operation: [1,0,0]},
+  correctPositions: {numbers: [[1,1,1,1,1,0,1],[0,1,1,1,0,0,0],[0,1,1,0,1,1,1]], operation: [1,0,0]},
   win: false
 };
 
