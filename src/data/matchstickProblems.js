@@ -27,9 +27,9 @@ export const m3 = {
 
 export const m4 = {
   numbers :[[1,0,1,1,0,0,1],[1,1,0,1,1,1,1],[1,0,1,1,0,0,1]],
-  operation: [1,0,1],
+  operation: [1,0,0],
   moves: 1,
-  correctPositions: {numbers: [[1,1,1,1,1,1,0],[1,0,1,1,0,0,1],[1,0,1,1,0,0,1]], operation: [1,0,0]},
+  correctPositions: {numbers: [[1,0,1,1,0,0,1],[1,1,1,1,1,1,0],[1,0,1,1,0,0,1]], operation: [1,0,0]},
   win: false
 };
 
