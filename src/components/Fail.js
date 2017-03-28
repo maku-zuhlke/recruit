@@ -8,7 +8,6 @@ import * as RestartAction from '../actions/restart';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { yesText, noText} from '../data/strings';
-import {WINTRGARDEN_REGISTRATION} from "../data/externalLinks";
 
 export class Fail extends Component {
   constructor(props, context) {
@@ -23,11 +22,6 @@ export class Fail extends Component {
   restartTheChallenge(){
     this.props.actions.restartChallenge();
     this.props.callback();
-  }
-
-  goToDetailsPage(){
-    window.open(WINTRGARDEN_REGISTRATION, '_blank');
-    browserHistory.push('/');
   }
 
   componentWillUnmount(){
@@ -47,7 +41,7 @@ export class Fail extends Component {
               {yesText}
             </button>
 
-            <button className = "btn btn-default yes_no_button btn-lg" onClick={this.goToDetailsPage.bind(this)}>
+            <button className = "btn btn-default yes_no_button btn-lg" onClick={Registration.openRegistrationInNewTab.bind(this)}>
               {noText}
             </button>
           </p>

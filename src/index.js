@@ -7,6 +7,7 @@ import App from './containers/App';
 import BlockList from './components/BlockChallenge/BlockList';
 import MatchstickPuzzle from './components/MatchPuzzle/MatchstickPuzzle';
 import DetailsForm from './components/DetailsForm';
+import OfflineRegistrationForm from './components/OfflineRegistrationForm'
 import Menu from './components/Menu';
 
 
@@ -18,6 +19,7 @@ const routes =
       <Route path="/coding" component={BlockList} />
       <Route path="/puzzle" component={MatchstickPuzzle} />
       <Route path="/details" component={DetailsForm} />
+      <Route path="/offlineRegistration" component={OfflineRegistrationForm} />
     </Route>
   </Router>;
 

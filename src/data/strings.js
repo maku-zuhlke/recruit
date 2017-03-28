@@ -30,3 +30,5 @@ export const yesText = "Yes";
 export const noText = "No";
 
 export const welcomeText = "Welcome!";
+
+export const internalRegistration = "Pre-register here!";

@@ -3,14 +3,13 @@
  */
 import React, {Component} from 'react';
 import {ScaleModal} from 'boron';
-// import { Link } from 'react-router';
 import {winText} from '../data/strings';
 import 'utils/pixelateHelper.js';
-import {WINTRGARDEN_REGISTRATION} from "../data/externalLinks";
 import * as RestartAction from '../actions/restart';
 import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import Registration from './Registration'
 
 
 export class Win extends Component {
@@ -22,11 +21,6 @@ export class Win extends Component {
   componentDidMount() {
     this.refs.modal.show();
     window.pixelateBegin();
-  }
-
-  goToDetailsPage() {
-    window.open(WINTRGARDEN_REGISTRATION, '_blank');
-    browserHistory.push('/');
   }
 
   componentWillUnmount() {
@@ -44,7 +38,7 @@ export class Win extends Component {
             </div>
           </div>
           <div className="col-xs-12">
-            <button className="btn btn-default talent btn-lg" onClick={this.goToDetailsPage.bind(this)}>
+            <button className="btn btn-default talent btn-lg" onClick={Registration.openRegistrationInNewTab.bind(this)}>
               <span>{winText}</span></button>
           </div>
         </ScaleModal>
