@@ -19,7 +19,7 @@ export const codingChallengeButton = "Coding Challenge";
 
 export const puzzleChallengeButton = "Puzzle Challenge";
 
-export const registerButton = "Register";
+export const registerButton = "Registerwhegfjwgr";
 
 export const MATCHES = "matches";
 
