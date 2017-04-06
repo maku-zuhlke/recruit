@@ -19,8 +19,7 @@ class Menu extends Component {
             </div>
           <Link to="/coding" className="btn btn-default start btn-lg"><span>{codingChallengeButton}</span></Link>
           <Link to="/puzzle" className="btn btn-default start btn-lg"><span>{puzzleChallengeButton}</span></Link>
-          <Link to="/offlineRegistration" className="btn btn-default start btn-lg"><span>{registerButton}</span></Link>
-//          <button className="btn btn-default start btn-lg" onClick={Registration.openRegistrationInNewTab.bind(this)}><span>{registerButton}</span></button>
+          <Link to="/offlineRegistration" className="btn btn-default start btn-lg" onClick={Registration.openRegistrationInNewTab.bind(this)}><span>{registerButton}</span></Link>
         </div>
       </div>
     );
