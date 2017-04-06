@@ -16,7 +16,7 @@ class AdminForm extends Component {
       <div className="content col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 center">
         <div className="Register" >
         </div>
-        <button className="btn btn-default start btn-lg" onClick={this.sendBulkEmailsFromLocalStorage.bind(this)}><span>Bulk</span></button>
+        <button className="btn btn-default start btn-lg" onClick={this.sendBulkEmailsFromLocalStorage.bind(this)}><span>Send E-mail</span></button>
     </div>
     </div>
     );
@@ -24,12 +24,11 @@ class AdminForm extends Component {
 
   sendBulkEmailsFromLocalStorage() {
 
-  const emails = "[" + localStorage.getItem("ForMailing") + "]";
+  const emails = JSON.parse(localStorage.getItem("ForMailing"));
   var emailTo = "zuhlke.recruit@sameplace.com"
-  var parsedEmails = JSON.parse(emails);
   var emailBulkBody = 'Name; email';
 
-   parsedEmails.forEach(function(person) {
+   emails.forEach(function(person) {
 
    emailBulkBody += escape('\r\n') + person.name + " ; " + person.email;
    });

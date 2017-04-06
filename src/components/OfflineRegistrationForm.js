@@ -20,11 +20,17 @@ this.setState({[event.target.name]: event.target.value});
 
 handleSubmit(event) {
 
-    var person = '{"email" : "' + this.state.email+'", "name": "' + this.state.name+'"}';
+    var person = {
+      email: this.state.email,
+      name: this.state.name
+    };
 
-    localStorage.getItem("ForMailing") === null ? localStorage["ForMailing"] = person :  localStorage.setItem("ForMailing", localStorage.getItem("ForMailing") + "," + person);
-    localStorage.getItem("Emails") === null ? localStorage["Emails"] = this.state.email :  localStorage.setItem("Emails", localStorage.getItem("Emails") + ";" + this.state.email);
-
+    var personList = JSON.parse(localStorage.getItem("ForMailing"));
+    if(!personList) {
+      personList = [];
+    }
+    personList.push(person);
+    localStorage.setItem("ForMailing", JSON.stringify(personList));
    //TODO review this
     {this.getEmailsFromLocalStorage()};
 
