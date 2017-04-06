@@ -8,7 +8,7 @@ class Registration extends Component {
 
     var online = navigator.onLine;
 
-    if (online) {
+    if (false) {
 
       window.open(WINTRGARDEN_REGISTRATION, '_blank');
 

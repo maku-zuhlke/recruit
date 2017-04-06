@@ -20,9 +20,14 @@ this.setState({[event.target.name]: event.target.value});
 
 handleSubmit(event) {
 
-    var person = "{'email':'"+this.state.email+"', 'name':"+this.state.name+"'},";
-    localStorage.getItem("ForMailing") === null ? localStorage["ForMailing"] = person :  localStorage.setItem("ForMailing", localStorage.getItem("ForMailing") + person)
-    alert('A name was submitted: ' + this.state.email + " " + this.state.name);
+    var person = '{"email" : "' + this.state.email+'", "name": "' + this.state.name+'"}';
+
+    localStorage.getItem("ForMailing") === null ? localStorage["ForMailing"] = person :  localStorage.setItem("ForMailing", localStorage.getItem("ForMailing") + "," + person);
+    localStorage.getItem("Emails") === null ? localStorage["Emails"] = this.state.email :  localStorage.setItem("Emails", localStorage.getItem("Emails") + ";" + this.state.email);
+
+   //TODO review this
+    {this.getEmailsFromLocalStorage()};
+
     event.preventDefault();
   }
 
@@ -38,12 +43,12 @@ handleSubmit(event) {
         <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.email} name="email" onChange={this.handleChange} />
+          <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
         </label>
         <br/>
           <label>
             Email:
-            <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
+            <input type="text" value={this.state.email} name="email" onChange={this.handleChange} />
           </label>
           <br/>
         <input type="submit" value="Submit" />
@@ -51,6 +56,7 @@ handleSubmit(event) {
     </div></div>
     );
   }
+
 }
 
 

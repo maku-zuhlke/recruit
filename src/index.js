@@ -9,6 +9,7 @@ import MatchstickPuzzle from './components/MatchPuzzle/MatchstickPuzzle';
 import DetailsForm from './components/DetailsForm';
 import OfflineRegistrationForm from './components/OfflineRegistrationForm'
 import Menu from './components/Menu';
+import AdminForm from './components/AdminForm';
 
 
 const store = configureStore();
@@ -20,6 +21,7 @@ const routes =
       <Route path="/puzzle" component={MatchstickPuzzle} />
       <Route path="/details" component={DetailsForm} />
       <Route path="/offlineRegistration" component={OfflineRegistrationForm} />
+      <Route path="/admin" component={AdminForm} />
     </Route>
   </Router>;
 
