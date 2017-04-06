@@ -17,11 +17,11 @@ const routes =
   <Router history={browserHistory}>
     <Route component={App}>
       <Route path="/" component={Menu} />
-      <Route path="/coding" component={BlockList} />
-      <Route path="/puzzle" component={MatchstickPuzzle} />
-      <Route path="/details" component={DetailsForm} />
-      <Route path="/offlineRegistration" component={OfflineRegistrationForm} />
-      <Route path="/admin" component={AdminForm} />
+      <Route path="#/coding" component={BlockList} />
+      <Route path="#/puzzle" component={MatchstickPuzzle} />
+      <Route path="#/details" component={DetailsForm} />
+      <Route path="#/offlineRegistration" component={OfflineRegistrationForm} />
+      <Route path="#/admin" component={AdminForm} />
     </Route>
   </Router>;
 
