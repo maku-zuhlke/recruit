@@ -31,9 +31,6 @@ handleSubmit(event) {
     }
     personList.push(person);
     localStorage.setItem("ForMailing", JSON.stringify(personList));
-   //TODO review this
-    {this.getEmailsFromLocalStorage()};
-
     event.preventDefault();
   }
 
